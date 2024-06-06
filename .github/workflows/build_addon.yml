@@ -57,19 +57,22 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Download releases files
+    - name: Download release files
       uses: actions/download-artifact@v4
       with:
         name: packaged_addon
-        path: packaged_addon
 
-    - name: Release
-      uses: softprops/action-gh-release@v1
+    - name: List files for debugging
+      run: ls -lR packaged_addon
+
+    - name: Create GitHub Release
+      uses: ncipollo/release-action@v1
       with:
-        files: |
+        artifacts: |
           packaged_addon/*.nvda-addon
           packaged_addon/*.pot
-        fail_on_unmatched_files: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: ${{ github.ref }}
+        name: "Release ${{ github.ref }}"
+        body: "Automatically generated release notes for ${{ github.ref }}"
         prerelease: ${{ contains(github.ref, '-') }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
