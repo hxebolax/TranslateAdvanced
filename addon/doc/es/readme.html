@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>Traductor Avanzado 2024.06.06</title>
+</head>
+<body>
+<h1>Manual del Usuario: Traductor Avanzado para NVDA</h1>
+<h2 id="indice">Índice</h2>
+
+<ul>
+<li><a href="#introduccion">1 - Introducción</a></li>
+<li><a href="#requisitos">1.1 - Requisitos</a></li>
+<li><a href="#limitaciones-y-advertencias">1.2 - Limitaciones y advertencias</a></li>
+<li><a href="#informacion-autor">1.3 - Información del autor</a></li>
+<li><a href="#descripcion-configuracion">2 - Descripción y configuración</a></li>
+<li><a href="#descripcion-servicios">2.1 - Descripción de servicios</a><ul>
+<li><a href="#google">Google</a></li>
+<li><a href="#deepl">DeepL</a></li>
+<li><a href="#libretranslate">LibreTranslate</a></li>
+<li><a href="#microsoft-translate">Microsoft Translate</a></li>
+</ul>
+</li>
+<li><a href="#configuracion">2.2 - Configuración</a><ul>
+<li><a href="#menu-del-complemento">Menú del complemento</a></li>
+<li><a href="#teclas-rapidas-del-complemento">Teclas rápidas del complemento</a></li>
+</ul>
+</li>
+<li><a href="#solucion-de-problemas">3 - Solución de Problemas</a></li>
+<li><a href="#problemas-comunes-y-soluciones">Problemas Comunes y Soluciones</a></li>
+<li><a href="#como-consultar-el-log-de-nvda">Cómo Consultar el Log de NVDA</a></li>
+<li><a href="#agradecimientos">4 - Agradecimientos</a></li>
+<li><a href="#traductores">Traductores</a></li>
+<li><a href="#registro-de-versiones">5 - Registro de Versiones</a></li>
+<li><a href="#version-1-0">Versión 1.0</a></li>
+</ul>
+<h2 id="introduccion">1 - Introducción</h2>
+
+<p>El <strong>Traductor Avanzado para NVDA</strong> es un complemento que permite traducir textos utilizando diversos servicios de traducción en línea, como Google Translate, DeepL, LibreTranslate y Microsoft Translator. Este complemento ofrece funcionalidades avanzadas como traducción simultánea, historial de traducciones, traducción de lo seleccionado, soporte para múltiples lenguajes y más.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h3 id="requisitos">1.1 - Requisitos</h3>
+
+<ul>
+<li>NVDA (NonVisual Desktop Access) 2024.1 o superior</li>
+<li>Conexión a Internet</li>
+</ul>
+<p><a href="#indice">Volver al índice</a></p>
+<h3 id="limitaciones-y-advertencias">1.2 - Limitaciones y advertencias</h3>
+
+<p>El complemento envía información a Internet a cada servicio correspondiente para realizar la traducción simultánea. Es importante tener en cuenta que la información que se está traduciendo puede incluir datos confidenciales y sensibles. El uso del complemento es responsabilidad exclusiva del usuario, quien debe evaluar la naturaleza de la información que se envía. El desarrollador del complemento no asume ninguna responsabilidad por los datos enviados a los servicios que el complemento utiliza.</p>
+<p>Como desarrollador, declino toda responsabilidad por cualquier eventualidad que pueda surgir del uso del complemento. La responsabilidad completa recae en el usuario.</p>
+<p>Además, el complemento requiere una conexión a Internet para su funcionamiento. La velocidad de respuesta del complemento depende de varios factores, tales como:
+- La calidad de nuestra conexión a Internet.
+- El posible retraso (lag) de los servicios de traducción utilizados.
+- Factores relacionados con la infraestructura de red del usuario.</p>
+<p>Es recomendable que los usuarios sean conscientes de estos aspectos y realicen las pruebas necesarias para asegurar que el complemento cumple con sus expectativas y requisitos de seguridad.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h3 id="informacion-autor">1.3 - Información del autor</h3>
+
+<p><strong>Información Técnica y Medidas de Seguridad del Complemento para NVDA</strong></p>
+<p>He trabajado arduamente para hacer el complemento lo más robusto posible, contemplando y manejando cualquier error potencial. Todos los errores son capturados y registrados en el log de NVDA, lo que facilita el seguimiento y la rápida resolución de inconvenientes.</p>
+<p><strong>Problemas con Certificados de Windows</strong></p>
+<p>Recientemente, he observado que los ordenadores recién instalados con Windows pueden presentar problemas con los certificados, lo cual puede ser frustrante. Por esta razón, he incorporado una comprobación al inicio del complemento. Si se detecta un fallo relacionado con los certificados, el complemento se encargará de regenerarlos automáticamente, asegurando un funcionamiento correcto tanto de Windows como del propio complemento.</p>
+<p><strong>Medidas de Seguridad</strong></p>
+<p>El complemento incluye varias medidas de seguridad:
+- No se permite su ejecución en pantallas seguras.
+- No se inicia si no se detecta una conexión a Internet.</p>
+<p>En ocasiones, NVDA puede iniciarse más rápido que la conexión a la red Wi-Fi. En tales casos, será necesario reiniciar NVDA una vez establecida la conexión para poder utilizar el complemento correctamente.</p>
+<p><strong>Gestión de Claves API</strong></p>
+<p>El complemento genera un archivo JSON que almacena las claves API necesarias para aquellos servicios que las requieren. Este archivo, llamado <code>apis.json</code>, se aloja en la carpeta de usuario de Windows.</p>
+<p><strong>Consideraciones sobre el Archivo de Claves</strong></p>
+<p>Se ha decidido almacenar este archivo fuera del entorno del complemento para evitar que, al contener información sensible, pueda ser compartido inadvertidamente con una copia portátil de NVDA o en otras situaciones. Si el usuario decide dejar de utilizar el complemento, deberá eliminar manualmente este archivo.</p>
+<p>Estas medidas aseguran una mejor gestión y seguridad del complemento, facilitando su uso y mantenimiento.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h2 id="descripcion-configuracion">2 - Descripción y configuración</h2>
+
+<h3 id="descripcion-servicios">2.1 - Descripción de servicios</h3>
+
+<p>En su primera versión, el complemento ofrece 7 servicios de traducción:</p>
+<h4 id="google">Google</h4>
+
+<p><strong>4 Servicios de Google</strong></p>
+<ul>
+<li><strong>2 Servicios de raspado web:</strong> Cada servicio realiza la misma función, pero de manera diferente, asegurando que siempre haya una alternativa disponible en caso de fallo de uno de ellos.</li>
+<li><strong>2 Servicios a través de API:</strong> Estos servicios también son ilimitados y gratuitos, pero el abuso de los mismos puede resultar en un baneo temporal de la IP durante unas horas, después de las cuales el servicio se reestablecerá.</li>
+<li>Todos estos servicios de Google no requieren claves API y son ilimitados y gratuitos.</li>
+</ul>
+<h4 id="deepl">DeepL</h4>
+
+<p><strong>2 Servicios de DeepL</strong></p>
+<ul>
+<li><strong>API Free:</strong> Esta opción requiere obtener una clave API Free desde la página de DeepL, la cual ofrece 500,000 caracteres al mes.</li>
+<li><strong>API Pro:</strong> Esta opción también requiere una clave API obtenida desde la página web de DeepL. Su uso está condicionado al saldo y al plan contratado en la cuenta de DeepL del usuario.</li>
+<li>Las condiciones de uso de la API de DeepL se encuentran en su <a href="https://www.deepl.com/es/pro/change-plan#developer">página web</a>, y el complemento está limitado por dichas condiciones.</li>
+</ul>
+<h4 id="libretranslate">LibreTranslate</h4>
+
+<p><strong>1 Servicio de LibreTranslate</strong></p>
+<ul>
+<li>Este servicio mejora constantemente gracias a su aprendizaje neuronal continuo. Aunque actualmente no alcanza la calidad de Google, es perfectamente utilizable.</li>
+<li>Basado en la tecnología de Argos Translate.</li>
+<li>Para usar este servicio se requiere una clave API, la cual se puede obtener realizando una donación a la comunidad <a href="https://nvda.es/donaciones/">NVDA.es</a>.</li>
+<li>Tras donar, se puede solicitar la clave API utilizando el formulario de la siguiente <a href="https://nvda.es/contacto/">página</a>, indicando en el asunto "solicitud de clave API" y proporcionando la referencia de PayPal, transferencia, etc.</li>
+<li>Además, es posible configurar otros servicios de LibreTranslate añadiendo la clave API y modificando la URL del servicio en la sección de configuración del complemento.</li>
+</ul>
+<h4 id="microsoft-translate">Microsoft Translate</h4>
+
+<p><strong>1 Servicio de Microsoft Translate</strong></p>
+<ul>
+<li>Este servicio tiene la limitación de que el uso continuo puede resultar en un baneo temporal de la IP durante unos minutos.</li>
+<li>Este baneo ocurre únicamente con un uso muy intensivo y en traducciones de textos largos.</li>
+<li>El servicio funciona muy bien, pero se recomienda no usarlo de manera continua para evitar interrupciones.</li>
+</ul>
+<p>Estas opciones permiten a los usuarios elegir entre varios servicios de traducción, asegurando la disponibilidad y la flexibilidad del complemento según las necesidades y preferencias individuales.</p>
+<p>Conforme el complemento reciba actualizaciones, pueden añadirse o eliminarse servicios. Se informará de los cambios en la sección de actualizaciones.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h3 id="configuracion">2.2 - Configuración</h3>
+
+<p><strong>Configuración del Complemento</strong></p>
+<p>En esta sección, se detalla cómo configurar cada uno de los servicios disponibles en el complemento, incluyendo cómo agregar claves API, modificar URL de servicios y otros ajustes necesarios para personalizar el uso del complemento según las necesidades del usuario.</p>
+<h4 id="menu-del-complemento">Menú del complemento</h4>
+
+<p>En NVDA &gt; Preferencias &gt; Traductor Avanzado tenemos un menú que contiene lo siguiente:</p>
+<ul>
+<li><strong>Configuración de Traductor Avanzado</strong></li>
+</ul>
+<p>Si pulsamos esta opción se abrirá la ventana de configuración del complemento. Dicha ventana tiene 2 áreas:</p>
+<ul>
+<li>
+<p><strong>General</strong></p>
+<p>En esta pestaña se agregarán aquellas opciones de carácter general del complemento. Actualmente, solo tiene una casilla de verificación para activar o desactivar la caché del complemento.</p>
+<p>El complemento puede guardar una caché de aquellas traducciones para cada aplicación, lo que facilitará la traducción y será más rápido en futuras traducciones. Además, ahora crea caché para cada idioma, pudiendo haber más de una aplicación que tenga caché para distintos idiomas.</p>
+</li>
+<li>
+<p><strong>Módulos de traducción</strong></p>
+<p>En esta pestaña podremos elegir el servicio que deseamos usar para traducir. En aquellos servicios que requieran de clave API, se mostrará también el gestor de claves API.</p>
+<p>Podemos tener más de una clave API para un mismo servicio; por ejemplo, en LibreTranslate podemos tener distintas claves y URLs para conectarnos. Podremos añadir, editar, eliminar y poner por defecto la clave API que deseamos para el servicio actual.</p>
+<p>El área de gestión de claves API cambia según el servicio que tengamos. Podemos poner un nombre identificativo a cada clave API para saber rápidamente a qué API nos referimos. Cuando tengamos más de una clave API para un servicio, el item que en la lista tenga un asterisco será el que esté por defecto. Esto se puede cambiar con el botón "Por defecto", pasando a ser la definida para dicho servicio la clave que tengamos enfocada en ese momento.</p>
+<p>Si el servicio de traducción que elijamos no requiere clave API, el gestor no se mostrará.</p>
+<p>Luego tenemos el botón "Aceptar" y "Cancelar". Todas las opciones tienen su tecla de atajo que nos informará NVDA.</p>
+</li>
+<li>
+<p><strong>Documentación del complemento</strong></p>
+</li>
+</ul>
+<p>Si pulsamos "Documentación del complemento" se abrirá esta documentación.</p>
+<ul>
+<li><strong>Invítame a un café si te gusta mi trabajo</strong></li>
+</ul>
+<p>Si pulsamos esta opción, se abrirá la página de PayPal donde hay un enlace que dice "Enviar". Si pulsamos dicho enlace, nos pedirá que iniciemos sesión en nuestra cuenta y nos dejará en la página de donaciones.</p>
+<p>Solo diré que me he tomado muchos cafés haciendo este complemento.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h4 id="teclas-rapidas-del-complemento">Teclas rápidas del complemento</h4>
+
+<p>En NVDA &gt; Preferencias &gt; Gestos de entrada... &gt; Traductor Avanzado tenemos las siguientes teclas que podremos configurar.</p>
+<p>Las teclas por defecto vienen sin asignar para que sea el usuario quien elija su mejor distribución. Son las siguientes:</p>
+<ul>
+<li><strong>Abre la configuración del complemento</strong></li>
+</ul>
+<p>Este acceso nos abrirá rápidamente la configuración del complemento.</p>
+<ul>
+<li><strong>Activa o desactiva la caché de traducción</strong></li>
+</ul>
+<p>Este acceso activará o desactivará la caché sin necesidad de entrar a la configuración.</p>
+<ul>
+<li><strong>Activa o desactiva la traducción simultánea Online</strong></li>
+</ul>
+<p>Este acceso activa o desactiva la traducción. Es el acceso principal que nos empezará a traducir conforme nos movamos con las flechas de cursor. Si todo está correcto, oiremos la traducción; en caso de oír el texto original, tendremos que mirar el log de NVDA y ver qué ha sucedido.</p>
+<ul>
+<li><strong>Cambiar el módulo de traducción</strong></li>
+</ul>
+<p>Este acceso nos abrirá una ventana con todos los servicios de traducción disponibles. Podremos movernos con las flechas y seleccionar con "Intro". El servicio que seleccionemos será el que tengamos por defecto.</p>
+<ul>
+<li><strong>Cambiar idioma de destino</strong></li>
+</ul>
+<p>Este acceso nos abrirá una ventana con los idiomas de destino disponibles en el servicio que tengamos seleccionado. Cada servicio tiene unos idiomas y, por ejemplo, si estamos traduciendo un texto que está en ruso y queremos oírlo en inglés, en este diálogo tendremos que seleccionar inglés. Nos movemos por el diálogo con flechas de cursor y "Intro" para seleccionar el idioma que deseamos.</p>
+<p>Los nombres de los idiomas se obtienen en nuestro lenguaje desde NVDA, admitiendo aquellos que NVDA soporta. Por eso, en la lista pueden aparecer nombres de idiomas que están en inglés, ya que NVDA no los tiene traducidos. Se agrega al lado de cada nombre de idioma el código ISO del idioma.</p>
+<ul>
+<li><strong>Cambiar idioma de origen</strong></li>
+</ul>
+<p>Lo mismo que el anterior, pero este diálogo solo es válido para el traductor de Microsoft. El servicio de Microsoft no permite poner el idioma de origen como auto para que detecte qué idioma se le envía, por lo que tendremos que elegirlo nosotros.</p>
+<p>El resto de los servicios no podrá usar este diálogo ya que su opción por defecto de origen es detectar qué idioma se está enviando.</p>
+<ul>
+<li><strong>Copiar el último texto traducido al portapapeles</strong></li>
+</ul>
+<p>Este acceso nos copiará al portapapeles el último texto que haya sido traducido.</p>
+<ul>
+<li><strong>Eliminar la caché de traducción para la aplicación enfocada actualmente</strong></li>
+</ul>
+<p>Si pulsamos este acceso una vez, nos dará información; si lo pulsamos dos veces rápidamente, borrará la caché para la aplicación que en ese momento tenga el foco y nos informará del resultado.</p>
+<ul>
+<li><strong>Eliminar todas las traducciones en caché para todas las aplicaciones</strong></li>
+</ul>
+<p>Este acceso, pulsado una vez, nos dará información; pulsado dos veces rápidamente, borrará toda la caché del complemento ofreciendo también información.</p>
+<ul>
+<li><strong>Muestra el historial de traducción</strong></li>
+</ul>
+<p>Mostrará un diálogo con las últimas 500 traducciones en una lista. Podremos buscar y revisar en cuadros de solo lectura el texto origen y el texto traducido. Este diálogo nos permitirá buscar en todo el historial, copiar al portapapeles tanto el texto origen como el texto traducido o ambos.</p>
+<p>También permite alternar entre texto origen y texto traducido y trabajar con cualquiera de las dos maneras. Además, podremos borrar todo el historial para empezar desde cero.</p>
+<p>Advierto que el historial se borra cada vez que NVDA se reinicia.</p>
+<ul>
+<li><strong>Traduce el texto seleccionado</strong></li>
+</ul>
+<p>Esta acción traducirá el texto que tengamos seleccionado y enfocado. Si es un texto grande, nos abrirá un diálogo con el porcentaje de la traducción. Dicho diálogo puede ser cancelado, lo que también cancelará la traducción.</p>
+<p>Una vez la traducción se complete, el texto será mostrado en un diálogo para que podamos explorarlo.</p>
+<p>Esta opción usa el servicio de Google Translate y no puede ser cambiado dicho servicio, siendo elegido internamente ya que es el que mejor resultados da para textos largos.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h2 id="solucion-de-problemas">3 - Solución de Problemas</h2>
+
+<h3 id="problemas-comunes-y-soluciones">Problemas Comunes y Soluciones</h3>
+
+<p><strong>Conexión a Internet</strong>
+- Verifique que su conexión a Internet esté activa y funcionando correctamente.
+- Reinicie su enrutador o módem si es necesario.</p>
+<p><strong>Errores de Certificados</strong>
+- Si experimenta errores de certificados, asegúrese de que la fecha y hora de su sistema estén correctas.
+- Verifique que los certificados necesarios estén instalados y actualizados.</p>
+<p><strong>Problemas de Rendimiento</strong>
+- Asegúrese de que su equipo cumple con los requisitos mínimos del sistema.
+- Cierre otras aplicaciones que puedan estar consumiendo muchos recursos.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h3 id="como-consultar-el-log-de-nvda">Cómo Consultar el Log de NVDA</h3>
+
+<ol>
+<li>Abra NVDA.</li>
+<li>Vaya a <code>NVDA &gt; Herramientas &gt; Ver registro</code>.</li>
+<li>En la ventana del registro, busque cualquier error o mensaje relacionado con el Traductor Avanzado.</li>
+</ol>
+<p><a href="#indice">Volver al índice</a></p>
+<h2 id="agradecimientos">4 - Agradecimientos</h2>
+
+<p>Agradecer a todos los programadores de NVDA por su excelente trabajo.</p>
+<p>Y no quiero dejar de decir que el principio de este complemento es el complemento de Yannick PLASSIARD (TRANSLATE), del cual e aprendido y e usado alguna función.</p>
+<p>También a Alexy Sadovoy aka Lex, ruslan, beqa, Mesar Hameed, Alberto Buffolino, and other NVDA contributors también por el complemento (Instant Translate) del cual se obtuvo uno de los métodos para Google y fue modificado para implementarlo en Traductor Avanzado.</p>
+<p>Este complemento es el trabajo de varios años sacando versiones no oficiales y el estudio de usar traducciones sin conexión.</p>
+<p>El aprendizaje es el resultado de este complemento teniendo en claro que a futuro traerá novedades sorprendentes.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h3 id="traductores">Traductores</h3>
+
+<ul>
+<li><strong>Nombre del Colaborador 1:</strong> Descripción de la contribución.</li>
+</ul>
+<p><a href="#indice">Volver al índice</a></p>
+<h2 id="registro-de-versiones">5 - Registro de Versiones</h2>
+
+<p>En este apartado se añadira un registro de versiones, donde se iran poniendo las novedades de cada versión.</p>
+<p>El manual esta basado en la primera versión por lo que no se actualizara sirviendo como base.</p>
+<p>Las novedades se agregarán en esta sección.</p>
+<p><a href="#indice">Volver al índice</a></p>
+<h3 id="version-1-0">Versión 2024.06.06</h3>
+
+<ul>
+<li>Lanzamiento inicial del complemento.</li>
+<li>Soporte para 7 servicios de traducción.</li>
+<li>Funcionalidades básicas de traducción simultánea y gestión de claves API.</li>
+</ul>
+<p><a href="#indice">Volver al índice</a></p>
+</body>
+</html>

@@ -1,6 +1,8 @@
 @cls
 @echo off
 scons --clean
+scons
+scons pot
 git init
 git add --all
 git commit -m "Versión 2024.06.06-Inicial-3"
