@@ -28,14 +28,15 @@ jobs:
 
     - name: Install dependencies
       run: |
-        echo -e "pre-commit\nscons\nmarkdown">requirements.txt
         python -m pip install --upgrade pip wheel
-        pip install -r requirements.txt
+        pip install pre-commit scons markdown
         sudo apt-get update -y
         sudo apt-get install -y gettext
 
     - name: Code checks
-      run: export SKIP=no-commit-to-branch; pre-commit run --all
+      run: |
+        export SKIP=no-commit-to-branch
+        pre-commit run --all
 
     - name: Building addon
       run: |
@@ -68,14 +69,11 @@ jobs:
     - name: Create GitHub Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: packaged_addon/*.nvda-addon, packaged_addon/*.pot
+        artifacts: |
+          packaged_addon/*.nvda-addon
+          packaged_addon/*.pot
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ github.ref }}
         name: "Release ${{ github.ref }}"
         body: "Automatically generated release notes for ${{ github.ref }}"
         prerelease: ${{ contains(github.ref, '-') }}
-
-    - name: Debugging Info
-      run: echo "Finished creating release"
-      if: failure()
-      continue-on-error: true
