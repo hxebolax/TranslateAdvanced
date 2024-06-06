@@ -19,7 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - run: echo -e "pre-commit\nscons\nmarkdown">requirements.txt
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -29,6 +28,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        echo -e "pre-commit\nscons\nmarkdown">requirements.txt
         python -m pip install --upgrade pip wheel
         pip install -r requirements.txt
         sudo apt-get update -y
@@ -68,11 +68,14 @@ jobs:
     - name: Create GitHub Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: |
-          packaged_addon/*.nvda-addon
-          packaged_addon/*.pot
+        artifacts: packaged_addon/*.nvda-addon, packaged_addon/*.pot
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ github.ref }}
         name: "Release ${{ github.ref }}"
         body: "Automatically generated release notes for ${{ github.ref }}"
         prerelease: ${{ contains(github.ref, '-') }}
+
+    - name: Debugging Info
+      run: echo "Finished creating release"
+      if: failure()
+      continue-on-error: true
