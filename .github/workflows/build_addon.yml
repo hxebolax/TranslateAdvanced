@@ -67,13 +67,12 @@ jobs:
       run: ls -lR packaged_addon
 
     - name: Create GitHub Release
-      uses: ncipollo/release-action@v1
+      uses: softprops/action-gh-release@v1
       with:
-        artifacts: |
+        files: |
           packaged_addon/*.nvda-addon
           packaged_addon/*.pot
-        token: ${{ secrets.GITHUB_TOKEN }}
-        tag: ${{ github.ref }}
-        name: "Release ${{ github.ref }}"
-        body: "Automatically generated release notes for ${{ github.ref }}"
+        fail_on_unmatched_files: true
         prerelease: ${{ contains(github.ref, '-') }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
