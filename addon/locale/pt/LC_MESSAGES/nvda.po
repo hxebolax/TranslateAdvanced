@@ -1,0 +1,727 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2024-06-06 22:49+0100\n"
+"PO-Revision-Date: 2024-06-06 23:29+0100\n"
+"Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
+"Language-Team: Equipa Portuguesa do NVDA <ampa4374@gmail.com; rui."
+"fontes@tiflotecnia.com> ()\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: ../../../globalPlugins\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: TranslateAdvanced/__init__.py:55
+msgid ""
+"No se a encontrado conexión a internet.\n"
+"\n"
+"Si esta conectado por Wifi puede que NVDA iniciara antes que se conectara.\n"
+"\n"
+"Espere unos segundos y vuelva a reiniciar NVDA.\n"
+"\n"
+"Si esta conectado por cable compruebe su conexión y asegúrese que todo esta "
+"correcto.\n"
+"\n"
+"Se cancelara la carga del complemento Traductor Avanzado."
+msgstr ""
+"Não foi encontrada nenhuma ligação à Internet.\n"
+"\n"
+"Se estiver ligado através de Wifi, o NVDA poderá ter sido iniciado antes de "
+"se ter ligado.\n"
+"\n"
+"Aguarde alguns segundos e reinicie o NVDA novamente.\n"
+"\n"
+"Se estiver ligado por cabo, verifique a ligação e certifique-se de que tudo "
+"está correto.\n"
+"\n"
+"O carregamento do suplemento Advanced Translator será cancelado."
+
+#: TranslateAdvanced/__init__.py:75
+msgid ""
+"Se a encontrado errores en la carga del complemento.\n"
+"\n"
+"Error:\n"
+"\n"
+"{}"
+msgstr ""
+"Foram encontrados erros no carregamento do add-on.\n"
+"\n"
+"Erro:\n"
+"\n"
+"{}"
+
+#: TranslateAdvanced/__init__.py:83 TranslateAdvanced/__init__.py:199
+#: TranslateAdvanced/__init__.py:210 TranslateAdvanced/__init__.py:223
+#: TranslateAdvanced/__init__.py:233 TranslateAdvanced/__init__.py:243
+#: TranslateAdvanced/__init__.py:271 TranslateAdvanced/__init__.py:299
+#: TranslateAdvanced/__init__.py:341 TranslateAdvanced/__init__.py:364
+#: TranslateAdvanced/__init__.py:378 TranslateAdvanced/__init__.py:396
+msgid "Traductor Avanzado"
+msgstr "Tradutor avançado"
+
+#: TranslateAdvanced/__init__.py:130
+msgid "&Traductor Avanzado"
+msgstr "&Tradutor avançado"
+
+#: TranslateAdvanced/__init__.py:131
+msgid "&Configuración de Traductor Avanzado"
+msgstr "&Configuração avançada do tradutor"
+
+#: TranslateAdvanced/__init__.py:132
+msgid "&Documentación del complemento"
+msgstr "&Documentação do complemento"
+
+#: TranslateAdvanced/__init__.py:133
+msgid "&invítame a un café si te gusta mi trabajo"
+msgstr "convide-me para um café se gostar do meu trabalho"
+
+#: TranslateAdvanced/__init__.py:140
+msgid "Traductor Avanzado iniciado correctamente."
+msgstr "O Advanced Translator foi lançado com sucesso."
+
+#: TranslateAdvanced/__init__.py:166
+msgid ""
+"Ya hay una instancia de Traductor Avanzado abierta.\n"
+"\n"
+"Ciérrela para realizar esta acción."
+msgstr ""
+"Já está aberta uma instância do Tradutor Avançado.\n"
+"\n"
+"Feche-a para executar esta ação."
+
+#: TranslateAdvanced/__init__.py:169 TranslateAdvanced/__init__.py:174
+#: TranslateAdvanced/__init__.py:182 TranslateAdvanced/__init__.py:480
+#: TranslateAdvanced/app/guis/guis_hostory.py:208
+msgid "Información"
+msgstr "Informação"
+
+#: TranslateAdvanced/__init__.py:173 TranslateAdvanced/__init__.py:351
+msgid "Tiene una traducción en curso. Espere a que termine."
+msgstr "Tem uma tradução em curso. Aguarde a sua conclusão."
+
+#: TranslateAdvanced/__init__.py:179
+msgid ""
+"Tiene la traducción simultanea activada.\n"
+"\n"
+"Desactívela para realizar esta acción."
+msgstr ""
+"A tradução simultânea está activada.\n"
+"\n"
+"Desactive-a para executar esta ação."
+
+#: TranslateAdvanced/__init__.py:199
+msgid "Abre la configuración del complemento"
+msgstr "Abre a configuração do extra"
+
+#: TranslateAdvanced/__init__.py:210
+msgid "Cambiar idioma de origen"
+msgstr "Alterar o idioma de origem"
+
+#: TranslateAdvanced/__init__.py:221
+msgid ""
+"El idioma origen solo puede ser cambiado si tiene seleccionado el traductor "
+"de Microsoft."
+msgstr ""
+"O idioma de origem só pode ser alterado se tiver o tradutor da Microsoft "
+"selecionado."
+
+#: TranslateAdvanced/__init__.py:223
+msgid "Cambiar idioma de destino"
+msgstr "Alterar o idioma de destino"
+
+#: TranslateAdvanced/__init__.py:233
+msgid "Cambiar el modulo de traducción"
+msgstr "Alterar o módulo de tradução"
+
+#: TranslateAdvanced/__init__.py:243
+msgid "Eliminar todas las traducciones en caché para todas las aplicaciones"
+msgstr "Remover todas as traduções em cache para todas as aplicações"
+
+#: TranslateAdvanced/__init__.py:251
+msgid ""
+"Pulse dos veces para eliminar todas las traducciones en caché de todas las "
+"aplicaciones."
+msgstr ""
+"Pressione duas vezes para eliminar todas as traduções em cache de todas as "
+"aplicações."
+
+#: TranslateAdvanced/__init__.py:258
+msgid "No hay cache para borrar."
+msgstr "Não é necessário limpar a cache."
+
+#: TranslateAdvanced/__init__.py:264
+#, python-brace-format
+msgid "Fallo al eliminar {entry}"
+msgstr "Falha ao eliminar {entry}"
+
+#: TranslateAdvanced/__init__.py:267
+msgid "El directorio de la cache no existe."
+msgstr "O diretório de cache não existe."
+
+#: TranslateAdvanced/__init__.py:269
+msgid "Se ha eliminado toda la cache."
+msgstr "Toda a cache foi removida."
+
+#: TranslateAdvanced/__init__.py:269
+msgid "No se a podido eliminar toda la cache."
+msgstr "Não foi possível eliminar a totalidade da cache."
+
+#: TranslateAdvanced/__init__.py:271
+msgid "Eliminar la caché de traducción para la aplicación enfocada actualmente"
+msgstr "Limpar a cache de tradução da aplicação atualmente em foco"
+
+#: TranslateAdvanced/__init__.py:281
+msgid "No hay aplicación enfocada."
+msgstr "Nenhuma aplicação específica."
+
+#: TranslateAdvanced/__init__.py:285
+msgid ""
+"Pulse dos veces para eliminar todas las traducciones de {} en lenguaje {}"
+msgstr "Prima duas vezes para eliminar todas as traduções de {} no idioma {}"
+
+#: TranslateAdvanced/__init__.py:292
+msgid "Se ha borrado la cache de la aplicación {} correctamente."
+msgstr "A cache da aplicação {} foi limpa com êxito."
+
+#: TranslateAdvanced/__init__.py:294
+msgid "Fallo al borrar la cache de la aplicación {} : {}"
+msgstr "Falha ao limpar a cache da aplicação {} : {} : {}"
+
+#: TranslateAdvanced/__init__.py:295
+msgid "Error al borrar la caché de traducción de la aplicación."
+msgstr "Erro ao limpar a cache de tradução da aplicação."
+
+#: TranslateAdvanced/__init__.py:297
+msgid "No hay traducciones guardadas para {}"
+msgstr "Não existem traduções guardadas para {}"
+
+#: TranslateAdvanced/__init__.py:299
+msgid "Activa o desactiva la cache de traducción"
+msgstr "Ativar ou desativar a cache de tradução"
+
+#: TranslateAdvanced/__init__.py:308
+msgid ""
+"La activación o desactivación de la cache no puede hacerse mientras haya una "
+"ventana de Traductor Avanzado abierta"
+msgstr ""
+"A ativação ou desativação da cache não pode ser feita enquanto estiver "
+"aberta uma janela do Tradutor Avançado"
+
+#: TranslateAdvanced/__init__.py:328
+msgid "Cache de traducción activada."
+msgstr "Cache de tradução activada."
+
+#: TranslateAdvanced/__init__.py:330
+msgid "Cache de traducción desactivada."
+msgstr "Cache de tradução desactivada."
+
+#: TranslateAdvanced/__init__.py:341
+msgid "Copiar el ultimo texto traducido al portapapeles"
+msgstr "Copiar o último texto traduzido para a área de transferência"
+
+#: TranslateAdvanced/__init__.py:359
+msgid "Se ha copiado lo siguiente al portapapeles: {}"
+msgstr "O seguinte foi copiado para a área de transferência: {}"
+
+#: TranslateAdvanced/__init__.py:362
+msgid "No se ha podido copiar nada al portapapeles"
+msgstr "Não foi possível copiar nada para a área de transferência"
+
+#: TranslateAdvanced/__init__.py:364
+msgid "Activa o desactiva la traducción simultánea Online"
+msgstr "Ativar ou desativar a tradução simultânea Online"
+
+#: TranslateAdvanced/__init__.py:374
+msgid "Traducción activada."
+msgstr "Tradução activada."
+
+#: TranslateAdvanced/__init__.py:374
+msgid "Traducción desactivada."
+msgstr "Tradução desactivada."
+
+#: TranslateAdvanced/__init__.py:378
+msgid "Traduce el texto seleccionado"
+msgstr "Traduz o texto selecionado"
+
+#: TranslateAdvanced/__init__.py:389
+msgid "Sin selección para traducir"
+msgstr "Sem seleção para tradução"
+
+#: TranslateAdvanced/__init__.py:396
+msgid "Muestra el historial de traducción"
+msgstr "Apresenta o histórico da tradução"
+
+#: TranslateAdvanced/__init__.py:405
+msgid "No hay nada en el historial todavía."
+msgstr "Ainda não há nada no historial."
+
+#: TranslateAdvanced/__init__.py:480
+msgid "No se ha podido obtener la traducción de lo seleccionado."
+msgstr "Não foi possível obter uma tradução da seleção."
+
+#: TranslateAdvanced/__init__.py:485
+msgid ""
+"Hubo un error en la traducción:\n"
+"\n"
+msgstr ""
+"Houve um erro na tradução:\n"
+"\n"
+
+#: TranslateAdvanced/__init__.py:485
+#: TranslateAdvanced/app/guis/guis_options.py:289
+#: TranslateAdvanced/app/guis/guis_options.py:300
+#: TranslateAdvanced/app/guis/guis_options.py:320
+#: TranslateAdvanced/app/guis/guis_options.py:378
+msgid "Error"
+msgstr "Erro"
+
+#: TranslateAdvanced/__init__.py:488
+msgid "La traducción fue cancelada por el usuario."
+msgstr "A tradução foi cancelada pelo utilizador."
+
+#: TranslateAdvanced/__init__.py:488
+msgid "Cancelado"
+msgstr "Cancelado"
+
+#: TranslateAdvanced/__init__.py:495
+msgid "Resultado de la traducción"
+msgstr "Resultado da tradução"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:28
+msgid "Historial de Traductor Avanzado"
+msgstr "Histórico do Tradutor Avançado"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:57
+msgid "&Buscar:"
+msgstr "&Pesquisar:"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:63
+#: TranslateAdvanced/app/guis/guis_hostory.py:252
+msgid "&Lista texto original:"
+msgstr "&Listar o texto original:"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:69
+#: TranslateAdvanced/app/guis/guis_hostory.py:250
+#: TranslateAdvanced/app/guis/guis_hostory.py:253
+msgid "Texto &original:"
+msgstr "Texto &original:"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:75
+#: TranslateAdvanced/app/guis/guis_hostory.py:249
+#: TranslateAdvanced/app/guis/guis_hostory.py:254
+msgid "Texto &traducido:"
+msgstr "Texto &traduzido:"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:84
+msgid "&Copiar al portapapeles"
+msgstr "&Copiar para a área de transferência"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:87
+msgid "Borrar &historial"
+msgstr "Eliminar &histórico"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:90
+msgid "&Alternar orden"
+msgstr "Alternar &Ordem"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:93
+msgid "Cerrar"
+msgstr "Fechar"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:166
+#: TranslateAdvanced/app/guis/guis_hostory.py:181
+#: TranslateAdvanced/app/guis/guis_hostory.py:206
+msgid "No se encontró nada."
+msgstr "Não foi encontrado nada."
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:182
+msgid "Se encuentra en la posición {} de {}"
+msgstr "Encontra-se na posição {} de {}"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:207
+msgid "No se encontró nada para poder ser copiado."
+msgstr "Não foi encontrado nada que pudesse ser copiado."
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:212
+msgid "Copiar texto &original"
+msgstr "Copiar texto &original"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:213
+msgid "Copiar texto &traducido"
+msgstr "Copiar texto traduzido"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:214
+msgid "&Copiar origen y traducido"
+msgstr "&Copiar origem e traduzido"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:232
+msgid "Copiado texto origen"
+msgstr "Texto fonte copiado"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:235
+msgid "Copiado texto traducido"
+msgstr "Texto traduzido copiado"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:238
+msgid "Copiado texto origen y traducido"
+msgstr "Copiado do texto de origem e traduzido"
+
+#: TranslateAdvanced/app/guis/guis_hostory.py:248
+msgid "&Lista texto traducido:"
+msgstr "&Lista de textos traduzidos:"
+
+#: TranslateAdvanced/app/guis/guis_lang.py:63
+msgid "Seleccione un idioma de origen para el traductor de Microsoft"
+msgstr "Selecionar um idioma de origem para o Microsoft Translator"
+
+#: TranslateAdvanced/app/guis/guis_lang.py:66
+msgid "Seleccione un idioma de destino para el traductor {}"
+msgstr "Selecionar um idioma de destino para o tradutor {}"
+
+#: TranslateAdvanced/app/guis/guis_lang.py:69
+msgid "Elija un módulo de traducción"
+msgstr "Escolher um módulo de tradução"
+
+#: TranslateAdvanced/app/guis/guis_options.py:26
+msgid "Configuración de Traductor Avanzado"
+msgstr "Configuração avançada do tradutor"
+
+#: TranslateAdvanced/app/guis/guis_options.py:39
+msgid "General"
+msgstr "Geral"
+
+#: TranslateAdvanced/app/guis/guis_options.py:40
+msgid "Módulos de traducción"
+msgstr "Módulos de tradução"
+
+#: TranslateAdvanced/app/guis/guis_options.py:42
+#: TranslateAdvanced/app/guis/guis_options.py:355
+msgid "&Aceptar"
+msgstr "&Aceitar"
+
+#: TranslateAdvanced/app/guis/guis_options.py:43
+#: TranslateAdvanced/app/guis/guis_options.py:356
+msgid "&Cancelar"
+msgstr "&Cancelar"
+
+#: TranslateAdvanced/app/guis/guis_options.py:105
+msgid "Activar o &desactivar la caché de traducción"
+msgstr "Ativar ou desativar a cache de tradução"
+
+#: TranslateAdvanced/app/guis/guis_options.py:122
+msgid "&Elija un traductor online:"
+msgstr "&Escolha um tradutor online:"
+
+#: TranslateAdvanced/app/guis/guis_options.py:128
+msgid "&Gestor de APIS:"
+msgstr "&Gestor de APIS:"
+
+#: TranslateAdvanced/app/guis/guis_options.py:136
+msgid "Añadir\tF1"
+msgstr "Adicionar F1"
+
+#: TranslateAdvanced/app/guis/guis_options.py:137
+msgid "Editar\tF2"
+msgstr "Editar F2"
+
+#: TranslateAdvanced/app/guis/guis_options.py:138
+msgid "Eliminar\tF3"
+msgstr "Apagar F3"
+
+#: TranslateAdvanced/app/guis/guis_options.py:139
+msgid "Por defecto\tF4"
+msgstr "Predefinição F4"
+
+#: TranslateAdvanced/app/guis/guis_options.py:214
+msgid "No existe ninguna API para este servicio."
+msgstr "Não existe uma API para este serviço."
+
+#: TranslateAdvanced/app/guis/guis_options.py:289
+#: TranslateAdvanced/app/guis/guis_options.py:300
+#: TranslateAdvanced/app/guis/guis_options.py:320
+msgid ""
+"No existe ninguna API para este servicio. Por favor, añada una API primero."
+msgstr "Não existe uma API para este serviço. Adicione primeiro uma API."
+
+#: TranslateAdvanced/app/guis/guis_options.py:302
+msgid "¿Estás seguro de que deseas eliminar esta clave API?"
+msgstr "tem a certeza de que pretende remover esta chave API?"
+
+#: TranslateAdvanced/app/guis/guis_options.py:302
+msgid "Confirmación"
+msgstr "Confirmação"
+
+#: TranslateAdvanced/app/guis/guis_options.py:337
+msgid "&Nombre:"
+msgstr "&Nome:"
+
+#: TranslateAdvanced/app/guis/guis_options.py:339
+msgid "Clave &API:"
+msgstr "Chave &API:"
+
+#: TranslateAdvanced/app/guis/guis_options.py:349
+msgid "&URL:"
+msgstr "&URL:"
+
+#: TranslateAdvanced/app/guis/guis_options.py:378
+msgid "Todos los campos son obligatorios."
+msgstr "Todos os campos são obrigatórios."
+
+#: TranslateAdvanced/app/guis/guis_progress.py:27
+msgid "Progreso de la Traducción"
+msgstr "Progresso da tradução"
+
+#: TranslateAdvanced/app/guis/guis_progress.py:39
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: TranslateAdvanced/app/managers/managers_apis.py:39
+#, python-brace-format
+msgid "Error al cargar el archivo JSON: {0}"
+msgstr "Erro ao carregar o ficheiro JSON: {0}"
+
+#: TranslateAdvanced/app/managers/managers_apis.py:54
+#, python-brace-format
+msgid "Error al guardar el archivo JSON: {0}"
+msgstr "Erro ao guardar o ficheiro JSON: {0}"
+
+#: TranslateAdvanced/app/managers/managers_apis.py:66
+#: TranslateAdvanced/app/managers/managers_apis.py:85
+#: TranslateAdvanced/app/managers/managers_apis.py:104
+#: TranslateAdvanced/app/managers/managers_apis.py:123
+#: TranslateAdvanced/app/managers/managers_apis.py:136
+#, python-brace-format
+msgid "Servicio desconocido: {0}"
+msgstr "Serviço desconhecido: {0}"
+
+#: TranslateAdvanced/app/managers/managers_apis.py:88
+#: TranslateAdvanced/app/managers/managers_apis.py:107
+#: TranslateAdvanced/app/managers/managers_apis.py:139
+#, python-brace-format
+msgid "Índice fuera de rango: {0}"
+msgstr "Índice fora do intervalo: {0}"
+
+#: TranslateAdvanced/app/managers/managers_apis.py:113
+#, python-brace-format
+msgid "Error al eliminar la clave API: {0}"
+msgstr "Erro ao eliminar a chave API: {0}"
+
+#: TranslateAdvanced/app/managers/managers_apis.py:144
+#, python-brace-format
+msgid "Error al obtener la clave API: {0}"
+msgstr "Erro ao obter a chave da API: {0}"
+
+#: TranslateAdvanced/app/managers/managers_cache.py:46
+#, python-brace-format
+msgid "Fallo al crear la ruta de almacenamiento: {path} ({e})"
+msgstr "Falha ao criar o caminho de armazenamento: {path} ({e})"
+
+#: TranslateAdvanced/app/managers/managers_cache.py:58
+#, python-brace-format
+msgid "No se puede leer o decodificar datos desde {path}: {e}"
+msgstr "Não é possível ler ou descodificar dados de {path}: {e}"
+
+#: TranslateAdvanced/app/managers/managers_cache.py:74
+#, python-brace-format
+msgid "Fallo al guardar la caché de traducción para {appName} en {file}: {e}"
+msgstr "Falha ao guardar a cache de tradução para {appName} em {file}: {e}"
+
+#: TranslateAdvanced/app/managers/managers_clipboard.py:81
+msgid "Error registrando clase de ventana"
+msgstr "Erro ao registar a classe de janela"
+
+#: TranslateAdvanced/app/managers/managers_clipboard.py:87
+msgid "Error creando ventana"
+msgstr "Erro ao criar a janela"
+
+#: TranslateAdvanced/app/managers/managers_clipboard.py:90
+msgid "Error agregando listener de portapapeles"
+msgstr "Erro ao adicionar o ouvinte da área de transferência"
+
+#: TranslateAdvanced/app/managers/managers_dict.py:53
+#: TranslateAdvanced/app/managers/managers_dict.py:66
+#, python-brace-format
+msgid "Índice fuera de rango: {index}"
+msgstr "Índice fora do intervalo: {index}"
+
+#: TranslateAdvanced/app/managers/managers_dict.py:81
+#, python-brace-format
+msgid "Clave o valor no encontrado: {key_or_value}"
+msgstr "Chave ou valor não encontrado: {key_or_value}"
+
+#: TranslateAdvanced/app/managers/managers_settings.py:41
+msgid "Traductor Google (WEB 1)"
+msgstr "Google Tradutor (WEB 1)"
+
+#: TranslateAdvanced/app/managers/managers_settings.py:42
+msgid "Traductor Google (WEB 2)"
+msgstr "Google Tradutor (WEB 2)"
+
+#: TranslateAdvanced/app/managers/managers_settings.py:43
+msgid "Traductor Google (API Free 1)"
+msgstr "Google Tradutor (API Free 1)"
+
+#: TranslateAdvanced/app/managers/managers_settings.py:44
+msgid "Traductor Google (API Free 2)"
+msgstr "Google Tradutor (API Free 2)"
+
+#: TranslateAdvanced/app/managers/managers_settings.py:45
+#: TranslateAdvanced/app/managers/managers_settings.py:51
+msgid "Traductor DeepL (API Free *)"
+msgstr "Tradutor DeepL (API Free *)"
+
+#: TranslateAdvanced/app/managers/managers_settings.py:46
+#: TranslateAdvanced/app/managers/managers_settings.py:52
+msgid "Traductor DeepL (API Pro *)"
+msgstr "Tradutor DeepL (API Pro *)"
+
+#: TranslateAdvanced/app/managers/managers_settings.py:47
+#: TranslateAdvanced/app/managers/managers_settings.py:53
+msgid "Traductor LibreTranslate (API *)"
+msgstr "Tradutor do LibreTranslate (API *)"
+
+#: TranslateAdvanced/app/managers/managers_settings.py:48
+msgid "Traductor Microsoft Bing (API Free)"
+msgstr "Microsoft Bing Translator (API gratuita)"
+
+#: TranslateAdvanced/app/managers/managers_translate.py:158
+#: TranslateAdvanced/app/managers/managers_translate.py:172
+#: TranslateAdvanced/app/managers/managers_translate.py:185
+#: TranslateAdvanced/app/managers/managers_translate.py:188
+msgid ""
+"No tiene ninguna API configurada para el servicio que tiene seleccionado."
+msgstr "Não tem nenhuma API configurada para o serviço que seleccionou."
+
+#: TranslateAdvanced/app/managers/managers_translate.py:197
+#: TranslateAdvanced/app/src_translations/src_google_api_free.py:83
+#: TranslateAdvanced/app/src_translations/src_google_api_free_alternative.py:227
+#: TranslateAdvanced/app/src_translations/src_google_original.py:119
+#: TranslateAdvanced/app/src_translations/src_libretranslate_original.py:85
+#: TranslateAdvanced/app/src_translations/src_microsoft_api_free.py:62
+msgid ""
+"Error en la traducción.\n"
+"\n"
+"Error:\n"
+"\n"
+"{}"
+msgstr ""
+"Erro de tradução.\n"
+"\n"
+"Erro:\n"
+"\n"
+"{}"
+
+#: TranslateAdvanced/app/src_translations/src_deepl_original.py:40
+msgid "Se requiere una clave de API para DeepL."
+msgstr "É necessária uma chave API para DeepL."
+
+#: TranslateAdvanced/app/src_translations/src_deepl_original.py:68
+#: TranslateAdvanced/app/src_translations/src_google_alternative.py:55
+#: TranslateAdvanced/app/src_translations/src_google_alternative.py:56
+#, python-brace-format
+msgid "Error en la traducción: {0} {1}"
+msgstr "Erro na tradução: {0} {1} {1}"
+
+#: TranslateAdvanced/app/src_translations/src_deepl_original.py:71
+#: TranslateAdvanced/app/src_translations/src_google_alternative.py:58
+#: TranslateAdvanced/app/src_translations/src_google_alternative.py:59
+#, python-brace-format
+msgid "Error en la traducción: {0}"
+msgstr "Erro na tradução: {0}"
+
+#: TranslateAdvanced/app/src_translations/src_deepl_original.py:98
+#, python-brace-format
+msgid "DeepL - uso: {0} / {1}"
+msgstr "DeepL - utilização: {0} / {1}"
+
+#: TranslateAdvanced/app/src_translations/src_deepl_original.py:101
+#: TranslateAdvanced/app/src_translations/src_deepl_original.py:102
+#, python-brace-format
+msgid "Error obteniendo uso de DeepL: {0}"
+msgstr "Erro ao obter a utilização de DeepL: {0}"
+
+#: TranslateAdvanced/app/src_translations/src_google_alternative.py:74
+#: TranslateAdvanced/app/src_translations/src_google_alternative.py:75
+msgid "Error al extraer la traducción: no se encontró el texto traducido."
+msgstr "Erro ao extrair a tradução: o texto traduzido não foi encontrado."
+
+#: TranslateAdvanced/app/src_translations/src_google_alternative.py:77
+#: TranslateAdvanced/app/src_translations/src_google_alternative.py:78
+#, python-brace-format
+msgid "Error al analizar la respuesta de la traducción: {0}"
+msgstr "Erro ao analisar a resposta da tradução: {0}"
+
+#: TranslateAdvanced/app/src_translations/src_google_api_free.py:181
+msgid "Proceso cancelado por el usuario"
+msgstr "Processo cancelado pelo utilizador"
+
+#: TranslateAdvanced/app/src_translations/src_google_api_free_alternative.py:169
+msgid ""
+"Error al obtener la respuesta.\n"
+"\n"
+"Error:\n"
+"\n"
+"{}"
+msgstr ""
+"Erro na obtenção da resposta.\n"
+"\n"
+"Erro:\n"
+"\n"
+"{}"
+
+#: TranslateAdvanced/app/src_translations/src_google_api_free_alternative.py:311
+msgid "Respuesta vacía o inválida"
+msgstr "Resposta vazia ou inválida"
+
+#: TranslateAdvanced/app/src_translations/src_google_api_free_alternative.py:316
+msgid "Estructura de respuesta inesperada"
+msgstr "Estrutura de resposta inesperada"
+
+#: TranslateAdvanced/app/src_translations/src_google_api_free_alternative.py:326
+msgid "Respuesta vacía o inválida después de cambiar el idioma de destino"
+msgstr "Resposta vazia ou inválida após alteração do idioma de destino"
+
+#: TranslateAdvanced/app/src_translations/src_google_api_free_alternative.py:330
+msgid ""
+"Estructura de respuesta inesperada después de cambiar el idioma de destino"
+msgstr "Estrutura de resposta inesperada após a mudança do idioma de destino"
+
+#: TranslateAdvanced/app/src_translations/src_libretranslate_original.py:41
+msgid ""
+"Error en la traducción.\n"
+"\n"
+"Error:\n"
+"\n"
+"Se requiere una clave de API para LibreTranslate."
+msgstr ""
+"Erro de tradução.\n"
+"\n"
+"Erro:\n"
+"\n"
+"É necessária uma chave API para o LibreTranslate."
+
+#: TranslateAdvanced/app/src_translations/src_libretranslate_original.py:74
+msgid ""
+"Error en la traducción.\n"
+"\n"
+"Error:\n"
+"\n"
+"{}\n"
+"\n"
+"{}"
+msgstr ""
+"Erro de tradução.\n"
+"\n"
+"Erro:\n"
+"\n"
+"{}\n"
+"\n"
+"{}"
+
+#: TranslateAdvanced/app/src_translations/src_microsoft_api_free.py:58
+msgid "La respuesta no contiene {}"
+msgstr "A resposta não contém {}"

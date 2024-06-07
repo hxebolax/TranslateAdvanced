@@ -18,7 +18,6 @@ from scriptHandler import script, getLastScriptRepeatCount
 # Carga Python
 import os
 import wx
-import queue
 from threading import Thread
 # Carga personal
 from .app.managers.managers_settings import GestorSettings
