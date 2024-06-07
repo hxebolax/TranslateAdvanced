@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>Gelişmiş Çeviri 2024.06.06</title>
+</head>
+<body>
+<h1>Kullanım Kılavuzu: NVDA için Gelişmiş Çeviri</h1>
+<h2 id="İçindekiler">İçindekiler</h2>
+
+<ul>
+<li><a href="#Giriş">1 - Giriş</a></li>
+<li><a href="#Gereksinimler">1.1 - Gereksinimler</a></li>
+<li><a href="#Sınırlamalar ve uyarılar">1.2 - Sınırlamalar ve uyarılar</a></li>
+<li><a href="#Yazar bilgileri">1.3 - Yazar bilgileri</a></li>
+<li><a href="#Açıklamalar ve yapılandırma">2 - Açıklamalar ve yapılandırma</a></li>
+<li><a href="#Çeviri Hizmetleri">2.1 - Çeviri Hizmetleri</a><ul>
+<li><a href="#Google">Google</a></li>
+<li><a href="#DeepL">DeepL</a></li>
+<li><a href="#LibreTranslate">LibreTranslate</a></li>
+<li><a href="#Microsoft Translate">Microsoft Translate</a></li>
+</ul>
+</li>
+<li><a href="#Yapılandırma">2.2 - Yapılandırma</a><ul>
+<li><a href="#Eklenti Menüsü">Eklenti Menüsü</a></li>
+<li><a href="#Eklenti Kısayol Tuşları">Eklenti Kısayol Tuşları</a></li>
+</ul>
+</li>
+<li><a href="#Sorun giderme">3 - Sorun giderme</a></li>
+<li><a href="#Yaygın Sorunlar ve Çözümleri">Yaygın Sorunlar ve Çözümleri</a></li>
+<li><a href="#NVDA Günlüğüne Nasıl Bakılır?">NVDA Günlüğüne Nasıl Bakılır?</a></li>
+<li><a href="#Teşekkürler">4 - Teşekkürler</a></li>
+<li><a href="#Çevirmenler">Çevirmenler</a></li>
+<li><a href="#Sürüm Geçmişi">5 - Sürüm Geçmişi</a></li>
+<li><a href="#Sürüm 2024.06.06">Sürüm 2024.06.06</a></li>
+</ul>
+<h2 id="Giriş">1 - Giriş</h2>
+
+<p><strong>NVDA için Gelişmiş Çeviri</strong>, Google Çeviri, DeepL, LibreTranslate ve Microsoft Translator gibi çeşitli çevrimiçi çeviri hizmetlerini kullanarak metinleri çevirmenize olanak tanıyan bir eklentidir.<br />
+Bu eklenti, eşzamanlı çeviri, çeviri geçmişi, seçilen öğelerin çevirisi, birden fazla dil desteği ve daha fazlası gibi gelişmiş işlevler sunar.  </p>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="Gereksinimler">1.1 - Gereksinimler</h3>
+
+<ul>
+<li>NVDA (NonVisual Desktop Access) 2024.1 ve sonrası.</li>
+<li>internet bağlantısı.</li>
+</ul>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="Sınırlamalar ve uyarılar">1.2 - Sınırlamalar ve uyarılar</h3>
+
+<p>Eklenti, eşzamanlı çeviriyi gerçekleştirmek için İnternet üzerinden ilgili hizmetlere bilgi gönderir. Çevrilen bilgilerin gizli ve hassas veriler içerebileceğini unutmamak önemlidir. Eklentinin kullanımı, gönderilen bilgilerin niteliğini değerlendirmesi gereken kullanıcının sorumluluğundadır. Eklentinin geliştiricisi, eklentinin kullandığı hizmetlere gönderilen verilerle ilgili hiçbir sorumluluk kabul etmez.  </p>
+<p>Bir geliştirici olarak eklentinin kullanımından doğabilecek herhangi bir sorumluluğu kabul etmiyorum. Tüm sorumluluk kullanıcıya aittir.  </p>
+<p>Ayrıca eklentinin çalışması için İnternet bağlantısı gerekir. Eklentinin yanıt hızı aşağıdakiler gibi çeşitli faktörlere bağlıdır:</p>
+<ul>
+<li>İnternet bağlantımızın kalitesi.</li>
+<li>Kullanılan çeviri hizmetlerinde olası gecikme (gecikme).</li>
+<li>Kullanıcının ağ altyapısıyla ilgili faktörler.</li>
+</ul>
+<p>Kullanıcıların bu hususlara dikkat etmeleri, eklentinin beklentilerini ve güvenlik gereksinimlerini karşıladığından emin olmak için gerekli testleri yapmaları önerilir.</p>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="Yazar bilgileri">1.3 - Yazar bilgileri</h3>
+
+<p><strong>NVDA Eklentisinin Teknik Bilgileri ve Güvenlik Önlemleri</strong></p>
+<p>Eklentiyi olabildiğince sağlam hale getirmek, olası hataları hesaba katmak ve bunları ele almak için çok çalıştım.<br />
+Tüm hatalar yakalanıp NVDA günlüğüne kaydedilir; bu da sorunların izlenmesini ve hızla çözülmesini kolaylaştırır.  </p>
+<p><strong>Windows Sertifikalarıyla ilgili sorunlar</strong></p>
+<p>Son zamanlarda, yeni yüklenen Windows bilgisayarların sertifikalarla ilgili sorunlar yaşayabileceğini ve bunun sinir bozucu olabileceğini fark ettim.<br />
+Bu nedenle eklentinin başlangıcında bir kontrol oluşturdum.<br />
+Sertifikalarla ilgili bir hata tespit edilirse eklenti bunları otomatik olarak yeniden oluşturarak hem Windows'un hem de eklentinin kendisinin doğru çalışmasını sağlar.  </p>
+<p><strong>Güvenlik önlemleri</strong></p>
+<p>Eklenti çeşitli güvenlik önlemleri içerir:</p>
+<ul>
+<li>Güvenli ekranlarda çalışmasına izin verilmez.</li>
+<li>İnternet bağlantısı algılanmazsa başlamaz.</li>
+</ul>
+<p>Bazen NVDA, Bilgisayarın Wi-Fi ağına bağlanmasından  daha önce başlayabilir. Bu gibi durumlarda, eklentiyi doğru şekilde kullanabilmek için bağlantı kurulduktan sonra NVDA'yı yeniden başlatmak gerekecektir.</p>
+<p><strong>API Anahtar Yönetimi</strong></p>
+<p>Eklenti, gerektiren hizmetler için istenen API anahtarlarını saklayan bir JSON dosyası oluşturur.<br />
+'apis.json' adı verilen bu dosya Windows kullanıcı klasöründe bulunur.  </p>
+<p><strong>Arşivlemeyle İlgili Önemli Hususlar</strong></p>
+<p>Bu dosyanın hassas bilgiler içermesi nedeniyle yanlışlıkla NVDA'nın taşınabilir bir kopyasıyla veya başka durumlarda paylaşılmasını önlemek amacıyla eklenti ortamı dışında saklanmasına karar verilmiştir.<br />
+Kullanıcı eklentiyi kullanmayı bırakmaya karar verirse bu dosyayı manuel olarak silmelidir.  </p>
+<p>Bu önlemler, eklentinin daha iyi yönetilmesini ve güvenliğini sağlayarak kullanımını ve bakımını kolaylaştırır.  </p>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h2 id="Açıklamalar ve yapılandırma">2 - Açıklamalar ve yapılandırma</h2>
+
+<h3 id="Çeviri Hizmetleri">2.1 - Çeviri Hizmetleri</h3>
+
+<p>Eklenti ilk sürümünde 7 çeviri hizmeti sunuyor:</p>
+<h4 id="Google">Google</h4>
+
+<p><strong>4 Google Hizmeti</strong></p>
+<ul>
+<li><strong>2 Web kazıma hizmeti:</strong> Her hizmet aynı işlevi farklı bir şekilde yerine getirir ve içlerinden birinin arızalanması durumunda her zaman bir alternatifin mevcut olmasını sağlar.</li>
+<li><strong>API aracılığıyla 2 Hizmet:</strong> Bu hizmetler de sınırsız ve ücretsizdir, ancak bunların kötüye kullanılması, IP'nin birkaç saat süreyle geçici olarak yasaklanmasıyla sonuçlanabilir, ardından hizmet yeniden kurulacaktır.</li>
+<li>Bu Google hizmetlerinin tümü API anahtarları gerektirmez, sınırsız ve ücretsizdir.</li>
+</ul>
+<h4 id="DeepL">DeepL</h4>
+
+<p><strong>2 DeepL Hizmeti</strong></p>
+<ul>
+<li><strong>Ücretsiz API:</strong> Bu seçenek, ayda 500.000 karakter sunan DeepL sayfasından Ücretsiz API anahtarının alınmasını gerektirir.</li>
+<li><strong>API Pro:</strong> Bu seçenek aynı zamanda DeepL web sitesinden alınan bir API anahtarını da gerektirir. Kullanımı kullanıcının DeepL hesabındaki bakiyeye ve sözleşmeli plana bağlıdır.</li>
+<li>DeepL API'nin kullanım koşulları <a href="https://www.deepl.com/tr/pro/change-plan#developer">web sitesinde</a> yer almaktadır ve eklenti bu koşullarla sınırlıdır.</li>
+</ul>
+<h4 id="LibreTranslate">LibreTranslate</h4>
+
+<p><strong>1 LibreTranslate Hizmeti</strong></p>
+<ul>
+<li>Bu hizmet, sürekli nöral öğrenme sayesinde daima gelişmektedir. Şu anda Google kadar iyi olmasa da, mükemmel bir şekilde kullanılabilir.</li>
+<li>Argos Translate teknolojisine dayanmaktadır.</li>
+<li>Bu hizmeti kullanmak için, <a href="https://nvda.es/donaciones/">NVDA.es</a> topluluğuna bağış yaparak elde edilebilecek bir API anahtarı gereklidir.</li>
+<li>Bağış yaptıktan sonra, <a href="https://nvda.es/contacto/">Bu sayfada</a> bulunan formu kullanarak, konuyu "API anahtarı isteği" olarak belirterek ve PayPal referansını, aktarımını vb. sağlayarak API anahtarını talep edebilirsiniz.</li>
+<li>Ek olarak, API anahtarını ekleyerek ve eklenti yapılandırma bölümünde hizmet Bağlantısını değiştirerek diğer LibreTranslate hizmetlerini yapılandırmak mümkündür.</li>
+</ul>
+<h4 id="Microsoft Translate">Microsoft Translate</h4>
+
+<p><strong>1 Microsoft Çeviri Hizmeti</strong></p>
+<ul>
+<li>Bu hizmetin, sürekli kullanımın birkaç dakikalığına geçici IP yasağıyla sonuçlanabileceği sınırlaması vardır.</li>
+<li>Bu yasak ancak çok yoğun kullanımda ve uzun metinlerin çevrilmesinde ortaya çıkar.</li>
+<li>Hizmet oldukça iyi çalışıyor ancak kesinti yaşamamak için sürekli kullanılmaması tavsiye ediliyor.</li>
+</ul>
+<p>Bu seçenekler, kullanıcıların çeşitli çeviri hizmetleri arasında seçim yapmasına olanak tanıyarak, bireysel ihtiyaçlara ve tercihlere göre eklentinin kullanılabilirliğini ve esnekliğini sağlar.  </p>
+<p>Eklenti güncellendikçe hizmetler eklenebilir veya kaldırılabilir. Değişiklikler güncellemeler bölümünde bildirilecektir.  </p>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="Yapılandırma">2.2 - Yapılandırma</h3>
+
+<p><strong>Eklenti Ayarları</strong></p>
+<p>Bu bölümde, API anahtarlarının nasıl ekleneceği, hizmet bağlantılarının nasıl değiştirileceği ve eklentinin kullanımını kullanıcının ihtiyaçlarına göre özelleştirmek için gerekli diğer ayarlar da dahil olmak üzere, eklentide bulunan her bir hizmetin nasıl yapılandırılacağı ayrıntılı olarak açıklanmaktadır.</p>
+<h4 id="Eklenti Menüsü">Eklenti Menüsü</h4>
+
+<p>NVDA &gt; Tercihler &gt; Gelişmiş Çeviri alt menüsünde, aşağıdakileri içeren bir menü bulunur:</p>
+<ul>
+<li><strong>Gelişmiş Çeviri Ayarları</strong><br />
+  Bu seçeneğe tıklarsak eklenti yapılandırma penceresi açılacaktır. Bu pencerede 2 alan vardır:</li>
+<li><strong>Genel</strong><br />
+    Bu sekmede eklentinin genel seçenekleri eklenecektir. Şu anda eklenti önbelleğini etkinleştirmek veya devre dışı bırakmak için yalnızca bir onay kutusu bulunur.<br />
+    Eklenti, her uygulama için bu çevirilerin önbelleğini kaydedebilir; bu, gelecekteki çevirilerde çevirinin daha kolay ve daha hızlı olmasını sağlayacaktır. Ayrıca artık her dil için bir önbellek oluşturuyor ve farklı diller için önbelleğe sahip birden fazla uygulama olabilir.</li>
+<li><strong>Çeviri modülleri</strong><br />
+    Bu sekmede çeviri yapmak istediğimiz hizmeti seçebiliriz. API anahtarı gerektiren hizmetlerde API anahtar yöneticisi de gösterilecektir.<br />
+    Aynı hizmet için birden fazla API anahtarımız olabilir; Örneğin, LibreTranslate'te bağlanmak için farklı anahtarlara ve bağlantılara sahip olabiliriz. Mevcut hizmet için istediğimiz varsayılan API anahtarını ekleyebilir, düzenleyebilir, silebilir ve ayarlayabiliriz.<br />
+    API anahtar yönetimi alanı sahip olduğumuz hizmete göre değişmektedir. Hangi API'den bahsettiğimizi hızlı bir şekilde anlamak için her API anahtarına tanımlayıcı bir ad verebiliriz. Bir hizmet için birden fazla API anahtarımız olduğunda, listede yıldız işareti olan öğe varsayılan öğe olacaktır. Bu, "Varsayılan" butonu ile değiştirilebilir ve söz konusu hizmet için tanımlanan anahtar, o anda odaklandığımız anahtar haline gelir.
+    Seçtiğimiz çeviri hizmeti API anahtarı gerektirmiyorsa Anahtar yöneticisi görüntülenmez.<br />
+    Daha sonra "Tamam" ve "İptal" düğmelerimiz var. Tüm seçeneklerin, NVDA'nın bize bildireceği kendi kısayol tuşları vardır.</li>
+<li><strong>Yardım</strong><br />
+  Yardım seçeneğine tıklarsak, okumakta olduğumuz bu belge açılır.</li>
+<li><strong>İşimi beğendiysen bana bir kahve ısmarla</strong><br />
+  Bu seçeneğe basarsak "Gönder" yazan bir bağlantının bulunduğu PayPal sayfası açılacaktır. Bu bağlantıya tıkladığımızda hesabımıza giriş yapıp bizi bağış sayfasına bırakmamızı isteyecektir.<br />
+  Sadece bu eklentiyi yaparken çok fazla kahve içtiğimi söyleyeceğim.</li>
+</ul>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h4 id="Eklenti Kısayol Tuşları">Eklenti Kısayol Tuşları</h4>
+
+<p>NVDA &gt; Tercihler &gt; Girdi Hareketleri&gt; Gelişmiş Çeviri dalı altında yapılandırabileceğimiz aşağıdaki seçenekler bulunur.  </p>
+<p>Kullanıcının en iyi düzeni seçebilmesi için varsayılan tuşlar atanmamış olarak gelir. Bu hareketler aşağıdaki gibidir:</p>
+<ul>
+<li><strong>Eklenti ayarlarını açar</strong><br />
+  Bu hareket, eklenti Ayarları penceresini hızlı bir şekilde açacaktır.</li>
+<li><strong>Çeviri önbelleğini etkinleştirir veya devre dışı bırakır</strong><br />
+  Bu hareket, ayarlara girmeye gerek kalmadan önbelleği etkinleştirecek veya devre dışı bırakacaktır.</li>
+<li><strong>Çevrimiçi eşzamanlı çeviriyi etkinleştirir veya devre dışı bırakır</strong><br />
+  Bu hareket çeviriyi etkinleştirir veya devre dışı bırakır. Yön tuşlarıyla hareket ettiğimizde Üzerine geldiğimiz her şey çevrilmeye başlar. Sorun yoksa çeviriyi dinleyeceğiz; Orijinal metni duyarsak NVDA günlüğüne bakıp ne olduğunu görmemiz gerekecek.</li>
+<li><strong>Çeviri modülünü değiştirir</strong><br />
+  Bu hareket, mevcut tüm çeviri hizmetlerinin bulunduğu bir pencere açacaktır. Ok tuşları ile hareket edip "Enter" tuşu ile seçim yapabiliriz. Seçtiğimiz hizmet, varsayılan olarak sahip olduğumuz hizmet olacaktır.</li>
+<li><strong>Hedef dili değiştirir</strong><br />
+  Bu hareket, seçtiğimiz hizmette mevcut olan hedef dillerin bulunduğu bir pencere açacaktır. Her hizmetin farklı dilleri vardır. Örneğin Rusça bir metni çeviriyorsak ve onu İngilizce olarak duymak istiyorsak, bu iletişim kutusunda İngilizce'yi seçmemiz gerekecektir. İstediğimiz dili seçmek için yön tuşlarını ve onaylamak için de "Enter" tuşunu kullanıyoruz.<br />
+  Dil adları, NVDA'nın desteklediği dillerden elde edilmiştir. Bu nedenle, NVDA tarafından desteklenmeyen diller  listede İngilizce görülebilir. Dilin ISO kodu her dil adının yanına eklenmiştir.</li>
+<li><strong>Kaynak dili değiştirir</strong><br />
+  Öncekiyle aynıdır. Ancak bu iletişim kutusu yalnızca Microsoft Translator için geçerlidir. Microsoft hizmeti, kaynak dili otomatik olarak algılayamaz. Bu nedenle onu kendimiz seçmek zorunda kalacağız.<br />
+  Diğer hizmetler varsayılan olarak dili otomatik algıladığından, bu pencerede yer almazlar.</li>
+<li><strong>Son çevrilen metni panoya kopyalar</strong><br />
+  Bu hareket, çevrilen son metni panoya kopyalayacaktır.</li>
+<li><strong>Şu anda odaklanılan uygulamanın çeviri önbelleğini siler</strong><br />
+  Bu harekete bir kere basarsak bize bilgi verecektir; Hızlı bir şekilde iki kez basarsak o anda odaklanılan uygulamanın önbelleğini temizleyecek ve sonucu bildirecektir.</li>
+<li><strong>Tüm uygulamalar için önbelleğe alınmış bütün çevirileri siler</strong><br />
+  Bir kez basıldığında bu hareket bize bilgi verecektir; Hızlı bir şekilde iki kez basıldığında eklenti önbelleğinin tamamı temizlenir ve ayrıca bilgi sunulur.</li>
+<li><strong>Çeviri geçmişini görüntüler</strong><br />
+  Listedeki son 500 çeviriyi içeren bir pencere görüntüleyecektir. Kaynak metni ve çevrilmiş metni salt okunur kutularda arayabilir ve inceleyebiliriz. Bu iletişim kutusu tüm geçmişi aramamıza, hem kaynak metni hem de çevrilmiş metni panoya veya her ikisine birden kopyalamamıza olanak tanır.<br />
+  Ayrıca kaynak metin ile çevrilmiş metin arasında geçiş yapmamıza ve her iki şekilde de çalışmamıza olanak tanır. Sıfırdan başlamak için tüm geçmişi silebiliriz.<br />
+  NVDA her yeniden başlatıldığında geçmişin silindiğini fark ettim.</li>
+<li><strong>Seçilen metni çevirir</strong><br />
+  Bu hareket, seçtiğimiz ve odaklandığımız metni çevirecektir. Büyük bir metinse çevirinin ilerleme yüzdesini gösteren bir iletişim kutusu açılacaktır. Söz konusu iletişim kutusu iptal edilebilir ve bu durum çeviriyi de iptal eder.<br />
+  Çeviri tamamlandıktan sonra metin bir pencerede görüntülenecek, böylece onu inceleyebiliriz.<br />
+  Bu seçenek Google Çeviri hizmetini kullanır. Bu hizmet, uzun metinler için en iyi sonuçları veren hizmettir. Varsayılan olarak  tanımlandığından dolayı değiştirilemez.</li>
+</ul>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h2 id="Sorun giderme">3 - Sorun giderme</h2>
+
+<h3 id="Yaygın Sorunlar ve Çözümleri">Yaygın Sorunlar ve Çözümleri</h3>
+
+<p><strong>internet bağlantısı</strong></p>
+<ul>
+<li>İnternet bağlantınızın aktif olduğundan ve düzgün çalıştığından emin olun.</li>
+<li>Gerekirse yönlendiricinizi veya modeminizi yeniden başlatın.</li>
+</ul>
+<p><strong>Sertifika Hataları</strong></p>
+<ul>
+<li>Sertifika hataları yaşıyorsanız sisteminizin tarih ve saatinin doğru olduğundan emin olun.</li>
+<li>Gerekli sertifikaların yüklendiğinden ve güncellendiğinden emin olun.</li>
+</ul>
+<p><strong>Performans sorunları</strong>
+- Bilgisayarınızın minimum sistem gereksinimlerini karşıladığından emin olun.
+- Çok fazla kaynak tüketebilecek diğer uygulamaları kapatın.</p>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="NVDA Günlüğüne Nasıl Bakılır?">NVDA Günlüğüne Nasıl Bakılır?</h3>
+
+<ol>
+<li>NVDA'yı açın.</li>
+<li>'NVDA &gt; Araçlar &gt; Log dosyasını göster' seçeneğine gidin.</li>
+<li>Log dosyasında Gelişmiş Çeviri ile ilgili hataları veya mesajları arayın.</li>
+</ol>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h2 id="Teşekkürler">4 - Teşekkürler</h2>
+
+<p>Mükemmel çalışmalarından dolayı tüm NVDA programcılarına teşekkür ederiz.  </p>
+<p>Ayrıca, bu eklentinin prensibinin, bazı işlevlerini öğrendiğim ve kullandığım Yannick PLASSIARD'ın eklentisi (TRANSLATE) olduğunu söylemeyi unutmak istemiyorum.  </p>
+<p>Ayrıca Alexy Sadovoy aka Lex, ruslan, beqa, Mesar Hameed, Alberto Buffolino ve diğer NVDA katılımcılarına, yöntemlerden birinin Google için elde edildiği ve Gelişmiş Çeviri'de uygulanmak üzere değiştirildiği eklenti (Anında Çeviri) için de teşekkür ederiz.  </p>
+<p>Bu eklenti, birkaç yıllık resmi olmayan sürümlerin ve çevrimdışı çevirileri kullanma çalışmasının eseridir.  </p>
+<p>Öğrenme, gelecekte şaşırtıcı yenilikler getireceğini bilerek bu tamamlayıcının sonucudur.</p>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="Çevirmenler">Çevirmenler</h3>
+
+<ul>
+<li><strong>Katkıda bulunan 1:</strong> Katkı açıklaması.**<br />
+Umut KORKMAZ Türkçe arayüz ve yardım dosyası eklendi.</li>
+</ul>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h2 id="Sürüm Geçmişi">5 - Sürüm Geçmişi</h2>
+
+<p>Bu bölümde, Eklentinin yeni sürümlerinin ekleneceği bir sürüm günlüğü eklenecektir.  </p>
+<p>Kılavuz ilk sürüme dayalı olduğundan temel olarak güncellenmeyecektir.  </p>
+<p>Yeni gelişmeler bu başlık altına eklenecektir.</p>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="Sürüm 2024.06.06">Sürüm 2024.06.06</h3>
+
+<ul>
+<li>Eklentinin ilk sürümü.</li>
+<li>7 çeviri hizmeti desteği.</li>
+<li>Temel eşzamanlı çeviri ve API anahtar yönetimi işlevleri.</li>
+</ul>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+</body>
+</html>
