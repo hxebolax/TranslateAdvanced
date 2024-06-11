@@ -273,7 +273,7 @@ class ConfigDialog(wx.Dialog):
 		:param event: Evento de botón.
 		"""
 		if self.selected_service:
-			self.show_api_dialog("Añadir API", "add")
+			self.show_api_dialog(_("Añadir API"), "add")
 			# Si es la única API, marcarla como predeterminada
 			if len(self.api_manager.get_apis(self.selected_service)) == 1:
 				self.default_api_index[self.selected_service] = 0
@@ -288,7 +288,7 @@ class ConfigDialog(wx.Dialog):
 		if not self.selected_service or self.api_listbox.GetSelection() == wx.NOT_FOUND or not self.api_manager.get_apis(self.selected_service):
 			wx.MessageBox(_("No existe ninguna API para este servicio. Por favor, añada una API primero."), _("Error"), wx.OK | wx.ICON_ERROR)
 			return
-		self.show_api_dialog("Editar API", "edit", self.api_listbox.GetSelection())
+		self.show_api_dialog(_("Editar API"), "edit", self.api_listbox.GetSelection())
 
 	def on_delete_api(self, event):
 		"""

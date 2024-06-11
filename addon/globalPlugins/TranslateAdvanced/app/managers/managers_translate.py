@@ -6,13 +6,10 @@
 import addonHandler
 import globalVars
 import logHandler
-import languageHandler
-import speechViewer
-import speech
+import braille
 from speech import *
-from eventHandler import FocusLossCancellableSpeechCommand
-from queueHandler import eventQueue, queueFunction
 # Carga estándar
+
 import re
 # Carga personal
 from ..src_translations.src_google_original import TranslatorGoogle
@@ -101,6 +98,51 @@ class GestorTranslate(
 				return None, None
 			else:
 				return self.frame.gestor_apis.get_api("libre_translate", self.frame.gestor_settings.api_libretranslate)["key"],  self.frame.gestor_apis.get_api("libre_translate", self.frame.gestor_settings.api_libretranslate)["url"]
+
+	def procesar_listas(self, origen, destino):
+		"""
+		Procesa dos listas para unificar sus cadenas de texto, eliminar los espacios al final de cada cadena,
+		y omitir los elementos que no son cadenas de texto.
+
+		Parámetros:
+		origen (list): La lista origen que contiene cadenas de texto y otros tipos de datos.
+		destino (list): La lista destino que contiene cadenas de texto y otros tipos de datos.
+
+		Retorna:
+		dict: Un diccionario con 'origen' y 'destino' como claves y las listas procesadas como valores.
+		"""
+		def procesar_lista(lista):
+			"""
+			Procesa una lista para unificar sus cadenas de texto, eliminar los espacios al final de cada cadena,
+			y omitir los elementos que no son cadenas de texto.
+
+			Parámetros:
+			lista (list): La lista que contiene cadenas de texto y otros tipos de datos.
+
+			Retorna:
+			str: Una cadena de texto unificada sin espacios al final.
+			"""
+			# Crear una lista para almacenar los textos procesados
+			lista_textos = []
+
+			# Recorrer cada elemento en la lista
+			for elemento in lista:
+				# Verificar si el elemento es una cadena de texto
+				if isinstance(elemento, str):
+					# Eliminar los espacios al final y añadir a la lista de textos
+					lista_textos.append(elemento.rstrip())
+
+			# Unir todos los elementos de texto en una sola cadena con un espacio entre ellos
+			texto_unido = ' '.join(lista_textos)
+
+			return texto_unido
+
+		# Procesar las listas origen y destino
+		origen_procesado = procesar_lista(origen)
+		destino_procesado = procesar_lista(destino)
+
+		# Devolver un diccionario con las listas procesadas
+		return {'origen': origen_procesado, 'destino': destino_procesado}
 
 	def translate_file(self, text, func_progress):
 		"""
@@ -218,55 +260,28 @@ Error:
 		:param priority: La prioridad de la secuencia de habla (opcional).
 		:return: None
 		"""
-		valid_list = [re.sub('  $', '', re.sub('^ +| +$', '', re.sub(' +', ' ', item))) for item in speechSequence if isinstance(item, str)]
 		if not self.frame.gestor_settings._enableTranslation:
 			return self.frame.gestor_settings._nvdaSpeak(speechSequence=speechSequence, priority=priority)
 
-		if not valid_list:
-			return self.frame.gestor_settings._nvdaSpeak(speechSequence=speechSequence, priority=priority)
-
+		newSpeechSequence = []
 		newSpeechSequenceOrigen = []
 		newSpeechSequenceDestino = []
 
-		v = self.translate(" ".join(valid_list))
-		newSpeechSequenceOrigen.append(" ".join(valid_list))
-		newSpeechSequenceDestino.append(v if v else " ".join(valid_list))
+		for val in speechSequence:
+			if isinstance(val, str):
+				v = self.translate(val)
+				newSpeechSequence.append(v if v is not None else val)
+				newSpeechSequenceOrigen.append(val)
+				newSpeechSequenceDestino.append(v)
+			else:
+				newSpeechSequence.append(val)
 
-		self.frame.gestor_settings._nvdaSpeak(speechSequence=newSpeechSequenceDestino, priority=priority)
-		self.frame.gestor_settings._lastTranslatedText = " ".join(x if isinstance(x, str) else "" for x in newSpeechSequenceDestino)
+		self.frame.gestor_settings._nvdaSpeak(speechSequence=newSpeechSequence, priority=priority)
 
-		textDestino = self.getSequenceText(self.frame.gestor_settings._lastTranslatedText)
-		if textDestino.strip():
-			if isinstance(newSpeechSequenceOrigen[0], str) and isinstance(newSpeechSequenceDestino[0], str):
-				if newSpeechSequenceOrigen[0].replace(" ", "") != newSpeechSequenceDestino[0].replace(" ", ""):
-					queueFunction(eventQueue, self.append_to_historyOrigen, newSpeechSequenceOrigen)
-					queueFunction(eventQueue, self.append_to_historyDestino, newSpeechSequenceDestino)
+		temp = self.procesar_listas(newSpeechSequenceOrigen, newSpeechSequenceDestino)
+		if temp['origen'] not in self.frame.gestor_settings.historialOrigen:
+			self.frame.gestor_settings.historialOrigen.appendleft(temp['origen'])
+			self.frame.gestor_settings.historialDestino.appendleft(temp['destino'])
+			self.frame.gestor_settings._lastTranslatedText = temp['destino']
+			braille.handler.message(self.frame.gestor_settings._lastTranslatedText)
 
-	def getSequenceText(self, sequence):
-		"""
-		Obtiene el texto de una secuencia de habla.
-
-		:param sequence: La secuencia de habla.
-		:return: El texto de la secuencia.
-		"""
-		return speechViewer.SPEECH_ITEM_SEPARATOR.join([x for x in sequence if isinstance(x, str)])
-
-	def append_to_historyOrigen(self, seq):
-		"""
-		Agrega una secuencia de habla al historial de origen.
-
-		:param seq: La secuencia de habla a agregar.
-		:return: None
-		"""
-		seq = [command for command in seq if not isinstance(command, FocusLossCancellableSpeechCommand)]
-		self.frame.gestor_settings.historialOrigen.appendleft(seq[0])
-
-	def append_to_historyDestino(self, seq):
-		"""
-		Agrega una secuencia de habla al historial de destino.
-
-		:param seq: La secuencia de habla a agregar.
-		:return: None
-		"""
-		seq = [command for command in seq if not isinstance(command, FocusLossCancellableSpeechCommand)]
-		self.frame.gestor_settings.historialDestino.appendleft(seq[0])

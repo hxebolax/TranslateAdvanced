@@ -26,6 +26,7 @@ from .app.managers.managers_translate import GestorTranslate
 from .app.managers.managers_cache import LocalCacheHandler
 from .app.managers.managers_clipboard import ClipboardMonitor
 from .app.managers.managers_apis import APIManager
+from .app.managers.managers_updates_langs import GestorRepositorios
 from .app.guis.guis_options import ConfigDialog
 from .app.guis.guis_lang import DialogoLang
 from .app.guis.guis_progress import ProgressDialog
@@ -90,6 +91,7 @@ Error:
 		self.gestor_translate = None
 		self.gestor_portapapeles = None
 		self.gestor_apis = None
+		self.gestor_repositorio = None
 		# Utilidades
 		self._cache = None
 		self.menu = None
@@ -123,6 +125,9 @@ Error:
 		self.gestor_settings._enableTranslation = False
 		# Gestor del portapapeles
 		self.gestor_portapapeles = ClipboardMonitor()
+		# Gestor del portapapeles
+		# Gestor del repositorio de Github con los idiomas para actualizar o añadir
+		self.gestor_repositorio = GestorRepositorios(self, "hxebolax/TranslateAdvanced", rama='master', local_dir=addonHandler.getCodeAddon().path, json_file=os.path.join(self.gestor_settings.dir_root, "languages.json"))
 		# Menú de NVDA
 		self.menu = gui.mainFrame.sysTrayIcon.preferencesMenu
 		self.WXMenu = wx.Menu()

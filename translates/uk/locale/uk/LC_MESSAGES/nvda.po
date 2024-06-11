@@ -1,25 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the 'TranslateAdvanced' package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 'TranslateAdvanced' '2024.06.06'\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2024-06-07 20:50+0200\n"
-"PO-Revision-Date: 2024-06-07 20:51+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2024-06-07 15:35+0300\n"
+"PO-Revision-Date: 2024-06-09 13:07+0300\n"
+"Last-Translator: Volodymyr Pyrih <vp88.mobile@gmail.com>\n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Bookmarks: -1,0,26,-1,-1,-1,-1,-1,-1,-1\n"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:54
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:55
 msgid ""
 "No se a encontrado conexión a internet.\n"
 "\n"
@@ -32,18 +27,19 @@ msgid ""
 "\n"
 "Se cancelara la carga del complemento Traductor Avanzado."
 msgstr ""
-"No se a encontrado conexión a internet.\n"
+"Немає підключення до Інтернету.\n"
 "\n"
-"Si esta conectado por Wifi puede que NVDA iniciara antes que se conectara.\n"
+"Якщо ви підключені через Wi-Fi, NVDA може запуститися раніше, ніж ви "
+"підключитесь.\n"
 "\n"
-"Espere unos segundos y vuelva a reiniciar NVDA.\n"
+"Зачекайте кілька секунд і перезапустіть NVDA.\n"
 "\n"
-"Si esta conectado por cable compruebe su conexión y asegúrese que todo esta "
-"correcto.\n"
+"Якщо ви підключені за допомогою кабелю, перевірте підключення та "
+"переконайтеся, що все працює правильно.\n"
 "\n"
-"Se cancelara la carga del complemento Traductor Avanzado."
+"Завантаження додатка «Розширений перекладач» буде скасовано."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:74
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:75
 msgid ""
 "Se a encontrado errores en la carga del complemento.\n"
 "\n"
@@ -51,448 +47,442 @@ msgid ""
 "\n"
 "{}"
 msgstr ""
-"Se a encontrado errores en la carga del complemento.\n"
+"Під час завантаження додатка виявлено помилки.\n"
 "\n"
-"Error:\n"
+"Помилка:\n"
 "\n"
 "{}"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:82
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:198
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:209
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:222
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:232
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:242
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:270
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:298
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:340
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:363
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:377
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:395 buildVars.py:23
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:83
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:199
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:210
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:223
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:233
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:243
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:271
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:299
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:341
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:364
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:378
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:396 buildVars.py:23
 msgid "Traductor Avanzado"
-msgstr "Traductor Avanzado"
-
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:129
-msgid "&Traductor Avanzado"
-msgstr "&Traductor Avanzado"
+msgstr "Розширений перекладач"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:130
-msgid "&Configuración de Traductor Avanzado"
-msgstr "&Configuración de Traductor Avanzado"
+msgid "&Traductor Avanzado"
+msgstr "&Розширений перекладач"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:131
-msgid "&Documentación del complemento"
-msgstr "&Documentación del complemento"
+msgid "&Configuración de Traductor Avanzado"
+msgstr "&Налаштування Розширеного перекладача"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:132
+msgid "&Documentación del complemento"
+msgstr "&Документація додатка"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:133
 msgid "&invítame a un café si te gusta mi trabajo"
-msgstr "&invítame a un café si te gusta mi trabajo"
+msgstr "&Пожертвувати, якщо вам подобається додаток"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:139
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:140
 msgid "Traductor Avanzado iniciado correctamente."
-msgstr "Traductor Avanzado iniciado correctamente."
+msgstr "Розширений перекладач успішно запущено."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:165
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:166
 msgid ""
 "Ya hay una instancia de Traductor Avanzado abierta.\n"
 "\n"
 "Ciérrela para realizar esta acción."
 msgstr ""
-"Ya hay una instancia de Traductor Avanzado abierta.\n"
+"Екземпляр додатка уже відкрито.\n"
 "\n"
-"Ciérrela para realizar esta acción."
+"Закрийте його, щоб виконати цю дію."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:168
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:173
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:181
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:479
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:169
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:174
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:182
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:480
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:208
 msgid "Información"
-msgstr "Información"
+msgstr "Інформація"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:172
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:350
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:173
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:351
 msgid "Tiene una traducción en curso. Espere a que termine."
-msgstr "Tiene una traducción en curso. Espere a que termine."
+msgstr "Виконується переклад. Зачекайте, поки він закінчиться."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:178
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:179
 msgid ""
 "Tiene la traducción simultanea activada.\n"
 "\n"
 "Desactívela para realizar esta acción."
 msgstr ""
-"Tiene la traducción simultanea activada.\n"
+"У вас активований переклад у реальному часі.\n"
 "\n"
-"Desactívela para realizar esta acción."
+"Вимкніть його, щоб виконати цю дію."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:198
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:199
 msgid "Abre la configuración del complemento"
-msgstr "Abre la configuración del complemento"
+msgstr "Відкрити налаштування додатка"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:209
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:210
 msgid "Cambiar idioma de origen"
-msgstr "Cambiar idioma de origen"
+msgstr "Змінити мову оригіналу"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:220
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:221
 msgid ""
 "El idioma origen solo puede ser cambiado si tiene seleccionado el traductor "
 "de Microsoft."
 msgstr ""
-"El idioma origen solo puede ser cambiado si tiene seleccionado el traductor "
-"de Microsoft."
+"Мову оригіналу можна змінити, лише якщо ви вибрали Microsoft Translator."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:222
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:223
 msgid "Cambiar idioma de destino"
-msgstr "Cambiar idioma de destino"
+msgstr "Змінити мову перекладу"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:232
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:233
 msgid "Cambiar el modulo de traducción"
-msgstr "Cambiar el modulo de traducción"
+msgstr "Змінити модуль перекладу"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:242
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:243
 msgid "Eliminar todas las traducciones en caché para todas las aplicaciones"
-msgstr "Eliminar todas las traducciones en caché para todas las aplicaciones"
+msgstr "Видалити всі кешовані переклади для всіх програм"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:250
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:251
 msgid ""
 "Pulse dos veces para eliminar todas las traducciones en caché de todas las "
 "aplicaciones."
-msgstr ""
-"Pulse dos veces para eliminar todas las traducciones en caché de todas las "
-"aplicaciones."
+msgstr "Натисніть двічі, щоб видалити всі кешовані переклади з усіх програм."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:257
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:258
 msgid "No hay cache para borrar."
-msgstr "No hay cache para borrar."
+msgstr "Немає кешу для очищення."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:263
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:264
 #, python-brace-format
 msgid "Fallo al eliminar {entry}"
-msgstr "Fallo al eliminar {entry}"
+msgstr "Не вдалося видалити {entry}"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:266
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:267
 msgid "El directorio de la cache no existe."
-msgstr "El directorio de la cache no existe."
+msgstr "Каталогу кешу не існує."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:268
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:269
 msgid "Se ha eliminado toda la cache."
-msgstr "Se ha eliminado toda la cache."
+msgstr "Весь кеш видалено."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:268
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:269
 msgid "No se a podido eliminar toda la cache."
-msgstr "No se a podido eliminar toda la cache."
+msgstr "Не вдалося видалити весь кеш."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:270
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:271
 msgid "Eliminar la caché de traducción para la aplicación enfocada actualmente"
-msgstr ""
-"Eliminar la caché de traducción para la aplicación enfocada actualmente"
+msgstr "Видалити кеш перекладу для програми у фокусі"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:280
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:281
 msgid "No hay aplicación enfocada."
-msgstr "No hay aplicación enfocada."
+msgstr "Програма не у фокусі."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:284
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:285
 msgid ""
 "Pulse dos veces para eliminar todas las traducciones de {} en lenguaje {}"
-msgstr ""
-"Pulse dos veces para eliminar todas las traducciones de {} en lenguaje {}"
+msgstr "Натисніть двічі, щоб видалити всі переклади {} мовою {}"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:291
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:292
 msgid "Se ha borrado la cache de la aplicación {} correctamente."
-msgstr "Se ha borrado la cache de la aplicación {} correctamente."
-
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:293
-msgid "Fallo al borrar la cache de la aplicación {} : {}"
-msgstr "Fallo al borrar la cache de la aplicación {} : {}"
+msgstr "Кеш програми {} успішно очищено."
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:294
+msgid "Fallo al borrar la cache de la aplicación {} : {}"
+msgstr "Не вдалося очистити кеш програми {}: {}"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:295
 msgid "Error al borrar la caché de traducción de la aplicación."
-msgstr "Error al borrar la caché de traducción de la aplicación."
+msgstr "Помилка очищення кешу перекладу програми."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:296
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:297
 msgid "No hay traducciones guardadas para {}"
-msgstr "No hay traducciones guardadas para {}"
+msgstr "Немає збережених перекладів для {}"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:298
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:299
 msgid "Activa o desactiva la cache de traducción"
-msgstr "Activa o desactiva la cache de traducción"
+msgstr "Увімкнути або вимкнути кеш перекладу"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:307
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:308
 msgid ""
 "La activación o desactivación de la cache no puede hacerse mientras haya una "
 "ventana de Traductor Avanzado abierta"
 msgstr ""
-"La activación o desactivación de la cache no puede hacerse mientras haya una "
-"ventana de Traductor Avanzado abierta"
+"Увімкнення або вимкнення кешу неможливе, якщо відкрито діалог Розширеного "
+"перекладача"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:327
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:328
 msgid "Cache de traducción activada."
-msgstr "Cache de traducción activada."
+msgstr "Кеш перекладу увімкнено."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:329
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:330
 msgid "Cache de traducción desactivada."
-msgstr "Cache de traducción desactivada."
+msgstr "Кеш перекладу вимкнено."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:340
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:341
 msgid "Copiar el ultimo texto traducido al portapapeles"
-msgstr "Copiar el ultimo texto traducido al portapapeles"
+msgstr "Скопіювати останній перекладений текст у буфер обміну"
 
 #. Muestra un mensaje indicando el texto copiado
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:358
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:359
 msgid "Se ha copiado lo siguiente al portapapeles: {}"
-msgstr "Se ha copiado lo siguiente al portapapeles: {}"
+msgstr "Скопійовано в буфер обміну: {}"
 
 #. Muestra un mensaje indicando que no hay texto para copiar
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:361
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:362
 msgid "No se ha podido copiar nada al portapapeles"
-msgstr "No se ha podido copiar nada al portapapeles"
+msgstr "Не вдалося нічого скопіювати в буфер обміну"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:363
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:364
 msgid "Activa o desactiva la traducción simultánea Online"
-msgstr "Activa o desactiva la traducción simultánea Online"
+msgstr "Увімкнути або вимкнути переклад у реальному часі"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:373
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:374
 msgid "Traducción activada."
-msgstr "Traducción activada."
+msgstr "Переклад увімкнено."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:373
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:374
 msgid "Traducción desactivada."
-msgstr "Traducción desactivada."
+msgstr "Переклад вимкнено."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:377
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:378
 msgid "Traduce el texto seleccionado"
-msgstr "Traduce el texto seleccionado"
+msgstr "Перекласти виділений текст"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:388
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:389
 msgid "Sin selección para traducir"
-msgstr "Sin selección para traducir"
+msgstr "Немає виділення для перекладу"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:395
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:396
 msgid "Muestra el historial de traducción"
-msgstr "Muestra el historial de traducción"
+msgstr "Показати історію перекладів"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:404
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:405
 msgid "No hay nada en el historial todavía."
-msgstr "No hay nada en el historial todavía."
+msgstr "В історії ще нічого немає."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:479
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:480
 msgid "No se ha podido obtener la traducción de lo seleccionado."
-msgstr "No se ha podido obtener la traducción de lo seleccionado."
+msgstr "Не вдалося отримати переклад виділеного."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:484
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:485
 msgid ""
 "Hubo un error en la traducción:\n"
 "\n"
 msgstr ""
-"Hubo un error en la traducción:\n"
+"У перекладі сталася помилка:\n"
 "\n"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:484
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:485
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:289
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:300
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:320
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:378
 msgid "Error"
-msgstr "Error"
+msgstr "Помилка"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:487
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:488
 msgid "La traducción fue cancelada por el usuario."
-msgstr "La traducción fue cancelada por el usuario."
+msgstr "Переклад скасовано користувачем."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:487
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:488
 msgid "Cancelado"
-msgstr "Cancelado"
+msgstr "Скасовано"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:494
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:495
 msgid "Resultado de la traducción"
-msgstr "Resultado de la traducción"
+msgstr "Результат перекладу"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:28
 msgid "Historial de Traductor Avanzado"
-msgstr "Historial de Traductor Avanzado"
+msgstr "Розширена історія перекладу"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:57
 msgid "&Buscar:"
-msgstr "&Buscar:"
+msgstr "&Пошук:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:63
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:252
 msgid "&Lista texto original:"
-msgstr "&Lista texto original:"
+msgstr "&Список оригінального тексту:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:69
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:250
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:253
 msgid "Texto &original:"
-msgstr "Texto &original:"
+msgstr "Оригінальний &текст:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:75
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:249
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:254
 msgid "Texto &traducido:"
-msgstr "Texto &traducido:"
+msgstr "Перекладений &текст:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:84
 msgid "&Copiar al portapapeles"
-msgstr "&Copiar al portapapeles"
+msgstr "&Копіювати в буфер обміну"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:87
 msgid "Borrar &historial"
-msgstr "Borrar &historial"
+msgstr "Видалити &історію"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:90
 msgid "&Alternar orden"
-msgstr "&Alternar orden"
+msgstr "&Змінити порядок"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:93
 msgid "Cerrar"
-msgstr "Cerrar"
+msgstr "Закрити"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:166
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:181
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:206
 msgid "No se encontró nada."
-msgstr "No se encontró nada."
+msgstr "Нічого не знайдено."
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:182
 msgid "Se encuentra en la posición {} de {}"
-msgstr "Se encuentra en la posición {} de {}"
+msgstr "Розташований у позиції {} з {}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:207
 msgid "No se encontró nada para poder ser copiado."
-msgstr "No se encontró nada para poder ser copiado."
+msgstr "Для копіювання нічого не знайдено."
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:212
 msgid "Copiar texto &original"
-msgstr "Copiar texto &original"
+msgstr "Скопіювати оригінальний &текст"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:213
 msgid "Copiar texto &traducido"
-msgstr "Copiar texto &traducido"
+msgstr "Скопіювати &перекладений текст"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:214
 msgid "&Copiar origen y traducido"
-msgstr "&Copiar origen y traducido"
+msgstr "&Скопіювати оригінал та переклад"
 
 #. Copiar texto origen
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:232
 msgid "Copiado texto origen"
-msgstr "Copiado texto origen"
+msgstr "Скопійовано оригінальний текст"
 
 #. Copiar texto traducido
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:235
 msgid "Copiado texto traducido"
-msgstr "Copiado texto traducido"
+msgstr "Скопійовано перекладений текст"
 
 #. Copiar origen y traducido
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:238
 msgid "Copiado texto origen y traducido"
-msgstr "Copiado texto origen y traducido"
+msgstr "Скопійовано оригінальний та перекладений текст"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:248
 msgid "&Lista texto traducido:"
-msgstr "&Lista texto traducido:"
+msgstr "&Список перекладеного тексту:"
 
 #. Idiomas origen
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:63
 msgid "Seleccione un idioma de origen para el traductor de Microsoft"
-msgstr "Seleccione un idioma de origen para el traductor de Microsoft"
+msgstr "Виберіть мову оригіналу для перекладача Microsoft"
 
 #. Idiomas destino
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:66
 msgid "Seleccione un idioma de destino para el traductor {}"
-msgstr "Seleccione un idioma de destino para el traductor {}"
+msgstr "Виберіть мову перекладу для перекладача {}"
 
 #. Cambiar traductor
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:69
 msgid "Elija un módulo de traducción"
-msgstr "Elija un módulo de traducción"
+msgstr "Виберіть модуль перекладу"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:26
 msgid "Configuración de Traductor Avanzado"
-msgstr "Configuración de Traductor Avanzado"
+msgstr "Налаштування Розширеного перекладача"
 
 #. Añadir las páginas al Listbook
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:39
 msgid "General"
-msgstr "General"
+msgstr "Загальні"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:40
 msgid "Módulos de traducción"
-msgstr "Módulos de traducción"
+msgstr "Модулі перекладу"
 
 #. Botones Aceptar y Cancelar
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:42
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:355
 msgid "&Aceptar"
-msgstr "&Aceptar"
+msgstr "&Гаразд"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:43
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:356
 msgid "&Cancelar"
-msgstr "&Cancelar"
+msgstr "&Скасувати"
 
 #. Checkbox para activar o desactivar la caché de traducción
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:105
 msgid "Activar o &desactivar la caché de traducción"
-msgstr "Activar o &desactivar la caché de traducción"
+msgstr "Увімкнути або &вимкнути кеш перекладу"
 
 #. Choice para seleccionar el traductor online
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:122
 msgid "&Elija un traductor online:"
-msgstr "&Elija un traductor online:"
+msgstr "&Вибрати онлайн-перекладач:"
 
 #. Listbox para mostrar las claves API
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:128
 msgid "&Gestor de APIS:"
-msgstr "&Gestor de APIS:"
+msgstr "Менеджер &API:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:136
 msgid "Añadir\tF1"
-msgstr "Añadir\tF1"
+msgstr "Додати\tF1"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:137
 msgid "Editar\tF2"
-msgstr "Editar\tF2"
+msgstr "Редагувати\tF2"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:138
 msgid "Eliminar\tF3"
-msgstr "Eliminar\tF3"
+msgstr "Видалити\tF3"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:139
 msgid "Por defecto\tF4"
-msgstr "Por defecto\tF4"
+msgstr "Встановити початковим\tF4"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:214
 msgid "No existe ninguna API para este servicio."
-msgstr "No existe ninguna API para este servicio."
+msgstr "Для цього сервісу немає API."
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:289
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:300
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:320
 msgid ""
 "No existe ninguna API para este servicio. Por favor, añada una API primero."
-msgstr ""
-"No existe ninguna API para este servicio. Por favor, añada una API primero."
+msgstr "Для цього сервісу немає API. Спочатку додайте API."
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:302
 msgid "¿Estás seguro de que deseas eliminar esta clave API?"
-msgstr "¿Estás seguro de que deseas eliminar esta clave API?"
+msgstr "Ви впевнені, що бажаєте видалити цей ключ API?"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:302
 msgid "Confirmación"
-msgstr "Confirmación"
+msgstr "Підтвердження"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:337
 msgid "&Nombre:"
-msgstr "&Nombre:"
+msgstr "&Назва:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:339
 msgid "Clave &API:"
-msgstr "Clave &API:"
+msgstr "Ключ &API:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:349
 msgid "&URL:"
@@ -500,25 +490,25 @@ msgstr "&URL:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:378
 msgid "Todos los campos son obligatorios."
-msgstr "Todos los campos son obligatorios."
+msgstr "Всі поля обов'язкові для заповнення."
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:27
 msgid "Progreso de la Traducción"
-msgstr "Progreso de la Traducción"
+msgstr "Прогрес перекладу"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:39
 msgid "Cancelar"
-msgstr "Cancelar"
+msgstr "Скасувати"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:39
 #, python-brace-format
 msgid "Error al cargar el archivo JSON: {0}"
-msgstr "Error al cargar el archivo JSON: {0}"
+msgstr "Помилка завантаження файлу JSON: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:54
 #, python-brace-format
 msgid "Error al guardar el archivo JSON: {0}"
-msgstr "Error al guardar el archivo JSON: {0}"
+msgstr "Помилка збереження файлу JSON: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:66
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:85
@@ -527,97 +517,97 @@ msgstr "Error al guardar el archivo JSON: {0}"
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:136
 #, python-brace-format
 msgid "Servicio desconocido: {0}"
-msgstr "Servicio desconocido: {0}"
+msgstr "Невідомий сервіс: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:88
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:107
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:139
 #, python-brace-format
 msgid "Índice fuera de rango: {0}"
-msgstr "Índice fuera de rango: {0}"
+msgstr "Індекс поза межами: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:113
 #, python-brace-format
 msgid "Error al eliminar la clave API: {0}"
-msgstr "Error al eliminar la clave API: {0}"
+msgstr "Помилка видалення ключа API: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:144
 #, python-brace-format
 msgid "Error al obtener la clave API: {0}"
-msgstr "Error al obtener la clave API: {0}"
+msgstr "Помилка отримання ключа API: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_cache.py:46
 #, python-brace-format
 msgid "Fallo al crear la ruta de almacenamiento: {path} ({e})"
-msgstr "Fallo al crear la ruta de almacenamiento: {path} ({e})"
+msgstr "Не вдалося створити шлях до сховища: {path} ({e})"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_cache.py:58
 #, python-brace-format
 msgid "No se puede leer o decodificar datos desde {path}: {e}"
-msgstr "No se puede leer o decodificar datos desde {path}: {e}"
+msgstr "Не вдається прочитати або декодувати дані з {path}: {e}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_cache.py:74
 #, python-brace-format
 msgid "Fallo al guardar la caché de traducción para {appName} en {file}: {e}"
-msgstr "Fallo al guardar la caché de traducción para {appName} en {file}: {e}"
+msgstr "Не вдалося зберегти кеш перекладу для {appName} у {file}: {e}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:81
 msgid "Error registrando clase de ventana"
-msgstr "Error registrando clase de ventana"
+msgstr "Помилка реєстрації класу вікна"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:87
 msgid "Error creando ventana"
-msgstr "Error creando ventana"
+msgstr "Помилка створення вікна"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:90
 msgid "Error agregando listener de portapapeles"
-msgstr "Error agregando listener de portapapeles"
+msgstr "Помилка додавання тексту буфера обміну"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_dict.py:53
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_dict.py:66
 #, python-brace-format
 msgid "Índice fuera de rango: {index}"
-msgstr "Índice fuera de rango: {index}"
+msgstr "Індекс поза межами: {index}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_dict.py:81
 #, python-brace-format
 msgid "Clave o valor no encontrado: {key_or_value}"
-msgstr "Clave o valor no encontrado: {key_or_value}"
+msgstr "Ключ або значення не знайдено: {key_or_value}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:41
 msgid "Traductor Google (WEB 1)"
-msgstr "Traductor Google (WEB 1)"
+msgstr "Перекладач Google (ВЕБ 1)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:42
 msgid "Traductor Google (WEB 2)"
-msgstr "Traductor Google (WEB 2)"
+msgstr "Перекладач Google (WEB 2)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:43
 msgid "Traductor Google (API Free 1)"
-msgstr "Traductor Google (API Free 1)"
+msgstr "Перекладач Google (Безкоштовний API 1)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:44
 msgid "Traductor Google (API Free 2)"
-msgstr "Traductor Google (API Free 2)"
+msgstr "Перекладач Google (Безкоштовний API 2)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:45
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:51
 msgid "Traductor DeepL (API Free *)"
-msgstr "Traductor DeepL (API Free *)"
+msgstr "Перекладач DeepL (безкоштовний API *)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:46
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:52
 msgid "Traductor DeepL (API Pro *)"
-msgstr "Traductor DeepL (API Pro *)"
+msgstr "Перекладач DeepL (Pro API*)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:47
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:53
 msgid "Traductor LibreTranslate (API *)"
-msgstr "Traductor LibreTranslate (API *)"
+msgstr "Перекладач LibreTranslate (API*)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:48
 msgid "Traductor Microsoft Bing (API Free)"
-msgstr "Traductor Microsoft Bing (API Free)"
+msgstr "Перекладач Microsoft Bing (безкоштовний API)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:158
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:172
@@ -625,8 +615,7 @@ msgstr "Traductor Microsoft Bing (API Free)"
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:188
 msgid ""
 "No tiene ninguna API configurada para el servicio que tiene seleccionado."
-msgstr ""
-"No tiene ninguna API configurada para el servicio que tiene seleccionado."
+msgstr "У вас немає налаштованого API для вибраного сервісу."
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:197
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free.py:83
@@ -641,55 +630,55 @@ msgid ""
 "\n"
 "{}"
 msgstr ""
-"Error en la traducción.\n"
+"Помилка перекладу.\n"
 "\n"
-"Error:\n"
+"помилка:\n"
 "\n"
 "{}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_original.py:40
 msgid "Se requiere una clave de API para DeepL."
-msgstr "Se requiere una clave de API para DeepL."
+msgstr "Для DeepL потрібен ключ API."
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_original.py:68
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:55
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:56
 #, python-brace-format
 msgid "Error en la traducción: {0} {1}"
-msgstr "Error en la traducción: {0} {1}"
+msgstr "Помилка перекладу: {0} {1}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_original.py:71
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:58
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:59
 #, python-brace-format
 msgid "Error en la traducción: {0}"
-msgstr "Error en la traducción: {0}"
+msgstr "Помилка перекладу: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_original.py:98
 #, python-brace-format
 msgid "DeepL - uso: {0} / {1}"
-msgstr "DeepL - uso: {0} / {1}"
+msgstr "DeepL - використання: {0} / {1}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_original.py:101
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_original.py:102
 #, python-brace-format
 msgid "Error obteniendo uso de DeepL: {0}"
-msgstr "Error obteniendo uso de DeepL: {0}"
+msgstr "Помилка використання DeepL: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:74
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:75
 msgid "Error al extraer la traducción: no se encontró el texto traducido."
-msgstr "Error al extraer la traducción: no se encontró el texto traducido."
+msgstr "Помилка вилучення перекладу: перекладений текст не знайдено."
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:77
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:78
 #, python-brace-format
 msgid "Error al analizar la respuesta de la traducción: {0}"
-msgstr "Error al analizar la respuesta de la traducción: {0}"
+msgstr "Помилка синтаксичного аналізу перекладу: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free.py:181
 msgid "Proceso cancelado por el usuario"
-msgstr "Proceso cancelado por el usuario"
+msgstr "Процес скасовано користувачем"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:169
 msgid ""
@@ -699,29 +688,28 @@ msgid ""
 "\n"
 "{}"
 msgstr ""
-"Error al obtener la respuesta.\n"
+"Помилка отримання відповіді.\n"
 "\n"
-"Error:\n"
+"помилка:\n"
 "\n"
 "{}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:311
 msgid "Respuesta vacía o inválida"
-msgstr "Respuesta vacía o inválida"
+msgstr "Порожня або недійсна відповідь"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:316
 msgid "Estructura de respuesta inesperada"
-msgstr "Estructura de respuesta inesperada"
+msgstr "Неочікувана структура відповіді"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:326
 msgid "Respuesta vacía o inválida después de cambiar el idioma de destino"
-msgstr "Respuesta vacía o inválida después de cambiar el idioma de destino"
+msgstr "Порожня або недійсна відповідь після зміни цільової мови"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:330
 msgid ""
 "Estructura de respuesta inesperada después de cambiar el idioma de destino"
-msgstr ""
-"Estructura de respuesta inesperada después de cambiar el idioma de destino"
+msgstr "Неочікувана структура відповіді після зміни мови перекладу"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:41
 msgid ""
@@ -731,11 +719,11 @@ msgid ""
 "\n"
 "Se requiere una clave de API para LibreTranslate."
 msgstr ""
-"Error en la traducción.\n"
+"Помилка перекладу.\n"
 "\n"
-"Error:\n"
+"помилка:\n"
 "\n"
-"Se requiere una clave de API para LibreTranslate."
+"Для LibreTranslate потрібен ключ API."
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:74
 msgid ""
@@ -747,9 +735,9 @@ msgid ""
 "\n"
 "{}"
 msgstr ""
-"Error en la traducción.\n"
+"Помилка перекладу.\n"
 "\n"
-"Error:\n"
+"помилка:\n"
 "\n"
 "{}\n"
 "\n"
@@ -757,7 +745,7 @@ msgstr ""
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_microsoft_api_free.py:58
 msgid "La respuesta no contiene {}"
-msgstr "La respuesta no contiene {}"
+msgstr "Відповідь не містить {}"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -771,10 +759,10 @@ msgid ""
 "configurar y usar con\n"
 "teclas rápidas y opciones personalizables en el menú de NVDA."
 msgstr ""
-"Traductor Avanzado para NVDA es un complemento que facilita la traducción de "
-"textos en varios \n"
-"idiomas utilizando servicios como Google Translate, DeepL, LibreTranslate y "
-"Microsoft Translator.\n"
-"Ofrece traducción simultánea, historial y gestión de claves API. Es fácil de "
-"configurar y usar con\n"
-"teclas rápidas y opciones personalizables en el menú de NVDA."
+"Розширений перекладач для NVDA - це додаток, який полегшує переклад текстів "
+"різними \n"
+"мовами, використовуючи такі сервіси, як Google Translate, DeepL, "
+"LibreTranslate та Microsoft Translator.\n"
+"Він пропонує переклад у реальному часі, історію перекладів і управління "
+"ключами API. Додаток легко налаштувати і використовувати за допомогою \n"
+"гарячих клавіш і налаштовуваних опцій у меню NVDA."

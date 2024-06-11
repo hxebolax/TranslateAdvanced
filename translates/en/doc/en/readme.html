@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>Traductor Avanzado 2024.06.06</title>
+</head>
+<body>
+<h1>User Manual: Advanced Translator for NVDA</h1>
+<h2 id="index">Index</h2>
+
+<ul>
+<li><a href="#introduction">1 - Introduction</a></li>
+<li><a href="#requirements">1.1 - Requirements</a></li>
+<li><a href="#limitations-and-warnings">1.2 - Limitations and warnings</a></li>
+<li><a href="#author-information">1.3 - Author information</a></li>
+<li><a href="#description-configuration">2 - Description and configuration</a></li>
+<li><a href="#module-description">2.1 - Module description</a><ul>
+<li><a href="#google">Google</a></li>
+<li><a href="#deepl">DeepL</a></li>
+<li><a href="#libretranslate">LibreTranslate</a></li>
+<li><a href="#microsoft-translate">Microsoft Translate</a></li>
+</ul>
+</li>
+<li><a href="#configuration">2.2 - Configuration</a><ul>
+<li><a href="#addon-menu">Addon Menu</a></li>
+<li><a href="#addon-hotkeys">Addon Hotkeys</a></li>
+</ul>
+</li>
+<li><a href="#troubleshooting">3 - Troubleshooting</a></li>
+<li><a href="#common-problems-and-solutions">Common Problems and Solutions</a></li>
+<li><a href="#how-to-consult-the-nvda-log">How to Consult the NVDA Log</a></li>
+<li><a href="#acknowledgments">4 - Acknowledgments</a></li>
+<li><a href="#translators">Translators</a></li>
+<li><a href="#version-changelog">5 - Version Changelog</a></li>
+<li><a href="#version-1-0">Version 1.0</a></li>
+</ul>
+<h2 id="introduction">1 - Introduction</h2>
+
+<p><strong>Advanced Translator for NVDA</strong> is an addon that allows you to translate texts using various online translation services, such as Google Translate, DeepL, LibreTranslate and Microsoft Translator. This addon offers advanced features such as real time translation, translation history, translation of the selected text, support for multiple languages, and more.</p>
+<p><a href="#index">Back to index</a></p>
+<h3 id="requirements">1.1 - Requirements</h3>
+
+<ul>
+<li>NVDA (NonVisual Desktop Access) 2024.1 or higher</li>
+<li>Internet connection</li>
+</ul>
+<p><a href="#index">Back to index</a></p>
+<h3 id="limitations-and-warnings">1.2 - Limitations and warnings</h3>
+
+<p>The addon sends information over the Internet to each service to perform real time translation. It is important to note that the information being translated may include confidential and sensitive data. The use of the plugin is the sole responsibility of the user, who must evaluate the nature of the information sent. The developer of the plugin takes no responsibility for the data sent to the services that the plugin uses.</p>
+<p>As a developer, I decline all responsibility for any eventuality that may arise from the use of the plugin. Complete responsibility lies with the user.</p>
+<p>Additionally, the plugin requires an Internet connection to function. The response speed of the plugin depends on several factors, such as:
+- The quality of your Internet connection.
+- The possible delay (lag) of the translation services used.
+- Factors related to the user's network infrastructure.</p>
+<p>It is recommended that users be aware of these aspects and perform the necessary tests to ensure that the plugin meets their expectations and security requirements.<a href="#index">Back to index</a></p>
+<h3 id="author-information">1.3 - Author information</h3>
+
+<p><strong>Technical Information and Security Measures of the Addon for NVDA</strong></p>
+<p>I've worked hard to make the plugin as robust as possible, accounting for and handling any potential bugs. All errors are captured and recorded in the NVDA log, making it easy to track and quickly resolve issues.</p>
+<p><strong>Problems with Windows Certificates</strong></p>
+<p>Recently, I have noticed that new installations of Windows can have issues with certificates, which can be frustrating. For this reason, I have built in a check when the addon starts. If a failure related to the certificates is detected, the addon will automatically regenerate them, ensuring correct operation of both Windows and the addon itself.</p>
+<p><strong>Security measures</strong></p>
+<p>The addon includes several security measures:
+- It is not allowed to run on secure screens.
+- It does not start if an Internet connection is not detected.</p>
+<p>Sometimes NVDA can start faster than the wi-fi network connects. In such cases, it will be necessary to restart NVDA after the connection is established in order to use the addon correctly.</p>
+<p><strong>API Key Management</strong></p>
+<p>The addon generates a JSON file that stores the necessary API keys for those services that require them. This file, called <code>apis.json</code>, is located in the Windows user folder.</p>
+<p><strong>Key File Considerations</strong></p>
+<p>It has been decided to store this file outside the addon folder, as it contains sensitive information.  This is to prevent this information from being inadvertently shared with a portable copy of NVDA or in other situations. If the user decides to stop using the addon, they must manually delete this file.</p>
+<p>These measures ensure better management and security of the addon, facilitating its use and maintenance.</p>
+<p><a href="#index">Back to index</a></p>
+<h2 id="description-configuration">2 - Description and configuration</h2>
+
+<h3 id="description-modules">2.1 - Description of modules</h3>
+
+<p>In its first version, the plugin offers 7 translation modules:</p>
+<h4 id="google">Google</h4>
+
+<p><strong>4 Google Modules</strong></p>
+<ul>
+<li><strong>2 Web Scraping Modules:</strong> Each module performs the same function, but in a different way, ensuring that there is always an alternative available in case one of them fails.</li>
+<li><strong>2 Modules via API:</strong> These modules are also unlimited and free, but abuse of them may result in a temporary IP ban for a few hours, after which the module will be available again.</li>
+<li>All these Google modules do not require API keys and are unlimited and free.</li>
+</ul>
+<h4 id="deepl">DeepL</h4>
+
+<p><strong>2 DeepL Modules</strong></p>
+<ul>
+<li><strong>Free API:</strong> This option requires obtaining a Free API key from the DeepL page, which offers 500,000 characters per month.</li>
+<li><strong>Pro API:</strong> This option also requires an API key obtained from the DeepL website. Its use is conditional on the balance and the contracted plan of the user's DeepL account.</li>
+<li>The terms of use of the DeepL API are found on its <a href="https://www.deepl.com/en/pro/change-plan#developer">website</a>, and the addon is limited by these terms.</li>
+</ul>
+<h4 id="libretranslate">LibreTranslate</h4>
+
+<p><strong>1 LibreTranslate Module</strong></p>
+<ul>
+<li>This service is constantly improving thanks to its continuous neural learning. Although it currently does not reach Google quality, it is perfectly usable.</li>
+<li>Based on Argos Translate technology.</li>
+<li>To use this module an API key is required, which can be obtained by making a donation to the <a href="https://nvda.es/donaciones/">NVDA.es</a> community.</li>
+<li>After donating, you can request the API key using the form on the following <a href="https://nvda.es/contacto/">page</a>, indicating in the subject "solicitud de clave API" and providing the PayPal reference, transfer , etc.</li>
+<li>Additionally, it is possible to configure other LibreTranslate services by adding the API key and modifying the service URL in the addon configuration section.</li>
+</ul>
+<h4 id="microsoft-translate">Microsoft Translate</h4>
+
+<p><strong>1 Microsoft Translate Module</strong></p>
+<ul>
+<li>This module has the limitation that continuous use may result in a temporary IP ban for a few minutes.</li>
+<li>This ban only occurs with very intensive use and in translations of long texts.</li>
+<li>The service works very well, but it is recommended not to use it continuously to avoid interruptions.</li>
+</ul>
+<p>These options allow users to choose between various translation modules, ensuring availability and flexibility of the addon based on individual needs and preferences.</p>
+<p>As the addon receives updates, services may be added or removed. Changes will be reported in the updates section.</p>
+<p><a href="#index">Back to index</a></p>
+<h3 id="configuration">2.2 - Configuration</h3>
+
+<p><strong>Addon Settings</strong></p>
+<p>This section details how to configure each of the modules available in the addon, including how to add API keys, modify service URLs, and other settings necessary to customize the use of the addon to the user's needs.</p>
+<h4 id="plugin-menu">Addon menu</h4>
+
+<p>In NVDA &gt; Preferences &gt; Advanced Translator there is a menu that contains the following:</p>
+<ul>
+<li><strong>Advanced Translator Configuration</strong></li>
+</ul>
+<p>If you click this option, the addon configuration window will open. This window has 2 sections:</p>
+<ul>
+<li>
+<p><strong>General</strong></p>
+<p>In this tab, the general options of the addon are shown. Currently there is only one checkbox to turn the addon cache on or off.</p>
+<p>The addon can save a cache of the translations for each application, which will make the translation easier and faster for future translations. In addition, it now creates a cache for each language, and there may be more than one application that has a cache for different languages.</p>
+</li>
+<li>
+<p><strong>Translation modules</strong></p>
+<p>In this tab you can choose the service you want to use to translate. For those services that require an API key, the API key manager will also be shown.</p>
+<p>You can have more than one API key for the same service; For example, in LibreTranslate you can have different keys and URLs to connect. You can add, edit, delete and set the default API key that you want for the current service.</p>
+<p>The API key management section changes depending on the service you have selected. You can give each API key an identifying name to quickly know which API you are referring to. When you have more than one API key for a service, the item that has an asterisk in the list will be the default one. This can be changed with the "Default" button, making the key defined for the service the key you have focused on at that moment.</p>
+<p>If the translation service you choose does not require an API key, the API manager will not be displayed.</p>
+<p>Then you have the "OK" and "Cancel" buttons. All options have a shortcut key that NVDA will inform you about.</p>
+</li>
+<li>
+<p><strong>Addon Documentation</strong></p>
+</li>
+</ul>
+<p>If you click "Plugin Documentation" this documentation will open.</p>
+<ul>
+<li><strong>Donate a coffee if you like my work</strong></li>
+</ul>
+<p>If you press this option, the PayPal page will open where there is a link that says "Send". If you click on this link, it will ask you to log in to your account and leave you on the donation page.</p>
+<p>I'll just say that I've had a lot of coffee while making this addon.</p>
+<p><a href="#index">Back to index</a></p>
+<h4 id="addon-hotkeys">Addon-hotkeys</h4>
+
+<p>In NVDA &gt; Preferences &gt; Input Gestures... &gt; Advanced Translator there are the following keys that you can configure.</p>
+<p>The default keys come unassigned so that the user can choose the best layout for them. They are the following:</p>
+<ul>
+<li><strong>Opens addon configuration</strong></li>
+</ul>
+<p>This will quickly open the plugin configuration.</p>
+<ul>
+<li><strong>Enable or disable translation cache</strong></li>
+</ul>
+<p>This will activate or deactivate the cache without having to enter the configuration.</p>
+<ul>
+<li><strong>Activate or deactivate online real time translation</strong></li>
+</ul>
+<p>This activates or deactivates the real time translation. It is the main function that will begin to translate as you move with the cursor arrows. If everything is correct, you will hear the translation; If you hear the original text, you will have to look at the NVDA log and see what happened.</p>
+<ul>
+<li><strong>Change the translation module</strong></li>
+</ul>
+<p>This will open a window with all the translation modules available. You can move with the arrows and select with "Enter". The module you select will be the one you have by default.</p>
+<ul>
+<li><strong>Change target language</strong></li>
+</ul>
+<p>This will open a window with the target languages available in the module we have selected. Each service has different languages, and, for example, if you are translating a text that is in Russian and you want to hear it in English, in this dialog you will have to select English. You move through the dialog with cursor arrows and "Enter" to select the language you want.</p>
+<ul>
+<li><strong>Change source language</strong></li>
+</ul>
+<p>Similar to the previous function, but this dialog is only available for the Microsoft translator. The Microsoft service does not allow you to set the source language as auto so that it detects which language is sent to you, so you will have to choose it yourself.</p>
+<p>The rest of the services will not be able to use this dialog since their default option is to detect which language is being sent.</p>
+<ul>
+<li><strong>Copy the last translated text to the clipboard</strong></li>
+</ul>
+<p>This will copy the last text that has been translated to the clipboard.</p>
+<ul>
+<li><strong>Delete the translation cache for the currently focused application</strong></li>
+</ul>
+<p>If we press this once, it will give us information; If we press it twice quickly, it will clear the cache for the application that currently has focus and will inform us of the result.</p>
+<ul>
+<li><strong>Delete all cached translations for all apps</strong></li>
+</ul>
+<p>If this is pressed once, it will give us information; Pressed twice quickly, it will clear the entire plugin cache, also offering information.</p>
+<ul>
+<li><strong>Shows translation history</strong></li>
+</ul>
+<p>It will show a dialog with the last 500 translations in a list. You can search and review the source text and the translated text in read-only boxes. This dialog will allow you to search the entire history, copy both the source text and the translated text to the clipboard, or both.</p>
+<p>It also allows you to switch between source text and translated text and work in either way. In addition, you can delete all history to start from scratch.</p>
+<p>Notice that the history is cleared every time NVDA restarts.</p>
+<ul>
+<li><strong>Translate the selected text</strong></li>
+</ul>
+<p>This action will translate the text that you have selected and focused. If it is a large text, a dialog will open with the percentage of the translation. Said dialogue can be canceled, which will also cancel the translation.</p>
+<p>Once the translation is complete, the text will be displayed in a dialog so you can explore it.</p>
+<p>This option uses the Google Translate service and this service cannot be changed, being chosen internally since it is the one that gives the best results for long texts.</p>
+<p><a href="#index">Back to index</a></p>
+<h2 id="troubleshooting">3 - Troubleshooting</h2>
+
+<h3 id="common-problems-and-solutions">Common Problems and Solutions</h3>
+
+<p><strong>Internet connection</strong>
+- Check that your Internet connection is active and working properly.
+- Restart your router or modem if necessary.</p>
+<p><strong>Certificate Errors</strong>
+- If you experience certificate errors, make sure your system date and time are correct.
+- Verify that the necessary certificates are installed and updated.</p>
+<p><strong>Performance Issues</strong>
+- Make sure your computer meets the minimum system requirements.
+- Close other applications that may be consuming a lot of resources.</p>
+<p><a href="#index">Back to index</a></p>
+<h3 id="how-to-consult-the-nvda-log">How to Consult the NVDA Log</h3>
+
+<ol>
+<li>Open NVDA.</li>
+<li>Go to <code>NVDA &gt; Tools &gt; View Log</code>.</li>
+<li>In the log window, look for any errors or messages related to Advanced Translator.</li>
+</ol>
+<p><a href="#index">Back to index</a></p>
+<h2 id="acknowledgments">4 - Acknowledgments</h2>
+
+<p>Thanks to all the NVDA programmers for their excellent work.</p>
+<p>And I don't want to fail to say that the beginning of this plugin came from Yannick PLASSIARD's plugin (TRANSLATE), from which I have learned and used some functions.</p>
+<p>Also thanks to Alexy Sadovoy aka Lex, ruslan, beqa, Mesar Hameed, Alberto Buffolino, and other NVDA contributors for the plugin Instant Translate from which one of the methods for Google was obtained and modified to implement it in Advanced Translator.</p>
+<p>This plugin is the work of several years of releasing unofficial versions and the study of using offline translations.</p>
+<p>This addon is the result of this learning, keeping in mind that in the future it will bring surprising new features.</p>
+<p><a href="#index">Back to index</a></p>
+<h3 id="translators">Translators</h3>
+
+<ul>
+<li><strong>Name of Contributor 1:</strong> Description of the contribution.</li>
+</ul>
+<p><a href="#index">Back to index</a></p>
+<h2 id="version-changelog">5 - changelog</h2>
+
+<p>In this section a changelog will be added, where the new features of each version will be posted.</p>
+<p>The manual is based on the first version so it will not be updated serving as a base.</p>
+<p>News will be added in this section.</p>
+<p><a href="#index">Back to index</a></p>
+<h3 id="version-1-0">Version 2024.06.06</h3>
+
+<ul>
+<li>Initial release of the plugin.</li>
+<li>Support for 7 translation services.</li>
+<li>Basic functions of real time translation and API key management.</li>
+</ul>
+<p><a href="#index">Back to index</a></p>
+</body>
+</html>
