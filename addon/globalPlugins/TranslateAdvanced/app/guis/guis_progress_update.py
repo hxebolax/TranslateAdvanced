@@ -97,11 +97,23 @@ class ProgresoDescargaInstalacion(wx.Dialog):
 		"""
 		Muestra el resultado final del proceso, indicando si hubo errores.
 		"""
+		total_idiomas = len({**self.updates['nuevos'], **self.updates['actualizaciones']})
 		if self.errores:
+			if len(self.errores) >=total_idiomas:
+				mensajes_error = "\n".join([_("Error en {}: {}").format(self.descripcion_lenguaje(idioma), error) for idioma, error in self.errores])
+				wx.MessageBox(
+					_("El proceso ha finalizado con errores en los siguientes idiomas:\n\n{}").format(mensajes_error) + 
+					_("\n\nNVDA no se reiniciará, pulse Ctrl + C para copiar el contenido de este dialogo y podérselo enviar al autor del complemento."),
+					_("Errores"),
+					wx.OK | wx.ICON_ERROR
+				)
+				self.frame.gestor_settings.IS_WinON = False
+				self.EndModal(wx.ID_OK)
+				return
 			mensajes_error = "\n".join([_("Error en {}: {}").format(self.descripcion_lenguaje(idioma), error) for idioma, error in self.errores])
-			wx.MessageBox(_("El proceso ha finalizado con errores en los siguientes idiomas:\n\n{}").format(mensajes_error), _("Errores"), wx.OK | wx.ICON_ERROR)
+			wx.MessageBox(_("El proceso ha finalizado con errores en los siguientes idiomas:\n\n{}").format(mensajes_error) + _("\n\nNVDA se reiniciará cuando pulse aceptar."), _("Errores"), wx.OK | wx.ICON_ERROR)
 		else:
-			wx.MessageBox(_("Todos los idiomas se han actualizado correctamente."), _("Éxito"), wx.OK | wx.ICON_INFORMATION)
+			wx.MessageBox(_("Todos los idiomas se han actualizado correctamente.") + _("\n\nNVDA se reiniciará cuando pulse aceptar."), _("Éxito"), wx.OK | wx.ICON_INFORMATION)
 		self.frame.gestor_settings.IS_WinON = False
 		self.EndModal(wx.ID_OK)
 		core.restart()

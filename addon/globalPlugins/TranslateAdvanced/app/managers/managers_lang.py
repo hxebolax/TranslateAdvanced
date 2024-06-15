@@ -275,13 +275,3 @@ class TraductorIdiomas:
 		idiomas = self.obtener_idiomas(traductor)
 		return [f"{codigo}: {nombre}" for codigo, nombre in idiomas.items()]
 
-# Ejemplo de uso
-#if __name__ == "__main__":
-#	traductor_idiomas = TraductorIdiomas()
-
-	# Imprimir los idiomas soportados por cada traductor
-#	for traductor in ["google", "deepl", "libretranslate", "microsoft"]:
-#		print(f"Idiomas soportados por {traductor.capitalize()}:")
-#		for idioma in traductor_idiomas.listar_idiomas(traductor):
-#			print(idioma)
-		print()

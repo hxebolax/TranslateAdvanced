@@ -28,7 +28,7 @@ idiomas utilizando servicios como Google Translate, DeepL, LibreTranslate y Micr
 Ofrece traducción simultánea, historial y gestión de claves API. Es fácil de configurar y usar con
 teclas rápidas y opciones personalizables en el menú de NVDA."""),
 	# version
-	"addon_version": "2024.06.06",
+	"addon_version": "2024.06.16",
 	# Author(s)
 	"addon_author": "Héctor J. Benítez Corredera <xebolax@gmail.com>",
 	# URL for the add-on documentation support

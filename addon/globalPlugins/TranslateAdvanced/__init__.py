@@ -184,9 +184,22 @@ _("""Traductor Avanzado iniciado correctamente.""")
 		Thread(target=wrapper, daemon=True).start()
 
 	def update(self):
+		"""
+		Actualiza la información sobre nuevas versiones y actualizaciones de los idiomas del complemento.
+
+		La función utiliza el gestor de repositorio para comprobar si hay nuevos idiomas o actualizaciones disponibles.
+		Si hay actualizaciones disponibles, se actualiza la etiqueta del menú con el número de actualizaciones.
+		Si no hay actualizaciones disponibles, se actualiza la etiqueta del menú indicando que no hay actualizaciones.
+
+		Parámetros:
+			No recibe parámetros.
+
+		Devuelve:
+			No devuelve ningún valor, pero actualiza el estado del menú correspondiente a las actualizaciones.
+		"""
 		self.update = self.gestor_repositorio.comprobar_nuevos_y_actualizaciones()
 		if self.update['success']:
-			total = len(self.update['data']['nuevos']) + len(self.update['data']['actualizaciones'])
+			total = len({**self.update['data']['nuevos'], **self.update['data']['actualizaciones']})
 			if total == 1:
 				msg = _("&Actualizar idiomas del complemento ({} actualización disponible)").format(total)
 			else:
@@ -251,7 +264,7 @@ Desactívela para realizar esta acción.""")
 		if self.chk_banderas(menu, True):
 			LaunchThread(self, 1).start()
 
-	@script(gesture=None, description=_("Abre la configuración del complemento"), category=_("Traductor Avanzado"))
+	@script(gesture=None, description=_("Comprueba si hay actualizaciones de idioma del complemento"), category=_("Traductor Avanzado"))
 	def script_onUpdate(self,event, menu=False):
 		"""
 		Abre la comprobación de actualizaciones de idioma del complemento.

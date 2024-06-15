@@ -21,7 +21,8 @@
 - [4 - Agradecimientos](#agradecimientos)
   - [Traductores](#traductores)
 - [5 - Registro de Versiones](#registro-de-versiones)
-  - [Versión 1.0](#version-1-0)
+  - [Versión 2024.06.06](#version-2024-06-06)
+  - [Versión 2024.06.16](#version-2024-06-16)
 
 <h2 id="introduccion">1 - Introducción</h2>
 
@@ -277,7 +278,11 @@ El aprendizaje es el resultado de este complemento teniendo en claro que a futur
 
 <h3 id="traductores">Traductores</h3>
 
-- **Nombre del Colaborador 1:** Descripción de la contribución.
+- **Portugués:** Ângelo Abrantes.
+- **Turco:** Umut Korkmaz.
+- **Ruso:** Valentin Kupriyanov.
+- **Inglés:** Samuel Proulx.
+- **Ucraniano:** Heorhii Halas y Volodymyr Pyrih.
 
 [Volver al índice](#indice)
 
@@ -291,10 +296,80 @@ Las novedades se agregarán en esta sección.
 
 [Volver al índice](#indice)
 
-<h3 id="version-1-0">Versión 2024.06.06</h3>
+<h3 id="version-2024-06-06">Versión 2024.06.06</h3>
 
 - Lanzamiento inicial del complemento.
 - Soporte para 7 servicios de traducción.
 - Funcionalidades básicas de traducción simultánea y gestión de claves API.
+
+[Volver al índice](#indice)
+
+<h3 id="version-2024-06-16">Versión 2024.06.16</h3>
+
+- **Agregar el poder copiar al portapapeles lo traducido por selección en vez de mostrarlo en diálogo:**
+
+Se ha añadido una opción para copiar automáticamente al portapapeles el texto traducido cuando se selecciona esta función, evitando la necesidad de mostrar un cuadro de diálogo adicional.
+
+Dicha opción se añadió en el dialogo de configuración del complemento en General.
+
+Si dicha opción se marca ya no mostrara cuando traduzcamos un texto seleccionado un dialogo si no que directamente lo copiara al portapapeles.
+
+- **Traducir lo que haya en el portapapeles:**
+
+Ahora es posible traducir directamente el contenido que se encuentra en el portapapeles, proporcionando una manera rápida y eficiente de traducir textos copiados.
+
+Si no se traduce nada nos dirá que hay en el portapapeles o si no hay nada en el portapapeles nos notificara con un mensaje.
+
+- **Traducir lo último verbalizado por el sintetizador:**
+
+Se ha incorporado una funcionalidad que permite traducir la última frase o texto verbalizado por el sintetizador de voz, mejorando la accesibilidad y usabilidad del complemento.
+
+Si no se puede traducir lo ultimo verbalizado nos dirá lo ultimo que se verbalizo en el idioma origen.
+
+- **Mostrar traducciones en líneas braille:**
+
+La nueva versión incluye soporte para mostrar las traducciones en dispositivos de línea braille, facilitando el acceso a las traducciones.
+
+Solo funcionara en aquellos equipos que tengan configurada una línea braille.
+
+Esta función esta en fase de pruebas.
+
+- **Actualizador de idiomas del complemento:**
+
+Se ha implementado un actualizador que permite mantener los idiomas del complemento siempre actualizados, asegurando la disponibilidad de los idiomas más recientes y precisos.
+
+Ahora en el menú de NVDA > Preferencias > Traductor Avanzado
+
+Tendremos un nuevo item llamado Actualizar idiomas del complemento (Sin actualizaciones).
+
+Dicho item puede que nos informe si existen actualizaciones, por ejemplo:
+
+Actualizar idiomas del complemento (3 actualizaciones disponibles)
+
+Si lo pulsamos nos saldrá un dialogo con los nuevos idiomas, con las actualizaciones o con alguna de las dos si no hay en ambas.
+
+Podremos instalar o omitir.
+
+Si damos a instalar se descargarán los idiomas e instalarán y NVDA se reiniciará.
+
+El item del menú se actualiza cada 30 minutos comprobando si hay actualizaciones o en cada reinicio.
+
+El gasto de datos de esta comprobación es irrisorio por aquellos lugares que tengan problemas de datos es menos de 1kb lo que tiene que comprobar.
+
+Este actualizador facilitara el poder compartir con los usuarios las actualizaciones de los idiomas para el complemento de manera rápida conforme van llegando y sin necesidad de sacar una nueva versión con los nuevos idiomas.
+
+Cada nueva versión del complemento vendrá con todos los idiomas nuevos y actualizados que hayan llegado.
+
+- **Error de lectura continua solucionado:**
+
+Se ha corregido un problema que causaba errores en la lectura continua, mejorando la estabilidad y el rendimiento del complemento durante el uso prolongado.
+
+- **Notas del autor:**
+
+A todas las nuevas funciones como traducir el portapapeles, traducir lo ultimo verbalizado por el sintetizador o comprobar actualizaciones de idioma, se le pueden asignar gestos.
+
+Recomiendo que si alguna opción no vamos a usarla no se le agregue gesto de entrada para poder tenerla en otros complementos. Agreguemos aquellas que nos puedan servir.
+
+Conforme se vayan añadiendo utilidades se necesitarán más gestos y puede que una utilidad no sirva a uno y puede que a otro si por lo que asignemos solo los que vayamos a usar.
 
 [Volver al índice](#indice)
