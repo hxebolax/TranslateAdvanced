@@ -56,6 +56,7 @@ class GestorSettings:
 		self._nvdaSpeak = None
 		self._nvdaGetPropertiesSpeech = None
 		self._lastTranslatedText = None
+		self.ultimo_texto = None
 		# Configuración a guardar
 		self.choiceOnline = None
 		self.choiceLangOrigen = None
@@ -64,6 +65,7 @@ class GestorSettings:
 		self.choiceLangDestino_libretranslate = None
 		self.choiceLangDestino_microsoft = None
 		self.chkCache = None
+		self.chkResults = None
 		self.api_deepl = None
 		self.api_deepl_pro = None
 		self.api_libretranslate = None
@@ -84,6 +86,7 @@ class GestorSettings:
 			"choiceLangDestino_libretranslate": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_microsoft": f"string(default={self.obtenerLenguaje()})",
 			"chkCache": "boolean(default=False)",
+			"chkResults": "boolean(default=False)",
 			"api_deepl": "string(default=None)",
 			"api_deepl_pro": "string(default=None)",
 			"api_libretranslate": "string(default=None)",
@@ -123,6 +126,7 @@ class GestorSettings:
 		self.choiceLangDestino_libretranslate = self.getConfig("choiceLangDestino_libretranslate")
 		self.choiceLangDestino_microsoft = self.getConfig("choiceLangDestino_microsoft")
 		self.chkCache = self.getConfig("chkCache")
+		self.chkResults = self.getConfig("chkResults")
 		self.api_deepl = self.convertir_valor(self.getConfig("api_deepl"))
 		self.api_deepl_pro = self.convertir_valor(self.getConfig("api_deepl_pro"))
 		self.api_libretranslate = self.convertir_valor(self.getConfig("api_libretranslate"))
@@ -139,6 +143,7 @@ class GestorSettings:
 		self.setConfig("choiceLangDestino_libretranslate", self.choiceLangDestino_libretranslate)
 		self.setConfig("choiceLangDestino_microsoft", self.choiceLangDestino_microsoft)
 		self.setConfig("chkCache", self.chkCache)
+		self.setConfig("chkResults", self.chkResults)
 		self.setConfig("api_deepl", self.convertir_valor(self.api_deepl))
 		self.setConfig("api_deepl_pro", self.convertir_valor(self.api_deepl_pro))
 		self.setConfig("api_libretranslate", self.convertir_valor(self.api_libretranslate))

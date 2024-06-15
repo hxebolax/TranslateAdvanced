@@ -102,8 +102,12 @@ class ConfigDialog(wx.Dialog):
 		sizer = wx.BoxSizer(wx.VERTICAL)
 
 		# Checkbox para activar o desactivar la caché de traducción
-		self.cache_checkbox = wx.CheckBox(panel, label=_("Activar o &desactivar la caché de traducción"))
+		self.cache_checkbox = wx.CheckBox(panel, label=_("Usar caché &de traducción"))
 		sizer.Add(self.cache_checkbox, 0, wx.ALL, 10)
+
+		# Checkbox para mostrar dialogo de resultados
+		self.results_checkbox = wx.CheckBox(panel, label=_("No mostrar dialogo de &resultados y copiar al portapapeles"))
+		sizer.Add(self.results_checkbox, 0, wx.ALL, 10)
 
 		panel.SetSizer(sizer)
 		return panel
@@ -251,6 +255,7 @@ class ConfigDialog(wx.Dialog):
 		Inicializa la configuración general del diálogo.
 		"""
 		self.cache_checkbox.SetValue(self.frame.gestor_settings.chkCache)
+		self.results_checkbox.SetValue(self.frame.gestor_settings.chkResults)
 
 	def start_translate_online(self):
 		"""
@@ -396,6 +401,8 @@ class ConfigDialog(wx.Dialog):
 		:param event: Evento de botón.
 		"""
 		self.frame.gestor_settings.chkCache = self.cache_checkbox.GetValue()
+		self.frame.gestor_settings.chkResults = self.results_checkbox.GetValue()
+
 		self.frame.gestor_settings.choiceOnline = self.translator_choice.GetSelection()
 		self.frame.gestor_settings.api_deepl = self.default_api_index["deepL_free"]
 		self.frame.gestor_settings.api_deepl_pro = self.default_api_index["deepL_pro"]

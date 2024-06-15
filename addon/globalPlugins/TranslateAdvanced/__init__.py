@@ -18,6 +18,7 @@ from scriptHandler import script, getLastScriptRepeatCount
 # Carga Python
 import os
 import wx
+import time
 from threading import Thread
 # Carga personal
 from .app.managers.managers_settings import GestorSettings
@@ -32,9 +33,12 @@ from .app.guis.guis_lang import DialogoLang
 from .app.guis.guis_progress import ProgressDialog
 from .app.guis.guis_result import DialogResults
 from .app.guis.guis_hostory import DialogHistory
+from .app.guis.guis_update import UpdateDialog
+from .app.guis.guis_progress_update import ProgresoDescargaInstalacion
 from .app.utils.utils_security import disableInSecureMode
 from .app.utils.utils_network import is_connected, realizar_solicitud_https
 from .app.utils.utils_various import getSelectedText
+from .app.utils.utils_nvda import mute
 
 # Carga traducción
 addonHandler.initTranslation()
@@ -95,6 +99,7 @@ Error:
 		# Utilidades
 		self._cache = None
 		self.menu = None
+		self.oldSpeak = None
 
 	def postStartupHandler(self):
 		"""
@@ -122,10 +127,12 @@ Error:
 		self.gestor_settings._nvdaGetPropertiesSpeech = speech.getPropertiesSpeech
 		speech._manager.speak = self.gestor_translate.speak
 		speech.getPropertiesSpeech = self.gestor_settings._nvdaGetPropertiesSpeech
+		self.oldSpeak = speech.speech.speak
+		speech.speech.speak = self.gestor_translate.mySpeak
+
 		self.gestor_settings._enableTranslation = False
 		# Gestor del portapapeles
-		self.gestor_portapapeles = ClipboardMonitor()
-		# Gestor del portapapeles
+		self.gestor_portapapeles = ClipboardMonitor(self)
 		# Gestor del repositorio de Github con los idiomas para actualizar o añadir
 		self.gestor_repositorio = GestorRepositorios(self, "hxebolax/TranslateAdvanced", rama='master', local_dir=addonHandler.getCodeAddon().path, json_file=os.path.join(self.gestor_settings.dir_root, "languages.json"))
 		# Menú de NVDA
@@ -133,16 +140,18 @@ Error:
 		self.WXMenu = wx.Menu()
 		self.mainItem = self.menu.AppendSubMenu(self.WXMenu, _("&Traductor Avanzado"), "")
 		self.settingsItem = self.WXMenu.Append(1, _("&Configuración de Traductor Avanzado"), "")
-		self.docuSettingsItem = self.WXMenu.Append(2, _("&Documentación del complemento"), "")
-		self.donaSettingsItem = self.WXMenu.Append(3, _("&invítame a un café si te gusta mi trabajo"), "")
-		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self.onSettings, self.settingsItem)
-		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self.onSettings, self.docuSettingsItem)
-		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self.onSettings, self.donaSettingsItem)
+		self.updateItem = self.WXMenu.Append(2, _("&Actualizar idiomas del complemento (Sin actualizaciones)"), "")
+		self.docuSettingsItem = self.WXMenu.Append(3, _("&Documentación del complemento"), "")
+		self.donaSettingsItem = self.WXMenu.Append(4, _("&invítame a un café si te gusta mi trabajo"), "")
+		items = [self.settingsItem, self.updateItem, self.docuSettingsItem, self.donaSettingsItem]
+		for i in items:
+			gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self.onSettings, i)
 
 		if self.IS_OK:
 			msg = \
 _("""Traductor Avanzado iniciado correctamente.""")
 			logHandler.log.info(msg)
+		self._update(self.update)
 
 	def terminate(self):
 		"""
@@ -150,12 +159,41 @@ _("""Traductor Avanzado iniciado correctamente.""")
 		"""
 		speech._manager.speak = self.gestor_settings._nvdaSpeak
 		speech.getPropertiesSpeech = self.gestor_settings._nvdaGetPropertiesSpeech
+		speech.speech.speak = self.oldSpeak
 		if self.gestor_settings.chkCache:
 			self._cache.saveLocalCache()
 		self.gestor_settings.guardaConfiguracion()
 		self.menu.Remove(self.mainItem)
 		core.postNvdaStartup.unregister(self.postStartupHandler)
 		super().terminate()
+
+	def _update(self, func):
+		"""
+		Función que ejecuta una función dada cada 30 minutos en un hilo separado.
+
+		:param func: Función a ejecutar.
+		"""
+		def wrapper():
+			# Ejecutar la función por primera vez inmediatamente
+			func()
+			while True:
+				# Esperar 30 minutos (1800 segundos)
+				time.sleep(1800)
+				# Ejecutar la función
+				func()
+		Thread(target=wrapper, daemon=True).start()
+
+	def update(self):
+		self.update = self.gestor_repositorio.comprobar_nuevos_y_actualizaciones()
+		if self.update['success']:
+			total = len(self.update['data']['nuevos']) + len(self.update['data']['actualizaciones'])
+			if total == 1:
+				msg = _("&Actualizar idiomas del complemento ({} actualización disponible)").format(total)
+			else:
+				msg = _("&Actualizar idiomas del complemento ({} actualizaciones disponibles)").format(total)
+			self.menu.SetLabel(self.updateItem.GetId(), msg)
+		else:
+			self.menu.SetLabel(self.updateItem.GetId(), _("&Actualizar idiomas del complemento (Sin actualizaciones)"))
 
 	def chk_banderas(self, menu=False, toogle=False):
 		"""
@@ -195,9 +233,11 @@ Desactívela para realizar esta acción.""")
 		"""
 		if event.GetId() == 1: # Configuración
 			self.script_onSettings(event.GetId(), True)
-		elif event.GetId() == 2: # Documentación
+		elif event.GetId() == 2: # Actualizaciones
+			self.script_onUpdate(event.GetId(), True)
+		elif event.GetId() == 3: # Documentación
 			wx.LaunchDefaultBrowser(addonHandler.Addon(os.path.join(os.path.dirname(__file__), "..", "..")).getDocFilePath())
-		elif event.GetId() == 3: # Donaciones
+		elif event.GetId() == 4: # Donaciones
 			wx.LaunchDefaultBrowser("https://paypal.me/hjbcdonaciones?country.x=ES&locale.x=es_ES")
 
 	@script(gesture=None, description=_("Abre la configuración del complemento"), category=_("Traductor Avanzado"))
@@ -210,6 +250,17 @@ Desactívela para realizar esta acción.""")
 		"""
 		if self.chk_banderas(menu, True):
 			LaunchThread(self, 1).start()
+
+	@script(gesture=None, description=_("Abre la configuración del complemento"), category=_("Traductor Avanzado"))
+	def script_onUpdate(self,event, menu=False):
+		"""
+		Abre la comprobación de actualizaciones de idioma del complemento.
+
+		:param event: Evento que desencadena la función.
+		:param menu: Indica si el menú está abierto.
+		"""
+		if self.chk_banderas(menu, True):
+			LaunchThread(self, 7).start()
 
 	@script(gesture=None, description=_("Cambiar idioma de origen"), category=_("Traductor Avanzado"))
 	def script_choice_lang_origen(self, event):
@@ -365,6 +416,67 @@ Desactívela para realizar esta acción.""")
 			# Muestra un mensaje indicando que no hay texto para copiar
 			ui.message(_("No se ha podido copiar nada al portapapeles"))
 
+	@script(gesture=None, description=_("Traduce el contenido del portapapeles"), category=_("Traductor Avanzado"))
+	def script_ClipboardTranslation(self, event):
+		"""
+		Traduce el contenido del portapapeles
+		
+		:param event: El evento que desencadena la función.
+		"""
+		
+		# Verifica si hay una traducción en curso
+		if self.gestor_settings.is_active_translate:
+			ui.message(_("Tiene una traducción en curso. Espere a que termine."))
+			return
+		texto = self.gestor_portapapeles.get_clipboard_text()
+		# Verificar si el texto no es None, no está vacío y contiene al menos un carácter alfanumérico
+		if texto is not None and texto and any(c.isalnum() for c in texto):
+			# Verificar que el texto tenga menos de 3000 caracteres
+			if len(texto) < 3000:
+				temp = self.gestor_settings._enableTranslation
+				self.gestor_settings._enableTranslation = False
+				result = self.gestor_translate.translate_various(texto)
+				ui.message(result)
+				self.gestor_settings._enableTranslation = temp
+			else: # Más de 3000 caracteres
+				self.gestor_settings._enableTranslation = False
+				self.gestor_settings.is_active_translate = True
+				LaunchThread(self, 5, texto).start()
+		else:
+			# Muestra un mensaje indicando que no hay texto para traducir
+			ui.message(_("No hay nada para traducir en el portapapeles"))
+
+	@script(gesture=None, description=_("Traduce el último texto verbalizado"), category=_("Traductor Avanzado"))
+	def script_speackLastTranslation(self, event):
+		"""
+		Traduce el último texto verbalizado si no hay una traducción en curso.
+		
+		:param event: El evento que desencadena la función.
+		"""
+		
+		# Verifica si hay una traducción en curso
+		if self.gestor_settings.is_active_translate:
+			ui.message(_("Tiene una traducción en curso. Espere a que termine."))
+			return
+		
+		texto = self.gestor_settings.ultimo_texto
+		# Verificar si el texto no es None, no está vacío y contiene al menos un carácter alfanumérico
+		if texto is not None and texto and any(c.isalnum() for c in texto):
+			# Verificar que el texto tenga menos de 3000 caracteres
+			if len(texto) < 3000:
+				temp = self.gestor_settings._enableTranslation
+				self.gestor_settings._enableTranslation = False
+				result = self.gestor_translate.translate_various(texto)
+				ui.message(result)
+				self.gestor_settings._enableTranslation = temp
+			else: # Más de 3000 caracteres
+				self.gestor_settings._enableTranslation = False
+				self.gestor_settings.is_active_translate = True
+				LaunchThread(self, 5, texto).start()
+		else:
+			# Muestra un mensaje indicando que no hay texto para traducir
+			ui.message(_("No hay nada para traducir"))
+
 	@script(gesture=None, description=_("Activa o desactiva la traducción simultánea Online"), category=_("Traductor Avanzado"))
 	def script_toggleTranslateOnline(self, event):
 		"""
@@ -493,13 +605,17 @@ class LaunchThread(Thread):
 
 		def show_translation_result(data):
 			"""
-			Muestra el diálogo con el resultado de la traducción.
+			Muestra el diálogo con el resultado de la traducción o copia al portapapeles segun configuración
 			"""
-			gui.mainFrame.prePopup()
-			dlg = DialogResults(None, _("Resultado de la traducción"), data)
-			dlg.ShowModal()
-			dlg.Destroy()
-			gui.mainFrame.postPopup()
+			if self.frame.gestor_settings.chkResults:
+				self.frame.gestor_portapapeles.set_clipboard_text(data)
+				mute(0.3, _("Traducción copiada al portapapeles"))
+			else:
+				gui.mainFrame.prePopup()
+				dlg = DialogResults(None, _("Resultado de la traducción"), data)
+				dlg.ShowModal()
+				dlg.Destroy()
+				gui.mainFrame.postPopup()
 
 		def translate_history():
 			"""
@@ -510,6 +626,27 @@ class LaunchThread(Thread):
 			dlg.ShowModal()
 			dlg.Destroy()
 			gui.mainFrame.postPopup()
+
+		def translate_update():
+			"""
+			Actualiza idiomas del complemento.
+			"""
+			datos = self.frame.gestor_repositorio.comprobar_nuevos_y_actualizaciones()
+			if datos['success']:
+				self.update_dialog = UpdateDialog(self.frame, datos['data'])
+				result = self.update_dialog.ShowModal()
+				if result == wx.ID_OK:
+					dlg = ProgresoDescargaInstalacion(self.frame, datos['data'])
+					dlg.ShowModal()
+					dlg.Destroy()
+				else:
+					return
+			else: # No hay actualizaciones.
+				if 'error' in datos and not datos['error']:
+					gui.messageBox(datos['data'], _("Información"), wx.ICON_INFORMATION)
+				else:
+					gui.messageBox(datos['data'], _("Error"), wx.OK | wx.ICON_ERROR)
+
 
 		if self.option == 1: # Configuración
 			wx.CallAfter(appLauncherAjustes)
@@ -523,3 +660,5 @@ class LaunchThread(Thread):
 			wx.CallAfter(translate_select)
 		elif self.option == 6: # Historial de traducción
 			wx.CallAfter(translate_history)
+		elif self.option == 7: # Actualizaciones de idioma del complemento
+			wx.CallAfter(translate_update)

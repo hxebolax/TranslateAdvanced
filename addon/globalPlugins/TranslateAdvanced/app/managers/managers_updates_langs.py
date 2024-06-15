@@ -81,6 +81,7 @@ class GestorRepositorios:
 			msg = _("Error al obtener idiomas remotos: {}").format(str(e))
 			logHandler.log.error(msg)
 			return {'success': False, 'data': msg}
+
 	def comprobar_nuevos_y_actualizaciones(self):
 		"""
 		Comprueba si hay nuevos idiomas y actualizaciones en el repositorio de GitHub.
@@ -89,11 +90,11 @@ class GestorRepositorios:
 		"""
 		result_locales = self.cargar_idiomas_locales()
 		if not result_locales['success']:
-			return result_locales['data']
+			return result_locales
 
 		result_remotos = self.obtener_idiomas_remotos()
 		if not result_remotos['success']:
-			return result_remotos['data']
+			return result_remotos
 
 		idiomas_locales = result_locales['data']
 		idiomas_remotos = result_remotos['data']
@@ -103,7 +104,7 @@ class GestorRepositorios:
 		if nuevos_idiomas or idiomas_para_actualizar:
 			return {'success': True, 'data': {'nuevos': nuevos_idiomas, 'actualizaciones': idiomas_para_actualizar}}
 		else:
-			return {'success': False, 'data': _('No hay actualizaciones ni nuevos idiomas disponibles.')}
+			return {'success': False, 'data': _('No hay actualizaciones ni nuevos idiomas disponibles.'), 'error': False}
 
 	def descargar_zip(self, idioma, widget_progreso=None):
 		"""
@@ -129,8 +130,8 @@ class GestorRepositorios:
 						file.write(buffer)
 						bytes_descargados += len(buffer)
 						if widget_progreso:
-							widget_progreso.SetValue(bytes_descargados / total_size * 100)
-			return {'success': True, 'data': msg}
+							widget_progreso.SetValue(int(bytes_descargados / total_size * 100))
+			return {'success': True, 'data': ""}
 		except Exception as e:
 			msg = _("Error al descargar el archivo .zip de {}: {}").format(idioma, str(e))
 			logHandler.log.error(msg)
@@ -156,9 +157,9 @@ class GestorRepositorios:
 				for i, archivo in enumerate(archivos):
 					zip_ref.extract(archivo, ruta_destino)
 					if widget_progreso:
-						widget_progreso.SetValue((i + 1) / total_files * 100)
+						widget_progreso.SetValue(int((i + 1) / total_files * 100))
 			os.remove(ruta_zip)
-			return {'success': True, 'data': msg}
+			return {'success': True, 'data': ""}
 		except Exception as e:
 			msg = _("Error al descomprimir el archivo .zip de {}: {}").format(idioma, str(e))
 			logHandler.log.error(msg)
@@ -181,7 +182,7 @@ class GestorRepositorios:
 			idiomas_locales[idioma] = version
 			result = self.guardar_idiomas_locales(idiomas_locales)
 			if result['success']:
-				return {'success': True, 'data': msg}
+				return {'success': True, 'data': ""}
 			else:
 				return result
 		except Exception as e:

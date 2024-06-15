@@ -6,164 +6,129 @@
 import addonHandler
 import logHandler
 # Carga Python
-import ctypes
-import ctypes.wintypes
+import wx
 import threading
+from time import sleep
 
 # Carga traducción
 addonHandler.initTranslation()
 
-# Definición de tipos y constantes
-user32 = ctypes.windll.user32
-kernel32 = ctypes.windll.kernel32
-
-WM_CLIPBOARDUPDATE = 0x031D
-CF_UNICODETEXT = 13
-
 class ClipboardMonitor:
 	"""
-	Clase para monitorear cambios en el portapapeles en tiempo real.
+	Clase para monitorizar el portapapeles y detectar cambios de contenido de texto en tiempo real.
 	"""
+	def __init__(self, frame, check_interval=0.5):
+		"""
+		Inicializa una nueva instancia de la clase ClipboardMonitor.
 
-	class WNDCLASS(ctypes.Structure):
-		_fields_ = [("style", ctypes.c_uint),
-					("lpfnWndProc", ctypes.WINFUNCTYPE(ctypes.c_long, ctypes.wintypes.HWND, ctypes.c_uint, ctypes.wintypes.WPARAM, ctypes.wintypes.LPARAM)),
-					("cbClsExtra", ctypes.c_int),
-					("cbWndExtra", ctypes.c_int),
-					("hInstance", ctypes.wintypes.HINSTANCE),
-					("hIcon", ctypes.wintypes.HICON),
-					("hCursor", ctypes.wintypes.HANDLE),
-					("hbrBackground", ctypes.wintypes.HBRUSH),
-					("lpszMenuName", ctypes.wintypes.LPCWSTR),
-					("lpszClassName", ctypes.wintypes.LPCWSTR)]
-
-	def __init__(self, callback=None):
+		:param check_interval: Intervalo de tiempo en segundos para verificar el portapapeles.
 		"""
-		Inicializa el monitor del portapapeles.
-		
-		:param callback: Función a llamar cuando el portapapeles cambie.
-		"""
-		self.callback = callback
-		self.running = False
-		self.hwnd = None
-		self._ignore_next_change = False
-
-	def start(self):
-		"""
-		Inicia el monitor del portapapeles.
-		"""
-		if not self.running:
-			self.running = True
-			self._monitor_thread = threading.Thread(target=self._run, daemon=True)
-			self._monitor_thread.start()
-
-	def stop(self):
-		"""
-		Detiene el monitor del portapapeles.
-		"""
-		if self.running:
-			self.running = False
-			user32.RemoveClipboardFormatListener(self.hwnd)
-			user32.DestroyWindow(self.hwnd)
-			self._monitor_thread.join()
-
-	def _run(self):
-		"""
-		Función que se ejecuta en un hilo separado para monitorear el portapapeles.
-		"""
-		wndclass = self.WNDCLASS()
-		hinst = kernel32.GetModuleHandleW(None)
-		wndclass.lpfnWndProc = self._get_wnd_proc()
-		wndclass.hInstance = hinst
-		wndclass.lpszClassName = "ClipboardMonitor"
-
-		if not user32.RegisterClassW(ctypes.byref(wndclass)):
-			raise RuntimeError(_("Error registrando clase de ventana"))
-
-		self.hwnd = user32.CreateWindowExW(
-			0, wndclass.lpszClassName, "ClipboardMonitor", 0, 0, 0, 0, 0, 0, 0, hinst, None
-		)
-		if not self.hwnd:
-			raise RuntimeError(_("Error creando ventana"))
-
-		if not user32.AddClipboardFormatListener(self.hwnd):
-			raise RuntimeError(_("Error agregando listener de portapapeles"))
-
-		msg = ctypes.wintypes.MSG()
-		while self.running:
-			while user32.PeekMessageW(ctypes.byref(msg), 0, 0, 0, 1):
-				user32.TranslateMessage(ctypes.byref(msg))
-				user32.DispatchMessageW(ctypes.byref(msg))
-
-	def _get_wnd_proc(self):
-		"""
-		Obtiene la función de procesamiento de ventana.
-		
-		:return: Función WndProc.
-		"""
-		def wnd_proc(hwnd, msg, wparam, lparam):
-			if msg == WM_CLIPBOARDUPDATE:
-				self._on_clipboard_change()
-			return user32.DefWindowProcW(hwnd, msg, wparam, lparam)
-		return ctypes.WINFUNCTYPE(ctypes.c_long, ctypes.wintypes.HWND, ctypes.c_uint, ctypes.wintypes.WPARAM, ctypes.wintypes.LPARAM)(wnd_proc)
-
-	def _on_clipboard_change(self):
-		"""
-		Callback para manejar cambios en el portapapeles.
-		"""
-		if self._ignore_next_change:
-			self._ignore_next_change = False
-			return
-
-		text = self._get_clipboard_text()
-		if text is not None:
-			self.callback(text)
-
-	def _get_clipboard_text(self):
-		"""
-		Obtiene el texto actual del portapapeles.
-		
-		:return: El texto del portapapeles o None si no hay texto disponible.
-		"""
-		user32.OpenClipboard(0)
-		handle = user32.GetClipboardData(CF_UNICODETEXT)
-		if handle:
-			data = ctypes.c_wchar_p(kernel32.GlobalLock(handle)).value
-			kernel32.GlobalUnlock(handle)
-		else:
-			data = None
-		user32.CloseClipboard()
-		return data
+		self.frame = frame
+		self.check_interval = check_interval
+		self.last_content = ""
+		self._running = False
+		self._initial_check = True
 
 	def get_clipboard_text(self):
 		"""
-		Obtiene el texto actual del portapapeles.
-		
+		Obtiene el texto actual del portapapeles, si está disponible.
+
 		:return: El texto del portapapeles o None si no hay texto disponible.
 		"""
-		return self._get_clipboard_text()
+		clipboard = wx.Clipboard.Get()
+		try:
+			clipboard.Open()
+		except Exception as e:
+			logHandler.log.error(_("Error al abrir el portapapeles: {0}").format(e))
+			sleep(0.10)
+			try:
+				clipboard.Open()
+			except Exception as e:
+				logHandler.log.error(_("Error persistente al abrir el portapapeles: {0}").format(e))
+				return None
+		try:
+			if clipboard.IsSupported(wx.DataFormat(wx.DF_TEXT)):
+				text_data = wx.TextDataObject()
+				clipboard.GetData(text_data)
+				return text_data.GetText()
+			return None
+		finally:
+			clipboard.Close()
 
 	def set_clipboard_text(self, text):
 		"""
-		Establece el texto en el portapapeles sin activar el callback.
-		
-		:param text: El texto a establecer en el portapapeles.
+		Copia el texto proporcionado al portapapeles.
+
+		:param text: El texto que se va a copiar al portapapeles.
 		"""
-		self._ignore_next_change = True
-		user32.OpenClipboard(0)
-		user32.EmptyClipboard()
-		hglobal = kernel32.GlobalAlloc(0x2000, (len(text) + 1) * ctypes.sizeof(ctypes.c_wchar))
-		lock = kernel32.GlobalLock(hglobal)
-		ctypes.cdll.msvcrt.wcscpy(ctypes.c_wchar_p(lock), text)
-		kernel32.GlobalUnlock(hglobal)
-		user32.SetClipboardData(CF_UNICODETEXT, hglobal)
-		user32.CloseClipboard()
+		clipboard = wx.Clipboard.Get()
+		try:
+			clipboard.Open()
+			text_data = wx.TextDataObject()
+			text_data.SetText(text)
+			clipboard.SetData(text_data)
+			clipboard.Flush()
+		except Exception as e:
+			logHandler.log.error(_("Error al copiar texto al portapapeles: {0}").format(e))
+		finally:
+			clipboard.Close()
 
 	def clear_clipboard(self):
 		"""
 		Limpia el contenido del portapapeles.
 		"""
-		self._ignore_next_change = True
-		user32.OpenClipboard(0)
-		user32.EmptyClipboard()
-		user32.CloseClipboard()
+		clipboard = wx.Clipboard.Get()
+		try:
+			clipboard.Open()
+			clipboard.Clear()
+		except Exception as e:
+			logHandler.log.error(_("Error al limpiar el portapapeles: {0}").format(e))
+		finally:
+			clipboard.Close()
+
+	def has_clipboard_changed(self):
+		"""
+		Verifica si el contenido del portapapeles ha cambiado.
+
+		:return: True si el contenido del portapapeles ha cambiado, False en caso contrario.
+		"""
+		current_content = self.get_clipboard_text()
+		if current_content is not None and current_content != self.last_content:
+			self.last_content = current_content
+			return True
+		return False
+
+	def start_monitoring(self):
+		"""
+		Inicia la monitorización del portapapeles en un hilo separado.
+		"""
+		self._running = True
+		thread = threading.Thread(target=self._monitor_clipboard)
+		thread.daemon = True
+		thread.start()
+
+	def stop_monitoring(self):
+		"""
+		Detiene la monitorización del portapapeles.
+		"""
+		self._running = False
+
+	def _monitor_clipboard(self):
+		"""
+		Método interno que monitoriza el portapapeles periódicamente.
+		"""
+		while self._running:
+			if self.has_clipboard_changed():
+				if not self._initial_check:
+					logHandler.log.info(_("El contenido del portapapeles ha cambiado: {0}").format(self.last_content))
+				else:
+					self._initial_check = False
+			sleep(self.check_interval)
+
+	def get_last_clipboard_text(self):
+		"""
+		Obtiene el último contenido de texto conocido del portapapeles.
+
+		:return: El último contenido de texto del portapapeles.
+		"""
+		return self.last_content

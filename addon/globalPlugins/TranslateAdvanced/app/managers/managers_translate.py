@@ -7,6 +7,7 @@ import addonHandler
 import globalVars
 import logHandler
 import braille
+import speechViewer
 from speech import *
 # Carga estándar
 
@@ -144,6 +145,49 @@ class GestorTranslate(
 		# Devolver un diccionario con las listas procesadas
 		return {'origen': origen_procesado, 'destino': destino_procesado}
 
+	def translate_various(self, text):
+		"""
+		Traduce el texto dado utilizando el traductor de Google API gratuito y actualiza el historial de traducciones y el texto traducido más reciente.
+
+		Args:
+			text (str): El texto a traducir.
+
+		Returns:
+			str: El texto traducido si es diferente del texto original, o el texto original si no hubo cambios después de la traducción.
+			
+		Proceso:
+			1. Prepara el texto para la traducción.
+			2. Traduce el texto utilizando el traductor de Google API gratuito.
+			3. Si el texto traducido es igual al texto original (ignorando espacios en blanco al final), actualiza el último texto traducido con el texto original.
+			4. Si el soporte de braille está habilitado, muestra el mensaje del último texto traducido.
+			5. Si el texto traducido es diferente del texto original:
+				- Añade el texto original y el texto traducido al historial, si el texto original no está ya en el historial.
+				- Actualiza el último texto traducido con el texto traducido.
+				- Si el soporte de braille está habilitado, muestra el mensaje del último texto traducido.
+		"""
+		prepared = text
+		translated = TranslatorGoogleApiFree().translate_google_api_free(lang_from='auto', lang_to=self.frame.gestor_settings.choiceLangDestino_google, text=prepared)
+		if prepared.rstrip() == translated.rstrip():
+			self.frame.gestor_settings._lastTranslatedText = prepared
+			if braille.handler._get_enabled():
+				braille.handler.message(self.frame.gestor_settings._lastTranslatedText)
+			return prepared
+		else:
+			if prepared not in self.frame.gestor_settings.historialOrigen:
+				self.frame.gestor_settings.historialOrigen.appendleft(prepared)
+				self.frame.gestor_settings.historialDestino.appendleft(translated)
+				self.frame.gestor_settings._lastTranslatedText = translated
+				if braille.handler._get_enabled():
+					braille.handler.message(self.frame.gestor_settings._lastTranslatedText)
+				return translated
+			else:
+				self.frame.gestor_settings._lastTranslatedText = translated
+				if braille.handler._get_enabled():
+					braille.handler.message(self.frame.gestor_settings._lastTranslatedText)
+				return translated
+
+
+
 	def translate_file(self, text, func_progress):
 		"""
 		Traduce el contenido de un archivo de texto.
@@ -278,10 +322,22 @@ Error:
 
 		self.frame.gestor_settings._nvdaSpeak(speechSequence=newSpeechSequence, priority=priority)
 
+		listaorigen = [elemento.rstrip() for elemento in newSpeechSequenceOrigen]
+		listadestino = [elemento.rstrip() for elemento in newSpeechSequenceDestino]
+		if listaorigen == listadestino:
+			return
+
 		temp = self.procesar_listas(newSpeechSequenceOrigen, newSpeechSequenceDestino)
 		if temp['origen'] not in self.frame.gestor_settings.historialOrigen:
 			self.frame.gestor_settings.historialOrigen.appendleft(temp['origen'])
 			self.frame.gestor_settings.historialDestino.appendleft(temp['destino'])
 			self.frame.gestor_settings._lastTranslatedText = temp['destino']
-			braille.handler.message(self.frame.gestor_settings._lastTranslatedText)
+			if braille.handler._get_enabled():
+				braille.handler.message(self.frame.gestor_settings._lastTranslatedText)
 
+	def mySpeak(self, sequence, *args, **kwargs):
+		self.frame.oldSpeak(sequence, *args, **kwargs)
+		self.frame.gestor_settings.ultimo_texto = self.getSequenceText(sequence)
+
+	def getSequenceText(self, sequence):
+		return speechViewer.SPEECH_ITEM_SEPARATOR.join([x for x in sequence if isinstance(x, str)])
