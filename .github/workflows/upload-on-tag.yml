@@ -5,21 +5,35 @@ on:
     tags:
       '*'
 
+permissions:
+  contents: write
+  packages: write
+  actions: write
+  deployments: write
+  issues: write
+  pull-requests: read
+
 jobs:
   buildAndUpload:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-    - name: Set up Python 3.7
+    - name: Set up Python 3.8
       uses: actions/setup-python@v3.1.2
       with:
-        python-version: "3.7"
-        architecture: "x86"
+        python-version: 3.8
     - name: Install dependencies
-      run: pip install scons markdown
+      run: |
+        pip install scons markdown
+        sudo apt update
+        sudo apt install gettext
+    - name: Build pot template
+      run: scons pot
     - name: Build add-on
       run: scons
+    - name: Calculate sha256
+      run: sha256sum *.nvda-addon >> changelog.md
     - name: Release
       uses: softprops/action-gh-release@v1
       env:
@@ -27,5 +41,7 @@ jobs:
       with:
         files: |
           *.nvda-addon
+          *.json
+          *.pot
         body_path: changelog.md
         prerelease: ${{ endsWith(github.ref, '-dev') }}

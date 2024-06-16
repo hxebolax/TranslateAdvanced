@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TranslateAdvanced\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
-"POT-Creation-Date: 2024-06-07 07:47+0300\n"
-"PO-Revision-Date: 2024-06-07 07:48+0300\n"
+"POT-Creation-Date: 2024-06-16 16:41+0300\n"
+"PO-Revision-Date: 2024-06-16 17:55+0300\n"
 "Last-Translator: nvda.ru\n"
 "Language-Team: nvda.ru\n"
 "Language: ru\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: TranslateAdvanced/__init__.py:55
+#: TranslateAdvanced/__init__.py:59
 msgid ""
 "No se a encontrado conexión a internet.\n"
 "\n"
@@ -44,7 +44,7 @@ msgstr ""
 "\n"
 "Загрузка дополнения Advanced Translator будет отменена."
 
-#: TranslateAdvanced/__init__.py:75
+#: TranslateAdvanced/__init__.py:79
 msgid ""
 "Se a encontrado errores en la carga del complemento.\n"
 "\n"
@@ -58,36 +58,50 @@ msgstr ""
 "\n"
 "{}"
 
-#: TranslateAdvanced/__init__.py:83 TranslateAdvanced/__init__.py:199
-#: TranslateAdvanced/__init__.py:210 TranslateAdvanced/__init__.py:223
-#: TranslateAdvanced/__init__.py:233 TranslateAdvanced/__init__.py:243
-#: TranslateAdvanced/__init__.py:271 TranslateAdvanced/__init__.py:299
-#: TranslateAdvanced/__init__.py:341 TranslateAdvanced/__init__.py:364
-#: TranslateAdvanced/__init__.py:378 TranslateAdvanced/__init__.py:396
+#: TranslateAdvanced/__init__.py:87 TranslateAdvanced/__init__.py:256
+#: TranslateAdvanced/__init__.py:267 TranslateAdvanced/__init__.py:278
+#: TranslateAdvanced/__init__.py:291 TranslateAdvanced/__init__.py:301
+#: TranslateAdvanced/__init__.py:311 TranslateAdvanced/__init__.py:339
+#: TranslateAdvanced/__init__.py:367 TranslateAdvanced/__init__.py:409
+#: TranslateAdvanced/__init__.py:432 TranslateAdvanced/__init__.py:462
+#: TranslateAdvanced/__init__.py:493 TranslateAdvanced/__init__.py:507
+#: TranslateAdvanced/__init__.py:525
 msgid "Traductor Avanzado"
 msgstr "Продвинутый Переводчик"
 
-#: TranslateAdvanced/__init__.py:130
+#: TranslateAdvanced/__init__.py:141
 msgid "&Traductor Avanzado"
 msgstr "& Продвинутый Переводчик"
 
-#: TranslateAdvanced/__init__.py:131
+#: TranslateAdvanced/__init__.py:142
 msgid "&Configuración de Traductor Avanzado"
 msgstr "&Настройки продвинутого переводчика"
 
-#: TranslateAdvanced/__init__.py:132
+#: TranslateAdvanced/__init__.py:143 TranslateAdvanced/__init__.py:209
+msgid "&Actualizar idiomas del complemento (Sin actualizaciones)"
+msgstr "&Обновить языки дополнения (Нет обновлений)"
+
+#: TranslateAdvanced/__init__.py:144
 msgid "&Documentación del complemento"
 msgstr "& Документация по дополнению"
 
-#: TranslateAdvanced/__init__.py:133
+#: TranslateAdvanced/__init__.py:145
 msgid "&invítame a un café si te gusta mi trabajo"
 msgstr "&пригласи меня на кофе, если тебе нравится моя работа"
 
-#: TranslateAdvanced/__init__.py:140
+#: TranslateAdvanced/__init__.py:152
 msgid "Traductor Avanzado iniciado correctamente."
 msgstr "Продвинутый переводчик запущен успешно."
 
-#: TranslateAdvanced/__init__.py:166
+#: TranslateAdvanced/__init__.py:204
+msgid "&Actualizar idiomas del complemento ({} actualización disponible)"
+msgstr "&Обновление языков дополнения (доступно {} обновление)"
+
+#: TranslateAdvanced/__init__.py:206
+msgid "&Actualizar idiomas del complemento ({} actualizaciones disponibles)"
+msgstr "&Обновить языки дополнения ({} доступные обновления)"
+
+#: TranslateAdvanced/__init__.py:221
 msgid ""
 "Ya hay una instancia de Traductor Avanzado abierta.\n"
 "\n"
@@ -97,17 +111,19 @@ msgstr ""
 "\n"
 "Закройте его, чтобы выполнить это действие."
 
-#: TranslateAdvanced/__init__.py:169 TranslateAdvanced/__init__.py:174
-#: TranslateAdvanced/__init__.py:182 TranslateAdvanced/__init__.py:480
+#: TranslateAdvanced/__init__.py:224 TranslateAdvanced/__init__.py:229
+#: TranslateAdvanced/__init__.py:237 TranslateAdvanced/__init__.py:609
+#: TranslateAdvanced/__init__.py:659
 #: TranslateAdvanced/app/guis/guis_hostory.py:208
 msgid "Información"
 msgstr "Информация"
 
-#: TranslateAdvanced/__init__.py:173 TranslateAdvanced/__init__.py:351
+#: TranslateAdvanced/__init__.py:228 TranslateAdvanced/__init__.py:419
+#: TranslateAdvanced/__init__.py:442 TranslateAdvanced/__init__.py:472
 msgid "Tiene una traducción en curso. Espere a que termine."
 msgstr "У вас идет работа над переводом. Подождите, пока она завершится."
 
-#: TranslateAdvanced/__init__.py:179
+#: TranslateAdvanced/__init__.py:234
 msgid ""
 "Tiene la traducción simultanea activada.\n"
 "\n"
@@ -117,15 +133,19 @@ msgstr ""
 "\n"
 "Отключите его, чтобы выполнить это действие."
 
-#: TranslateAdvanced/__init__.py:199
+#: TranslateAdvanced/__init__.py:256
 msgid "Abre la configuración del complemento"
 msgstr "Открыть настройки дополнения"
 
-#: TranslateAdvanced/__init__.py:210
+#: TranslateAdvanced/__init__.py:267
+msgid "Comprueba si hay actualizaciones de idioma del complemento"
+msgstr "Проверить обновление языков дополнения"
+
+#: TranslateAdvanced/__init__.py:278
 msgid "Cambiar idioma de origen"
 msgstr "Изменить исходный язык"
 
-#: TranslateAdvanced/__init__.py:221
+#: TranslateAdvanced/__init__.py:289
 msgid ""
 "El idioma origen solo puede ser cambiado si tiene seleccionado el traductor "
 "de Microsoft."
@@ -133,80 +153,80 @@ msgstr ""
 "Изменить исходный язык можно только в том случае, если выбран переводчик "
 "Microsoft."
 
-#: TranslateAdvanced/__init__.py:223
+#: TranslateAdvanced/__init__.py:291
 msgid "Cambiar idioma de destino"
 msgstr "Изменить целевой язык"
 
-#: TranslateAdvanced/__init__.py:233
+#: TranslateAdvanced/__init__.py:301
 msgid "Cambiar el modulo de traducción"
 msgstr "Изменить модуль перевода"
 
-#: TranslateAdvanced/__init__.py:243
+#: TranslateAdvanced/__init__.py:311
 msgid "Eliminar todas las traducciones en caché para todas las aplicaciones"
 msgstr "Удалить все кэшированные переводы для всех приложений"
 
-#: TranslateAdvanced/__init__.py:251
+#: TranslateAdvanced/__init__.py:319
 msgid ""
 "Pulse dos veces para eliminar todas las traducciones en caché de todas las "
 "aplicaciones."
 msgstr ""
 "Нажмите дважды, чтобы удалить все кэшированные переводы для всех приложений."
 
-#: TranslateAdvanced/__init__.py:258
+#: TranslateAdvanced/__init__.py:326
 msgid "No hay cache para borrar."
 msgstr "Нет кеша для очистки."
 
-#: TranslateAdvanced/__init__.py:264
+#: TranslateAdvanced/__init__.py:332
 #, python-brace-format
 msgid "Fallo al eliminar {entry}"
 msgstr "Не удалось удалить {entry}"
 
-#: TranslateAdvanced/__init__.py:267
+#: TranslateAdvanced/__init__.py:335
 msgid "El directorio de la cache no existe."
 msgstr "Каталог кэша не существует."
 
-#: TranslateAdvanced/__init__.py:269
+#: TranslateAdvanced/__init__.py:337
 msgid "Se ha eliminado toda la cache."
 msgstr "Весь кэш был удален."
 
-#: TranslateAdvanced/__init__.py:269
+#: TranslateAdvanced/__init__.py:337
 msgid "No se a podido eliminar toda la cache."
 msgstr "Удалить весь кэш не удалось."
 
-#: TranslateAdvanced/__init__.py:271
+#: TranslateAdvanced/__init__.py:339
 msgid "Eliminar la caché de traducción para la aplicación enfocada actualmente"
 msgstr "Удалить кэш переводов для текущего приложения."
 
-#: TranslateAdvanced/__init__.py:281
+#: TranslateAdvanced/__init__.py:349
 msgid "No hay aplicación enfocada."
 msgstr "Нет целенаправленного приложения."
 
-#: TranslateAdvanced/__init__.py:285
+#: TranslateAdvanced/__init__.py:353
 msgid ""
 "Pulse dos veces para eliminar todas las traducciones de {} en lenguaje {}"
 msgstr "Нажмите дважды, чтобы удалить все переводы {} для языка {}."
 
-#: TranslateAdvanced/__init__.py:292
+#: TranslateAdvanced/__init__.py:360
 msgid "Se ha borrado la cache de la aplicación {} correctamente."
 msgstr "Кэш приложения {} был успешно очищен."
 
-#: TranslateAdvanced/__init__.py:294
+#: TranslateAdvanced/__init__.py:362
 msgid "Fallo al borrar la cache de la aplicación {} : {}"
 msgstr "Не удалось очистить кэш приложения {} : {}"
 
-#: TranslateAdvanced/__init__.py:295
+#: TranslateAdvanced/__init__.py:363
 msgid "Error al borrar la caché de traducción de la aplicación."
 msgstr "Ошибка при очистке кэша переводов приложения."
 
-#: TranslateAdvanced/__init__.py:297
+#: TranslateAdvanced/__init__.py:365
 msgid "No hay traducciones guardadas para {}"
 msgstr "Для {} не сохранено ни одного перевода."
 
-#: TranslateAdvanced/__init__.py:299
+#: TranslateAdvanced/__init__.py:367
 msgid "Activa o desactiva la cache de traducción"
 msgstr "Включение или отключение кэша переводов."
 
-#: TranslateAdvanced/__init__.py:308
+#: TranslateAdvanced/__init__.py:376
 msgid ""
 "La activación o desactivación de la cache no puede hacerse mientras haya una "
 "ventana de Traductor Avanzado abierta"
@@ -214,59 +234,75 @@ msgstr ""
 "Включение или выключение кэша не может быть выполнена, пока открыто окно "
 "Advanced Translator."
 
-#: TranslateAdvanced/__init__.py:328
+#: TranslateAdvanced/__init__.py:396
 msgid "Cache de traducción activada."
 msgstr "Кэш переводов включен."
 
-#: TranslateAdvanced/__init__.py:330
+#: TranslateAdvanced/__init__.py:398
 msgid "Cache de traducción desactivada."
 msgstr "Кэш переводов выключен."
 
-#: TranslateAdvanced/__init__.py:341
+#: TranslateAdvanced/__init__.py:409
 msgid "Copiar el ultimo texto traducido al portapapeles"
 msgstr "Скопировать последний переведенный текст в буфер обмена"
 
-#: TranslateAdvanced/__init__.py:359
+#: TranslateAdvanced/__init__.py:427
 msgid "Se ha copiado lo siguiente al portapapeles: {}"
 msgstr "Скопировано в буфер обмена: {}"
 
-#: TranslateAdvanced/__init__.py:362
+#: TranslateAdvanced/__init__.py:430
 msgid "No se ha podido copiar nada al portapapeles"
 msgstr "Не удалось ничего скопировать в буфер обмена"
 
-#: TranslateAdvanced/__init__.py:364
+#: TranslateAdvanced/__init__.py:432
+msgid "Traduce el contenido del portapapeles"
+msgstr "Перевести содержимое буфера обмена"
+
+#: TranslateAdvanced/__init__.py:460
+msgid "No hay nada para traducir en el portapapeles"
+msgstr "В буфере обмена нечего переводить."
+
+#: TranslateAdvanced/__init__.py:462
+msgid "Traduce el último texto verbalizado"
+msgstr "Перевести последний произнесенный текст"
+
+#: TranslateAdvanced/__init__.py:491
+msgid "No hay nada para traducir"
+msgstr "Нечего переводить"
+
+#: TranslateAdvanced/__init__.py:493
 msgid "Activa o desactiva la traducción simultánea Online"
 msgstr "Включение или отключение синхронного перевода в режиме онлайн"
 
-#: TranslateAdvanced/__init__.py:374
+#: TranslateAdvanced/__init__.py:503
 msgid "Traducción activada."
 msgstr "Перевод включен."
 
-#: TranslateAdvanced/__init__.py:374
+#: TranslateAdvanced/__init__.py:503
 msgid "Traducción desactivada."
 msgstr "Перевод выключен."
 
-#: TranslateAdvanced/__init__.py:378
+#: TranslateAdvanced/__init__.py:507
 msgid "Traduce el texto seleccionado"
 msgstr "Перевести выделенный текст"
 
-#: TranslateAdvanced/__init__.py:389
+#: TranslateAdvanced/__init__.py:518
 msgid "Sin selección para traducir"
 msgstr "Не выделено для перевода"
 
-#: TranslateAdvanced/__init__.py:396
+#: TranslateAdvanced/__init__.py:525
 msgid "Muestra el historial de traducción"
-msgstr "Просмотр истории переводов"
+msgstr "Просмотреть историю переводов"
 
-#: TranslateAdvanced/__init__.py:405
+#: TranslateAdvanced/__init__.py:534
 msgid "No hay nada en el historial todavía."
 msgstr "В истории пока ничего нет."
 
-#: TranslateAdvanced/__init__.py:480
+#: TranslateAdvanced/__init__.py:609
 msgid "No se ha podido obtener la traducción de lo seleccionado."
 msgstr "Не удалось получить перевод выделенного."
 
-#: TranslateAdvanced/__init__.py:485
+#: TranslateAdvanced/__init__.py:614
 msgid ""
 "Hubo un error en la traducción:\n"
 "\n"
@@ -274,23 +310,27 @@ msgstr ""
 "В переводе была допущена ошибка:\n"
 "\n"
 
-#: TranslateAdvanced/__init__.py:485
-#: TranslateAdvanced/app/guis/guis_options.py:289
-#: TranslateAdvanced/app/guis/guis_options.py:300
-#: TranslateAdvanced/app/guis/guis_options.py:320
-#: TranslateAdvanced/app/guis/guis_options.py:378
+#: TranslateAdvanced/__init__.py:614 TranslateAdvanced/__init__.py:661
+#: TranslateAdvanced/app/guis/guis_options.py:294
+#: TranslateAdvanced/app/guis/guis_options.py:305
+#: TranslateAdvanced/app/guis/guis_options.py:325
+#: TranslateAdvanced/app/guis/guis_options.py:383
 msgid "Error"
 msgstr "Ошибка"
 
-#: TranslateAdvanced/__init__.py:488
+#: TranslateAdvanced/__init__.py:617
 msgid "La traducción fue cancelada por el usuario."
 msgstr "Перевод отменен пользователем."
 
-#: TranslateAdvanced/__init__.py:488
+#: TranslateAdvanced/__init__.py:617
 msgid "Cancelado"
 msgstr "Отменено"
 
-#: TranslateAdvanced/__init__.py:495
+#: TranslateAdvanced/__init__.py:625
+msgid "Traducción copiada al portapapeles"
+msgstr "Перевод скопирован в буфер обмена"
+
+#: TranslateAdvanced/__init__.py:628
 msgid "Resultado de la traducción"
 msgstr "Результат перевода"
 
@@ -402,79 +442,87 @@ msgid "Módulos de traducción"
 msgstr "Модули перевода"
 
 #: TranslateAdvanced/app/guis/guis_options.py:42
-#: TranslateAdvanced/app/guis/guis_options.py:355
+#: TranslateAdvanced/app/guis/guis_options.py:360
 msgid "&Aceptar"
 msgstr "&ОК"
 
 #: TranslateAdvanced/app/guis/guis_options.py:43
-#: TranslateAdvanced/app/guis/guis_options.py:356
+#: TranslateAdvanced/app/guis/guis_options.py:361
 msgid "&Cancelar"
 msgstr "&Отменить"
 
 #: TranslateAdvanced/app/guis/guis_options.py:105
-msgid "Activar o &desactivar la caché de traducción"
-msgstr "Включить или &отключить кэш переводов"
+msgid "Usar caché &de traducción"
+msgstr "&Использовать кэш переводов"
 
-#: TranslateAdvanced/app/guis/guis_options.py:122
+#: TranslateAdvanced/app/guis/guis_options.py:109
+msgid "No mostrar dialogo de &resultados y copiar al portapapeles"
+msgstr "&Не показывать диалог результатов и копировать в буфер обмена"
+
+#: TranslateAdvanced/app/guis/guis_options.py:126
 msgid "&Elija un traductor online:"
 msgstr "&Выбрать онлайн-переводчик:"
 
-#: TranslateAdvanced/app/guis/guis_options.py:128
+#: TranslateAdvanced/app/guis/guis_options.py:132
 msgid "&Gestor de APIS:"
 msgstr "&Менеджер API:"
 
-#: TranslateAdvanced/app/guis/guis_options.py:136
+#: TranslateAdvanced/app/guis/guis_options.py:140
 msgid "Añadir\tF1"
 msgstr "Добавить\tF1"
 
-#: TranslateAdvanced/app/guis/guis_options.py:137
+#: TranslateAdvanced/app/guis/guis_options.py:141
 msgid "Editar\tF2"
 msgstr "Редактировать\tF2"
 
-#: TranslateAdvanced/app/guis/guis_options.py:138
+#: TranslateAdvanced/app/guis/guis_options.py:142
 msgid "Eliminar\tF3"
 msgstr "Удалить\tF3"
 
-#: TranslateAdvanced/app/guis/guis_options.py:139
+#: TranslateAdvanced/app/guis/guis_options.py:143
 msgid "Por defecto\tF4"
 msgstr "По умолчанию\tF4"
 
-#: TranslateAdvanced/app/guis/guis_options.py:214
+#: TranslateAdvanced/app/guis/guis_options.py:218
 msgid "No existe ninguna API para este servicio."
 msgstr "Для этой службы нет API."
 
-#: TranslateAdvanced/app/guis/guis_options.py:276
+#: TranslateAdvanced/app/guis/guis_options.py:281
 msgid "Añadir API"
 msgstr "Добавление API"
 
-#: TranslateAdvanced/app/guis/guis_options.py:289
-#: TranslateAdvanced/app/guis/guis_options.py:300
-#: TranslateAdvanced/app/guis/guis_options.py:320
+#: TranslateAdvanced/app/guis/guis_options.py:294
+#: TranslateAdvanced/app/guis/guis_options.py:305
+#: TranslateAdvanced/app/guis/guis_options.py:325
 msgid ""
 "No existe ninguna API para este servicio. Por favor, añada una API primero."
 msgstr "* Для этой службы нет API. Пожалуйста, сначала добавьте API.; 87:"
 
-#: TranslateAdvanced/app/guis/guis_options.py:302
+#: TranslateAdvanced/app/guis/guis_options.py:296
+msgid "Editar API"
+msgstr "Редактирование API"
+
+#: TranslateAdvanced/app/guis/guis_options.py:307
 msgid "¿Estás seguro de que deseas eliminar esta clave API?"
 msgstr "Вы уверены, что хотите удалить этот ключ API?"
 
-#: TranslateAdvanced/app/guis/guis_options.py:302
+#: TranslateAdvanced/app/guis/guis_options.py:307
 msgid "Confirmación"
 msgstr "ОК"
 
-#: TranslateAdvanced/app/guis/guis_options.py:337
+#: TranslateAdvanced/app/guis/guis_options.py:342
 msgid "&Nombre:"
 msgstr "&Имя:"
 
-#: TranslateAdvanced/app/guis/guis_options.py:339
+#: TranslateAdvanced/app/guis/guis_options.py:344
 msgid "Clave &API:"
 msgstr "&API Ключ:"
 
-#: TranslateAdvanced/app/guis/guis_options.py:349
+#: TranslateAdvanced/app/guis/guis_options.py:354
 msgid "&URL:"
 msgstr "&URL-АДРЕС:"
 
-#: TranslateAdvanced/app/guis/guis_options.py:378
+#: TranslateAdvanced/app/guis/guis_options.py:383
 msgid "Todos los campos son obligatorios."
 msgstr "Все поля обязательны для заполнения."
 
@@ -485,6 +533,107 @@ msgstr "Ход выполнения перевода"
 #: TranslateAdvanced/app/guis/guis_progress.py:39
 msgid "Cancelar"
 msgstr "Отменить"
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:24
+#: TranslateAdvanced/app/guis/guis_progress_update.py:33
+msgid "Progreso de Descarga e Instalación"
+msgstr "Ход загрузки и установки"
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:42
+msgid "Iniciando..."
+msgstr "Начало..."
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:73
+msgid "Descargando {}..."
+msgstr "Загрузка {}..."
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:81
+msgid "Instalando {}..."
+msgstr "Установка {}..."
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:103
+#: TranslateAdvanced/app/guis/guis_progress_update.py:113
+msgid "Error en {}: {}"
+msgstr "Ошибка в {}: {}"
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:105
+#: TranslateAdvanced/app/guis/guis_progress_update.py:114
+msgid ""
+"El proceso ha finalizado con errores en los siguientes idiomas:\n"
+"\n"
+"{}"
+msgstr ""
+"Процесс завершился с ошибками на следующих языках:\n"
+"\n"
+"{}"
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:106
+msgid ""
+"\n"
+"\n"
+"NVDA no se reiniciará, pulse Ctrl + C para copiar el contenido de este "
+"dialogo y podérselo enviar al autor del complemento."
+msgstr ""
+"\n"
+"\n"
+"NVDA не перезапустится, нажмите Ctrl + C, чтобы скопировать содержимое этого "
+"диалога и отправить его автору плагина."
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:107
+#: TranslateAdvanced/app/guis/guis_progress_update.py:114
+msgid "Errores"
+msgstr "Ошибки"
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:114
+#: TranslateAdvanced/app/guis/guis_progress_update.py:116
+msgid ""
+"\n"
+"\n"
+"NVDA se reiniciará cuando pulse aceptar."
+msgstr ""
+"\n"
+"\n"
+"NVDA перезапустится, когда вы нажмете кнопку OK."
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:116
+msgid "Todos los idiomas se han actualizado correctamente."
+msgstr "Все языки были успешно обновлены."
+
+#: TranslateAdvanced/app/guis/guis_progress_update.py:116
+msgid "Éxito"
+msgstr "Успешно"
+
+#: TranslateAdvanced/app/guis/guis_update.py:22
+#: TranslateAdvanced/app/guis/guis_update.py:29
+msgid "Actualizaciones de Idiomas"
+msgstr "Обновление языка"
+
+#: TranslateAdvanced/app/guis/guis_update.py:45
+msgid "Nuevos idiomas disponibles:"
+msgstr "Доступны новые языки:"
+
+#: TranslateAdvanced/app/guis/guis_update.py:47
+msgid "Idiomas con actualizaciones:"
+msgstr "Языки с обновлениями:"
+
+#: TranslateAdvanced/app/guis/guis_update.py:50
+msgid ""
+"Si continúa con la instalación, cuando se termine el proceso NVDA se "
+"reiniciará.\n"
+"\n"
+"¿Desea continuar?"
+msgstr ""
+"Если вы продолжите установку, NVDA перезапустится по окончании процесса.\n"
+"\n"
+"Вы хотите продолжить?"
+
+#: TranslateAdvanced/app/guis/guis_update.py:56
+msgid "&Instalar"
+msgstr "&Установить"
+
+#: TranslateAdvanced/app/guis/guis_update.py:57
+msgid "&Omitir"
+msgstr "&Пропустить"
 
 #: TranslateAdvanced/app/managers/managers_apis.py:39
 #, python-brace-format
@@ -537,17 +686,30 @@ msgstr "Невозможно прочитать или декодировать 
 msgid "Fallo al guardar la caché de traducción para {appName} en {file}: {e}"
 msgstr "Не удалось сохранить кеш перевода для {appName} в {file}: {e}"
 
-#: TranslateAdvanced/app/managers/managers_clipboard.py:81
-msgid "Error registrando clase de ventana"
-msgstr "Ошибка при регистрации класса окна"
+#: TranslateAdvanced/app/managers/managers_clipboard.py:42
+#, python-brace-format
+msgid "Error al abrir el portapapeles: {0}"
+msgstr "Ошибка при открытии буфера обмена: {0}"
 
-#: TranslateAdvanced/app/managers/managers_clipboard.py:87
-msgid "Error creando ventana"
-msgstr "Ошибка при создании окна"
+#: TranslateAdvanced/app/managers/managers_clipboard.py:47
+#, python-brace-format
+msgid "Error persistente al abrir el portapapeles: {0}"
+msgstr "Постоянная ошибка при открытии буфера обмена: {0}"
 
-#: TranslateAdvanced/app/managers/managers_clipboard.py:90
-msgid "Error agregando listener de portapapeles"
-msgstr "Ошибка при добавлении речи в буфера обмена"
+#: TranslateAdvanced/app/managers/managers_clipboard.py:72
+#, python-brace-format
+msgid "Error al copiar texto al portapapeles: {0}"
+msgstr "Ошибка при копировании текста в буфер обмена: {0}"
+
+#: TranslateAdvanced/app/managers/managers_clipboard.py:85
+#, python-brace-format
+msgid "Error al limpiar el portapapeles: {0}"
+msgstr "Ошибка при очистке буфера обмена: {0}"
+
+#: TranslateAdvanced/app/managers/managers_clipboard.py:123
+#, python-brace-format
+msgid "El contenido del portapapeles ha cambiado: {0}"
+msgstr "Содержимое буфера обмена изменилось: {0}"
 
 #: TranslateAdvanced/app/managers/managers_dict.py:53
 #: TranslateAdvanced/app/managers/managers_dict.py:66
@@ -595,15 +757,15 @@ msgstr "Переводчик LibreTranslate (API *)"
 msgid "Traductor Microsoft Bing (API Free)"
 msgstr "Переводчик Microsoft Bing (API Free)"
 
-#: TranslateAdvanced/app/managers/managers_translate.py:158
-#: TranslateAdvanced/app/managers/managers_translate.py:172
-#: TranslateAdvanced/app/managers/managers_translate.py:185
-#: TranslateAdvanced/app/managers/managers_translate.py:188
+#: TranslateAdvanced/app/managers/managers_translate.py:244
+#: TranslateAdvanced/app/managers/managers_translate.py:258
+#: TranslateAdvanced/app/managers/managers_translate.py:271
+#: TranslateAdvanced/app/managers/managers_translate.py:274
 msgid ""
 "No tiene ninguna API configurada para el servicio que tiene seleccionado."
 msgstr "Для выбранной вами службы не настроено ни одного API."
 
-#: TranslateAdvanced/app/managers/managers_translate.py:197
+#: TranslateAdvanced/app/managers/managers_translate.py:283
 #: TranslateAdvanced/app/src_translations/src_google_api_free.py:83
 #: TranslateAdvanced/app/src_translations/src_google_api_free_alternative.py:227
 #: TranslateAdvanced/app/src_translations/src_google_original.py:119
@@ -621,6 +783,39 @@ msgstr ""
 "Ошибка:\n"
 "\n"
 "{}"
+
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:43
+msgid "Error al cargar idiomas locales: {}"
+msgstr "Ошибка при загрузке местных языков: {}"
+
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:57
+msgid "Idiomas guardados exitosamente."
+msgstr "Языки успешно сохранены."
+
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:59
+msgid "Error al guardar idiomas locales: {}"
+msgstr "Ошибка при сохранении местных языков: {}"
+
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:77
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:81
+msgid "Error al obtener idiomas remotos: {}"
+msgstr "Ошибка при получении удаленных языков: {}"
+
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:107
+msgid "No hay actualizaciones ni nuevos idiomas disponibles."
+msgstr "Нет доступных обновлений или новых языков."
+
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:136
+msgid "Error al descargar el archivo .zip de {}: {}"
+msgstr "Ошибка при загрузке .zip-файла с {}: {}"
+
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:164
+msgid "Error al descomprimir el archivo .zip de {}: {}"
+msgstr "Ошибка при распаковке .zip-файла {}: {}"
+
+#: TranslateAdvanced/app/managers/managers_updates_langs.py:189
+msgid "Error al actualizar el idioma local {}: {}"
+msgstr "Ошибка обновления местного языка {}: {}"
 
 #: TranslateAdvanced/app/src_translations/src_deepl_original.py:40
 msgid "Se requiere una clave de API para DeepL."
@@ -732,6 +927,12 @@ msgstr ""
 #: TranslateAdvanced/app/src_translations/src_microsoft_api_free.py:58
 msgid "La respuesta no contiene {}"
 msgstr "Ответ не содержит {}"
+
+#~ msgid "Error registrando clase de ventana"
+#~ msgstr "Ошибка при регистрации класса окна"
+
+#~ msgid "Error creando ventana"
+#~ msgstr "Ошибка при создании окна"
 
 #~ msgid "row %s"
 #~ msgstr "строка %s"

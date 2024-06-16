@@ -4,3 +4,4 @@
 * Mostrar traducciones en líneas braille
 * Actualizador de idiomas del complemento
 * Error de lectura continua solucionado.
+- SHA256: 
