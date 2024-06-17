@@ -655,11 +655,12 @@ class LaunchThread(Thread):
 				else:
 					return
 			else: # No hay actualizaciones.
+				self.frame.gestor_settings.IS_WinON = True
 				if 'error' in datos and not datos['error']:
 					gui.messageBox(datos['data'], _("Información"), wx.ICON_INFORMATION)
 				else:
 					gui.messageBox(datos['data'], _("Error"), wx.OK | wx.ICON_ERROR)
-
+				self.frame.gestor_settings.IS_WinON = False
 
 		if self.option == 1: # Configuración
 			wx.CallAfter(appLauncherAjustes)

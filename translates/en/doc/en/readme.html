@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>Traductor Avanzado 2024.06.06</title>
+<title>Advanced Translator 2024.06.16</title>
 </head>
 <body>
 <h1>User Manual: Advanced Translator for NVDA</h1>
@@ -34,6 +34,7 @@
 <li><a href="#translators">Translators</a></li>
 <li><a href="#version-changelog">5 - Version Changelog</a></li>
 <li><a href="#version-1-0">Version 1.0</a></li>
+<li><a href="#version-2024-06-16">Version 2024.06.16</a></li>
 </ul>
 <h2 id="introduction">1 - Introduction</h2>
 
@@ -237,7 +238,11 @@
 <h3 id="translators">Translators</h3>
 
 <ul>
-<li><strong>Name of Contributor 1:</strong> Description of the contribution.</li>
+<li><strong>Portuguese:</strong> Ângelo Abrantes.</li>
+<li><strong>Turkish:</strong> Umut Korkmaz.</li>
+<li><strong>Russian:</strong> Valentin Kupriyanov.</li>
+<li><strong>English:</strong> Samuel Proulx.</li>
+<li><strong>Ukrainian:</strong> Heorhii Halas and Volodymyr Pyrih.</li>
 </ul>
 <p><a href="#index">Back to index</a></p>
 <h2 id="version-changelog">5 - changelog</h2>
@@ -253,6 +258,55 @@
 <li>Support for 7 translation services.</li>
 <li>Basic functions of real time translation and API key management.</li>
 </ul>
+<h3 id="version-2024-06-16">Version 2024.06.16</h3>
+
+<ul>
+<li><strong>Add the ability to copy the translation of selected text to the clipboard instead of showing it in a dialog:</strong></li>
+</ul>
+<p>An option has been added to automatically copy translated text to the clipboard when this function is selected, avoiding the need to display an additional dialog box.</p>
+<p>This option was added in the plugin configuration dialog in General.</p>
+<p>If this option is checked, it will no longer display a dialog when you translate a selected text, but rather it will directly copy it to the clipboard.</p>
+<ul>
+<li><strong>Translate whatever is on the clipboard:</strong></li>
+</ul>
+<p>It is now possible to directly translate content located on the clipboard, providing a fast and efficient way to translate copied texts.</p>
+<p>If nothing is translated it will tell you what is on the clipboard or if there is nothing on the clipboard it will notify you with a message.</p>
+<ul>
+<li><strong>Translate the last thing spoken by the synthesizer:</strong></li>
+</ul>
+<p>A function has been added that allows you to translate the last phrase or text spoken by the voice synthesizer, improving the accessibility and usability of the addon.</p>
+<p>If the last thing spoken cannot be translated, it will tell you the last thing that was spoken in the source language.</p>
+<ul>
+<li><strong>Show translations in Braille:</strong></li>
+</ul>
+<p>The new version includes support for displaying translations on Braille display devices, making translations easier to access.</p>
+<p>It will only work on devices that have a Braille display configured.</p>
+<p>This function is in the testing phase.</p>
+<ul>
+<li><strong>Plugin language updater:</strong></li>
+</ul>
+<p>An updater has been implemented to keep the plugin languages always up to date, ensuring the availability of the most recent and accurate languages.</p>
+<p>Now in the NVDA menu &gt; Preferences &gt; Advanced Translator</p>
+<p>You will have a new item called Update plugin languages (No updates).</p>
+<p>This item will inform you if there are updates, for example:</p>
+<p>Update plugin languages (3 updates available)</p>
+<p>If you press it, a dialog will appear with the new languages, with the updates of existing languages, or with both.</p>
+<p>You can install or skip.</p>
+<p>If you click install, the languages will be downloaded and installed and NVDA will restart.</p>
+<p>The menu item is updated every 30 minutes checking for updates or on every restart.</p>
+<p>The data expense of this check is small because for those places that have data problems, it is less than 1kb that you have to check.</p>
+<p>This updater will make it easier to share language updates for the addon with users quickly as they arrive and without the need to release a new version with the new languages.</p>
+<p>Each new version of the addon will come with all the new and updated languages that have arrived.</p>
+<ul>
+<li><strong>Continuous reading bug fixed:</strong></li>
+</ul>
+<p>Fixed an issue that caused continuous reading errors, improving addon stability and performance during extended use.</p>
+<ul>
+<li><strong>Author's Notes:</strong></li>
+</ul>
+<p>All new functions such as translating the clipboard, translating the last words spoken by the synthesizer or checking language updates, can be assigned gestures.</p>
+<p>I recommend that if you are not going to use any option, you do not add an input gesture so that you can have it free for other addons. Only add those that will be useful to you.</p>
+<p>As features are added, more gestures will be needed and a feature may not work for one person and it may work well for another, so assign only the ones you are going to use.</p>
 <p><a href="#index">Back to index</a></p>
 </body>
 </html>

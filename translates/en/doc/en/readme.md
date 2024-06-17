@@ -22,6 +22,7 @@
   - [Translators](#translators)
 - [5 - Version Changelog](#version-changelog)
   - [Version 1.0](#version-1-0)
+  - [Version 2024.06.16](#version-2024-06-16)
 
 <h2 id="introduction">1 - Introduction</h2>
 
@@ -270,10 +271,13 @@ This plugin is the work of several years of releasing unofficial versions and th
 This addon is the result of this learning, keeping in mind that in the future it will bring surprising new features.
 
 [Back to index](#index)
-
 <h3 id="translators">Translators</h3>
 
-- **Name of Contributor 1:** Description of the contribution.
+- **Portuguese:** Ângelo Abrantes.
+- **Turkish:** Umut Korkmaz.
+- **Russian:** Valentin Kupriyanov.
+- **English:** Samuel Proulx.
+- **Ukrainian:** Heorhii Halas and Volodymyr Pyrih.
 
 [Back to index](#index)
 
@@ -292,5 +296,73 @@ News will be added in this section.
 - Initial release of the plugin.
 - Support for 7 translation services.
 - Basic functions of real time translation and API key management.
+
+<h3 id="version-2024-06-16">Version 2024.06.16</h3>
+
+- **Add the ability to copy the translation of selected text to the clipboard instead of showing it in a dialog:**
+
+An option has been added to automatically copy translated text to the clipboard when this function is selected, avoiding the need to display an additional dialog box.
+
+This option was added in the plugin configuration dialog in General.
+
+If this option is checked, it will no longer display a dialog when you translate a selected text, but rather it will directly copy it to the clipboard.
+
+- **Translate whatever is on the clipboard:**
+
+It is now possible to directly translate content located on the clipboard, providing a fast and efficient way to translate copied texts.
+
+If nothing is translated it will tell you what is on the clipboard or if there is nothing on the clipboard it will notify you with a message.
+
+- **Translate the last thing spoken by the synthesizer:**
+
+A function has been added that allows you to translate the last phrase or text spoken by the voice synthesizer, improving the accessibility and usability of the addon.
+
+If the last thing spoken cannot be translated, it will tell you the last thing that was spoken in the source language.
+
+- **Show translations in Braille:**
+
+The new version includes support for displaying translations on Braille display devices, making translations easier to access.
+
+It will only work on devices that have a Braille display configured.
+
+This function is in the testing phase.
+
+- **Plugin language updater:**
+
+An updater has been implemented to keep the plugin languages always up to date, ensuring the availability of the most recent and accurate languages.
+
+Now in the NVDA menu > Preferences > Advanced Translator
+
+You will have a new item called Update plugin languages (No updates).
+
+This item will inform you if there are updates, for example:
+
+Update plugin languages (3 updates available)
+
+If you press it, a dialog will appear with the new languages, with the updates of existing languages, or with both.
+
+You can install or skip.
+
+If you click install, the languages will be downloaded and installed and NVDA will restart.
+
+The menu item is updated every 30 minutes checking for updates or on every restart.
+
+The data expense of this check is small because for those places that have data problems, it is less than 1kb that you have to check.
+
+This updater will make it easier to share language updates for the addon with users quickly as they arrive and without the need to release a new version with the new languages.
+
+Each new version of the addon will come with all the new and updated languages that have arrived.
+
+- **Continuous reading bug fixed:**
+
+Fixed an issue that caused continuous reading errors, improving addon stability and performance during extended use.
+
+- **Author's Notes:**
+
+All new functions such as translating the clipboard, translating the last words spoken by the synthesizer or checking language updates, can be assigned gestures.
+
+I recommend that if you are not going to use any option, you do not add an input gesture so that you can have it free for other addons. Only add those that will be useful to you.
+
+As features are added, more gestures will be needed and a feature may not work for one person and it may work well for another, so assign only the ones you are going to use.
 
 [Back to index](#index)
