@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 'TranslateAdvanced' '2024.06.06'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2024-06-17 07:39-0400\n"
-"PO-Revision-Date: 2024-06-17 08:15-0400\n"
+"PO-Revision-Date: 2024-06-19 02:06+0300\n"
 "Last-Translator: Samuel Proulx <samuel@interfree.ca>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -495,11 +495,11 @@ msgstr "&Choose a translation module:"
 #. Listbox para mostrar las claves API
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:132
 msgid "&Gestor de APIS:"
-msgstr "API &Manager"
+msgstr "API &Manager:"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:140
 msgid "Añadir\tF1"
-msgstr "add\tF1"
+msgstr "Add\tF1"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:141
 msgid "Editar\tF2"

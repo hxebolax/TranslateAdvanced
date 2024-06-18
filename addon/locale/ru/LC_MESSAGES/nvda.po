@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: TranslateAdvanced\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2024-06-17 18:16+0200\n"
-"PO-Revision-Date: 2024-06-18 10:52+0200\n"
+"PO-Revision-Date: 2024-06-19 02:09+0300\n"
 "Last-Translator: nvda.ru\n"
 "Language-Team: nvda.ru\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-Basepath: ../../../globalPlugins\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -210,7 +210,7 @@ msgstr "Удалить весь кэш не удалось."
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:339
 msgid "Eliminar la caché de traducción para la aplicación enfocada actualmente"
-msgstr "Удалить кэш переводов для текущего приложения."
+msgstr "Удалить кэш переводов для текущего приложения"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:349
 msgid "No hay aplicación enfocada."
@@ -239,7 +239,7 @@ msgstr "Для {} не сохранено ни одного перевода."
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:367
 msgid "Activa o desactiva la cache de traducción"
-msgstr "Включение или отключение кэша переводов."
+msgstr "Включение или отключение кэша переводов"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:376
 msgid ""
@@ -247,7 +247,7 @@ msgid ""
 "ventana de Traductor Avanzado abierta"
 msgstr ""
 "Включение или выключение кэша не может быть выполнена, пока открыто окно "
-"Advanced Translator."
+"Advanced Translator"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:396
 msgid "Cache de traducción activada."
@@ -278,7 +278,7 @@ msgstr "Перевести содержимое буфера обмена"
 #. Muestra un mensaje indicando que no hay texto para traducir
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:460
 msgid "No hay nada para traducir en el portapapeles"
-msgstr "В буфере обмена нечего переводить."
+msgstr "В буфере обмена нечего переводить"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:462
 msgid "Traduce el último texto verbalizado"
@@ -528,7 +528,7 @@ msgstr "Добавление API"
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:325
 msgid ""
 "No existe ninguna API para este servicio. Por favor, añada una API primero."
-msgstr "* Для этой службы нет API. Пожалуйста, сначала добавьте API.; 87:"
+msgstr "* Для этой службы нет API. Пожалуйста, сначала добавьте API."
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:296
 msgid "Editar API"
