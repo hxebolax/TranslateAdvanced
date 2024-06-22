@@ -54,7 +54,7 @@ class GestorTranslate(
 		value = self.frame.gestor_settings.choiceOnline
 		if value in [0, 1, 2, 3]:
 			return self.frame.gestor_settings.choiceLangDestino_google
-		elif value in [4, 5]:
+		elif value in [4, 5, 8]:
 			return self.frame.gestor_settings.choiceLangDestino_deepl
 		elif value == 6:
 			return self.frame.gestor_settings.choiceLangDestino_libretranslate

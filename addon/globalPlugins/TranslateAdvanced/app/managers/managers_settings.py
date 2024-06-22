@@ -82,7 +82,18 @@ class GestorSettings:
 		self.api_deepl_pro = None
 		self.api_libretranslate = None
 		self.api_libretranslate_url = None
-
+		# Diccionario para obtener el choice idiioma destino
+		self.choice_dict = {
+			0: self.choiceLangDestino_google,
+			1: self.choiceLangDestino_google,
+			2: self.choiceLangDestino_google,
+			3: self.choiceLangDestino_google,
+			4: self.choiceLangDestino_deepl,
+			5: self.choiceLangDestino_deepl,
+			6: self.choiceLangDestino_libretranslate,
+			7: self.choiceLangDestino_microsoft,
+			8: self.choiceLangDestino_deepl,
+		}
 		self.initConfiguration()
 		self.setup()
 

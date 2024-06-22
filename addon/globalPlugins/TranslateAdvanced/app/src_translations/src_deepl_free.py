@@ -21,21 +21,13 @@ class TranslatorDeepLFree:
 	"""
 	Clase para utilizar el servicio gratuito de traducción de DeepL.
 	"""
-	name = 'DeepL(Free)'
-	alias = 'DeepL (Free)'
-	free = True
-	endpoint = 'https://www2.deepl.com/jsonrpc?client=chrome-extension,1.5.1'
-	need_api_key = False
-
-	concurrency_limit = 1
-	request_interval = 1.0
-
 	def __init__(self):
 		"""
 		Inicializa una instancia del traductor gratuito DeepL.
 		"""
 		self.source_lang = None
 		self.target_lang = None
+		self.endpoint = 'https://www2.deepl.com/jsonrpc?client=chrome-extension,1.5.1'
 
 	def _vars(self, text):
 		"""
