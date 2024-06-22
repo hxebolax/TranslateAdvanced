@@ -42,11 +42,23 @@ class GestorSettings:
 			_("Traductor Google (WEB 2)"),
 			_("Traductor Google (API Free 1)"),
 			_("Traductor Google (API Free 2)"),
+			_("Traductor DeepL (Free)"),
 			_("Traductor DeepL (API Free *)"),
 			_("Traductor DeepL (API Pro *)"),
 			_("Traductor LibreTranslate (API *)"),
 			_("Traductor Microsoft Bing (API Free)"),
 		]
+		self.service_map_selection = {
+			_("Traductor Google (WEB 1)"): 0,
+			_("Traductor Google (WEB 2)"): 1,
+			_("Traductor Google (API Free 1)"): 2,
+			_("Traductor Google (API Free 2)"): 3,
+			_("Traductor DeepL (API Free *)"): 4,
+			_("Traductor DeepL (API Pro *)"): 5,
+			_("Traductor LibreTranslate (API *)"): 6,
+			_("Traductor Microsoft Bing (API Free)"): 7,
+			_("Traductor DeepL (Free)"): 8,
+		}
 		self.service_map = {
 			_("Traductor DeepL (API Free *)"): "deepL_free",
 			_("Traductor DeepL (API Pro *)"): "deepL_pro",
@@ -79,7 +91,7 @@ class GestorSettings:
 		Inicializa la configuración de NVDA para TranslateAdvanced.
 		"""
 		confspec = {
-			"choiceOnline": "integer(default=0, min=0, max=7)",
+			"choiceOnline": "integer(default=0, min=0, max=8)",
 			"choiceLangOrigen": "string(default=en)",
 			"choiceLangDestino_google": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_deepl": f"string(default={self.obtenerLenguaje()})",

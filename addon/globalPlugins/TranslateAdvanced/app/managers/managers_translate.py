@@ -10,7 +10,6 @@ import braille
 import speechViewer
 from speech import *
 # Carga estándar
-
 import re
 # Carga personal
 from ..src_translations.src_google_original import TranslatorGoogle
@@ -20,6 +19,7 @@ from ..src_translations.src_google_api_free_alternative import TranslatorGoogleA
 from ..src_translations.src_deepl_original import TranslatorDeepL
 from ..src_translations.src_libretranslate_original import TranslatorLibreTranslate
 from ..src_translations.src_microsoft_api_free import TranslatorMicrosoftApiFree
+from ..src_translations.src_deepl_free import TranslatorDeepLFree
 
 # Carga traducción
 addonHandler.initTranslation()
@@ -41,6 +41,7 @@ class GestorTranslate(
 		:param frame: El marco principal de la aplicación.
 		"""
 		super().__init__()
+
 		self.frame = frame
 
 	def get_choice_lang_destino(self):
@@ -186,8 +187,6 @@ class GestorTranslate(
 					braille.handler.message(self.frame.gestor_settings._lastTranslatedText)
 				return translated
 
-
-
 	def translate_file(self, text, func_progress):
 		"""
 		Traduce el contenido de un archivo de texto.
@@ -278,6 +277,12 @@ class GestorTranslate(
 				elif id == 7: # Microsoft
 					prepared = text
 					translated = self.translate_microsoft_api_free(self.frame.gestor_settings.choiceLangOrigen, self.frame.gestor_settings.choiceLangDestino_microsoft, prepared)
+				elif id == 8: # DeepL Gratis
+					translator = TranslatorDeepLFree()
+					translator.source_lang = 'auto'
+					translator.target_lang = self.frame.gestor_settings.choiceLangDestino_deepl
+					prepared = text
+					translated = translator.translate(prepared)
 		except Exception as e:
 			msg = \
 _("""Error en la traducción.

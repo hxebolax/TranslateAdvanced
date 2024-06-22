@@ -56,6 +56,12 @@ class DialogoLang(wx.Dialog):
 			self.origen = self.frame.gestor_settings.choiceLangOrigen
 			self.destino = self.frame.gestor_settings.choiceLangDestino_microsoft
 			self.name_traductor = "Microsoft"
+		elif self.id in [8]: # Para DeepL
+			self.datos = LanguageDictionary(self.frame.gestor_lang.obtener_idiomas("deepl"))
+			self.idiomas_code = self.datos.get_keys()
+			self.idiomas_name = self.datos.get_values()
+			self.destino = self.frame.gestor_settings.choiceLangDestino_deepl
+			self.name_traductor = "DeepL"
 
 		self.option = option
 		self.SetSize((300, 250))
@@ -94,6 +100,17 @@ class DialogoLang(wx.Dialog):
 		else:
 			return data
 
+	def select_listbox_by_value(self, value):
+		# Invertir el diccionario para buscar por valor
+		inverted_dict = {v: k for k, v in self.frame.gestor_settings.service_map_selection.items()}
+		# Obtener el nombre basado en el valor
+		service_name = inverted_dict.get(value, None)
+		if service_name:
+			# Seleccionar el ítem en wx.ListBox por el nombre
+			index = self.listBox.FindString(service_name)
+			if index != wx.NOT_FOUND:
+				self.listBox.SetSelection(index)
+
 	def inicio(self):
 		"""
 		Inicializa la lista de opciones en el ListBox según la opción seleccionada.
@@ -105,7 +122,7 @@ class DialogoLang(wx.Dialog):
 		elif self.option in [2]: # cambiar traductor
 			self.listBox.Append(self.frame.gestor_settings.servers_names)
 			self.listBox.SetFocus()
-			self.listBox.SetSelection(self.frame.gestor_settings.choiceOnline)
+			self.select_listbox_by_value(self.frame.gestor_settings.choiceOnline)
 
 	def ejecutarSeleccion(self):
 		"""
@@ -117,14 +134,14 @@ class DialogoLang(wx.Dialog):
 			code = self.idiomas_code[self.listBox.GetSelection()]
 			if self.id in [0, 1, 2, 3]: # Para Google
 				self.frame.gestor_settings.choiceLangDestino_google = code
-			elif self.id in [4, 5]: # Para DeepL
+			elif self.id in [4, 5, 8]: # Para DeepL
 				self.frame.gestor_settings.choiceLangDestino_deepl = code
 			elif self.id in [6]: # Para LibreTranslate
 				self.frame.gestor_settings.choiceLangDestino_libretranslate = code
 			elif self.id in [7]: # Para Microsoft
 				self.frame.gestor_settings.choiceLangDestino_microsoft = code
 		elif self.option == 2: # cambiar traductor
-			self.frame.gestor_settings.choiceOnline = self.listBox.GetSelection()
+			self.frame.gestor_settings.choiceOnline = self.frame.gestor_settings.service_map_selection.get(self.listBox.GetString(self.listBox.GetSelection()))
 
 		self.frame.gestor_settings.IS_WinON = False
 		self.frame.gestor_settings.guardaConfiguracion()

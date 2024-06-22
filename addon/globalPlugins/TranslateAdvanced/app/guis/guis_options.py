@@ -232,7 +232,7 @@ class ConfigDialog(wx.Dialog):
 
 		:param event: Evento de selección.
 		"""
-		if event.GetSelection() not in [4, 5, 6]: 
+		if event.GetString() not in [_("Traductor DeepL (API Free *)"), _("Traductor DeepL (API Pro *)"), _("Traductor LibreTranslate (API *)")]: 
 			self.show_api_controls(False)
 			return
 		choice = event.GetString()
@@ -242,6 +242,21 @@ class ConfigDialog(wx.Dialog):
 		else:
 			self.show_api_controls(False)
 		self.update_api_list()
+
+	def GetSelectionChoice(self):
+		"""
+	Obtiene la selección actual del mapa de servicios.
+		"""
+		return self.frame.gestor_settings.service_map_selection.get(self.translator_choice.GetString(self.translator_choice.GetSelection()))
+
+	def select_choice_by_value(self, value):
+		# Invertir el diccionario para buscar por valor
+		inverted_dict = {v: k for k, v in self.frame.gestor_settings.service_map_selection.items()}
+		# Obtener el nombre basado en el valor
+		service_name = inverted_dict.get(value, None)
+		if service_name:
+			# Seleccionar el ítem en wx.Choice por el nombre
+			self.translator_choice.SetStringSelection(service_name)
 
 	def start__init__(self):
 		"""
@@ -261,7 +276,7 @@ class ConfigDialog(wx.Dialog):
 		"""
 		Inicializa la configuración del traductor online del diálogo.
 		"""
-		self.translator_choice.SetSelection(self.frame.gestor_settings.choiceOnline)
+		self.select_choice_by_value(self.frame.gestor_settings.choiceOnline)
 		if self.frame.gestor_settings.choiceOnline in [4, 5, 6]:
 			choice = self.translator_choice.GetStringSelection()
 			self.selected_service = self.frame.gestor_settings.service_map.get(choice)
@@ -403,7 +418,7 @@ class ConfigDialog(wx.Dialog):
 		self.frame.gestor_settings.chkCache = self.cache_checkbox.GetValue()
 		self.frame.gestor_settings.chkResults = self.results_checkbox.GetValue()
 
-		self.frame.gestor_settings.choiceOnline = self.translator_choice.GetSelection()
+		self.frame.gestor_settings.choiceOnline = self.GetSelectionChoice()
 		self.frame.gestor_settings.api_deepl = self.default_api_index["deepL_free"]
 		self.frame.gestor_settings.api_deepl_pro = self.default_api_index["deepL_pro"]
 		self.frame.gestor_settings.api_libretranslate = self.default_api_index["libre_translate"]
