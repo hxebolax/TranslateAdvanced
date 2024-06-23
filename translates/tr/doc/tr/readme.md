@@ -22,6 +22,8 @@
   - [Çevirmenler](#Çevirmenler)
 - [5 - Sürüm Geçmişi](#Sürüm Geçmişi)
   - [Sürüm 2024.06.06](#Sürüm 2024.06.06)
+  - [Sürüm 2024.06.16](#Sürüm 2024.06.16)
+  - [Sürüm 2024.06.23](#Sürüm 2024.06.23)
 
 <h2 id="Giriş">1 - Giriş</h2>
 
@@ -265,5 +267,51 @@ Yeni gelişmeler bu başlık altına eklenecektir.
 - Eklentinin ilk sürümü.
 - 7 çeviri hizmeti desteği.
 - Temel eşzamanlı çeviri ve API anahtar yönetimi işlevleri.
+
+[İçindekiler'e Dön](#İçindekiler)
+
+<h3 id="Sürüm 2024.06.16">Sürüm 2024.06.16</h3>
+
+- **Çevrilen metni bir iletişim kutusunda göstermek yerine, istenirse panoya kopyalama seçeneği eklendi:**
+Bu işlev seçildiğinde çevrilmiş metni otomatik olarak panoya kopyalamak için bir seçenek eklendi ve ek bir iletişim kutusu görüntüleme ihtiyacı ortadan kaldırıldı.  
+Bu seçenek, eklenti yapılandırma iletişim kutusunda Genel içerisine eklendi.  
+Bu seçenek işaretlenirse, seçilen metni çevirdiğimizde artık bir iletişim kutusu görüntülenmez, bunun yerine doğrudan panoya kopyalanır.  
+- **Panoda bulunan metni çevirin:**
+Kopyalanan metinleri çevirmenin hızlı ve etkili bir yolunu sağlayarak, panoda bulunan içeriği doğrudan çevirmek artık mümkün.  
+Pano boş ise veya çevrilecek bir metin yoksa bizi bilgilendirir.  
+- **Sentezleyicinin son söylediğini çevirin:**
+Sentezleyici tarafından söylenen son cümleyi veya metni çevirmek için yeni bir özellik eklendi, eklentinin erişilebilirliği ve kullanılabilirliği artırıldı.  
+Eğer son konuşulan şey çevrilemiyorsa, bize kaynak dilde son konuşulan şeyi söyleyecektir.
+- **Çevirileri Braille satırlarında görüntüleyin:**
+Yeni sürüm, çevirilerin braille görüntüleme cihazlarında görüntülenmesine yönelik destek sağlayarak çevirilere erişimi kolaylaştırıyor.  
+Yalnızca braille ekranı yapılandırılmış cihazlarda çalışır.  
+Bu özellik test aşamasındadır.
+- **Eklenti dil güncelleyici:**
+Eklenti dillerini her zaman güncel tutmak, en yeni ve doğru dillerin kullanılabilirliğini sağlamak için bir güncelleyici eklendi..  
+Şimdi NVDA menüsü > Tercihler > Gelişmiş Çeviri'de:  
+Eklenti dillerini güncelle (Güncelleme yok) adında yeni bir seçenek bulunuyor.  
+Bu öğe, güncellemeler olup olmadığını bize bildirebilir, örneğin:  
+Eklenti dillerini güncelle (3 güncelleme mevcut)  
+Bu seçeneği kullanırsak, yeni dillerle, güncellemelerle veya her ikisi de yoksa ikisinden biriyle ilgili bir diyalog göreceğiz.  
+Dilleri, yükleyebilir veya atlayabiliriz.  
+Kur'a tıklarsak diller indirilip kurulacak ve NVDA yeniden başlatılacaktır.  
+Bu Menü öğesi, her 30 dakikada bir veya NVDA her başlatıldığında güncellemeleri denetler.  
+Bu kontrolün veri yükü, veri sorunları olan yerler için önemsizdir, kontrol etmeniz gereken 1kb'den azdır.  
+Bu güncelleyici, eklenti için dil güncellemelerini, yeni dilleri içeren yeni bir sürüm yayınlamaya gerek kalmadan, kullanıcılarla hızlı bir şekilde paylaşmayı kolaylaştıracaktır.  
+Eklentinin her yeni sürümü, gelen tüm yeni ve güncellenmiş dillerle birlikte gelecektir.
+- **Sürekli okuma hatası düzeltildi:**
+Sürekli okuma hatalarına neden olan ve uzun süreli kullanım sırasında eklenti kararlılığını ve performansını artıran bir sorun düzeltildi.
+- **Yazarın notları:**
+Panoyu çevirmek, sentezleyici tarafından söylenen son sözcükleri çevirmek veya dil güncellemelerini kontrol etmek gibi tüm yeni işlevlere hareketler atanabilir.  
+Herhangi bir seçeneği kullanmayacaksak, diğer eklentilerde de kullanabilmemiz için giriş hareketi eklemememizi öneririm. Bize faydalı olabilecekleri ekleyelim.  
+Daha fazla eklenti eklendikçe, daha çok harekete ihtiyaç duyulacaktır ve bir yardımcı program biri için çalışmazken diğeri için çalışabilir, bu nedenle yalnızca kullanacaklarınızı atayın.
+
+[İçindekiler'e Dön](#İçindekiler)
+
+<h3 id="Sürüm 2024.06.23">Sürüm 2024.06.23</h3>
+
+* Yeni DeepL Çeviri modülü eklendi (Ücretsiz)
+Bu yeni modül bir API anahtarına ihtiyaç duymaz ve simültane çeviri için kullanılır.
+* Hata düzeltmeleri
 
 [İçindekiler'e Dön](#İçindekiler)

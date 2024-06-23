@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'TranslateAdvanced' '2024.06.06'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2024-06-17 07:39-0400\n"
-"PO-Revision-Date: 2024-06-17 08:15-0400\n"
+"POT-Creation-Date: 2024-06-23 08:37-0400\n"
+"PO-Revision-Date: 2024-06-23 08:42-0400\n"
 "Last-Translator: Samuel Proulx <samuel@interfree.ca>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -125,7 +125,7 @@ msgstr ""
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:229
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:237
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:609
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:659
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:660
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:208
 msgid "Información"
 msgstr "Information"
@@ -328,11 +328,11 @@ msgstr ""
 "\n"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:614
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:661
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:294
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:305
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:325
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:383
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:662
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:309
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:320
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:340
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:398
 msgid "Error"
 msgstr "Error"
 
@@ -439,17 +439,17 @@ msgid "&Lista texto traducido:"
 msgstr "&Translated text list:"
 
 #. Idiomas origen
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:63
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:69
 msgid "Seleccione un idioma de origen para el traductor de Microsoft"
 msgstr "Select a source language for Microsoft Translator"
 
 #. Idiomas destino
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:66
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:72
 msgid "Seleccione un idioma de destino para el traductor {}"
 msgstr "Select a target language for {} translator"
 
 #. Cambiar traductor
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:69
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:75
 msgid "Elija un módulo de traducción"
 msgstr "Select a translation module"
 
@@ -468,12 +468,12 @@ msgstr "Translation modules"
 
 #. Botones Aceptar y Cancelar
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:42
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:360
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:375
 msgid "&Aceptar"
 msgstr "&Okay"
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:43
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:361
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:376
 msgid "&Cancelar"
 msgstr "&Cancel"
 
@@ -517,42 +517,63 @@ msgstr "Set default\tF4"
 msgid "No existe ninguna API para este servicio."
 msgstr "There is no API key for this service."
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:281
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:46
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:56
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:63
+msgid "Traductor DeepL (API Free *)"
+msgstr "DeepL (Free API *)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:47
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:57
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:64
+msgid "Traductor DeepL (API Pro *)"
+msgstr "DeepL Translator (Pro API *)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:48
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:58
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:65
+msgid "Traductor LibreTranslate (API *)"
+msgstr "LibreTranslate Translator (API*)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:296
 msgid "Añadir API"
 msgstr "Add API"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:294
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:305
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:325
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:309
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:320
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:340
 msgid ""
 "No existe ninguna API para este servicio. Por favor, añada una API primero."
 msgstr "There is no API key for this service. Please add an API key first."
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:296
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:311
 msgid "Editar API"
 msgstr "Edit API"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:307
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:322
 msgid "¿Estás seguro de que deseas eliminar esta clave API?"
 msgstr "Are you sure you want to delete this API key?"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:307
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:322
 msgid "Confirmación"
 msgstr "Confirmation"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:342
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:357
 msgid "&Nombre:"
 msgstr "&Name:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:344
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:359
 msgid "Clave &API:"
 msgstr "&API key:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:354
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:369
 msgid "&URL:"
 msgstr "&URL:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:383
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:398
 msgid "Todos los campos son obligatorios."
 msgstr "All fields are required."
 
@@ -754,50 +775,45 @@ msgid "Clave o valor no encontrado: {key_or_value}"
 msgstr "Key or value not found: {key_or_value}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:41
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:52
 msgid "Traductor Google (WEB 1)"
 msgstr "Google Translate (WEB 1)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:42
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:53
 msgid "Traductor Google (WEB 2)"
 msgstr "Google Translate (WEB 2)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:43
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:54
 msgid "Traductor Google (API Free 1)"
 msgstr "Google Translate (FREE API 1)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:44
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:55
 msgid "Traductor Google (API Free 2)"
 msgstr "Google Translate (Free API 2)"
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:45
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:51
-msgid "Traductor DeepL (API Free *)"
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:60
+msgid "Traductor DeepL (Free)"
 msgstr "DeepL (Free API *)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:46
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:52
-msgid "Traductor DeepL (API Pro *)"
-msgstr "DeepL Translator (Pro API *)"
-
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:47
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:53
-msgid "Traductor LibreTranslate (API *)"
-msgstr "LibreTranslate Translator (API*)"
-
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:48
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:49
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:59
 msgid "Traductor Microsoft Bing (API Free)"
 msgstr "Microsoft Bing Translator (Free API)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:244
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:258
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:271
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:274
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:243
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:257
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:270
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:273
 msgid ""
 "No tiene ninguna API configurada para el servicio que tiene seleccionado."
 msgstr ""
 "You do not have any API keys configured for the service you have selected."
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:283
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:288
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free.py:83
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:227
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_original.py:119
@@ -849,6 +865,21 @@ msgstr "Error unzipping the .zip file for {}: {}"
 msgid "Error al actualizar el idioma local {}: {}"
 msgstr "Error updating offline language {}: {}"
 
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_free.py:150
+#, python-brace-format
+msgid "Error HTTP: {0} - {1}"
+msgstr "HTTP Error: {0} - {1}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_free.py:153
+#, python-brace-format
+msgid "Error de red: {0}"
+msgstr "Red error: {0}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_free.py:156
+#, python-brace-format
+msgid "Error inesperado: {0}"
+msgstr "Unexpected error: {0}"
+
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_original.py:40
 msgid "Se requiere una clave de API para DeepL."
 msgstr "An API key is required for DeepL."
@@ -877,6 +908,25 @@ msgstr "DeepL - usage: {0}/{1}"
 #, python-brace-format
 msgid "Error obteniendo uso de DeepL: {0}"
 msgstr "Error getting usage of DeepL: {0}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:61
+msgid "No se pudo detectar el idioma"
+msgstr "Language could not be detected"
+
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:65
+#, python-brace-format
+msgid "Error de conexión: {0}"
+msgstr "Connection error: {0}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:68
+#, python-brace-format
+msgid "Error HTTP: {0} {1}"
+msgstr "HTTP Error: {0} {1}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:71
+#, python-brace-format
+msgid "Ocurrió un error inesperado: {0}"
+msgstr "An unexpected error occurred: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:74
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_alternative.py:75

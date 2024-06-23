@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>Gelişmiş Çeviri 2024.06.06</title>
+<title>Traductor Avanzado 2024.06.23</title>
 </head>
 <body>
 <h1>Kullanım Kılavuzu: NVDA için Gelişmiş Çeviri</h1>
@@ -34,6 +34,8 @@
 <li><a href="#Çevirmenler">Çevirmenler</a></li>
 <li><a href="#Sürüm Geçmişi">5 - Sürüm Geçmişi</a></li>
 <li><a href="#Sürüm 2024.06.06">Sürüm 2024.06.06</a></li>
+<li><a href="#Sürüm 2024.06.16">Sürüm 2024.06.16</a></li>
+<li><a href="#Sürüm 2024.06.23">Sürüm 2024.06.23</a></li>
 </ul>
 <h2 id="Giriş">1 - Giriş</h2>
 
@@ -239,6 +241,52 @@ Umut KORKMAZ Türkçe arayüz ve yardım dosyası eklendi.</li>
 <li>Eklentinin ilk sürümü.</li>
 <li>7 çeviri hizmeti desteği.</li>
 <li>Temel eşzamanlı çeviri ve API anahtar yönetimi işlevleri.</li>
+</ul>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="Sürüm 2024.06.16">Sürüm 2024.06.16</h3>
+
+<ul>
+<li><strong>Çevrilen metni bir iletişim kutusunda göstermek yerine, istenirse panoya kopyalama seçeneği eklendi:</strong>
+Bu işlev seçildiğinde çevrilmiş metni otomatik olarak panoya kopyalamak için bir seçenek eklendi ve ek bir iletişim kutusu görüntüleme ihtiyacı ortadan kaldırıldı.<br />
+Bu seçenek, eklenti yapılandırma iletişim kutusunda Genel içerisine eklendi.<br />
+Bu seçenek işaretlenirse, seçilen metni çevirdiğimizde artık bir iletişim kutusu görüntülenmez, bunun yerine doğrudan panoya kopyalanır.  </li>
+<li><strong>Panoda bulunan metni çevirin:</strong>
+Kopyalanan metinleri çevirmenin hızlı ve etkili bir yolunu sağlayarak, panoda bulunan içeriği doğrudan çevirmek artık mümkün.<br />
+Pano boş ise veya çevrilecek bir metin yoksa bizi bilgilendirir.  </li>
+<li><strong>Sentezleyicinin son söylediğini çevirin:</strong>
+Sentezleyici tarafından söylenen son cümleyi veya metni çevirmek için yeni bir özellik eklendi, eklentinin erişilebilirliği ve kullanılabilirliği artırıldı.<br />
+Eğer son konuşulan şey çevrilemiyorsa, bize kaynak dilde son konuşulan şeyi söyleyecektir.</li>
+<li><strong>Çevirileri Braille satırlarında görüntüleyin:</strong>
+Yeni sürüm, çevirilerin braille görüntüleme cihazlarında görüntülenmesine yönelik destek sağlayarak çevirilere erişimi kolaylaştırıyor.<br />
+Yalnızca braille ekranı yapılandırılmış cihazlarda çalışır.<br />
+Bu özellik test aşamasındadır.</li>
+<li><strong>Eklenti dil güncelleyici:</strong>
+Eklenti dillerini her zaman güncel tutmak, en yeni ve doğru dillerin kullanılabilirliğini sağlamak için bir güncelleyici eklendi..<br />
+Şimdi NVDA menüsü &gt; Tercihler &gt; Gelişmiş Çeviri'de:<br />
+Eklenti dillerini güncelle (Güncelleme yok) adında yeni bir seçenek bulunuyor.<br />
+Bu öğe, güncellemeler olup olmadığını bize bildirebilir, örneğin:<br />
+Eklenti dillerini güncelle (3 güncelleme mevcut)<br />
+Bu seçeneği kullanırsak, yeni dillerle, güncellemelerle veya her ikisi de yoksa ikisinden biriyle ilgili bir diyalog göreceğiz.<br />
+Dilleri, yükleyebilir veya atlayabiliriz.<br />
+Kur'a tıklarsak diller indirilip kurulacak ve NVDA yeniden başlatılacaktır.<br />
+Bu Menü öğesi, her 30 dakikada bir veya NVDA her başlatıldığında güncellemeleri denetler.<br />
+Bu kontrolün veri yükü, veri sorunları olan yerler için önemsizdir, kontrol etmeniz gereken 1kb'den azdır.<br />
+Bu güncelleyici, eklenti için dil güncellemelerini, yeni dilleri içeren yeni bir sürüm yayınlamaya gerek kalmadan, kullanıcılarla hızlı bir şekilde paylaşmayı kolaylaştıracaktır.<br />
+Eklentinin her yeni sürümü, gelen tüm yeni ve güncellenmiş dillerle birlikte gelecektir.</li>
+<li><strong>Sürekli okuma hatası düzeltildi:</strong>
+Sürekli okuma hatalarına neden olan ve uzun süreli kullanım sırasında eklenti kararlılığını ve performansını artıran bir sorun düzeltildi.</li>
+<li><strong>Yazarın notları:</strong>
+Panoyu çevirmek, sentezleyici tarafından söylenen son sözcükleri çevirmek veya dil güncellemelerini kontrol etmek gibi tüm yeni işlevlere hareketler atanabilir.<br />
+Herhangi bir seçeneği kullanmayacaksak, diğer eklentilerde de kullanabilmemiz için giriş hareketi eklemememizi öneririm. Bize faydalı olabilecekleri ekleyelim.<br />
+Daha fazla eklenti eklendikçe, daha çok harekete ihtiyaç duyulacaktır ve bir yardımcı program biri için çalışmazken diğeri için çalışabilir, bu nedenle yalnızca kullanacaklarınızı atayın.</li>
+</ul>
+<p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
+<h3 id="Sürüm 2024.06.23">Sürüm 2024.06.23</h3>
+
+<ul>
+<li>Yeni DeepL Çeviri modülü eklendi (Ücretsiz)
+Bu yeni modül bir API anahtarına ihtiyaç duymaz ve simültane çeviri için kullanılır.</li>
+<li>Hata düzeltmeleri</li>
 </ul>
 <p><a href="#İçindekiler">İçindekiler'e Dön</a></p>
 </body>

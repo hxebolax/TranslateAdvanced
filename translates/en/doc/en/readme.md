@@ -23,6 +23,8 @@
 - [5 - Version Changelog](#version-changelog)
   - [Version 1.0](#version-1-0)
   - [Version 2024.06.16](#version-2024-06-16)
+  - [Version 2024.06.23](#version-2024-06-23)
+
 
 <h2 id="introduction">1 - Introduction</h2>
 
@@ -364,5 +366,15 @@ All new functions such as translating the clipboard, translating the last words 
 I recommend that if you are not going to use any option, you do not add an input gesture so that you can have it free for other addons. Only add those that will be useful to you.
 
 As features are added, more gestures will be needed and a feature may not work for one person and it may work well for another, so assign only the ones you are going to use.
+
+[Back to index](#index)
+
+<h3 id="version-2024-06-23">Version 2024.06.23</h3>
+
+* Added new DeepL Translator module (Free)
+
+This new module does not need an API key and is used for real time translation
+
+* Error correction
 
 [Back to index](#index)
