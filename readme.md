@@ -23,6 +23,7 @@
 - [5 - Registro de Versiones](#registro-de-versiones)
   - [Versión 2024.06.06](#version-2024-06-06)
   - [Versión 2024.06.16](#version-2024-06-16)
+  - [Versión 2024.06.23](#version-2024-06-23)
 
 <h2 id="introduccion">1 - Introducción</h2>
 
@@ -371,5 +372,15 @@ A todas las nuevas funciones como traducir el portapapeles, traducir lo ultimo v
 Recomiendo que si alguna opción no vamos a usarla no se le agregue gesto de entrada para poder tenerla en otros complementos. Agreguemos aquellas que nos puedan servir.
 
 Conforme se vayan añadiendo utilidades se necesitarán más gestos y puede que una utilidad no sirva a uno y puede que a otro si por lo que asignemos solo los que vayamos a usar.
+
+[Volver al índice](#indice)
+
+<h3 id="version-2024-06-23">Versión 2024.06.23</h3>
+
+* Agregado nuevo modulo Traductor DeepL (Free)
+
+Este nuevo modulo no necesita de clave API y es utilizado para la traducción simultanea 
+
+* Corrección de errores
 
 [Volver al índice](#indice)

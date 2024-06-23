@@ -336,7 +336,7 @@ Error:
 				self.processed_chunks += 1
 				self.first_chunk = False
 				if self.mostrar_progreso:
-					print(f"Progreso de la traducción: {self.get_progreso():.2f}%")
+					pass #print(f"Progreso de la traducción: {self.get_progreso():.2f}%")
 
 		def get_progreso(self):
 			"""

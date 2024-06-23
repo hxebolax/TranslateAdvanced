@@ -107,7 +107,7 @@ class TranslatorGoogle:
 		:param from_language: El idioma desde el que traducir (por defecto "auto").
 		:return: El texto traducido.
 		"""
-		base_link = "http://translate.google.com/m?hl=%s&sl=%s&q=%s"
+		base_link = "https://translate.google.com/m?hl=%s&sl=%s&q=%s"
 		to_translate = urllib.parse.quote(to_translate)
 		link = base_link % (to_language, from_language, to_translate)
 		request = urllib.request.Request(link, headers=self.agent)

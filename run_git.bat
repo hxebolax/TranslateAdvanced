@@ -3,8 +3,8 @@
 scons --clean
 git init
 git add --all
-git commit -m "Versión 2024.06.16.release"
+git commit -m "Versión 2024.06.23.release"
 git push -u origin master
-git tag 2024.06.16
+git tag 2024.06.23
 git push --tags
 pause
