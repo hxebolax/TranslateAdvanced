@@ -10,6 +10,7 @@ import globalVars
 import logHandler
 # Carga Python
 import os
+import json
 from collections import deque
 
 # Carga traducción
@@ -37,6 +38,25 @@ class GestorSettings:
 		self.IS_WinON = False
 		self.is_active_translate = False
 		self._enableTranslation = False
+		self._nvdaSpeak = None
+		self._nvdaGetPropertiesSpeech = None
+		self._lastTranslatedText = None
+		self.ultimo_texto = None
+		# Configuración a guardar
+		self.choiceOnline = None
+		self.choiceLangOrigen = None
+		self.choiceLangDestino_google = None
+		self.choiceLangDestino_deepl = None
+		self.choiceLangDestino_libretranslate = None
+		self.choiceLangDestino_microsoft = None
+		self.chkCache = None
+		self.chkResults = None
+		self.chkSound = True
+		self.api_deepl = None
+		self.api_deepl_pro = None
+		self.api_libretranslate = None
+		self.api_libretranslate_url = None
+		# Lista y diccionarios sobre los servicios
 		self.servers_names = [
 			_("Traductor Google (WEB 1)"),
 			_("Traductor Google (WEB 2)"),
@@ -64,24 +84,6 @@ class GestorSettings:
 			_("Traductor DeepL (API Pro *)"): "deepL_pro",
 			_("Traductor LibreTranslate (API *)"): "libre_translate"
 		}
-
-		self._nvdaSpeak = None
-		self._nvdaGetPropertiesSpeech = None
-		self._lastTranslatedText = None
-		self.ultimo_texto = None
-		# Configuración a guardar
-		self.choiceOnline = None
-		self.choiceLangOrigen = None
-		self.choiceLangDestino_google = None
-		self.choiceLangDestino_deepl = None
-		self.choiceLangDestino_libretranslate = None
-		self.choiceLangDestino_microsoft = None
-		self.chkCache = None
-		self.chkResults = None
-		self.api_deepl = None
-		self.api_deepl_pro = None
-		self.api_libretranslate = None
-		self.api_libretranslate_url = None
 		# Diccionario para obtener el choice idiioma destino
 		self.choice_dict = {
 			0: self.choiceLangDestino_google,
@@ -93,6 +95,24 @@ class GestorSettings:
 			6: self.choiceLangDestino_libretranslate,
 			7: self.choiceLangDestino_microsoft,
 			8: self.choiceLangDestino_deepl,
+		}
+		# Diccionario con teclas y descripciones
+		self.__newGestures = {
+			'kb:p': {'action': 'onSettings', 'description': _('Abre la configuración del complemento.')},
+			'kb:u': {'action': 'onUpdate', 'description': _('Comprueba si hay actualizaciones de idioma del complemento.')},
+			'kb:o': {'action': 'choice_lang_origen', 'description': _('Cambia el idioma de origen del traductor.')},
+			'kb:d': {'action': 'choice_lang_destino', 'description': _('Cambia el idioma de destino del traductor.')},
+			'kb:c': {'action': 'choice_translate_change', 'description': _('Cambia el módulo de traducción.')},
+		'kb:a': {'action': 'flushAllCache', 'description': _('Elimina todas las traducciones en caché para todas las aplicaciones.')},
+			'kb:x': {'action': 'flushCurrentAppCache', 'description': _('Elimina la caché de traducción para la aplicación enfocada actualmente.')},
+			'kb:g': {'action': 'toggleCache', 'description': _('Activa o desactiva la caché de traducción según el estado actual.')},
+			'kb:l': {'action': 'copyLastTranslation', 'description': _('Copia el último texto traducido al portapapeles si no hay una traducción en curso.')},
+			'kb:b': {'action': 'ClipboardTranslation', 'description': _('Traduce el contenido del portapapeles.')},
+			'kb:v': {'action': 'speackLastTranslation', 'description': _('Traduce el último texto verbalizado.')},
+			'kb:t': {'action': 'toggleTranslateOnline', 'description': _('Activa o desactiva la traducción simultánea Online.')},
+			'kb:s': {'action': 'translate_select', 'description': _('Traduce el texto seleccionado.')},
+			'kb:h': {'action': 'translate_history', 'description': _('Muestra el historial de traducción.')},
+			'kb:f1': {'action': 'commandList', 'description': _('Muestra un diálogo con la lista de comandos de una sola tecla')}
 		}
 		self.initConfiguration()
 		self.setup()
@@ -213,3 +233,24 @@ class GestorSettings:
 			return valor
 		else:
 			raise ValueError("El valor no es un tipo esperado.")
+
+	def obtener_diccionario_original(self):
+		"""
+		Obtiene el diccionario original de gestos, solo con las acciones.
+
+		:return: El diccionario original de gestos con las acciones.
+		"""
+		diccionario_original = {key: value['action'] for key, value in self.__newGestures.items()}
+		return diccionario_original
+
+	def obtener_descripciones(self):
+		"""
+		Obtiene un texto con la tecla asignada y su descripción.
+
+		:return: Un texto con las teclas y sus descripciones.
+		"""
+		descripciones = []
+		for key, value in self.__newGestures.items():
+			tecla = key.split(':')[-1].upper()
+			descripciones.append(f"* {tecla}: {value['description']}")
+		return "\n".join(descripciones)

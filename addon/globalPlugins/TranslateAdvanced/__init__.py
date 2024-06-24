@@ -8,13 +8,13 @@ import addonHandler
 import languageHandler
 import logHandler
 import globalVars
-import core
 import ui
 import gui
 import api
 import speech
 from speech import *
 from scriptHandler import script, getLastScriptRepeatCount
+from nvwave import playWaveFile
 # Carga Python
 import os
 import wx
@@ -84,11 +84,6 @@ Error:
 			logHandler.log.error(msg)
 			return
 
-		if hasattr(globalVars, _("Traductor Avanzado")):
-			self.postStartupHandler()
-		core.postNvdaStartup.register(self.postStartupHandler)
-		globalVars.TranslateAdvanced = None
-
 		# Gestores globales
 		self.gestor_settings = None
 		self.gestor_lang = None
@@ -100,12 +95,10 @@ Error:
 		self._cache = None
 		self.menu = None
 		self.oldSpeak = None
+		# Bandera para la activación y desactivación de la capa de comandos
+		self.switch = False
 
-	def postStartupHandler(self):
-		"""
-		Controlador para la inicialización posterior al inicio de NVDA.
-		"""
-		Thread(target=self.__inicio, daemon=True).start()
+		self.__inicio()
 
 	def __inicio(self):
 		"""
@@ -164,8 +157,75 @@ _("""Traductor Avanzado iniciado correctamente.""")
 			self._cache.saveLocalCache()
 		self.gestor_settings.guardaConfiguracion()
 		self.menu.Remove(self.mainItem)
-		core.postNvdaStartup.unregister(self.postStartupHandler)
 		super().terminate()
+
+	def getScript(self, gesture):
+		"""
+		Obtiene el script asociado a un gesto específico.
+
+		Si el interruptor está apagado, devuelve el script del complemento global.
+		Si el interruptor está encendido y no se encuentra un script asociado al gesto, cierra la capa de comandos.
+		Finalmente, intenta devolver el script asociado al gesto desde el complemento global.
+
+		Args:
+			gesture (object): El gesto para el cual se busca el script.
+
+		Returns:
+			object: El script asociado al gesto o None si no se encuentra.
+		"""
+		if not self.switch:
+			return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
+		script = globalPluginHandler.GlobalPlugin.getScript(self, gesture)
+		if not script:
+			self.closeCommandsLaier()
+			return
+		return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
+
+	def closeCommandsLaier(self):
+		"""
+		Elimina los gestos de la capa de comandos y restaura los propios del complemento.
+
+		Desactiva el interruptor, elimina las asociaciones de gestos y emite un sonido de bip.
+		"""
+		self.play("close")
+		self.switch = False
+		self.clearGestureBindings()
+
+	@script(gesture=None, description=_("_Activa la capa de comandos. F1 muestra la lista de atajos de una sola tecla"), category=_("Traductor Avanzado"))
+	def script_commandsLaier(self, gesture):
+		"""
+		Activa la capa de comandos.
+
+		Asocia nuevos gestos a las acciones del script, activa el interruptor y emite un sonido de bip.
+
+		Args:
+			gesture (object): El gesto que activa este script.
+		"""
+		self.play("open")
+		self.bindGestures(self.gestor_settings.obtener_diccionario_original())
+		self.switch = True
+
+	def script_commandList(self, gesture):
+		"""
+		Cierra la capa de comandos y muestra la lista de comandos de una sola tecla.
+
+		Desactiva la capa de comandos activa y muestra una lista de comandos disponibles al usuario
+		mediante un mensaje navegable.
+
+		Args:
+		gesture (object): El gesto que activa este script.
+		"""
+		self.closeCommandsLaier()
+		ui.browseableMessage(self.gestor_settings.obtener_descripciones(), _("Lista de comandos de una sola tecla"))
+
+	def play(self, sound):
+		"""
+		Reproduce un archivo de sonido específico si se proporciona el nombre del sonido.
+
+		Args:
+			sound (str): El nombre del archivo de sonido (sin la extensión) que se va a reproducir.
+		"""
+		if self.gestor_settings.chkSound: playWaveFile(os.path.join(self.gestor_settings.dir_root, 'app', 'data', 'sounds', '{}.wav'.format(sound)))
 
 	def _update(self, func):
 		"""
@@ -261,6 +321,7 @@ Desactívela para realizar esta acción.""")
 		:param event: Evento que desencadena la función.
 		:param menu: Indica si el menú está abierto.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas(menu, True):
 			LaunchThread(self, 1).start()
 
@@ -272,6 +333,7 @@ Desactívela para realizar esta acción.""")
 		:param event: Evento que desencadena la función.
 		:param menu: Indica si el menú está abierto.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas(menu, True):
 			LaunchThread(self, 7).start()
 
@@ -282,6 +344,7 @@ Desactívela para realizar esta acción.""")
 
 		:param event: Evento que desencadena la función.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas(False, True):
 			if self.gestor_settings.choiceOnline == 7: # Solo para Microsoft
 				LaunchThread(self, 2).start()
@@ -295,6 +358,7 @@ Desactívela para realizar esta acción.""")
 
 		:param event: Evento que desencadena la función.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas(False, True):
 			LaunchThread(self, 3).start()
 
@@ -305,6 +369,7 @@ Desactívela para realizar esta acción.""")
 
 		:param event: Evento que desencadena la función.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas(False, True):
 			LaunchThread(self, 4).start()
 
@@ -315,9 +380,12 @@ Desactívela para realizar esta acción.""")
 
 		:param event: Evento que desencadena la función.
 		"""
-		if getLastScriptRepeatCount() == 0:
-			ui.message(_("Pulse dos veces para eliminar todas las traducciones en caché de todas las aplicaciones."))
-			return
+		if self.switch:
+			self.closeCommandsLaier()
+		else:
+			if getLastScriptRepeatCount() == 0:
+				ui.message(_("Pulse dos veces para eliminar todas las traducciones en caché de todas las aplicaciones."))
+				return
 		self.gestor_settings._translationCache = {}
 		path = self.gestor_settings.dir_cache
 		error = False
@@ -348,10 +416,13 @@ Desactívela para realizar esta acción.""")
 		except:
 			ui.message(_("No hay aplicación enfocada."))
 			return
-		if getLastScriptRepeatCount() == 0:
-			data = languageHandler.getLanguageDescription(self.gestor_translate.get_choice_lang_destino())
-			ui.message(_("Pulse dos veces para eliminar todas las traducciones de {} en lenguaje {}").format(appName, self.gestor_translate.get_choice_lang_destino() if data is None else data))
-			return
+		if self.switch:
+			self.closeCommandsLaier()
+		else:
+			if getLastScriptRepeatCount() == 0:
+				data = languageHandler.getLanguageDescription(self.gestor_translate.get_choice_lang_destino())
+				ui.message(_("Pulse dos veces para eliminar todas las traducciones de {} en lenguaje {}").format(appName, self.gestor_translate.get_choice_lang_destino() if data is None else data))
+				return
 		self.gestor_settings._translationCache[appName] = {}
 		fullPath = os.path.join(self.gestor_settings.dir_cache, "{}_{}.json".format(appName, self.gestor_translate.get_choice_lang_destino()))
 		if os.path.exists(fullPath):
@@ -371,6 +442,7 @@ Desactívela para realizar esta acción.""")
 		
 		:param event: El evento que desencadena la función.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		# Verifica si hay alguna ventana abierta
 		if self.gestor_settings.IS_WinON:
 			ui.message(_("La activación o desactivación de la cache no puede hacerse mientras haya una ventana de Traductor Avanzado abierta"))
@@ -414,6 +486,7 @@ Desactívela para realizar esta acción.""")
 		:param event: El evento que desencadena la función.
 		"""
 		
+		if self.switch: self.closeCommandsLaier()
 		# Verifica si hay una traducción en curso
 		if self.gestor_settings.is_active_translate:
 			ui.message(_("Tiene una traducción en curso. Espere a que termine."))
@@ -437,6 +510,7 @@ Desactívela para realizar esta acción.""")
 		:param event: El evento que desencadena la función.
 		"""
 		
+		if self.switch: self.closeCommandsLaier()
 		# Verifica si hay una traducción en curso
 		if self.gestor_settings.is_active_translate:
 			ui.message(_("Tiene una traducción en curso. Espere a que termine."))
@@ -467,6 +541,7 @@ Desactívela para realizar esta acción.""")
 		:param event: El evento que desencadena la función.
 		"""
 		
+		if self.switch: self.closeCommandsLaier()
 		# Verifica si hay una traducción en curso
 		if self.gestor_settings.is_active_translate:
 			ui.message(_("Tiene una traducción en curso. Espere a que termine."))
@@ -498,6 +573,7 @@ Desactívela para realizar esta acción.""")
 		Verifica las condiciones necesarias antes de activar o desactivar la traducción Online,
 		y muestra mensajes adecuados según el estado actual del sistema.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas():
 			self.gestor_settings._enableTranslation = not self.gestor_settings._enableTranslation
 			ui.message(_("Traducción activada.")) if self.gestor_settings._enableTranslation else ui.message(_("Traducción desactivada."))
@@ -511,6 +587,7 @@ Desactívela para realizar esta acción.""")
 
 		:param event: Evento que desencadena la función.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas(False, True):
 			# Obtiene el texto seleccionado
 			temp = getSelectedText(api.getCaretObject())
@@ -529,6 +606,7 @@ Desactívela para realizar esta acción.""")
 
 		:param event: Evento que desencadena la función.
 		"""
+		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas(False, True):
 			if not self.gestor_settings.historialOrigen:
 				ui.message(_("No hay nada en el historial todavía."))
