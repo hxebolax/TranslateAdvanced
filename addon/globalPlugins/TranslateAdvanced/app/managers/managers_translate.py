@@ -6,8 +6,10 @@
 import addonHandler
 import globalVars
 import logHandler
+import languageHandler
 import braille
 import speechViewer
+import ui
 from speech import *
 # Carga estándar
 import re
@@ -20,6 +22,8 @@ from ..src_translations.src_deepl_original import TranslatorDeepL
 from ..src_translations.src_libretranslate_original import TranslatorLibreTranslate
 from ..src_translations.src_microsoft_api_free import TranslatorMicrosoftApiFree
 from ..src_translations.src_deepl_free import TranslatorDeepLFree
+from ..src_translations.src_detect import DetectorDeIdioma
+from ..managers.managers_dict import LanguageDictionary
 
 # Carga traducción
 addonHandler.initTranslation()
@@ -43,6 +47,7 @@ class GestorTranslate(
 		super().__init__()
 
 		self.frame = frame
+		self.data_google = LanguageDictionary(self.frame.gestor_lang.obtener_idiomas("google"))
 
 	def get_choice_lang_destino(self):
 		"""
@@ -145,6 +150,34 @@ class GestorTranslate(
 
 		# Devolver un diccionario con las listas procesadas
 		return {'origen': origen_procesado, 'destino': destino_procesado}
+	def detector_idiomas(self, text):
+		"""
+		Detecta el idioma de un texto dado y muestra el nombre del idioma detectado.
+
+		Parámetros:
+			text (str): El texto cuya lengua se desea detectar.
+
+		Acciones:
+			1. Utiliza DetectorDeIdioma para detectar el idioma del texto.
+			2. Si la detección es exitosa, obtiene el nombre del idioma utilizando los valores de data_google.
+			3. Muestra una descripción del idioma detectado si está disponible, de lo contrario, muestra el nombre del idioma.
+			4. Si la detección no es exitosa, muestra un mensaje de error.
+			5. Desactiva la traducción en gestor_settings.
+
+		Resultado:
+			Muestra un mensaje con el nombre o descripción del idioma detectado, o un mensaje de error si la detección falla.
+		"""
+		result = DetectorDeIdioma().detectar_idioma(text)
+		if result["success"]:
+			idiomas_name = self.data_google.get_values()
+			data = languageHandler.getLanguageDescription(result["data"])
+			if data is None:
+				ui.message(idiomas_name[self.data_google.get_index_by_key_or_value(result["data"])])
+			else:
+				ui.message(data)
+		else:
+			ui.message(_("No se a podido obtener el idioma"))
+		self.frame.gestor_settings.is_active_translate = False
 
 	def translate_various(self, text):
 		"""

@@ -613,6 +613,37 @@ Desactívela para realizar esta acción.""")
 				return
 			LaunchThread(self, 6).start()
 
+	@script(gesture=None, description=_("Detecta el idioma seleccionado"), category=_("Traductor Avanzado"))
+	def script_detectLang(self, event):
+		"""
+		Detecta el idioma del texto seleccionado en respuesta a un evento.
+
+		Parámetros:
+			event: El evento que dispara la detección de idioma.
+
+		Acciones:
+			1. Si el interruptor está activado, cierra la capa de comandos.
+			2. Verifica si las banderas están configuradas correctamente.
+			3. Obtiene el texto seleccionado utilizando la posición actual del cursor.
+			4. Si no hay texto seleccionado, muestra un mensaje de error y termina la ejecución.
+			5. Desactiva la traducción y activa el estado de traducción.
+			6. Inicia un nuevo hilo para procesar la detección de idioma del texto seleccionado.
+
+		Resultado:
+			Procesa la detección del idioma del texto seleccionado y maneja los estados de traducción correspondientes.
+		"""
+		if self.switch: self.closeCommandsLaier()
+		if self.chk_banderas(False, True):
+			# Obtiene el texto seleccionado
+			temp = getSelectedText(api.getCaretObject())
+			if not temp['success'] or temp['data'] == '':
+				ui.message(_("Sin selección para obtener el idioma"))
+				return
+			# Deshabilita la traducción y activa el estado de traducción
+			self.gestor_settings._enableTranslation = False
+			self.gestor_settings.is_active_translate = True
+			LaunchThread(self, 8, temp['data']).start()
+
 class LaunchThread(Thread):
 	"""
 	Clase para gestionar la ejecución de diferentes diálogos en hilos separados.
@@ -740,6 +771,19 @@ class LaunchThread(Thread):
 					gui.messageBox(datos['data'], _("Error"), wx.OK | wx.ICON_ERROR)
 				self.frame.gestor_settings.IS_WinON = False
 
+		def detect_lang():
+			"""
+			Detecta el idioma del texto almacenado en el atributo `self.text`.
+
+			Acciones:
+				Llama al método `detector_idiomas` del objeto `gestor_translate` de `self.frame` 
+				para detectar el idioma del texto.
+
+			Resultado:
+				Inicia el proceso de detección de idioma para el texto proporcionado.
+			"""
+			self.frame.gestor_translate.detector_idiomas(self.text)
+
 		if self.option == 1: # Configuración
 			wx.CallAfter(appLauncherAjustes)
 		elif self.option == 2: # Cambiar idioma origen
@@ -754,3 +798,5 @@ class LaunchThread(Thread):
 			wx.CallAfter(translate_history)
 		elif self.option == 7: # Actualizaciones de idioma del complemento
 			wx.CallAfter(translate_update)
+		elif self.option == 8: # Detecta idioma seleccionado
+			wx.CallAfter(detect_lang)

@@ -111,6 +111,7 @@ class GestorSettings:
 			'kb:v': {'action': 'speackLastTranslation', 'description': _('Traduce el último texto verbalizado.')},
 			'kb:t': {'action': 'toggleTranslateOnline', 'description': _('Activa o desactiva la traducción simultánea Online.')},
 			'kb:s': {'action': 'translate_select', 'description': _('Traduce el texto seleccionado.')},
+			'kb:i': {'action': 'detectLang', 'description': _('Detecta el idioma seleccionado')},
 			'kb:h': {'action': 'translate_history', 'description': _('Muestra el historial de traducción.')},
 			'kb:f1': {'action': 'commandList', 'description': _('Muestra un diálogo con la lista de comandos de una sola tecla')}
 		}
