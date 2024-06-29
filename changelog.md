@@ -1,3 +1,5 @@
-*Agregado nuevo modulo Traductor DeepL (Free)
+* Agregado modulo de detector de idiomas.
+* Solucionado problema con la verbalización de algunos mensajes.
+* Agregado retardo para iniciar el complemento si no se encuentra conexión a internet.
 *Corrección de errores
 - SHA256: 

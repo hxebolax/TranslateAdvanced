@@ -50,24 +50,42 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	"""
 	def __init__(self, *args, **kwargs):
 		"""
-		Inicializa el complemento, verifica la conexión a internet y carga los certificados.
+		Inicializa el complemento y comienza la verificación de conexión a internet.
 		"""
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
 
-		if not is_connected():
-			msg = \
-_("""No se a encontrado conexión a internet.
+		# Gestores globales
+		self.gestor_settings = None
+		self.gestor_lang = None
+		self.gestor_translate = None
+		self.gestor_portapapeles = None
+		self.gestor_apis = None
+		self.gestor_repositorio = None
+		# Utilidades
+		self._cache = None
+		self.menu = None
+		self.oldSpeak = None
+		# Bandera para la activación y desactivación de la capa de comandos
+		self.switch = False
 
-Si esta conectado por Wifi puede que NVDA iniciara antes que se conectara.
+		# Iniciar hilo para verificar conexión a internet
+		self.check_connection_thread = Thread(target=self.check_connection, daemon=True)
+		self.check_connection_thread.start()
 
-Espere unos segundos y vuelva a reiniciar NVDA.
+	def check_connection(self):
+		"""
+		Verifica periódicamente la conexión a internet hasta que se establezca.
+		"""
+		while not is_connected():
+			time.sleep(5)  # Espera 5 segundos antes de la siguiente comprobación
 
-Si esta conectado por cable compruebe su conexión y asegúrese que todo esta correcto.
+		# Si se detecta una conexión, continuar con la inicialización
+		wx.CallAfter(self.__inicio_completo)
 
-Se cancelara la carga del complemento Traductor Avanzado.""")
-			logHandler.log.error(msg)
-			return
-
+	def __inicio_completo(self):
+		"""
+		Continúa con la inicialización del complemento una vez que hay conexión a internet.
+		"""
 		# Comprobación de almacén de certificados raíz de Windows.
 		# Si no están correctos se actualizan.
 		try:
@@ -83,20 +101,6 @@ Error:
 {}""").format(str(e))
 			logHandler.log.error(msg)
 			return
-
-		# Gestores globales
-		self.gestor_settings = None
-		self.gestor_lang = None
-		self.gestor_translate = None
-		self.gestor_portapapeles = None
-		self.gestor_apis = None
-		self.gestor_repositorio = None
-		# Utilidades
-		self._cache = None
-		self.menu = None
-		self.oldSpeak = None
-		# Bandera para la activación y desactivación de la capa de comandos
-		self.switch = False
 
 		self.__inicio()
 
@@ -150,14 +154,64 @@ _("""Traductor Avanzado iniciado correctamente.""")
 		"""
 		Finaliza el complemento y guarda la configuración.
 		"""
-		speech._manager.speak = self.gestor_settings._nvdaSpeak
-		speech.getPropertiesSpeech = self.gestor_settings._nvdaGetPropertiesSpeech
-		speech.speech.speak = self.oldSpeak
-		if self.gestor_settings.chkCache:
-			self._cache.saveLocalCache()
-		self.gestor_settings.guardaConfiguracion()
-		self.menu.Remove(self.mainItem)
+		if not hasattr(self, 'IS_OK') or not self.IS_OK:
+			# No hacer nada si el complemento aún no está completamente inicializado
+			return
+		try:
+			speech._manager.speak = self.gestor_settings._nvdaSpeak
+			speech.getPropertiesSpeech = self.gestor_settings._nvdaGetPropertiesSpeech
+			speech.speech.speak = self.oldSpeak
+			if self.gestor_settings.chkCache:
+				self._cache.saveLocalCache()
+			self.gestor_settings.guardaConfiguracion()
+			self.menu.Remove(self.mainItem)
+		except Exception as e:
+			pass
 		super().terminate()
+
+	def chk_banderas(self, menu=False, toogle=False):
+		"""
+		Verifica condiciones antes de realizar acciones específicas.
+
+		:param menu: Indica si el menú está abierto.
+		:param toogle: Indica si se debe alternar una bandera.
+		:return: True si todas las condiciones se cumplen, de lo contrario False.
+		"""
+		if not hasattr(self, 'IS_OK') or not self.IS_OK:
+			# No hacer nada si el complemento aún no está completamente inicializado
+			return
+		if not is_connected():
+			msg = \
+_("""No se a encontrado conexión a internet.
+
+Si esta conectado por Wifi puede que NVDA iniciara antes que se conectara.
+
+Si esta conectado por cable compruebe su conexión y asegúrese que todo esta correcto.
+
+Espere unos segundos.""")
+			ui.message(msg)
+			return
+		if self.gestor_settings.IS_WinON: 
+			msg = \
+_("""Ya hay una instancia de Traductor Avanzado abierta.
+
+Ciérrela para realizar esta acción.""")
+			gui.messageBox(msg, _("Información"), wx.ICON_INFORMATION) if menu else ui.message(msg)
+			return False
+		if self.gestor_settings.is_active_translate: 
+			msg = \
+_("""Tiene una traducción en curso. Espere a que termine.""")
+			gui.messageBox(msg, _("Información"), wx.ICON_INFORMATION) if menu else ui.message(msg)
+			return False
+		if toogle:
+			if self.gestor_settings._enableTranslation: 
+				msg = \
+_("""Tiene la traducción simultanea activada.
+
+Desactívela para realizar esta acción.""")
+				gui.messageBox(msg, _("Información"), wx.ICON_INFORMATION) if menu else ui.message(msg)
+				return False
+		return True
 
 	def getScript(self, gesture):
 		"""
@@ -173,13 +227,14 @@ _("""Traductor Avanzado iniciado correctamente.""")
 		Returns:
 			object: El script asociado al gesto o None si no se encuentra.
 		"""
-		if not self.switch:
+		if self.chk_banderas():
+			if not self.switch:
+				return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
+			script = globalPluginHandler.GlobalPlugin.getScript(self, gesture)
+			if not script:
+				self.closeCommandsLaier()
+				return
 			return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
-		script = globalPluginHandler.GlobalPlugin.getScript(self, gesture)
-		if not script:
-			self.closeCommandsLaier()
-			return
-		return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
 
 	def closeCommandsLaier(self):
 		"""
@@ -201,9 +256,10 @@ _("""Traductor Avanzado iniciado correctamente.""")
 		Args:
 			gesture (object): El gesto que activa este script.
 		"""
-		self.play("open")
-		self.bindGestures(self.gestor_settings.obtener_diccionario_original())
-		self.switch = True
+		if self.chk_banderas():
+			self.play("open")
+			self.bindGestures(self.gestor_settings.obtener_diccionario_original())
+			self.switch = True
 
 	def script_commandList(self, gesture):
 		"""
@@ -257,46 +313,17 @@ _("""Traductor Avanzado iniciado correctamente.""")
 		Devuelve:
 			No devuelve ningún valor, pero actualiza el estado del menú correspondiente a las actualizaciones.
 		"""
-		self.update = self.gestor_repositorio.comprobar_nuevos_y_actualizaciones()
-		if self.update['success']:
-			total = len({**self.update['data']['nuevos'], **self.update['data']['actualizaciones']})
-			if total == 1:
-				msg = _("&Actualizar idiomas del complemento ({} actualización disponible)").format(total)
+		if is_connected():
+			self.update = self.gestor_repositorio.comprobar_nuevos_y_actualizaciones()
+			if self.update['success']:
+				total = len({**self.update['data']['nuevos'], **self.update['data']['actualizaciones']})
+				if total == 1:
+					msg = _("&Actualizar idiomas del complemento ({} actualización disponible)").format(total)
+				else:
+					msg = _("&Actualizar idiomas del complemento ({} actualizaciones disponibles)").format(total)
+				self.menu.SetLabel(self.updateItem.GetId(), msg)
 			else:
-				msg = _("&Actualizar idiomas del complemento ({} actualizaciones disponibles)").format(total)
-			self.menu.SetLabel(self.updateItem.GetId(), msg)
-		else:
-			self.menu.SetLabel(self.updateItem.GetId(), _("&Actualizar idiomas del complemento (Sin actualizaciones)"))
-
-	def chk_banderas(self, menu=False, toogle=False):
-		"""
-		Verifica condiciones antes de realizar acciones específicas.
-
-		:param menu: Indica si el menú está abierto.
-		:param toogle: Indica si se debe alternar una bandera.
-		:return: True si todas las condiciones se cumplen, de lo contrario False.
-		"""
-		if self.gestor_settings.IS_WinON: 
-			msg = \
-_("""Ya hay una instancia de Traductor Avanzado abierta.
-
-Ciérrela para realizar esta acción.""")
-			gui.messageBox(msg, _("Información"), wx.ICON_INFORMATION) if menu else ui.message(msg)
-			return False
-		if self.gestor_settings.is_active_translate: 
-			msg = \
-_("""Tiene una traducción en curso. Espere a que termine.""")
-			gui.messageBox(msg, _("Información"), wx.ICON_INFORMATION) if menu else ui.message(msg)
-			return False
-		if toogle:
-			if self.gestor_settings._enableTranslation: 
-				msg = \
-_("""Tiene la traducción simultanea activada.
-
-Desactívela para realizar esta acción.""")
-				gui.messageBox(msg, _("Información"), wx.ICON_INFORMATION) if menu else ui.message(msg)
-				return False
-		return True
+				self.menu.SetLabel(self.updateItem.GetId(), _("&Actualizar idiomas del complemento (Sin actualizaciones)"))
 
 	def onSettings(self, event):
 		"""
@@ -443,40 +470,36 @@ Desactívela para realizar esta acción.""")
 		:param event: El evento que desencadena la función.
 		"""
 		if self.switch: self.closeCommandsLaier()
-		# Verifica si hay alguna ventana abierta
-		if self.gestor_settings.IS_WinON:
-			ui.message(_("La activación o desactivación de la cache no puede hacerse mientras haya una ventana de Traductor Avanzado abierta"))
-			return
-		
-		# Guarda el estado actual de la traducción
-		temp = self.gestor_settings._enableTranslation
-		
-		# Si la traducción está habilitada, la deshabilita y guarda la caché local si corresponde
-		if self.gestor_settings._enableTranslation:
-			self.gestor_settings._enableTranslation = False
-			temp = True
+		if self.chk_banderas(False, True):
+			# Guarda el estado actual de la traducción
+			temp = self.gestor_settings._enableTranslation
+			
+			# Si la traducción está habilitada, la deshabilita y guarda la caché local si corresponde
+			if self.gestor_settings._enableTranslation:
+				self.gestor_settings._enableTranslation = False
+				temp = True
+				if self.gestor_settings.chkCache:
+					self._cache.saveLocalCache()
+			else:
+				temp = False
+			
+			# Cambia el estado de la caché
+			self.gestor_settings.chkCache = not self.gestor_settings.chkCache
+			
+			# Muestra el mensaje correspondiente a la acción realizada
 			if self.gestor_settings.chkCache:
-				self._cache.saveLocalCache()
-		else:
-			temp = False
-		
-		# Cambia el estado de la caché
-		self.gestor_settings.chkCache = not self.gestor_settings.chkCache
-		
-		# Muestra el mensaje correspondiente a la acción realizada
-		if self.gestor_settings.chkCache:
-			ui.message(_("Cache de traducción activada."))
-		else:
-			ui.message(_("Cache de traducción desactivada."))
-		
-		# Actualiza la configuración de la caché
-		self.gestor_settings.setConfig("chkCache", self.gestor_settings.chkCache)
-		
-		# Si la traducción estaba habilitada, la re-habilita y carga la caché local si corresponde
-		if temp:
-			self.gestor_settings._enableTranslation = True
-			if self.gestor_settings.chkCache:
-				self._cache.loadLocalCache()
+				ui.message(_("Cache de traducción activada."))
+			else:
+				ui.message(_("Cache de traducción desactivada."))
+			
+			# Actualiza la configuración de la caché
+			self.gestor_settings.setConfig("chkCache", self.gestor_settings.chkCache)
+			
+			# Si la traducción estaba habilitada, la re-habilita y carga la caché local si corresponde
+			if temp:
+				self.gestor_settings._enableTranslation = True
+				if self.gestor_settings.chkCache:
+					self._cache.loadLocalCache()
 
 	@script(gesture=None, description=_("Copiar el ultimo texto traducido al portapapeles"), category=_("Traductor Avanzado"))
 	def script_copyLastTranslation(self, event):
@@ -487,20 +510,16 @@ Desactívela para realizar esta acción.""")
 		"""
 		
 		if self.switch: self.closeCommandsLaier()
-		# Verifica si hay una traducción en curso
-		if self.gestor_settings.is_active_translate:
-			ui.message(_("Tiene una traducción en curso. Espere a que termine."))
-			return
-		
-		# Verifica si existe texto traducido y si su longitud es mayor a cero
-		if self.gestor_settings._lastTranslatedText and len(self.gestor_settings._lastTranslatedText) > 0:
-			# Copia el texto traducido al portapapeles
-			self.gestor_portapapeles.set_clipboard_text(self.gestor_settings._lastTranslatedText)
-			# Muestra un mensaje indicando el texto copiado
-			ui.message(_("Se ha copiado lo siguiente al portapapeles: {}").format(self.gestor_settings._lastTranslatedText))
-		else:
-			# Muestra un mensaje indicando que no hay texto para copiar
-			ui.message(_("No se ha podido copiar nada al portapapeles"))
+		if self.chk_banderas(False, True):
+			# Verifica si existe texto traducido y si su longitud es mayor a cero
+			if self.gestor_settings._lastTranslatedText and len(self.gestor_settings._lastTranslatedText) > 0:
+				# Copia el texto traducido al portapapeles
+				self.gestor_portapapeles.set_clipboard_text(self.gestor_settings._lastTranslatedText)
+				# Muestra un mensaje indicando el texto copiado
+				ui.message(_("Se ha copiado lo siguiente al portapapeles: {}").format(self.gestor_settings._lastTranslatedText))
+			else:
+				# Muestra un mensaje indicando que no hay texto para copiar
+				ui.message(_("No se ha podido copiar nada al portapapeles"))
 
 	@script(gesture=None, description=_("Traduce el contenido del portapapeles"), category=_("Traductor Avanzado"))
 	def script_ClipboardTranslation(self, event):
@@ -511,27 +530,24 @@ Desactívela para realizar esta acción.""")
 		"""
 		
 		if self.switch: self.closeCommandsLaier()
-		# Verifica si hay una traducción en curso
-		if self.gestor_settings.is_active_translate:
-			ui.message(_("Tiene una traducción en curso. Espere a que termine."))
-			return
-		texto = self.gestor_portapapeles.get_clipboard_text()
-		# Verificar si el texto no es None, no está vacío y contiene al menos un carácter alfanumérico
-		if texto is not None and texto and any(c.isalnum() for c in texto):
-			# Verificar que el texto tenga menos de 3000 caracteres
-			if len(texto) < 3000:
-				temp = self.gestor_settings._enableTranslation
-				self.gestor_settings._enableTranslation = False
-				result = self.gestor_translate.translate_various(texto)
-				ui.message(result)
-				self.gestor_settings._enableTranslation = temp
-			else: # Más de 3000 caracteres
-				self.gestor_settings._enableTranslation = False
-				self.gestor_settings.is_active_translate = True
-				LaunchThread(self, 5, texto).start()
-		else:
-			# Muestra un mensaje indicando que no hay texto para traducir
-			ui.message(_("No hay nada para traducir en el portapapeles"))
+		if self.chk_banderas(False, True):
+			texto = self.gestor_portapapeles.get_clipboard_text()
+			# Verificar si el texto no es None, no está vacío y contiene al menos un carácter alfanumérico
+			if texto is not None and texto and any(c.isalnum() for c in texto):
+				# Verificar que el texto tenga menos de 3000 caracteres
+				if len(texto) < 3000:
+					temp = self.gestor_settings._enableTranslation
+					self.gestor_settings._enableTranslation = False
+					result = self.gestor_translate.translate_various(texto)
+					ui.message(result)
+					self.gestor_settings._enableTranslation = temp
+				else: # Más de 3000 caracteres
+					self.gestor_settings._enableTranslation = False
+					self.gestor_settings.is_active_translate = True
+					LaunchThread(self, 5, texto).start()
+			else:
+				# Muestra un mensaje indicando que no hay texto para traducir
+				ui.message(_("No hay nada para traducir en el portapapeles"))
 
 	@script(gesture=None, description=_("Traduce el último texto verbalizado"), category=_("Traductor Avanzado"))
 	def script_speackLastTranslation(self, event):
@@ -542,28 +558,24 @@ Desactívela para realizar esta acción.""")
 		"""
 		
 		if self.switch: self.closeCommandsLaier()
-		# Verifica si hay una traducción en curso
-		if self.gestor_settings.is_active_translate:
-			ui.message(_("Tiene una traducción en curso. Espere a que termine."))
-			return
-		
-		texto = self.gestor_settings.ultimo_texto
-		# Verificar si el texto no es None, no está vacío y contiene al menos un carácter alfanumérico
-		if texto is not None and texto and any(c.isalnum() for c in texto):
-			# Verificar que el texto tenga menos de 3000 caracteres
-			if len(texto) < 3000:
-				temp = self.gestor_settings._enableTranslation
-				self.gestor_settings._enableTranslation = False
-				result = self.gestor_translate.translate_various(texto)
-				ui.message(result)
-				self.gestor_settings._enableTranslation = temp
-			else: # Más de 3000 caracteres
-				self.gestor_settings._enableTranslation = False
-				self.gestor_settings.is_active_translate = True
-				LaunchThread(self, 5, texto).start()
-		else:
-			# Muestra un mensaje indicando que no hay texto para traducir
-			ui.message(_("No hay nada para traducir"))
+		if self.chk_banderas(False, True):
+			texto = self.gestor_settings.ultimo_texto
+			# Verificar si el texto no es None, no está vacío y contiene al menos un carácter alfanumérico
+			if texto is not None and texto and any(c.isalnum() for c in texto):
+				# Verificar que el texto tenga menos de 3000 caracteres
+				if len(texto) < 3000:
+					temp = self.gestor_settings._enableTranslation
+					self.gestor_settings._enableTranslation = False
+					result = self.gestor_translate.translate_various(texto)
+					ui.message(result)
+					self.gestor_settings._enableTranslation = temp
+				else: # Más de 3000 caracteres
+					self.gestor_settings._enableTranslation = False
+					self.gestor_settings.is_active_translate = True
+					LaunchThread(self, 5, texto).start()
+			else:
+				# Muestra un mensaje indicando que no hay texto para traducir
+				ui.message(_("No hay nada para traducir"))
 
 	@script(gesture=None, description=_("Activa o desactiva la traducción simultánea Online"), category=_("Traductor Avanzado"))
 	def script_toggleTranslateOnline(self, event):
@@ -575,8 +587,12 @@ Desactívela para realizar esta acción.""")
 		"""
 		if self.switch: self.closeCommandsLaier()
 		if self.chk_banderas():
-			self.gestor_settings._enableTranslation = not self.gestor_settings._enableTranslation
-			ui.message(_("Traducción activada.")) if self.gestor_settings._enableTranslation else ui.message(_("Traducción desactivada."))
+			if self.gestor_settings._enableTranslation:
+				self.gestor_settings._enableTranslation = False
+				ui.message(_("Traducción desactivada."))
+			else:
+				ui.message(_("Traducción activada."))
+				self.gestor_settings._enableTranslation = True
 			if self.gestor_settings.chkCache:
 				self._cache.loadLocalCache() if self.gestor_settings._enableTranslation else self._cache.saveLocalCache()
 
