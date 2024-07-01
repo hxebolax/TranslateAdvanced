@@ -36,7 +36,7 @@ from .app.guis.guis_hostory import DialogHistory
 from .app.guis.guis_update import UpdateDialog
 from .app.guis.guis_progress_update import ProgresoDescargaInstalacion
 from .app.utils.utils_security import disableInSecureMode
-from .app.utils.utils_network import is_connected, realizar_solicitud_https
+from .app.utils.utils_network import check_internet_connection, realizar_solicitud_https
 from .app.utils.utils_various import getSelectedText
 from .app.utils.utils_nvda import mute
 
@@ -76,7 +76,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		Verifica periódicamente la conexión a internet hasta que se establezca.
 		"""
-		while not is_connected():
+		while not check_internet_connection():
 			time.sleep(5)  # Espera 5 segundos antes de la siguiente comprobación
 
 		# Si se detecta una conexión, continuar con la inicialización
@@ -180,7 +180,7 @@ _("""Traductor Avanzado iniciado correctamente.""")
 		if not hasattr(self, 'IS_OK') or not self.IS_OK:
 			# No hacer nada si el complemento aún no está completamente inicializado
 			return
-		if not is_connected():
+		if not check_internet_connection():
 			msg = \
 _("""No se a encontrado conexión a internet.
 
@@ -313,7 +313,7 @@ Desactívela para realizar esta acción.""")
 		Devuelve:
 			No devuelve ningún valor, pero actualiza el estado del menú correspondiente a las actualizaciones.
 		"""
-		if is_connected():
+		if check_internet_connection():
 			self.update = self.gestor_repositorio.comprobar_nuevos_y_actualizaciones()
 			if self.update['success']:
 				total = len({**self.update['data']['nuevos'], **self.update['data']['actualizaciones']})
