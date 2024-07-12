@@ -49,8 +49,11 @@ class GestorSettings:
 		self.choiceLangDestino_deepl = None
 		self.choiceLangDestino_libretranslate = None
 		self.choiceLangDestino_microsoft = None
+		self.choiceLangDestino_google_def = None
+		self.choiceLangDestino_google_alt = None
 		self.chkCache = None
 		self.chkResults = None
+		self.chkAltLang = None
 		self.chkSound = True
 		self.api_deepl = None
 		self.api_deepl_pro = None
@@ -112,6 +115,8 @@ class GestorSettings:
 			'kb:t': {'action': 'toggleTranslateOnline', 'description': _('Activa o desactiva la traducción simultánea Online.')},
 			'kb:s': {'action': 'translate_select', 'description': _('Traduce el texto seleccionado.')},
 			'kb:i': {'action': 'detectLang', 'description': _('Detecta el idioma seleccionado')},
+			'kb:j': {'action': 'toggleLangDetect', 'description': _('Activa o desactiva el intercambio automático si el origen detectado coincide con el destino.')},
+			'kb:k': {'action': 'toggleLangSwitch', 'description': _('Intercambia el idioma principal con el idioma alternativo.')},
 			'kb:h': {'action': 'translate_history', 'description': _('Muestra el historial de traducción.')},
 			'kb:f1': {'action': 'commandList', 'description': _('Muestra un diálogo con la lista de comandos de una sola tecla')}
 		}
@@ -129,8 +134,11 @@ class GestorSettings:
 			"choiceLangDestino_deepl": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_libretranslate": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_microsoft": f"string(default={self.obtenerLenguaje()})",
+			"choiceLangDestino_google_def": f"string(default={self.obtenerLenguaje()})",
+			"choiceLangDestino_google_alt": f"string(default=en)",
 			"chkCache": "boolean(default=False)",
 			"chkResults": "boolean(default=False)",
+			"chkAltLang": "boolean(default=False)",
 			"api_deepl": "string(default=None)",
 			"api_deepl_pro": "string(default=None)",
 			"api_libretranslate": "string(default=None)",
@@ -169,8 +177,11 @@ class GestorSettings:
 		self.choiceLangDestino_deepl = self.getConfig("choiceLangDestino_deepl")
 		self.choiceLangDestino_libretranslate = self.getConfig("choiceLangDestino_libretranslate")
 		self.choiceLangDestino_microsoft = self.getConfig("choiceLangDestino_microsoft")
+		self.choiceLangDestino_google_def = self.getConfig("choiceLangDestino_google_def")
+		self.choiceLangDestino_google_alt = self.getConfig("choiceLangDestino_google_alt")
 		self.chkCache = self.getConfig("chkCache")
 		self.chkResults = self.getConfig("chkResults")
+		self.chkAltLang = self.getConfig("chkAltLang")
 		self.api_deepl = self.convertir_valor(self.getConfig("api_deepl"))
 		self.api_deepl_pro = self.convertir_valor(self.getConfig("api_deepl_pro"))
 		self.api_libretranslate = self.convertir_valor(self.getConfig("api_libretranslate"))
@@ -186,8 +197,11 @@ class GestorSettings:
 		self.setConfig("choiceLangDestino_deepl", self.choiceLangDestino_deepl)
 		self.setConfig("choiceLangDestino_libretranslate", self.choiceLangDestino_libretranslate)
 		self.setConfig("choiceLangDestino_microsoft", self.choiceLangDestino_microsoft)
+		self.setConfig("choiceLangDestino_google_def", self.choiceLangDestino_google_def)
+		self.setConfig("choiceLangDestino_google_alt", self.choiceLangDestino_google_alt)
 		self.setConfig("chkCache", self.chkCache)
 		self.setConfig("chkResults", self.chkResults)
+		self.setConfig("chkAltLang", self.chkAltLang)
 		self.setConfig("api_deepl", self.convertir_valor(self.api_deepl))
 		self.setConfig("api_deepl_pro", self.convertir_valor(self.api_deepl_pro))
 		self.setConfig("api_libretranslate", self.convertir_valor(self.api_libretranslate))

@@ -35,12 +35,15 @@ class DetectorDeIdioma:
 			dict: Un diccionario con el éxito de la operación y el idioma detectado o el texto original en caso de error.
 		"""
 		try:
+			# Limitar el texto a 5000 caracteres si es necesario
+			texto_limited = texto[:5000]
+			
 			# Codificar los parámetros para la solicitud
 			parametros = {
 				'client': 'gtx',
 				'sl': 'auto',  # Detectar idioma automáticamente
 				'dt': 't',  # Tipo de respuesta
-				'q': texto,
+				'q': texto_limited,
 				'tl': 'en'  # Traducir a inglés (aunque solo nos interesa la detección del idioma)
 			}
 			url_parametros = urllib.parse.urlencode(parametros)

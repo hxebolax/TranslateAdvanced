@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>Traductor Avanzado 2024.06.23</title>
+</head>
+<body>
+<h1>Manuel de l'utilisateur : Traducteur Avancé pour NVDA</h1>
+<h2 id="sommaire">Sommaire</h2>
+
+<ul>
+<li><a href="#introduction">1 - Introduction</a></li>
+<li><a href="#exigences">1.1 - Exigences</a></li>
+<li><a href="#limites-et-avertissements">1.2 - Limites et avertissements</a></li>
+<li><a href="#informations-auteur">1.3 - Informations de l'auteur</a></li>
+<li><a href="#description-configuration">2 - Description et configuration</a></li>
+<li><a href="#description-services">2.1 - Description des services</a><ul>
+<li><a href="#google">Google</a></li>
+<li><a href="#deepl">DeepL</a></li>
+<li><a href="#libretranslate">LibreTranslate</a></li>
+<li><a href="#microsoft-translate">Microsoft Translate</a></li>
+</ul>
+</li>
+<li><a href="#configuration">2.2 - Configuration</a><ul>
+<li><a href="#menu-extension">Menu de l'extension</a></li>
+<li><a href="#touches-ou-gestes-de-commandes-extension">Touches ou gestes de commandes de l'extension</a></li>
+</ul>
+</li>
+<li><a href="#solution-de-problemes">3 - Solution de problèmes</a></li>
+<li><a href="#problemes-courants-et-solutions">Problèmes courants et solutions</a></li>
+<li><a href="#comment-consulter-le-journal-de-nvda">Comment consulter le journal de NVDA</a></li>
+<li><a href="#remerciements-a">4 - Remerciements à</a></li>
+<li><a href="#traducteurs">Traducteurs</a></li>
+<li><a href="#journal-des-versions">5 - Journal des versions</a></li>
+<li><a href="#version-2024-06-06">Version 2024.06.06</a></li>
+<li><a href="#version-2024-06-16">Version 2024.06.16</a></li>
+<li><a href="#version-2024-06-23">Version 2024.06.23</a></li>
+</ul>
+<h2 id="introduction">1 - Introduction</h2>
+
+<p>Le <strong>Traducteur Avancé pour NVDA</strong> est une extension qui facilite la traduction de textes à l'aide de divers services de traduction en ligne, tels que Google Translate, DeepL, LibreTranslate et Microsoft Translator. Cette extension offre des fonctionnalités avancées telles que la traduction simultanée, l'historique des traductions, traduction de ce qui est sélectionné, prise en charge de plusieurs langues et encore plus.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="exigences">1.1 - Exigences</h3>
+
+<ul>
+<li>NVDA (NonVisual Desktop Access) 2024.1 ou supérieur</li>
+<li>Connexion Internet</li>
+</ul>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="limites-et-avertissements">1.2 - Limites et avertissements</h3>
+
+<p>L'extension envoie des informations sur Internet à chaque service correspondant pour effectuer une traduction simultanée. Il est important de noter que les informations traduites peuvent inclure des données confidentielles et sensibles. L'utilisation de l'extension relève de la responsabilité exclusive de l'utilisateur, qui doit évaluer la nature des informations envoyées. Le développeur de l'extension n'assume aucune responsabilité quant aux données envoyées aux services utilisés par l'extension.</p>
+<p>En tant que développeur, je décline toute responsabilité quant à toute éventualité pouvant découler de l'utilisation de l'extension. L'entière responsabilité incombe à l'utilisateur.</p>
+<p>De plus, l'extension nécessite une connexion Internet pour son fonctionnement. La vitesse de réponse de l'extension dépend de plusieurs facteurs, tels que :
+- La qualité de notre connexion Internet.
+- Le retard éventuel (lag) des services de traduction utilisés.
+- Facteurs liés à l'infrastructure réseau de l'utilisateur.</p>
+<p>Il est recommandé aux utilisateurs de prendre connaissance de ces aspects et d'effectuer les tests nécessaires pour s'assurer que l'extension répond à leurs attentes et exigences de sécurité.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="informations-auteur">1.3 - Informations de l'auteur</h3>
+
+<p><strong>Informations techniques et mesures de sécurité de l'extension pour NVDA</strong></p>
+<p>J'ai travaillé dur pour rendre l'extension aussi robuste que possible, en tenant compte et en gérant les bogues potentiels. Toutes les erreurs sont capturées et enregistrées dans le journal NVDA, ce qui facilite le suivi et la résolution rapide des problèmes.</p>
+<p><strong>Problèmes avec les certificats Windows</strong></p>
+<p>Récemment, j'ai remarqué que les ordinateurs Windows nouvellement installés peuvent avoir des problèmes avec les certificats, ce qui peut être frustrant. Pour cette raison, j'ai incorporé une vérification au démarrage de l'extension. Si une défaillance liée aux certificats est détectée, l'extension les régénérera automatiquement, garantissant ainsi le bon fonctionnement de Windows et de l'extension elle-même.</p>
+<p><strong>Mesure de sécurité</strong></p>
+<p>L'extension comprend plusieurs mesures de sécurité :
+- Son exécution n'est pas autorisée sur des écrans sécurisés.
+- Elle ne démarre pas si aucune connexion Internet n'est détectée.</p>
+<p>Parfois, NVDA peut démarrer plus rapidement que la connexion au réseau Wi-Fi. Dans de tels cas, il sera nécessaire de redémarrer NVDA une fois la connexion établie afin d'utiliser correctement l'extension.</p>
+<p><strong>Gestion des clés API</strong></p>
+<p>L'extension génère un fichier JSON qui stocke les clés API nécessaires pour les services qui les nécessitent. Ce fichier, appelé <code>apis.json</code>, se trouve dans le dossier utilisateur Windows.</p>
+<p><strong>Considérations sur le fichier de clés</strong></p>
+<p>Il a été décidé de stocker ce fichier en dehors de l'environnement de l'extension pour éviter un désagrément, car il contient des informations sensibles, et qu'il ne puissent pas être partagé par inadvertance dans une copie portable de NVDA ou dans d'autres situations. Si l'utilisateur décide de cesser d'utiliser l'extension, il doit supprimer manuellement ce fichier.</p>
+<p>Ces mesures assurent une meilleure gestion et sécurité de l’extension, facilitant son utilisation et sa maintenance.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h2 id="description-configuration">2 - Description et configuration</h2>
+
+<h3 id="description-services">2.1 - Description des services</h3>
+
+<p>Dans sa première version, l'extension propose 7 services de traduction :</p>
+<h4 id="google">Google</h4>
+
+<p><strong>4 Services de Google</strong></p>
+<ul>
+<li><strong>2 Services de grattage Web:</strong> Chaque service remplit la même fonction, mais de manière différente, garantissant qu'il existe toujours une alternative disponible en cas de panne de l'un d'entre eux.</li>
+<li><strong>2 Services via une API:</strong> Ces services sont également illimités et gratuits, mais leur abus peut entraîner une interdiction temporaire de l'IP pendant quelques heures, après quoi le service sera rétabli.</li>
+<li>Tous ces services de Google ne nécessitent pas de clés API et sont illimités et gratuits.</li>
+</ul>
+<h4 id="deepl">DeepL</h4>
+
+<p><strong>2 Services de DeepL</strong></p>
+<ul>
+<li><strong>API Free:</strong> Cette option nécessite l'obtention d'une clé API gratuite sur la page DeepL, qui propose 500 000 caractères par mois.</li>
+<li><strong>API Pro:</strong> Cette option nécessite également une clé API obtenue sur le site Web de DeepL. Son utilisation est conditionnelle au solde et au forfait souscrit dans le compte DeepL de l'utilisateur.</li>
+<li>Les conditions d’utilisation de l’API de DeepL sont disponibles à partir de sa <a href="https://www.deepl.com/fr/pro/change-plan#developer">page Web</a>, et l'extension est limitée par lesdites conditions.</li>
+</ul>
+<h4 id="libretranslate">LibreTranslate</h4>
+
+<p><strong>1 Service de LibreTranslate</strong></p>
+<ul>
+<li>Ce service s’améliore constamment grâce à son apprentissage neuronal continu. Même s’il n’atteint pas actuellement la qualité de Google, il est parfaitement utilisable.</li>
+<li>Basé sur la technologie de Argos Translate.</li>
+<li>Pour utiliser ce service, une clé API est requise, qui peut être obtenue en faisant un don à la communauté <a href="https://nvda.es/donaciones/">NVDA.es (page en espagnol)</a>.</li>
+<li>Après avoir fait un don, vous pouvez demander la clé API en utilisant le formulaire à partir de la <a href="https://nvda.es/contacto/">page (en espagnol)</a>, indiquant dans l'objet "<span lang="es">solicitud de clave API</span>" et en fournissant la référence PayPal, le virement, etc.</li>
+<li>De plus, il est possible de configurer d'autres services de LibreTranslate en ajoutant la clé API et en modifiant l'URL du service dans la section Configuration de l'extension.</li>
+</ul>
+<h4 id="microsoft-translate">Microsoft Translate</h4>
+
+<p><strong>1 Service de Microsoft Translate</strong></p>
+<ul>
+<li>Ce service a la limitation qu'une utilisation continue peut entraîner une interdiction temporaire de l'adresse IP pendant quelques minutes.</li>
+<li>Cette interdiction n'intervient qu'en cas d'usage très intensif et dans les traductions de textes longs.</li>
+<li>Le service fonctionne très bien, mais il est recommandé de ne pas l'utiliser en continu pour éviter les interruptions.</li>
+</ul>
+<p>Ces options permettent aux utilisateurs de choisir entre différents services de traduction, garantissant la disponibilité et la flexibilité de l'extension en fonction des besoins et préférences individuels.</p>
+<p>Au fur et à mesure que l'extension reçoit des mises à jour, des services peuvent être ajoutés ou supprimés. Les modifications seront signalées dans la section mises à jour.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="configuration">2.2 - Configuration</h3>
+
+<p><strong>Configuration de l'extension</strong></p>
+<p>Cette section explique comment configurer chacun des services disponibles dans l'extension, notamment comment ajouter des clés API, modifier les URL des services et d'autres paramètres nécessaires pour personnaliser l'utilisation de l'extension en fonction des besoins de l'utilisateur.</p>
+<h4 id="menu-extension">Menu de l'extension</h4>
+
+<p>Dans NVDA &gt; Préférences &gt; Traducteur Avancé nous avons un menu qui contient les éléments suivants :</p>
+<ul>
+<li><strong>Configuration de Traducteur Avancé</strong></li>
+</ul>
+<p>Si nous appuyons sur cette option, la fenêtre de configuration de l'extension s'ouvrira. Cette fenêtre comporte 2 zones :</p>
+<ul>
+<li>
+<p><strong>Général</strong></p>
+<p>Dans cet onglet les options générales de l'extension seront ajoutées. Actuellement, vous ne disposez que d'une seule case à cocher pour activer ou désactiver le cache de l'extension.</p>
+<p>L'extension peut enregistrer un cache de ces traductions pour chaque application, ce qui rendra la traduction plus facile et plus rapide dans les traductions futures. De plus, il crée désormais un cache pour chaque langue, et il peut y avoir plusieurs applications disposant d'un cache pour différentes langues.</p>
+</li>
+<li>
+<p><strong>Modules de traduction</strong></p>
+<p>Dans cet onglet, nous pouvons choisir le service que nous voulons utiliser pour traduire. Dans les services qui nécessitent une clé API, le gestionnaire de clés API sera également affiché.</p>
+<p>Nous pouvons avoir plusieurs clés API pour le même service ; Par exemple, dans LibreTranslate, nous pouvons avoir différentes clés et URL pour nous connecter. Nous pouvons ajouter, modifier, supprimer et définir la clé API par défaut que nous souhaitons pour le service actuel.</p>
+<p>La zone du  gestionnaire des clés API change en fonction du service dont nous disposons. Nous pouvons donner à chaque clé API un nom d'identification pour savoir rapidement à quelle API nous faisons référence. Lorsque nous avons plusieurs clés API pour un service, l'élément qui comporte un astérisque dans la liste sera celui par défaut. Cela peut être modifié avec le bouton "Par défaut", c'est-à-dire que la clé dont nous disposons devient celle définie pour ledit service actuellement en focus.</p>
+<p>Si le service de traduction que nous choisissons ne nécessite pas de clé API, le gestionnaire ne sera pas affiché.</p>
+<p>Ensuite, nous avons les boutons "OK" et "Annuler". Toutes les options ont leur touche de raccourci dont NVDA nous informera.</p>
+</li>
+<li>
+<p><strong>Documentation de l'extension</strong></p>
+</li>
+</ul>
+<p>Si nous appuyons sur l'option "Documentation de l'extension" cette documentation s'ouvrira.</p>
+<ul>
+<li><strong>Invite-moi un café si tu aimes mon travail</strong></li>
+</ul>
+<p>Si nous appuyons sur cette option, la page PayPal s'ouvrira où se trouve un lien indiquant "Envoyer". Si nous appuyons sur ce lien, il nous demandera de nous connecter à notre compte et et nous laissera sur la page de don.</p>
+<p>Je dirai juste que j'ai bu beaucoup de café en faisant cette extension.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h4 id="touches-ou-gestes-de-commandes-extension">Touches ou gestes de commandes de l'extension</h4>
+
+<p>Dans NVDA &gt; Préférences &gt; Gestes de commandes... &gt; Traducteur Avancé nous avons les touches ou gestes de commandes  suivantes que nous pouvons configurer à notre guise.</p>
+<p>Les touches ou gestes de commandes par défaut ne sont pas attribuées afin que l'utilisateur puisse choisir sa meilleure disposition. Ce sont les suivantes :</p>
+<ul>
+<li><strong>Ouvre la configuration de l'extension</strong></li>
+</ul>
+<p>Cet accès ouvrira rapidement la configuration de l'extension.</p>
+<ul>
+<li><strong>Active ou désactive le cache de traduction</strong></li>
+</ul>
+<p>Cet accès activera ou désactivera le cache sans avoir à entrer dans la configuration.</p>
+<ul>
+<li><strong>Active ou désactive la traduction simultanée en ligne</strong></li>
+</ul>
+<p>Cet accès active ou désactive la traduction. C'est l'accès principal qui commencera à traduire au fur et à mesure que nous nous déplacerons avec les flèches du curseur. Si tout est correct, nous entendrons la traduction ; Si nous entendons le texte source, nous devrons consulter le journal NVDA et voir ce qui s'est passé.</p>
+<ul>
+<li><strong>Changer le module de traduction</strong></li>
+</ul>
+<p>Cet accès ouvrira une fenêtre avec tous les services de traduction disponibles. Nous pouvons nous déplacer avec les flèches et sélectionner avec "Entrée". Le service que nous sélectionnerons sera celui que nous avons par défaut.</p>
+<ul>
+<li><strong>Changer la langue cible</strong></li>
+</ul>
+<p>Cet accès ouvrira une fenêtre avec les langues cibles disponibles dans le service que nous avons sélectionné. Chaque service a des langues et, par exemple, si nous traduisons un texte en russe et que nous voulons l'entendre en anglais, dans ce dialogue, nous devrons sélectionner l'anglais. Nous nous déplaçons dans le dialogue avec les flèches du curseur et "Entrée" pour sélectionner la langue souhaitée.</p>
+<p>Les noms des langues sont obtenus dans notre langue auprès de NVDA, y compris celles prises en charge par NVDA. Pour cette raison, les noms des langues en anglais peuvent apparaître dans la liste, puisque NVDA ne les traduit pas. Le code ISO de la langue est ajouté à côté de chaque nom de la langue.</p>
+<ul>
+<li><strong>Changer la langue source</strong></li>
+</ul>
+<p>Identique à la précédente, mais ce dialogue n'est valable que pour le traducteur Microsoft. Le service Microsoft ne vous permet pas de définir la langue source sur auto afin qu'il détecte quelle langue vous est envoyée, nous devrons donc la choisir nous-mêmes.</p>
+<p>Les autres services ne pourront pas utiliser ce dialogue puisque leur option par défaut est de détecter la langue envoyée.</p>
+<ul>
+<li><strong>Copier le dernier texte traduit dans le Presse-papiers</strong></li>
+</ul>
+<p>Cet accès copiera le dernier texte traduit dans le presse-papiers.</p>
+<ul>
+<li><strong>Supprimer le cache de traduction pour l'application actuellement focalisée</strong></li>
+</ul>
+<p>Si nous appuyons une fois sur cet accès, il nous donnera des informations ; Si nous appuyons dessus deux fois rapidement, cela effacera le cache de l'application qui a actuellement le focus et nous informera du résultat.</p>
+<ul>
+<li><strong>Supprimer toutes les traductions en cache pour toutes les applications</strong></li>
+</ul>
+<p>Cet accès, en appuyant une fois, nous donnera des informations ; En appuyant deux fois rapidement, il supprimera tout le cache de l'extension, offrant également des informations.</p>
+<ul>
+<li><strong>Afficher l'historique de la traduction</strong></li>
+</ul>
+<p>Il affichera un dialogue avec les 500 dernières traductions dans une liste. Nous pouvons rechercher et réviser le texte source et le texte traduit dans des zones en lecture seule. Ce dialogue nous permettra de rechercher dans tout l'historique, de copier à la fois le texte source et le texte traduit dans le presse-papiers ou les deux.</p>
+<p>Il vous permet également de basculer entre le texte source et le texte traduit et de travailler dans les deux sens. De plus, nous pouvons supprimer tout l’historique pour repartir de zéro.</p>
+<p>J'avertis que l'historique est effacé à chaque redémarrage de NVDA.</p>
+<ul>
+<li><strong>Traduire le texte sélectionné</strong></li>
+</ul>
+<p>Cette action traduira le texte que nous avons sélectionné et focalisé. S'il s'agit d'un texte volumineux, un dialogue s'ouvrira avec le pourcentage de la traduction. Ce dialogue peut être annulé, ce qui annulera également la traduction.</p>
+<p>Une fois la traduction terminée, le texte sera affiché dans un dialogue afin que nous puissions l'explorer.</p>
+<p>Cette option utilise le service Google Translate et ce service ne peut pas être modifié, étant choisi en interne puisque c'est celui qui donne les meilleurs résultats pour les textes longs.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h2 id="solution-de-problemes">3 - Solution de problèmes</h2>
+
+<h3 id="problemes-courants-et-solutions">Problèmes courants et solutions</h3>
+
+<p><strong>Connexion Internet</strong>
+- Vérifiez que votre connexion Internet est active et fonctionne correctement.
+- Redémarrez votre routeur ou modem si nécessaire.</p>
+<p><strong>Erreurs de certificat</strong>
+- Si vous rencontrez des erreurs de certificat, assurez-vous que la date et l'heure de votre système sont correctes.
+- Vérifiez que les certificats requis sont installés et mis à jour.</p>
+<p><strong>Problèmes de performance</strong>
+- Assurez-vous que votre ordinateur répond à la configuration minimale requise.
+- Fermez les autres applications susceptibles de consommer beaucoup de ressources.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="comment-consulter-le-journal-de-nvda">Comment consulter le journal de NVDA</h3>
+
+<ol>
+<li>Ouvrir NVDA.</li>
+<li>Aller à <code>NVDA &gt; Outils &gt; Voir le journal</code>.</li>
+<li>Dans la fenêtre du journal, recherchez les erreurs ou les messages liés au Traducteur Avancé.</li>
+</ol>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h2 id="remerciements-a">4 - Remerciements à</h2>
+
+<p>Merci à tous les programmeurs NVDA pour leur excellent travail.</p>
+<p>Et je ne veux pas manquer de préciser que la source  de cette extension est celle de l'extension (TRANSLATE) de Yannick PLASSIARD, à partir de laquelle j'ai appris et utilisé certaines fonctions.</p>
+<p>Également à Alexy Sadovoy alias Lex, Ruslan, Beqa, Mesar Hameed, Alberto Buffolino et d'autres contributeurs de NVDA également pour l'extension (Instant Translate) à partir de laquelle l'une des méthodes de Google a été obtenue et a été modifiée pour l'implémenter dans l'extension Traducteur Avancé.</p>
+<p>Cette extension est le fruit de plusieurs années de publication de versions non officielles et d'étude de l'utilisation de traductions hors ligne.</p>
+<p>L'apprentissage est le résultat de cette extension, en gardant à l'esprit que à l'avenir apportera de nouvelles fonctionnalités surprenantes.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="traducteurs">Traducteurs</h3>
+
+<ul>
+<li><strong>Portugais:</strong> Ângelo Abrantes.</li>
+<li><strong>Turc:</strong> Umut Korkmaz.</li>
+<li><strong>Russe:</strong> Valentin Kupriyanov.</li>
+<li><strong>Anglais:</strong> Samuel Proulx.</li>
+<li><strong>Ukrainien:</strong> Heorhii Halas et Volodymyr Pyrih.</li>
+</ul>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h2 id="journal-des-versions">5 - Journal des versions</h2>
+
+<p>Dans cette section, un journal des versions sera ajouté, où les nouvelles fonctionnalités de chaque version seront publiées.</p>
+<p>Le manuel est basé sur la première version, il ne sera donc pas mis à jour et servira de base pour l'utilisateur.</p>
+<p>Des nouveautés seront ajoutées dans cette section.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="version-2024-06-06">Version 2024.06.06</h3>
+
+<ul>
+<li>Version initiale de l'extension.</li>
+<li>Prise en charge de 7 services de traduction.</li>
+<li>Fonctionnalités de base de traduction simultanée et de gestion des clés API.</li>
+</ul>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="version-2024-06-16">Version 2024.06.16</h3>
+
+<ul>
+<li><strong>Ajout de la possibilité de copier la traduction traduite dans le presse-papiers par sélection au lieu de l'afficher dans un dialogue:</strong></li>
+</ul>
+<p>Une option a été ajoutée pour copier automatiquement le texte traduit dans le presse-papiers lorsque cette fonction est sélectionnée, évitant ainsi d'avoir à afficher un dialogue supplémentaire.</p>
+<p>Cette option a été ajoutée dans le dialogue de configuration de l'extension dans Général.</p>
+<p>Si cette option est cochée, il n'affichera plus le dialogue lorsque l'on traduira un texte sélectionné, mais le copiera directement dans le presse-papiers.</p>
+<ul>
+<li><strong>Traduire le contenu du presse-papiers:</strong></li>
+</ul>
+<p>Il est désormais possible de traduire directement le contenu situé dans le presse-papiers, offrant ainsi un moyen rapide et efficace de traduire les textes copiés.</p>
+<p>Si rien n'est traduit, il nous dira ce qu'il y a dans le presse-papiers ou s'il n'y a rien dans le presse-papiers, il nous en informera avec un message.</p>
+<ul>
+<li><strong>Traduire la dernière chose verbalisée par le synthétiseur:</strong></li>
+</ul>
+<p>Une fonctionnalité a été incorporée qui vous permet de traduire la dernière phrase ou le dernier texte verbalisé par le synthétiseur vocal, améliorant ainsi l'accessibilité et la convivialité de l'extension.</p>
+<p>Si la dernière chose verbalisée ne peut pas être traduite, il nous dira la dernière chose verbalisée dans la langue source.</p>
+<ul>
+<li><strong>Afficher les traductions sur les afficheurs braille:</strong></li>
+</ul>
+<p>La nouvelle version inclut la prise en charge de l'affichage des traductions sur les afficheurs braille, ce qui facilite l'accès aux traductions.</p>
+<p>Cela ne fonctionnera que sur les ordinateurs sur lesquels un afficheur braille est configuré.</p>
+<p>Cette fonction est en phase de test.</p>
+<ul>
+<li><strong>Assistant de mise à jour de la langue de l'extension:</strong></li>
+</ul>
+<p>Un assistant de mise à jour a été implémenté pour maintenir les langues de l'extension toujours à jour, garantissant ainsi la disponibilité des langues les plus récentes et plus précises.</p>
+<p>Maintenant dans le menu NVDA &gt; Préférences &gt; Traducteur Avancé</p>
+<p>Nous aurons un nouvel élément appelé Mettre à jour les langues de l'extension (Pas de mise à jour).</p>
+<p>Cet élément peut nous informer s'il y a des mises à jour, par exemple :</p>
+<p>Mettre à jour les langues de l'extension  (3 mises à jour disponibles)</p>
+<p>Si nous appuyons dessus, un dialogue apparaîtra avec les nouvelles langues, avec les mises à jour ou avec l'une des deux s'il n'y en a pas dans les deux.</p>
+<p>Nous pouvons installer ou ignorer.</p>
+<p>Si nous appuyons sur Installer, les langues seront téléchargées et installées et NVDA redémarrera.</p>
+<p>L'élément du menu est mis à jour toutes les 30 minutes en vérifiant les mises à jour ou à chaque redémarrage.</p>
+<p>La dépense en données de cette vérification est ridicule car pour les endroits qui ont des problèmes de données, c'est moins de 1 Ko que vous devez vérifier.</p>
+<p>Cet assistant de mise à jour facilitera le partage des mises à jour linguistiques de l'extension avec les utilisateurs, dès leur arrivée et sans qu'il soit nécessaire de publier une nouvelle version avec les nouvelles langues.</p>
+<p>Chaque nouvelle version de l'extension sera accompagnée de toutes les nouvelles langues et mises à jour arrivées.</p>
+<ul>
+<li><strong>Bug de lecture continue corrigé:</strong></li>
+</ul>
+<p>Correction d'un problème qui provoquait des erreurs de lecture continues, améliorant la stabilité et les performances de l'extension lors d'une utilisation prolongée.</p>
+<ul>
+<li><strong>Notes de l'auteur:</strong></li>
+</ul>
+<p>Toutes les nouvelles fonctions telles que traduire dans le presse-papier, traduire le dernier texte verbalisé par le synthétiseur ou la vérification des mises à jour linguistiques peuvent se voir attribuer des gestes de commandes.</p>
+<p>Je recommande que si nous n'utilisons aucune option, nous n'ajoutons pas de geste de commande afin de pouvoir l'avoir dans d'autres extensions. Ajoutons ceux qui peuvent nous être utiles.</p>
+<p>Au fur et à mesure que des utilitaires sont ajoutés, davantage de gestes de commandes seront nécessaires et un utilitaire peut ne pas fonctionner pour l'un ou pour un autre geste de commande, nous attribuons donc uniquement ceux que nous allons utiliser.</p>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="version-2024-06-23">Version 2024.06.23</h3>
+
+<ul>
+<li>Ajout d'un nouveau module Traducteur DeepL (Free)</li>
+</ul>
+<p>Ce nouveau module n'a pas besoin de clé API et est utilisé pour la traduction simultanée</p>
+<ul>
+<li>Corrections d'erreurs</li>
+</ul>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+</body>
+</html>

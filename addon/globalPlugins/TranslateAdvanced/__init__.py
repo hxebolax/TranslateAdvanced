@@ -28,6 +28,7 @@ from .app.managers.managers_cache import LocalCacheHandler
 from .app.managers.managers_clipboard import ClipboardMonitor
 from .app.managers.managers_apis import APIManager
 from .app.managers.managers_updates_langs import GestorRepositorios
+from .app.managers.managers_helps import AdministradorAyuda
 from .app.guis.guis_options import ConfigDialog
 from .app.guis.guis_lang import DialogoLang
 from .app.guis.guis_progress import ProgressDialog
@@ -61,46 +62,28 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.gestor_portapapeles = None
 		self.gestor_apis = None
 		self.gestor_repositorio = None
+		self.gestor_ayuda = None
 		# Utilidades
 		self._cache = None
 		self.menu = None
 		self.oldSpeak = None
 		# Bandera para la activación y desactivación de la capa de comandos
 		self.switch = False
-
-		# Iniciar hilo para verificar conexión a internet
-		self.check_connection_thread = Thread(target=self.check_connection, daemon=True)
-		self.check_connection_thread.start()
-
-	def check_connection(self):
-		"""
-		Verifica periódicamente la conexión a internet hasta que se establezca.
-		"""
-		while not check_internet_connection():
-			time.sleep(5)  # Espera 5 segundos antes de la siguiente comprobación
-
-		# Si se detecta una conexión, continuar con la inicialización
-		wx.CallAfter(self.__inicio_completo)
-
-	def __inicio_completo(self):
-		"""
-		Continúa con la inicialización del complemento una vez que hay conexión a internet.
-		"""
 		# Comprobación de almacén de certificados raíz de Windows.
 		# Si no están correctos se actualizan.
-		try:
-			url = "https://www.google.com"
-			contenido = realizar_solicitud_https(url)
-			self.IS_OK = True
-		except Exception as e:
+		url = "https://www.google.com"
+		contenido = realizar_solicitud_https(url)
+		if not contenido.get("succesful", True):
 			msg = \
 _("""Se a encontrado errores en la carga del complemento.
 
 Error:
 
-{}""").format(str(e))
+{}""").format(contenido.get("data"))
 			logHandler.log.error(msg)
-			return
+			self.IS_OK = False
+		else:
+			self.IS_OK = True
 
 		self.__inicio()
 
@@ -110,6 +93,8 @@ Error:
 		"""
 		# Carga el gestor de ajustes y todo lo necesario
 		self.gestor_settings = GestorSettings(self)
+		# Gestor de Ayudas
+		self.gestor_ayuda = AdministradorAyuda()
 		# Gestor de APIS
 		self.gestor_apis = APIManager(self.gestor_settings.file_api)
 		# Carga el cache
@@ -148,6 +133,11 @@ Error:
 			msg = \
 _("""Traductor Avanzado iniciado correctamente.""")
 			logHandler.log.info(msg)
+		else:
+			msg = \
+_("""Traductor Avanzado iniciado con errores.""")
+			logHandler.log.info(msg)
+
 		self._update(self.update)
 
 	def terminate(self):
@@ -177,9 +167,6 @@ _("""Traductor Avanzado iniciado correctamente.""")
 		:param toogle: Indica si se debe alternar una bandera.
 		:return: True si todas las condiciones se cumplen, de lo contrario False.
 		"""
-		if not hasattr(self, 'IS_OK') or not self.IS_OK:
-			# No hacer nada si el complemento aún no está completamente inicializado
-			return
 		if not check_internet_connection():
 			msg = \
 _("""No se a encontrado conexión a internet.
@@ -189,7 +176,7 @@ Si esta conectado por Wifi puede que NVDA iniciara antes que se conectara.
 Si esta conectado por cable compruebe su conexión y asegúrese que todo esta correcto.
 
 Espere unos segundos.""")
-			ui.message(msg)
+			gui.messageBox(msg, _("Información"), wx.ICON_INFORMATION) if menu else ui.message(msg)
 			return
 		if self.gestor_settings.IS_WinON: 
 			msg = \
@@ -227,14 +214,13 @@ Desactívela para realizar esta acción.""")
 		Returns:
 			object: El script asociado al gesto o None si no se encuentra.
 		"""
-		if self.chk_banderas():
-			if not self.switch:
-				return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
-			script = globalPluginHandler.GlobalPlugin.getScript(self, gesture)
-			if not script:
-				self.closeCommandsLaier()
-				return
+		if not self.switch:
 			return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
+		script = globalPluginHandler.GlobalPlugin.getScript(self, gesture)
+		if not script:
+			self.closeCommandsLaier()
+			return
+		return globalPluginHandler.GlobalPlugin.getScript(self, gesture)
 
 	def closeCommandsLaier(self):
 		"""
@@ -659,6 +645,62 @@ Desactívela para realizar esta acción.""")
 			self.gestor_settings._enableTranslation = False
 			self.gestor_settings.is_active_translate = True
 			LaunchThread(self, 8, temp['data']).start()
+
+	@script(gesture=None, description=_("Activar o desactivar el intercambio automático si el origen detectado coincide con el destino (experimental)"), category=_("Traductor Avanzado"))
+	def script_toggleLangDetect(self, event):
+		"""
+		Activa o desactiva el intercambio automático si el origen detectado coincide con el destino.
+		
+		:param event: El evento que desencadena la función.
+		"""
+		if self.switch: self.closeCommandsLaier()
+		if self.chk_banderas(False, True):
+			# Cambia el estado de la estado
+			self.gestor_settings.chkAltLang = not self.gestor_settings.chkAltLang
+			
+			# Muestra el mensaje correspondiente a la acción realizada
+			if self.gestor_settings.chkAltLang:
+				ui.message(_("El intercambio automático está activado. El sistema cambiará automáticamente si el origen detectado coincide con el destino (experimental)."))
+			else:
+				ui.message(_("El intercambio automático está desactivado. El sistema no realizará cambios automáticos aunque el origen detectado coincida con el destino (experimental)."))
+
+	@script(gesture=None, description=_("Intercambia el idioma principal con el idioma alternativo."), category=_("Traductor Avanzado"))
+	def script_toggleLangSwitch(self, event):
+		"""
+		Intercambia el idioma principal con el idioma alternativo.
+		
+		:param event: El evento que desencadena la función.
+		"""
+		if self.switch: self.closeCommandsLaier()
+		if self.chk_banderas(False, True):
+			if self.gestor_settings.chkAltLang:
+				# Intercambia los valores entre las dos variables
+				self.gestor_settings.choiceLangDestino_google_def, self.gestor_settings.choiceLangDestino_google_alt = (
+					self.gestor_settings.choiceLangDestino_google_alt,
+					self.gestor_settings.choiceLangDestino_google_def
+				)
+				
+				# Muestra el mensaje correspondiente al cambio realizado
+				idiomas_name = self.gestor_translate.data_google.get_values()
+				data_def = languageHandler.getLanguageDescription(self.gestor_settings.choiceLangDestino_google_def)
+				data_alt = languageHandler.getLanguageDescription(self.gestor_settings.choiceLangDestino_google_alt)
+				if data_def is None:
+					idioma_def = idiomas_name[self.gestor_translate.data_google.get_index_by_key_or_value(self.gestor_settings.choiceLangDestino_google_def)]
+				else:
+										idioma_def = data_def
+				if data_alt is None:
+					idioma_alt = idiomas_name[self.gestor_translate.data_google.get_index_by_key_or_value(self.gestor_settings.choiceLangDestino_google_alt)]
+				else:
+										idioma_alt = data_alt
+				msg = \
+_("""El idioma principal y el idioma alternativo han sido intercambiados.
+
+Idioma principal: {}.
+
+Idioma alternativo: {}.""").format(idioma_def, idioma_alt)
+				ui.message(msg)
+			else:
+				ui.message(_("No tiene activado el intercambio automático si el origen detectado coincide con el destino"))
 
 class LaunchThread(Thread):
 	"""

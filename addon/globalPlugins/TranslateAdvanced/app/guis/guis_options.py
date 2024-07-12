@@ -8,6 +8,8 @@ import languageHandler
 import gui
 # Carga Python
 import wx
+# Carga personal
+from ..managers.managers_dict import LanguageDictionary
 
 # Carga traducción
 addonHandler.initTranslation()
@@ -26,7 +28,14 @@ class ConfigDialog(wx.Dialog):
 		super(ConfigDialog, self).__init__(parent, title=_("Configuración de Traductor Avanzado"), size=(800, 600))
 
 		self.frame = frame
+		self.frame.gestor_ayuda.ayudas = {}
 		self.frame.gestor_settings.IS_WinON = True
+		# Variables para datos de lenguaje
+		self.datos = LanguageDictionary(self.frame.gestor_lang.obtener_idiomas("google"))
+		self.idiomas_code = self.datos.get_keys()
+		self.idiomas_name = self.datos.get_values()
+		self.destino_default = self.frame.gestor_settings.choiceLangDestino_google_def
+		self.destino_alternate = self.frame.gestor_settings.choiceLangDestino_google_alt
 
 		self.api_manager = self.frame.gestor_apis
 		# Variable para rastrear el traductor seleccionado y su API por defecto
@@ -61,6 +70,46 @@ class ConfigDialog(wx.Dialog):
 
 		# Bind para detectar cambio de página
 		self.listbook.Bind(wx.EVT_LISTBOOK_PAGE_CHANGED, self.on_page_changed)
+		self.Bind(wx.EVT_CHAR_HOOK, self.onKeyPress)
+
+	def SetHelp(self, widget, text):
+		"""
+		Establece un mensaje de ayuda para un widget específico.
+
+		:param widget: El widget al cual se le asignará el mensaje de ayuda.
+		:param text: El texto del mensaje de ayuda que se mostrará cuando el widget reciba el enfoque y se presione Ctrl+H.
+		"""
+		self.frame.gestor_ayuda.agregar_ayuda(widget, text)
+
+	def agregar_ayudas(self):
+		"""
+		Establece los textos de ayuda para todos los widgets de la interfaz.
+		"""
+		self.SetHelp(self.cache_checkbox, _("Activa o desactiva el uso de la caché de traducción. Esta opción almacena traducciones anteriores para mejorar la velocidad y eficiencia."))
+		self.SetHelp(self.results_checkbox, _("Activa o desactiva la visualización del diálogo de resultados y copia el resultado al portapapeles. Esto permite revisar y utilizar las traducciones de manera rápida."))
+		self.SetHelp(self.change_lang_checkbox, _("Activa el intercambio automático si el origen detectado coincide con el destino (experimental). Si se detecta que el idioma del texto de origen es el mismo que el de destino, el traductor cambiará automáticamente el idioma de destino para evitar traducciones innecesarias."))
+		self.SetHelp(self.default_choice_lang, _("Selecciona el idioma por defecto para las traducciones. Este es el idioma principal al que se traducirán los textos por defecto. Ejemplo: Inglés - en."))
+		self.SetHelp(self.alternate_choice_lang, _("Selecciona el idioma alternativo para las traducciones. Este idioma se utilizará cuando se active la opción de intercambio automático. Ejemplo: Español - es."))
+		self.SetHelp(self.translator_choice, _("Selecciona el traductor online que deseas utilizar. Puedes elegir entre diferentes servicios de traducción disponibles."))
+		self.SetHelp(self.api_listbox, _("Muestra las claves API disponibles para el traductor seleccionado. Las claves API permiten autenticar y utilizar los servicios de traducción."))
+		self.SetHelp(self.add_button, _("Añade una nueva clave API. Esto es necesario para utilizar servicios de traducción que requieren autenticación."))
+		self.SetHelp(self.edit_button, _("Edita la clave API seleccionada. Permite modificar los detalles de una clave API existente."))
+		self.SetHelp(self.delete_button, _("Elimina la clave API seleccionada. Esto eliminará la clave de la lista y ya no se podrá utilizar para autenticar servicios de traducción."))
+		self.SetHelp(self.default_button, _("Establece la clave API seleccionada como predeterminada. Esta clave se utilizará por defecto para el servicio de traducción seleccionado."))
+		self.SetHelp(self.listbook, _("Navega entre las diferentes secciones de configuración. Permite cambiar entre las configuraciones generales y las específicas del traductor."))
+		self.SetHelp(self.ok_button, _("Guarda los cambios y cierra el diálogo de configuración. Asegúrate de revisar todas las opciones antes de confirmar."))
+		self.SetHelp(self.cancel_button, _("Descarta los cambios y cierra el diálogo de configuración. Los cambios realizados no serán guardados."))
+
+		# Asegurar que los paneles del Listbook tengan ayuda específica
+		for i in range(self.listbook.GetPageCount()):
+			page = self.listbook.GetPage(i)
+			page_text = self.listbook.GetPageText(i)
+			if page_text == _("General"):
+				self.SetHelp(page, _("Configuración general del traductor. Aquí puedes ajustar las opciones básicas y el comportamiento del traductor."))
+			elif page_text == _("Módulos de traducción"):
+				self.SetHelp(page, _("Gestión de los módulos de traducción online. Permite configurar los servicios de traducción y sus claves API."))
+			else:
+				self.SetHelp(page, _("Panel de configuración: ") + page_text)
 
 	def on_page_changed(self, event):
 		"""
@@ -108,6 +157,22 @@ class ConfigDialog(wx.Dialog):
 		# Checkbox para mostrar dialogo de resultados
 		self.results_checkbox = wx.CheckBox(panel, label=_("No mostrar dialogo de &resultados y copiar al portapapeles"))
 		sizer.Add(self.results_checkbox, 0, wx.ALL, 10)
+
+		# Checkbox para activar intercambio de lenguajes
+		self.change_lang_checkbox = wx.CheckBox(panel, label=_("Activar el &intercambio automático si el origen detectado coincide con el destino (experimental)"))
+		sizer.Add(self.change_lang_checkbox, 0, wx.ALL, 10)
+
+		# Choice para seleccionar el lenguaje por defecto
+		default_label_lang = wx.StaticText(panel, label=_("Idioma de la &traducción:"))
+		sizer.Add(default_label_lang, 0, wx.ALL, 10)
+		self.default_choice_lang = wx.Choice(panel, choices=[f"{self.descripcion_lenguaje(i) if self.descripcion_lenguaje(i) else self.idiomas_name[self.idiomas_code.index(i)]} - {i}" for i in self.idiomas_code])
+		sizer.Add(self.default_choice_lang, 0, wx.ALL, 10)
+
+		# Choice para seleccionar el lenguaje alternativo
+		alternate_label_lang = wx.StaticText(panel, label=_("Idioma a&lternativo:"))
+		sizer.Add(alternate_label_lang, 0, wx.ALL, 10)
+		self.alternate_choice_lang = wx.Choice(panel, choices=[])
+		sizer.Add(self.alternate_choice_lang, 0, wx.ALL, 10)
 
 		panel.SetSizer(sizer)
 		return panel
@@ -166,17 +231,13 @@ class ConfigDialog(wx.Dialog):
 		self.edit_button.Bind(wx.EVT_BUTTON, self.on_edit_api)
 		self.delete_button.Bind(wx.EVT_BUTTON, self.on_delete_api)
 		self.default_button.Bind(wx.EVT_BUTTON, self.on_set_default)
-		# Configurar los aceleradores para las teclas F1, F2, F3 y F4
-		accel_tbl = wx.AcceleratorTable([
-			(wx.ACCEL_NORMAL, wx.WXK_F1, self.add_button.GetId()),
-			(wx.ACCEL_NORMAL, wx.WXK_F2, self.edit_button.GetId()),
-			(wx.ACCEL_NORMAL, wx.WXK_F3, self.delete_button.GetId()),
-			(wx.ACCEL_NORMAL, wx.WXK_F4, self.default_button.GetId())
-		])
-		self.SetAcceleratorTable(accel_tbl)
 		# Bind de botones generales
 		self.Bind(wx.EVT_BUTTON, self.on_accept, id=wx.ID_OK)
 		self.Bind(wx.EVT_BUTTON, self.on_cancel, id=wx.ID_CANCEL)
+		# Bind para actualizar idioma alternativo
+		self.default_choice_lang.Bind(wx.EVT_CHOICE, self.on_default_lang_change)
+		# Bind para activar/desactivar selección de idioma
+		self.change_lang_checkbox.Bind(wx.EVT_CHECKBOX, self.on_alternate_lang_toggle)
 
 	def descripcion_lenguaje(self, code):
 		"""
@@ -226,6 +287,23 @@ class ConfigDialog(wx.Dialog):
 		self.frame.gestor_settings.api_libretranslate = self.default_api_index["libre_translate"]
 		self.frame.gestor_settings.guardaConfiguracion()
 
+	def actualizar_aceleradores(self, habilitar):
+		"""
+		Habilita o deshabilita las teclas aceleradoras F1, F2, F3 y F4.
+
+		:param habilitar: Booleano que indica si se deben habilitar o deshabilitar las teclas aceleradoras.
+		"""
+		if habilitar:
+			accel_tbl = wx.AcceleratorTable([
+				(wx.ACCEL_NORMAL, wx.WXK_F1, self.add_button.GetId()),
+				(wx.ACCEL_NORMAL, wx.WXK_F2, self.edit_button.GetId()),
+				(wx.ACCEL_NORMAL, wx.WXK_F3, self.delete_button.GetId()),
+				(wx.ACCEL_NORMAL, wx.WXK_F4, self.default_button.GetId())
+			])
+		else:
+			accel_tbl = wx.AcceleratorTable([])
+		self.SetAcceleratorTable(accel_tbl)
+
 	def on_translator_choice(self, event):
 		"""
 		Maneja el evento de selección de traductor online.
@@ -234,13 +312,16 @@ class ConfigDialog(wx.Dialog):
 		"""
 		if event.GetString() not in [_("Traductor DeepL (API Free *)"), _("Traductor DeepL (API Pro *)"), _("Traductor LibreTranslate (API *)")]: 
 			self.show_api_controls(False)
+			self.actualizar_aceleradores(False)
 			return
 		choice = event.GetString()
 		self.selected_service = self.frame.gestor_settings.service_map.get(choice)
 		if self.selected_service:
 			self.show_api_controls(True)
+			self.actualizar_aceleradores(True)
 		else:
 			self.show_api_controls(False)
+			self.actualizar_aceleradores(False)
 		self.update_api_list()
 
 	def GetSelectionChoice(self):
@@ -258,12 +339,48 @@ class ConfigDialog(wx.Dialog):
 			# Seleccionar el ítem en wx.Choice por el nombre
 			self.translator_choice.SetStringSelection(service_name)
 
+	def on_default_lang_change(self, event):
+		"""
+		Maneja el evento de cambio de selección en el wx.Choice de idioma por defecto.
+		Actualiza el wx.Choice de idioma alternativo para excluir el idioma seleccionado por defecto.
+
+		:param event: Evento de cambio de selección.
+		"""
+		self.update_alternate_choices()
+
+	def update_alternate_choices(self):
+		"""
+		Actualiza las opciones del wx.Choice de idioma alternativo para excluir el idioma seleccionado por defecto.
+		"""
+		selected_default = self.default_choice_lang.GetStringSelection().split(" - ")[1]
+		choices = [f"{self.descripcion_lenguaje(i) if self.descripcion_lenguaje(i) else self.idiomas_name[self.idiomas_code.index(i)]} - {i}" for i in self.idiomas_code if i != selected_default]
+		self.alternate_choice_lang.Clear()
+		self.alternate_choice_lang.AppendItems(choices)
+		# Mantener la selección anterior si está disponible, de lo contrario seleccionar el primer elemento
+		previous_selection = self.frame.gestor_settings.choiceLangDestino_google_alt
+		if previous_selection and previous_selection in self.idiomas_code and previous_selection != selected_default:
+			self.alternate_choice_lang.SetStringSelection(f"{self.descripcion_lenguaje(previous_selection) if self.descripcion_lenguaje(previous_selection) else self.idiomas_name[self.idiomas_code.index(previous_selection)]} - {previous_selection}")
+		else:
+			self.alternate_choice_lang.SetSelection(0)
+
+	def on_alternate_lang_toggle(self, event):
+		"""
+		Maneja el evento de activación/desactivación de la casilla de uso del mismo idioma.
+		:param event: Evento de cambio de estado.
+		"""
+		enabled = self.change_lang_checkbox.GetValue()
+		self.default_choice_lang.Enable(enabled)
+		self.alternate_choice_lang.Enable(enabled)
+		if enabled:
+			self.update_alternate_choices()
+
 	def start__init__(self):
 		"""
 		Inicializa las configuraciones generales y del traductor online.
 		"""
 		self.start_general()
 		self.start_translate_online()
+		self.agregar_ayudas()
 
 	def start_general(self):
 		"""
@@ -271,6 +388,26 @@ class ConfigDialog(wx.Dialog):
 		"""
 		self.cache_checkbox.SetValue(self.frame.gestor_settings.chkCache)
 		self.results_checkbox.SetValue(self.frame.gestor_settings.chkResults)
+		nombre_lenguaje = self.descripcion_lenguaje(self.destino_default) or self.idiomas_name[self.idiomas_code.index(self.destino_default)]
+		self.default_choice_lang.SetSelection(self.idiomas_code.index(self.destino_default))
+
+		# Inicializar casilla de uso del mismo idioma
+		self.change_lang_checkbox.SetValue(self.frame.gestor_settings.chkAltLang)
+		enabled = self.frame.gestor_settings.chkAltLang
+		self.default_choice_lang.Enable(enabled)
+		self.alternate_choice_lang.Enable(enabled)
+		
+		if enabled:
+			# Inicializar idioma alternativo
+			selected_default = self.destino_default
+			choices = [f"{self.descripcion_lenguaje(i) if self.descripcion_lenguaje(i) else self.idiomas_name[self.idiomas_code.index(i)]} - {i}" for i in self.idiomas_code if i != selected_default]
+			self.alternate_choice_lang.Clear()
+			self.alternate_choice_lang.AppendItems(choices)
+			previous_selection = self.destino_alternate
+			if previous_selection and previous_selection in self.idiomas_code and previous_selection != selected_default:
+				self.alternate_choice_lang.SetStringSelection(f"{self.descripcion_lenguaje(previous_selection) if self.descripcion_lenguaje(previous_selection) else self.idiomas_name[self.idiomas_code.index(previous_selection)]} - {previous_selection}")
+			else:
+				self.alternate_choice_lang.SetSelection(0)
 
 	def start_translate_online(self):
 		"""
@@ -389,6 +526,17 @@ class ConfigDialog(wx.Dialog):
 				url_text.Clear()
 				url_text.SetValue(api["url"])
 
+		# Agregar ayudas
+		self.SetHelp(name_text, _("Introduce el nombre para identificar esta clave API."))
+		self.SetHelp(key_text, _("Introduce la clave API proporcionada por el servicio de traducción."))
+		if url_text:
+			self.SetHelp(url_text, _("Introduce la URL del servidor de traducción LibreTranslate. Esta URL se utilizará para enviar las solicitudes de traducción."))
+		self.SetHelp(ok_button, _("Guarda la clave API y cierra el diálogo."))
+		self.SetHelp(cancel_button, _("Descarta los cambios y cierra el diálogo."))
+
+		# Centrar el diálogo en la pantalla
+		dialog.CenterOnScreen()
+
 		while True:
 			if dialog.ShowModal() == wx.ID_OK:
 				name = name_text.GetValue().strip()
@@ -417,6 +565,10 @@ class ConfigDialog(wx.Dialog):
 		"""
 		self.frame.gestor_settings.chkCache = self.cache_checkbox.GetValue()
 		self.frame.gestor_settings.chkResults = self.results_checkbox.GetValue()
+		self.frame.gestor_settings.chkAltLang = self.change_lang_checkbox.GetValue()
+		if self.frame.gestor_settings.chkAltLang:
+			self.frame.gestor_settings.choiceLangDestino_google_def = self.default_choice_lang.GetString(self.default_choice_lang.GetSelection()).split()[-1:][0]
+			self.frame.gestor_settings.choiceLangDestino_google_alt = self.alternate_choice_lang.GetString(self.alternate_choice_lang.GetSelection()).split()[-1:][0]
 
 		self.frame.gestor_settings.choiceOnline = self.GetSelectionChoice()
 		self.frame.gestor_settings.api_deepl = self.default_api_index["deepL_free"]
@@ -438,3 +590,28 @@ class ConfigDialog(wx.Dialog):
 		self.frame.gestor_settings.IS_WinON = False
 		self.Destroy()
 		gui.mainFrame.postPopup()
+
+	def onKeyPress(self, event):
+		"""
+		Maneja el evento de presión de teclas.
+
+		:param event: El evento de presión de tecla.
+		"""
+		if event.ControlDown() and event.GetKeyCode() == ord('H'):
+			widget_focused = wx.Window.FindFocus()
+			if widget_focused:
+				if self.frame.gestor_ayuda.ayuda_existe(widget_focused):
+					self.frame.gestor_ayuda.mostrar_ayuda(widget_focused)
+				elif isinstance(widget_focused.GetParent(), wx.Listbook):
+					selected_page_index = self.listbook.GetSelection()
+					selected_page = self.listbook.GetPage(selected_page_index)
+					if self.frame.gestor_ayuda.ayuda_existe(selected_page):
+						self.frame.gestor_ayuda.mostrar_ayuda(selected_page)
+					else:
+						wx.MessageBox(_("No hay ayuda disponible para este elemento."), _("Ayuda"), wx.OK | wx.ICON_INFORMATION)
+				else:
+					wx.MessageBox(_("No hay ayuda disponible para este elemento."), _("Ayuda"), wx.OK | wx.ICON_INFORMATION)
+			else:
+				wx.MessageBox(_("No hay un elemento enfocado."), _("Ayuda"), wx.OK | wx.ICON_INFORMATION)
+		else:
+			event.Skip()

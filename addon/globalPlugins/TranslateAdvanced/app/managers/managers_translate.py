@@ -150,6 +150,7 @@ class GestorTranslate(
 
 		# Devolver un diccionario con las listas procesadas
 		return {'origen': origen_procesado, 'destino': destino_procesado}
+
 	def detector_idiomas(self, text):
 		"""
 		Detecta el idioma de un texto dado y muestra el nombre del idioma detectado.
@@ -199,8 +200,23 @@ class GestorTranslate(
 				- Actualiza el último texto traducido con el texto traducido.
 				- Si el soporte de braille está habilitado, muestra el mensaje del último texto traducido.
 		"""
+		if self.frame.gestor_settings.chkAltLang:
+			detector = DetectorDeIdioma()
+			resultado = detector.detectar_idioma(text)
+			if resultado['success']:
+				idioma_detectado = resultado['data']
+				if idioma_detectado != self.frame.gestor_settings.choiceLangDestino_google_def:
+					lang_to = self.frame.gestor_settings.choiceLangDestino_google_def
+				else:
+					lang_to = self.frame.gestor_settings.choiceLangDestino_google_alt
+			else:
+				# En caso de error en la detección, usar el idioma por defecto
+				lang_to = self.frame.gestor_settings.choiceLangDestino_google_def
+		else:
+			lang_to = self.frame.gestor_settings.choiceLangDestino_google
+
 		prepared = text
-		translated = TranslatorGoogleApiFree().translate_google_api_free(lang_from='auto', lang_to=self.frame.gestor_settings.choiceLangDestino_google, text=prepared)
+		translated = TranslatorGoogleApiFree().translate_google_api_free(lang_from='auto', lang_to=lang_to, text=prepared)
 		if prepared.rstrip() == translated.rstrip():
 			self.frame.gestor_settings._lastTranslatedText = prepared
 			if braille.handler._get_enabled():

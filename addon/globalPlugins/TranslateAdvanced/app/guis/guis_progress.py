@@ -9,6 +9,7 @@ import wx
 import threading
 # Carga personal
 from ..src_translations.src_google_api_free import TranslatorGoogleApiFree
+from ..src_translations.src_detect import DetectorDeIdioma
 
 # Carga traducción
 addonHandler.initTranslation()
@@ -68,9 +69,24 @@ class ProgressDialog(wx.Dialog):
 		"""
 		Hilo que maneja la traducción del texto.
 		"""
+		if self.frame.gestor_settings.chkAltLang:
+			detector = DetectorDeIdioma()
+			resultado = detector.detectar_idioma(self.texto_a_traducir)
+			if resultado['success']:
+				idioma_detectado = resultado['data']
+				if idioma_detectado != self.frame.gestor_settings.choiceLangDestino_google_def:
+					lang_to = self.frame.gestor_settings.choiceLangDestino_google_def
+				else:
+					lang_to = self.frame.gestor_settings.choiceLangDestino_google_alt
+			else:
+				# En caso de error en la detección, usar el idioma por defecto
+				lang_to = self.frame.gestor_settings.choiceLangDestino_google_def
+		else:
+			lang_to = self.frame.gestor_settings.choiceLangDestino_google
+
 		self.traduccion_resultado = self.translator.translate_google_api_free(
 			lang_from="auto",
-			lang_to=self.frame.gestor_settings.choiceLangDestino_google,
+			lang_to=lang_to,
 			text=self.texto_a_traducir,
 			mostrar_progreso=True,
 			widget=self.update_progress,
