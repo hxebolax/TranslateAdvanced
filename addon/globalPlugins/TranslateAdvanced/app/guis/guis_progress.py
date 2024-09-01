@@ -9,6 +9,7 @@ import wx
 import threading
 # Carga personal
 from ..src_translations.src_google_api_free import TranslatorGoogleApiFree
+from ..src_translations.src_google_tts import TextToSpeechGoogle
 from ..src_translations.src_detect import DetectorDeIdioma
 
 # Carga traducción
@@ -18,22 +19,32 @@ class ProgressDialog(wx.Dialog):
 	"""
 	Diálogo de progreso para la traducción de textos.
 	"""
-	def __init__(self, frame, texto_a_traducir):
+	def __init__(self, frame, texto_a_traducir, interfaz=False, secundary_frame=None, tts=None, lang_tts=None):
 		"""
 		Inicializa el diálogo de progreso.
 
 		:param frame: El marco principal de la aplicación.
 		:param texto_a_traducir: El texto que se va a traducir.
+		:param interfaz: Si viene de una gui.
 		"""
 		super(ProgressDialog, self).__init__(None, title=_("Progreso de la Traducción"), size=(600, 200))
 
 		self.frame = frame
 		self.texto_a_traducir = texto_a_traducir
+		self.interfaz = interfaz
+		self.secundary_frame = secundary_frame
+		self.tts = tts
+		if self.tts:
+			self.SetTitle(_("Progreso de la obtención del audio"))
+		self.lang_tts = lang_tts
 		self.canceled = False
 		self.completed = False
 		self.error = None
 		self.traduccion_resultado = ""
-		self.translator = TranslatorGoogleApiFree()
+		if self.tts:
+			self.translator = TextToSpeechGoogle()
+		else:
+			self.translator = TranslatorGoogleApiFree()
 
 		# Crear widgets
 		self.progress_bar = wx.Gauge(self, range=100)
@@ -69,29 +80,48 @@ class ProgressDialog(wx.Dialog):
 		"""
 		Hilo que maneja la traducción del texto.
 		"""
-		if self.frame.gestor_settings.chkAltLang:
-			detector = DetectorDeIdioma()
-			resultado = detector.detectar_idioma(self.texto_a_traducir)
-			if resultado['success']:
-				idioma_detectado = resultado['data']
-				if idioma_detectado != self.frame.gestor_settings.choiceLangDestino_google_def:
-					lang_to = self.frame.gestor_settings.choiceLangDestino_google_def
-				else:
-					lang_to = self.frame.gestor_settings.choiceLangDestino_google_alt
-			else:
-				# En caso de error en la detección, usar el idioma por defecto
-				lang_to = self.frame.gestor_settings.choiceLangDestino_google_def
+		if self.tts:
+			self.traduccion_resultado = self.translator.obtener_audio(
+				self.texto_a_traducir,
+				self.lang_tts,
+				mostrar_progreso=True,
+				ventana_padre=self.secundary_frame,
+				widget=self.update_progress,
+			)
 		else:
-			lang_to = self.frame.gestor_settings.choiceLangDestino_google
+			if self.interfaz:
+				self.traduccion_resultado = self.translator.translate_google_api_free(
+					lang_from=self.secundary_frame.choice_origen.GetStringSelection().split(' - ')[-1],
+					lang_to=self.secundary_frame.choice_destino.GetStringSelection().split(' - ')[-1],
+					text=self.texto_a_traducir,
+					mostrar_progreso=True,
+					widget=self.update_progress,
+					IS_DIALOGO=True,
+				)
+			else:
+				if self.frame.gestor_settings.chkAltLang:
+					detector = DetectorDeIdioma()
+					resultado = detector.detectar_idioma(self.texto_a_traducir)
+					if resultado['success']:
+						idioma_detectado = resultado['data']
+						if idioma_detectado != self.frame.gestor_settings.choiceLangDestino_google_def:
+							lang_to = self.frame.gestor_settings.choiceLangDestino_google_def
+						else:
+							lang_to = self.frame.gestor_settings.choiceLangDestino_google_alt
+					else:
+						# En caso de error en la detección, usar el idioma por defecto
+						lang_to = self.frame.gestor_settings.choiceLangDestino_google_def
+				else:
+					lang_to = self.frame.gestor_settings.choiceLangDestino_google
 
-		self.traduccion_resultado = self.translator.translate_google_api_free(
-			lang_from="auto",
-			lang_to=lang_to,
-			text=self.texto_a_traducir,
-			mostrar_progreso=True,
-			widget=self.update_progress,
-			IS_DIALOGO=True,
-		)
+				self.traduccion_resultado = self.translator.translate_google_api_free(
+					lang_from="auto",
+					lang_to=lang_to,
+					text=self.texto_a_traducir,
+					mostrar_progreso=True,
+					widget=self.update_progress,
+					IS_DIALOGO=True,
+				)
 
 		error = self.translator.get_error()
 		if not self.canceled and not error["success"]:

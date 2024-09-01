@@ -12,6 +12,7 @@ import ui
 import gui
 import api
 import speech
+import textInfos
 from speech import *
 from scriptHandler import script, getLastScriptRepeatCount
 from nvwave import playWaveFile
@@ -36,6 +37,7 @@ from .app.guis.guis_result import DialogResults
 from .app.guis.guis_hostory import DialogHistory
 from .app.guis.guis_update import UpdateDialog
 from .app.guis.guis_progress_update import ProgresoDescargaInstalacion
+from .app.guis.guis_guitrans import TranslateDialog
 from .app.utils.utils_security import disableInSecureMode
 from .app.utils.utils_network import check_internet_connection, realizar_solicitud_https
 from .app.utils.utils_various import getSelectedText
@@ -702,6 +704,69 @@ Idioma alternativo: {}.""").format(idioma_def, idioma_alt)
 			else:
 				ui.message(_("No tiene activado el intercambio automático si el origen detectado coincide con el destino"))
 
+	@script(gesture=None, description=_("Traduce texto del objeto del navegador"), category=_("Traductor Avanzado"))
+	def script_obj_translate(self, event):
+		"""
+		Traduce el texto del objeto seleccionado en el navegador.
+
+		Este script se activa cuando se ejecuta un evento específico y realiza las siguientes acciones:
+		1. Si la opción de switch está activada, cierra la capa de comandos.
+		2. Verifica las banderas necesarias antes de proceder.
+		3. Obtiene el objeto actualmente seleccionado en el navegador.
+		4. Intenta extraer el nombre del objeto o su contenido de texto.
+		5. Si no se encuentra texto, muestra un mensaje de error y finaliza.
+		6. Deshabilita la traducción y activa el estado de traducción en la configuración del gestor.
+		7. Verifica si el texto tiene menos de 3000 caracteres.
+			- Si es así, traduce el texto y muestra el resultado.
+			- Si no, inicia un hilo de traducción para manejar textos más largos.
+
+		:param event: El evento que activa este script.
+		"""
+		if self.switch: self.closeCommandsLaier()
+		if self.chk_banderas(False, True):
+			# Obtiene el objeto seleccionado
+			obj = api.getNavigatorObject()
+			texto = obj.name
+			if not texto:
+				try:
+					texto = obj.makeTextInfo(textInfos.POSITION_ALL).clipboardText
+					if not texto:
+						raise RuntimeError()
+				except (RuntimeError, NotImplementedError):
+					ui.message(_("El objeto no tiene texto para traducir"))
+					return
+
+			# Deshabilita la traducción y activa el estado de traducción
+			self.gestor_settings._enableTranslation = False
+			self.gestor_settings.is_active_translate = True
+			# Verificar que el texto tenga menos de 3000 caracteres
+			if len(texto) < 3000:
+				result = self.gestor_translate.translate_various(texto)
+				ui.message(result)
+				self.gestor_settings.is_active_translate = False
+			else: # Más de 3000 caracteres
+				self.gestor_settings.is_active_translate = True
+				LaunchThread(self, 5, texto).start()
+
+	@script(gesture=None, description=_("Interfaz de traducción"), category=_("Traductor Avanzado"))
+	def script_gui_translate(self, event):
+		"""
+		Abre la interfaz de usuario de traducción del complemento.
+
+		Si no hay texto seleccionado, abre la interfaz de traducción en blanco.
+		Si hay texto seleccionado, pre-llena la interfaz con el texto seleccionado.
+
+		:param event: Evento que desencadena la función.
+		"""
+		if self.switch: self.closeCommandsLaier()
+		if self.chk_banderas(False, True):
+			# Obtiene el texto seleccionado
+			temp = getSelectedText(api.getCaretObject())
+			if not temp['success'] or temp['data'] == '':
+				LaunchThread(self, 9).start()
+			else:
+				LaunchThread(self, 9, temp['data']).start()
+
 class LaunchThread(Thread):
 	"""
 	Clase para gestionar la ejecución de diferentes diálogos en hilos separados.
@@ -765,7 +830,14 @@ class LaunchThread(Thread):
 
 		def translate_select():
 			"""
-			Traduce el texto seleccionado.
+			Traduce el texto almacenado en el atributo `self.text`.
+
+			Abre un cuadro de diálogo de progreso mientras se realiza la traducción.
+			Si la traducción es exitosa y el resultado no es el mismo que el texto original, muestra el resultado de la traducción.
+			Si no se pudo obtener la traducción o ocurrió un error, muestra un mensaje informativo o de error.
+
+			Resultado:
+				Inicia el proceso de traducción del texto y maneja el diálogo de resultados.
 			"""
 			self.progress_dialog = ProgressDialog(self.frame, self.text)
 			result = self.progress_dialog.ShowModal()
@@ -842,6 +914,20 @@ class LaunchThread(Thread):
 			"""
 			self.frame.gestor_translate.detector_idiomas(self.text)
 
+		def gui_translate():
+			"""
+			Abre el diálogo de la interfaz de traducción.
+
+			Inicializa la interfaz de traducción con el texto almacenado en el atributo `self.text` si está disponible.
+			Permite al usuario interactuar con la interfaz de traducción de la GUI.
+
+			Resultado:
+				Muestra el diálogo de la interfaz de traducción.
+			"""
+			self._main = TranslateDialog(gui.mainFrame, self.frame, self.text)
+			gui.mainFrame.prePopup()
+			self._main.Show()
+
 		if self.option == 1: # Configuración
 			wx.CallAfter(appLauncherAjustes)
 		elif self.option == 2: # Cambiar idioma origen
@@ -858,3 +944,5 @@ class LaunchThread(Thread):
 			wx.CallAfter(translate_update)
 		elif self.option == 8: # Detecta idioma seleccionado
 			wx.CallAfter(detect_lang)
+		elif self.option == 9: # GUI Traductor seleccionado
+			wx.CallAfter(gui_translate)

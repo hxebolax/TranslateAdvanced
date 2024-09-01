@@ -51,6 +51,8 @@ class GestorSettings:
 		self.choiceLangDestino_microsoft = None
 		self.choiceLangDestino_google_def = None
 		self.choiceLangDestino_google_alt = None
+		self.guiLang_origen = None
+		self.guiLang_destino = None
 		self.chkCache = None
 		self.chkResults = None
 		self.chkAltLang = None
@@ -114,6 +116,9 @@ class GestorSettings:
 			'kb:v': {'action': 'speackLastTranslation', 'description': _('Traduce el último texto verbalizado.')},
 			'kb:t': {'action': 'toggleTranslateOnline', 'description': _('Activa o desactiva la traducción simultánea Online.')},
 			'kb:s': {'action': 'translate_select', 'description': _('Traduce el texto seleccionado.')},
+			'kb:z': {'action': 'obj_translate', 'description': _('Traduce texto del objeto del navegador.')},
+			'kb:w': {'action': 'gui_translate', 'description': _('Interfaz de traducción.')},
+
 			'kb:i': {'action': 'detectLang', 'description': _('Detecta el idioma seleccionado')},
 			'kb:j': {'action': 'toggleLangDetect', 'description': _('Activa o desactiva el intercambio automático si el origen detectado coincide con el destino.')},
 			'kb:k': {'action': 'toggleLangSwitch', 'description': _('Intercambia el idioma principal con el idioma alternativo.')},
@@ -136,6 +141,8 @@ class GestorSettings:
 			"choiceLangDestino_microsoft": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_google_def": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_google_alt": f"string(default=en)",
+			"guiLang_origen": f"string(default=auto)",
+			"guiLang_destino": f"string(default={self.obtenerLenguaje()})",
 			"chkCache": "boolean(default=False)",
 			"chkResults": "boolean(default=False)",
 			"chkAltLang": "boolean(default=False)",
@@ -179,6 +186,8 @@ class GestorSettings:
 		self.choiceLangDestino_microsoft = self.getConfig("choiceLangDestino_microsoft")
 		self.choiceLangDestino_google_def = self.getConfig("choiceLangDestino_google_def")
 		self.choiceLangDestino_google_alt = self.getConfig("choiceLangDestino_google_alt")
+		self.guiLang_origen = self.getConfig("guiLang_origen")
+		self.guiLang_destino = self.getConfig("guiLang_destino")
 		self.chkCache = self.getConfig("chkCache")
 		self.chkResults = self.getConfig("chkResults")
 		self.chkAltLang = self.getConfig("chkAltLang")
@@ -199,6 +208,8 @@ class GestorSettings:
 		self.setConfig("choiceLangDestino_microsoft", self.choiceLangDestino_microsoft)
 		self.setConfig("choiceLangDestino_google_def", self.choiceLangDestino_google_def)
 		self.setConfig("choiceLangDestino_google_alt", self.choiceLangDestino_google_alt)
+		self.setConfig("guiLang_origen", self.guiLang_origen)
+		self.setConfig("guiLang_destino", self.guiLang_destino)
 		self.setConfig("chkCache", self.chkCache)
 		self.setConfig("chkResults", self.chkResults)
 		self.setConfig("chkAltLang", self.chkAltLang)

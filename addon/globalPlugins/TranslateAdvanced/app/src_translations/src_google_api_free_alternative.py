@@ -150,7 +150,7 @@ class TranslatorGoogleApiFreeAlternative:
 		baseUrl += 'tsel=0&'
 		baseUrl += 'kc=1&'
 		baseUrl += 'tk=' + str(tk) + '&'
-		content = urllib.parse.quote(text)
+		content = urllib.parse.quote(text, encoding='utf-8', errors='surrogatepass')
 		baseUrl += 'q=' + content
 		return baseUrl
 

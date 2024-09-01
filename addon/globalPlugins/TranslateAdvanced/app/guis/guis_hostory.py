@@ -49,6 +49,9 @@ class DialogHistory(wx.Dialog):
 		
 		# Inicializar contenido
 		self.inicializarContenido()
+		
+		# Agregar ayudas a los widgets
+		self.agregar_ayudas()
 
 	def crearWidgets(self):
 		"""
@@ -252,16 +255,61 @@ class DialogHistory(wx.Dialog):
 			self.labelListaOriginal.SetLabel(_("&Lista texto original:"))
 			self.labelTextoOrigen.SetLabel(_("Texto &original:"))
 			self.labelTextoTraducido.SetLabel(_("Texto &traducido:"))
+		
+		# Actualizar ayudas según el nuevo orden
+		self.actualizar_ayudas()
+
 		self.campoBuscar.SetValue("")  # Limpiar el campo de búsqueda al alternar
 		self.historialFiltradoOrigen = []
 		self.historialFiltradoDestino = []
 		self.inicializarContenido()  # Volver a cargar el contenido con el nuevo orden
 
+	def actualizar_ayudas(self):
+		"""
+		Actualiza los textos de ayuda según el estado de orden inverso.
+		"""
+		if self.ordenInverso:
+			self.SetHelp(self.textoOrigen, _("Muestra el texto traducido seleccionado. Este campo es de solo lectura."))
+			self.SetHelp(self.textoTraducido, _("Muestra el texto original seleccionado. Este campo es de solo lectura."))
+		else:
+			self.SetHelp(self.textoOrigen, _("Muestra el texto original seleccionado. Este campo es de solo lectura."))
+			self.SetHelp(self.textoTraducido, _("Muestra el texto traducido seleccionado. Este campo es de solo lectura."))
+
+	def SetHelp(self, widget, text):
+		"""
+		Establece un mensaje de ayuda para un widget específico.
+
+		:param widget: El widget al cual se le asignará el mensaje de ayuda.
+		:param text: El texto del mensaje de ayuda que se mostrará cuando el widget reciba el enfoque y se presione Ctrl+H.
+		"""
+		self.frame.gestor_ayuda.agregar_ayuda(widget, text)
+
+	def agregar_ayudas(self):
+		"""
+		Establece los textos de ayuda para todos los widgets de la interfaz.
+		"""
+		self.SetHelp(self.campoBuscar, _("Introduce el texto que deseas buscar en el historial."))
+		self.SetHelp(self.listboxOriginal, _("Lista de textos originales o traducidos, dependiendo del orden seleccionado. Si pulsamos F1 nos dirá en la posición que nos encontramos de la lista."))
+		self.actualizar_ayudas()  # Establece las ayudas iniciales según el estado por defecto
+		self.SetHelp(self.buttonCopiar, _("Presiona este botón para copiar el texto seleccionado al portapapeles."))
+		self.SetHelp(self.buttonBorrar, _("Presiona este botón para borrar todo el historial de traducciones."))
+		self.SetHelp(self.buttonAlternar, _("Presiona este botón para alternar el orden entre texto original y texto traducido."))
+		self.SetHelp(self.buttonCerrar, _("Presiona este botón para cerrar la ventana del historial."))
+
 	def onKeyVentanaDialogo(self, event):
 		"""
 		Maneja el evento de teclas en la ventana de diálogo.
 		"""
-		if event.GetKeyCode() == wx.WXK_ESCAPE:  # Pulsamos ESC y cerramos la ventana
+		if event.ControlDown() and event.GetKeyCode() == ord('H'):
+			widget_focused = wx.Window.FindFocus()
+			if widget_focused:
+				if self.frame.gestor_ayuda.ayuda_existe(widget_focused):
+					self.frame.gestor_ayuda.mostrar_ayuda(widget_focused)
+				else:
+					wx.MessageBox(_("No hay ayuda disponible para este elemento."), _("Ayuda"), wx.OK | wx.ICON_INFORMATION)
+			else:
+				wx.MessageBox(_("No hay un elemento enfocado."), _("Ayuda"), wx.OK | wx.ICON_INFORMATION)
+		elif event.GetKeyCode() == wx.WXK_ESCAPE:  # Pulsamos ESC y cerramos la ventana
 			self.onCerrar(None)
 		else:
 			event.Skip()

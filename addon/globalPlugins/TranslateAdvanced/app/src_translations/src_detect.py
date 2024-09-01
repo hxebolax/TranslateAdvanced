@@ -46,12 +46,12 @@ class DetectorDeIdioma:
 				'q': texto_limited,
 				'tl': 'en'  # Traducir a inglés (aunque solo nos interesa la detección del idioma)
 			}
-			url_parametros = urllib.parse.urlencode(parametros)
+			url_parametros = urllib.parse.urlencode(parametros, encoding='utf-8', errors='surrogatepass')
 			url_completa = f"{self.url_base}?{url_parametros}"
 			
 			# Realizar la solicitud GET a Google Translate
 			with urllib.request.urlopen(url_completa) as response:
-				response_data = response.read().decode('utf-8')
+				response_data = response.read().decode('utf-8', 'surrogatepass')
 			
 			# Parsear la respuesta JSON
 			data = json.loads(response_data)

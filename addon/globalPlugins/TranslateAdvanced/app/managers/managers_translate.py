@@ -49,6 +49,16 @@ class GestorTranslate(
 		self.frame = frame
 		self.data_google = LanguageDictionary(self.frame.gestor_lang.obtener_idiomas("google"))
 
+	def remove_surrogates(self, text):
+		"""
+		Elimina los caracteres sustitutos de una cadena.
+
+		:param text: La cadena a procesar.
+		:return: La cadena sin caracteres sustitutos.
+		"""
+		# Eliminar caracteres sustitutos de la cadena
+		return re.sub(r'[\ud800-\udfff]', '', text)
+
 	def get_choice_lang_destino(self):
 		"""
 		Devuelve el contenido de la variable choiceLangDestino correspondiente según el valor de choiceOnline.
@@ -275,10 +285,10 @@ class GestorTranslate(
 			if self.frame.gestor_settings._enableTranslation:
 				id = self.frame.gestor_settings.choiceOnline
 				if id == 0: # Google 1
-					prepared = text.encode('utf8', ':/')
+					prepared = text.encode('utf8')
 					translated = self.translate_google(prepared, to_language=self.frame.gestor_settings.choiceLangDestino_google)
 				elif id == 1: # Google 2
-					prepared = text.encode('utf8', ':/')
+					prepared = text.encode('utf8')
 					translated = self.translate_google_alternative(prepared, target=self.frame.gestor_settings.choiceLangDestino_google)
 				elif id == 2: # Google 3
 					prepared = text
@@ -292,10 +302,10 @@ class GestorTranslate(
 						logHandler.log.error(_("No tiene ninguna API configurada para el servicio que tiene seleccionado."))
 
 						return text
-					prepared = text.encode('utf8', ':/')
+					prepared = text.encode('utf8', 'surrogatepass')
 					datos = self.translate_deepl(prepared, api_key, use_free_api=True,  source_lang="auto", target_lang=self.frame.gestor_settings.choiceLangDestino_deepl)
 					if isinstance(datos, bytes):
-						translated =  datos.decode('utf-8')
+						translated =  datos.decode('utf-8', 'surrogatepass')
 					elif isinstance(datos, str):
 						translated = datos
 					else:
@@ -305,10 +315,10 @@ class GestorTranslate(
 					if api_key is None:
 						logHandler.log.error(_("No tiene ninguna API configurada para el servicio que tiene seleccionado."))
 						return text
-					prepared = text.encode('utf8', ':/')
+					prepared = text.encode('utf8', 'surrogatepass')
 					datos = self.translate_deepl(prepared, api_key, use_free_api=False,  source_lang="auto", target_lang=self.frame.gestor_settings.choiceLangDestino_deepl)
 					if isinstance(datos, bytes):
-						translated =  datos.decode('utf-8')
+						translated =  datos.decode('utf-8', 'surrogatepass')
 					elif isinstance(datos, str):
 						translated = datos
 					else:
@@ -367,7 +377,7 @@ Error:
 
 		for val in speechSequence:
 			if isinstance(val, str):
-				v = self.translate(val)
+				v = self.translate(self.remove_surrogates(val))
 				newSpeechSequence.append(v if v is not None else val)
 				newSpeechSequenceOrigen.append(val)
 				newSpeechSequenceDestino.append(v)
