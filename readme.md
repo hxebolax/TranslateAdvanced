@@ -591,6 +591,28 @@ Esta funcionalidad permite traducir el texto de un objeto específico dentro del
 
 - Puedes acceder a esta funcionalidad tanto desde el menú virtual del complemento como configurando una tecla de acceso rápido en los "Gestos de entrada" de NVDA.
 
+#### Modulo de OpenAI
+
+Se a agregado un nuevo modulo para traducir con OpenAI con el modelo chatGPT-4º-mini que es el más barato y rápido.
+
+Este modulo esta en pruebas teniendo algunas veces un poco de lag, pero mejorara en futuras versiones.
+
+Este modulo necesita que se asigne una clave API en configuración / módulos.
+
+OpenAI es de pago por lo que es función del usuario comprobar su gasto.
+
+En el siguiente enlace se puede mirar el gasto que llevamos:
+
+[https://platform.openai.com/usage](https://platform.openai.com/usage)
+
+#### Mejora en el modulo de Microsoft
+
+El modulo del traductor de Microsoft a sido escrito desde cero y mejorado la rapidez, estabilidad y el poder tener más tiempo de traducción hasta que bloqueen por uso y tengamos que esperar unos minutos para volver a traducir.
+
+Ahora en las pruebas realizadas y traduciendo simultáneamente bastante texto más de un uso normal no e sufrido ninguna restricción.
+
+Por lo que de momento funciona y se a mejorado respecto al modulo anterior.
+
 #### Otros
 
 * Solucionado problema con la verbalización de algunos mensajes.

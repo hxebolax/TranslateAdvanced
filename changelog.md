@@ -9,4 +9,6 @@
 * Intercambio Automático de Idiomas
 * Ayuda en Diálogos del Complemento
 * Traducción de Texto de Objetos del Navegador
+* Modulo mejorado de Microsoft
+* Nuevo modulo para OpenAI
 - SHA256: 
