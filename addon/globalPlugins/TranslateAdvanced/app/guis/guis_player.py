@@ -30,6 +30,8 @@ class WAVPlayer:
 		# Crear un MediaCtrl con el padre dado y sin agregarlo a ningún sizer para que no sea visible
 		self.media_ctrl = wx_media.MediaCtrl(parent, style=wx_media.MC_NO_AUTORESIZE)
 		self.media_ctrl.Hide()  # Ocultar el widget para que no sea visible
+		self.current_volume = 0.5  # Volumen inicial al 50%
+		self.current_speed = 1.0  # Velocidad inicial normal
 		self.is_playing = False
 		self.is_paused = False
 		self.filepath = None
@@ -45,7 +47,8 @@ class WAVPlayer:
 			if not self.media_ctrl.Load(filepath):
 				raise Exception(_("No se pudo cargar el archivo WAV."))
 			self.filepath = filepath
-			self.media_ctrl.SetVolume(0.5)  # Volumen inicial al 50%
+			self.media_ctrl.SetVolume(self.current_volume)  # Volumen inicial al 50%
+			self.media_ctrl.SetPlaybackRate(self.current_speed)  # Velocidad al valor guardado
 		except Exception as e:
 			gui.messageBox(str(e), _("Error"), wx.ICON_ERROR)
 
@@ -64,7 +67,8 @@ class WAVPlayer:
 				os.remove(temp_filepath)  # Eliminar archivo temporal si la carga falla
 				raise Exception(_("No se pudo cargar el archivo WAV desde bytes."))
 			self.filepath = temp_filepath
-			self.media_ctrl.SetVolume(0.5)  # Volumen inicial al 50%
+			self.media_ctrl.SetVolume(self.current_volume)  # Volumen inicial al 50%
+			self.media_ctrl.SetPlaybackRate(self.current_speed)  # Velocidad al valor guardado
 		except Exception as e:
 			gui.messageBox(str(e), _("Error"), wx.ICON_ERROR)
 
@@ -79,6 +83,8 @@ class WAVPlayer:
 				self.media_ctrl.Play()
 				self.is_paused = False
 			else:
+				self.media_ctrl.SetVolume(self.current_volume)  # Restaurar volumen al valor guardado
+				self.media_ctrl.SetPlaybackRate(self.current_speed)  # Restaurar velocidad al valor guardado
 				self.media_ctrl.Play()
 			self.is_playing = True
 		except Exception as e:
@@ -115,6 +121,7 @@ class WAVPlayer:
 		"""
 		try:
 			volume = max(0, min(100, volume)) / 100.0  # Asegurarse de que el volumen esté en el rango 0-1
+			self.current_volume = volume  # Guardar el volumen actual
 			self.media_ctrl.SetVolume(volume)
 		except Exception as e:
 			gui.messageBox(str(e), _("Error"), wx.ICON_ERROR)
@@ -126,6 +133,7 @@ class WAVPlayer:
 		"""
 		try:
 			playback_rate = speed / 50.0  # Convertir el rango a un rango de 0.0-2.0 (donde 1.0 es la velocidad normal)
+			self.current_speed = playback_rate  # Guardar la velocidad actual
 			self.media_ctrl.SetPlaybackRate(playback_rate)
 		except Exception as e:
 			gui.messageBox(str(e), _("Error"), wx.ICON_ERROR)
@@ -223,7 +231,14 @@ class ReproductorWav(wx.Dialog):
 			panel = wx.Panel(self)
 			self.player = WAVPlayer(panel)
 			self.player.ui_update_callback = self.on_audio_finished  # Establece el callback
-			self.player.load_from_bytes(self.audio)  # Cambia la ruta al archivo deseado
+			self.lst_speed = ["0.50", "0.75", "1.0", "1.25", "1.50", "1.75", "2.0"]
+			self.lst_rwff = [_("1 segundo"), _("5 segundos"), _("10 segundos"), _("15 segundos"), _("30 segundos"), _("1 minuto")]
+			self.lst_rwff_time = [1000, 5000, 10000, 15000, 30000, 60000]
+			self.snd_vol = int(self.frame.gestor_settings.snd_vol)
+			self.snd_vel = self.frame.gestor_settings.snd_vel
+			self.snd_rw = self.frame.gestor_settings.snd_rw
+			self.snd_ff = self.frame.gestor_settings.snd_ff
+
 			self.InitUI(panel)
 			self.CrearTablaAceleradora()
 			self.AgregarAyudas()
@@ -252,9 +267,9 @@ class ReproductorWav(wx.Dialog):
 			horizontal_sizer = wx.BoxSizer(wx.HORIZONTAL)
 
 			# Botones de control
-			self.btn_atrasar = wx.Button(panel, label=_("Atrasar (F1)"))
+			self.btn_atrasar = wx.Button(panel, 1001, label=_("Atrasar (F1)"))
 			self.btn_reproducir = wx.Button(panel, label=_("Reproducir (F2)"))
-			self.btn_adelantar = wx.Button(panel, label=_("Adelantar (F3)"))
+			self.btn_adelantar = wx.Button(panel, 1003, label=_("Adelantar (F3)"))
 			self.btn_detener = wx.Button(panel, label=_("Detener (F4)"))
 
 			# Añadir botones al sizer horizontal
@@ -268,7 +283,7 @@ class ReproductorWav(wx.Dialog):
 
 			# Etiqueta y slider de volumen
 			etiqueta_volumen = wx.StaticText(panel, label=_("Volumen (F5 / F6)"))
-			self.slider_volumen = wx.Slider(panel, minValue=0, maxValue=100, value=50)  # Iniciar en 50 (50% volumen)
+			self.slider_volumen = wx.Slider(panel, minValue=0, maxValue=100, value=self.snd_vol)  # Iniciar en 50 (50% volumen)
 
 			# Añadir etiqueta y slider al sizer horizontal
 			volumen_velocidad_sizer.Add(etiqueta_volumen, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 5)
@@ -276,8 +291,8 @@ class ReproductorWav(wx.Dialog):
 
 			# Etiqueta y choice de velocidad
 			etiqueta_velocidad = wx.StaticText(panel, label=_("Velocidad (F7 / F8)"))
-			self.choice_velocidad = wx.Choice(panel, choices=["0.50", "0.75", "1.0", "1.25", "1.5", "1.75", "2.0"])
-			self.choice_velocidad.SetSelection(2)  # Selecciona 1.0 como valor por defecto
+			self.choice_velocidad = wx.Choice(panel, choices=self.lst_speed)
+			self.choice_velocidad.SetSelection(self.snd_vel)  # Selecciona 1.0 como valor por defecto
 
 			# Añadir etiqueta y choice de velocidad al sizer horizontal
 			volumen_velocidad_sizer.Add(etiqueta_velocidad, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 5)
@@ -313,12 +328,18 @@ class ReproductorWav(wx.Dialog):
 			self.btn_adelantar.Bind(wx.EVT_BUTTON, self.on_forward)
 			self.btn_guardar.Bind(wx.EVT_BUTTON, self.on_save)
 			self.btn_cerrar.Bind(wx.EVT_BUTTON, self.on_close)
+			self.Bind(wx.EVT_CHAR_HOOK, self.onKeyPress)
+			self.Bind(wx.EVT_CONTEXT_MENU, self.menuSetID)
 
 			self.slider_volumen.Bind(wx.EVT_SLIDER, self.on_change_volume)
 			self.choice_velocidad.Bind(wx.EVT_CHOICE, self.on_change_speed)  # Nuevo evento para el wx.Choice
 
 			self.cuadro_texto.SetValue(self.text)
 			self.btn_reproducir.SetFocus()
+			self.player.set_volume(self.snd_vol)
+			self.player.set_speed(float(self.lst_speed[self.snd_vel]) * 50)
+			self.player.load_from_bytes(self.audio)  # Cambia la ruta al archivo deseado
+
 		except Exception as e:
 			gui.messageBox(str(e), _("Error al inicializar la interfaz de usuario"), wx.ICON_ERROR)
 
@@ -367,12 +388,12 @@ class ReproductorWav(wx.Dialog):
 		Establece los textos de ayuda para todos los widgets de la interfaz.
 		"""
 		self.SetHelp(self.cuadro_texto, _("Este cuadro muestra el texto traducido. Es de solo lectura."))
-		self.SetHelp(self.btn_atrasar, _("Presiona este botón para retroceder la reproducción 10 segundos."))
+		self.SetHelp(self.btn_atrasar, _("Presiona este botón para retroceder la reproducción lo que tengamos establecido. Podemos pulsar Shift+F10 o tecla aplicaciones para expandir un menú contextual donde nos dejara elegir el tiempo para atrasar."))
 		self.SetHelp(self.btn_reproducir, _("Presiona este botón para reproducir o pausar la reproducción."))
-		self.SetHelp(self.btn_adelantar, _("Presiona este botón para adelantar la reproducción 10 segundos."))
+		self.SetHelp(self.btn_adelantar, _("Presiona este botón para adelantar la reproducción lo que tengamos establecido. Podemos pulsar Shift+F10 o tecla aplicaciones para expandir un menú contextual donde nos dejara elegir el tiempo para adelantar."))
 		self.SetHelp(self.btn_detener, _("Presiona este botón para detener la reproducción."))
 		self.SetHelp(self.slider_volumen, _("Ajusta el volumen de reproducción con este control."))
-		self.SetHelp(self.choice_velocidad, _("Selecciona la velocidad de reproducción con esta lista."))
+		self.SetHelp(self.choice_velocidad, _("Selecciona la velocidad de reproducción con este control."))
 		self.SetHelp(self.btn_guardar, _("Presiona este botón para guardar el archivo de audio."))
 		self.SetHelp(self.btn_cerrar, _("Presiona este botón para cerrar el diálogo."))
 
@@ -419,6 +440,7 @@ class ReproductorWav(wx.Dialog):
 		if current_volume > 0:
 			self.slider_volumen.SetValue(current_volume - 1)
 			self.player.set_volume(current_volume - 1)
+			self.snd_vol = current_volume - 1
 			ui.message(_("Volumen {}%".format(current_volume - 1)))
 
 	def increase_volume(self, event):
@@ -429,6 +451,7 @@ class ReproductorWav(wx.Dialog):
 		if current_volume < 100:
 			self.slider_volumen.SetValue(current_volume + 1)
 			self.player.set_volume(current_volume + 1)
+			self.snd_vol = current_volume + 1
 			ui.message(_("Volumen {}%".format(current_volume + 1)))
 
 	def decrease_speed(self, event):
@@ -521,8 +544,8 @@ class ReproductorWav(wx.Dialog):
 		Maneja el evento de atrasar la reproducción.
 		"""
 		try:
-			self.informar_accion(_("Atrasar 10 segundos"))
-			self.player.media_ctrl.Seek(self.player.get_current_time() - 10000)  # Atrasar 10 segundos
+			self.informar_accion(_("Atrasar {}").format(self.lst_rwff[self.snd_rw]))
+			self.player.media_ctrl.Seek(self.player.get_current_time() - self.lst_rwff_time[self.snd_rw])
 		except Exception as e:
 			gui.messageBox(_("No se pudo atrasar el archivo: {}").format(e), _("Error"), wx.ICON_ERROR)
 
@@ -531,8 +554,8 @@ class ReproductorWav(wx.Dialog):
 		Maneja el evento de adelantar la reproducción.
 		"""
 		try:
-			self.informar_accion(_("Adelantar 10 segundos"))
-			self.player.media_ctrl.Seek(self.player.get_current_time() + 10000)  # Adelantar 10 segundos
+			self.informar_accion(_("Adelantar {}").format(self.lst_rwff[self.snd_ff]))
+			self.player.media_ctrl.Seek(self.player.get_current_time() + self.lst_rwff_time[self.snd_ff])
 			if self.player.get_current_time() >= self.player.get_total_time():
 				self.on_audio_finished()
 		except Exception as e:
@@ -544,6 +567,7 @@ class ReproductorWav(wx.Dialog):
 		"""
 		try:
 			volume = self.slider_volumen.GetValue()
+			self.snd_vol = volume
 			self.player.set_volume(volume)
 		except Exception as e:
 			gui.messageBox(str(e), _("Error al cambiar el volumen"), wx.ICON_ERROR)
@@ -556,6 +580,7 @@ class ReproductorWav(wx.Dialog):
 			speed_str = self.choice_velocidad.GetStringSelection()
 			speed = float(speed_str)
 			self.player.set_speed(speed * 50)  # Ajusta el rango de velocidad al rango de 0-100
+			self.snd_vel = self.choice_velocidad.GetSelection()
 		except Exception as e:
 			gui.messageBox(str(e), _("Error al cambiar la velocidad"), wx.ICON_ERROR)
 
@@ -568,11 +593,67 @@ class ReproductorWav(wx.Dialog):
 		except Exception as e:
 			gui.messageBox(str(e), _("Error al finalizar el audio"), wx.ICON_ERROR)
 
+	def menuSetID(self, event):
+		""" Función para obtener el id del widget desde que se invoca y se lo pasa a la función onMenus que contendra todos los menús de la aplicación """
+		self.onMenus(event.GetId())
+
+	def onMenus(self, event):
+		""" Función que recibe el id en el evento de la función menuSetID para mostrar el menú del widget si lo tiene """
+		id = event
+		menu = wx.Menu()
+		if id == 1001: # Menú boton atrasarBTN
+			for i in range(len(self.lst_rwff)):
+				i = menu.Append(i+ 4000, "{}".format(self.lst_rwff[i]), "", wx.ITEM_CHECK)
+			menu.Bind(wx.EVT_MENU_RANGE, self.onMenusAcciones, id=4000, id2=len(self.lst_rwff)-1+4000)
+			menu.Check(self.snd_rw+4000, True)
+			self.btn_atrasar.PopupMenu(menu)
+		elif id == 1003: # menu botón adelantarBTN
+			for i in range(len(self.lst_rwff)):
+				i = menu.Append(i + 5000, "{}".format(self.lst_rwff[i]), "", wx.ITEM_CHECK)
+			menu.Bind(wx.EVT_MENU_RANGE, self.onMenusAcciones, id=5000, id2=len(self.lst_rwff)-1 + 5000)
+			menu.Check(self.snd_ff + 5000, True)
+			self.btn_adelantar.PopupMenu(menu)
+
+	def onMenusAcciones(self, event):
+		""" Recibe el id unico de los menus y ejecuta la acción """
+		id = event.GetId()
+		if id in [4000, 4001, 4002, 4003, 4004, 4005]: # Ids de atrasar, hay que restar 4000 para guardar en ajustes ya que son ids creados especialmente para los menús y tienen que coincidir con la listaAtrasar
+			self.snd_rw = id - 4000
+		elif id in [5000, 5001, 5002, 5003, 5004, 5005]: # Ids de adelantar, hay que restar 5000 para guardar en ajustes ya que son ids creados especialmente para los menús y tienen que coincidir con la listaAdelantar
+			self.snd_ff = id - 5000
+
+	def onKeyPress(self, event):
+		"""
+		Maneja el evento de presión de teclas.
+
+		:param event: El evento de presión de tecla.
+		"""
+		if event.ControlDown() and event.GetKeyCode() == ord('H'):
+			widget_focused = wx.Window.FindFocus()
+			if widget_focused:
+				if self.frame.gestor_ayuda.ayuda_existe(widget_focused):
+					self.frame.gestor_ayuda.mostrar_ayuda(widget_focused)
+				else:
+					wx.MessageBox(_("No hay ayuda disponible para este elemento."), _("Ayuda"), wx.OK | wx.ICON_INFORMATION)
+			else:
+				wx.MessageBox(_("No hay un elemento enfocado."), _("Ayuda"), wx.OK | wx.ICON_INFORMATION)
+		elif event.AltDown() and event.GetKeyCode() == wx.WXK_F4:
+			self.on_close(None)
+		elif event.GetKeyCode() == wx.WXK_ESCAPE:
+			self.on_close(None)
+		else:
+			event.Skip()
+
 	def on_close(self, event):
 		"""
 		Cierra el reproductor y libera los recursos.
 		"""
 		try:
+			self.frame.gestor_settings.snd_vol = str(self.snd_vol)
+			self.frame.gestor_settings.snd_vel = self.snd_vel
+			self.frame.gestor_settings.snd_rw = self.snd_rw
+			self.frame.gestor_settings.snd_ff = self.snd_ff
+			self.frame.gestor_settings.guardaConfiguracion()
 			self.player.close()
 			self.Close()
 		except Exception as e:

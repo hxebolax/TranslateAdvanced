@@ -18,15 +18,13 @@ class APIManager:
 	"""
 	def __init__(self, filepath):
 		self.filepath = filepath
+		self.required_services = ["deepL_free", "deepL_pro", "libre_translate", "openai"]
 		if not os.path.exists(filepath):
-			self.data = {
-				"deepL_free": [],
-				"deepL_pro": [],
-				"libre_translate": []
-			}
+			self.data = {service: [] for service in self.required_services}
 			self.save()
 		else:
 			self.load()
+			self.ensure_services_exist()
 
 	def load(self):
 		"""
@@ -37,11 +35,7 @@ class APIManager:
 				self.data = json.load(file)
 		except (FileNotFoundError, json.JSONDecodeError) as e:
 			logHandler.log.error(_("Error al cargar el archivo JSON: {0}").format(e))
-			self.data = {
-				"deepL_free": [],
-				"deepL_pro": [],
-				"libre_translate": []
-			}
+			self.data = {service: [] for service in self.required_services}
 
 	def save(self):
 		"""
@@ -53,11 +47,24 @@ class APIManager:
 		except IOError as e:
 			logHandler.log.error(_("Error al guardar el archivo JSON: {0}").format(e))
 
+	def ensure_services_exist(self):
+		"""
+		Asegura que todos los servicios requeridos existan en los datos.
+		Si algún servicio no existe, lo añade con una lista vacía.
+		"""
+		changed = False
+		for service in self.required_services:
+			if service not in self.data:
+				self.data[service] = []
+				changed = True
+		if changed:
+			self.save()
+
 	def add_api(self, service, name, key, url=None):
 		"""
 		Añade una nueva clave API.
 
-		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate).
+		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate, openai).
 		:param name: Nombre descriptivo de la clave.
 		:param key: Clave API.
 		:param url: URL del servicio (solo para libre_translate).
@@ -75,7 +82,7 @@ class APIManager:
 		"""
 		Edita una clave API existente.
 
-		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate).
+		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate, openai).
 		:param index: Índice de la clave a editar.
 		:param name: Nombre descriptivo de la clave.
 		:param key: Clave API.
@@ -97,7 +104,7 @@ class APIManager:
 		"""
 		Elimina una clave API.
 
-		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate).
+		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate, openai).
 		:param index: Índice de la clave a eliminar.
 		"""
 		if service not in self.data:
@@ -116,7 +123,7 @@ class APIManager:
 		"""
 		Obtiene todas las claves API de un servicio.
 
-		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate).
+		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate, openai).
 		:return: Lista de claves API.
 		"""
 		if service not in self.data:
@@ -128,7 +135,7 @@ class APIManager:
 		"""
 		Obtiene una clave API específica.
 
-		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate).
+		:param service: Nombre del servicio (deepL_free, deepL_pro, libre_translate, openai).
 		:param index: Índice de la clave.
 		:return: Clave API.
 		"""

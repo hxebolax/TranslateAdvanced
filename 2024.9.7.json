@@ -1,0 +1,29 @@
+{
+	"addonId": "TranslateAdvanced",
+	"displayName": "Traductor Avanzado",
+	"URL": "",
+	"description": "Traductor Avanzado para NVDA es un complemento que facilita la traducci\u00f3n de textos en varios \nidiomas utilizando servicios como Google Translate, DeepL, LibreTranslate y Microsoft Translator.\nOfrece traducci\u00f3n simult\u00e1nea, historial y gesti\u00f3n de claves API. Es f\u00e1cil de configurar y usar con\nteclas r\u00e1pidas y opciones personalizables en el men\u00fa de NVDA.",
+	"sha256": "66781a7fbe9d0b5afe0509f910fea7a2a7a35f18eb825c3530bc5b7dec5619c6",
+	"homepage": "https://github.com/hxebolax/TranslateAdvanced",
+	"addonVersionName": "2024.09.07",
+	"addonVersionNumber": {
+		"major": 2024,
+		"minor": 9,
+		"patch": 7
+	},
+	"minNVDAVersion": {
+		"major": 2024,
+		"minor": 1,
+		"patch": 0
+	},
+	"lastTestedVersion": {
+		"major": 2024,
+		"minor": 3,
+		"patch": 0
+	},
+	"channel": "stable",
+	"publisher": "",
+	"sourceURL": "https://github.com/hxebolax/TranslateAdvanced",
+	"license": "GPL v2",
+	"licenseURL": "https://www.gnu.org/licenses/gpl-2.0.html"
+}

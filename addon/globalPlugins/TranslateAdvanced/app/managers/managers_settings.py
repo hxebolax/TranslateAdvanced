@@ -10,6 +10,7 @@ import globalVars
 import logHandler
 # Carga Python
 import os
+import shutil
 import json
 from collections import deque
 
@@ -31,6 +32,15 @@ class GestorSettings:
 		self.dir_root_config = globalVars.appArgs.configPath
 		self.dir_cache = os.path.join(self.dir_root_config, "TranslateAdvancedCache")
 		self.file_api = os.path.join(os.environ['USERPROFILE'], "apis.json")
+
+		# Eliminación de directorios incorrectos
+		dir_error = os.path.join(self.dir_root, "..", "..", "locale", "LC_MESSAGES")
+		file_error = os.path.join(self.dir_root, "..", "..", "locale", "manifest.ini")
+		if os.path.exists(dir_error) and os.path.isdir(dir_error):
+			shutil.rmtree(dir_error)
+		if os.path.exists(file_error) and os.path.isfile(file_error):
+			os.remove(file_error)
+
 		self.historialOrigen = deque(maxlen=500)
 		self.historialDestino = deque(maxlen=500)
 		self._translationCache = {}
@@ -51,16 +61,22 @@ class GestorSettings:
 		self.choiceLangDestino_microsoft = None
 		self.choiceLangDestino_google_def = None
 		self.choiceLangDestino_google_alt = None
+		self.choiceLangDestino_openai = None
 		self.guiLang_origen = None
 		self.guiLang_destino = None
 		self.chkCache = None
 		self.chkResults = None
 		self.chkAltLang = None
-		self.chkSound = True
 		self.api_deepl = None
 		self.api_deepl_pro = None
 		self.api_libretranslate = None
 		self.api_libretranslate_url = None
+		self.api_openai = None
+		self.chkSound = True
+		self.snd_vol = None
+		self.snd_vel = None
+		self.snd_rw = None
+		self.snd_ff = None
 		# Lista y diccionarios sobre los servicios
 		self.servers_names = [
 			_("Traductor Google (WEB 1)"),
@@ -72,6 +88,7 @@ class GestorSettings:
 			_("Traductor DeepL (API Pro *)"),
 			_("Traductor LibreTranslate (API *)"),
 			_("Traductor Microsoft Bing (API Free)"),
+			_("Traductor OpenAI GPT4o-mini (API *)"),
 		]
 		self.service_map_selection = {
 			_("Traductor Google (WEB 1)"): 0,
@@ -83,11 +100,13 @@ class GestorSettings:
 			_("Traductor LibreTranslate (API *)"): 6,
 			_("Traductor Microsoft Bing (API Free)"): 7,
 			_("Traductor DeepL (Free)"): 8,
+			_("Traductor OpenAI GPT4o-mini (API *)"): 9,
 		}
 		self.service_map = {
 			_("Traductor DeepL (API Free *)"): "deepL_free",
 			_("Traductor DeepL (API Pro *)"): "deepL_pro",
-			_("Traductor LibreTranslate (API *)"): "libre_translate"
+			_("Traductor LibreTranslate (API *)"): "libre_translate",
+			_("Traductor OpenAI GPT4o-mini (API *)"): "openai",
 		}
 		# Diccionario para obtener el choice idiioma destino
 		self.choice_dict = {
@@ -100,6 +119,7 @@ class GestorSettings:
 			6: self.choiceLangDestino_libretranslate,
 			7: self.choiceLangDestino_microsoft,
 			8: self.choiceLangDestino_deepl,
+			9: self.choiceLangDestino_openai,
 		}
 		# Diccionario con teclas y descripciones
 		self.__newGestures = {
@@ -133,7 +153,7 @@ class GestorSettings:
 		Inicializa la configuración de NVDA para TranslateAdvanced.
 		"""
 		confspec = {
-			"choiceOnline": "integer(default=0, min=0, max=8)",
+			"choiceOnline": "integer(default=0, min=0, max=9)",
 			"choiceLangOrigen": "string(default=en)",
 			"choiceLangDestino_google": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_deepl": f"string(default={self.obtenerLenguaje()})",
@@ -141,6 +161,7 @@ class GestorSettings:
 			"choiceLangDestino_microsoft": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_google_def": f"string(default={self.obtenerLenguaje()})",
 			"choiceLangDestino_google_alt": f"string(default=en)",
+			"choiceLangDestino_openai": f"string(default={self.obtenerLenguaje()})",
 			"guiLang_origen": f"string(default=auto)",
 			"guiLang_destino": f"string(default={self.obtenerLenguaje()})",
 			"chkCache": "boolean(default=False)",
@@ -150,6 +171,11 @@ class GestorSettings:
 			"api_deepl_pro": "string(default=None)",
 			"api_libretranslate": "string(default=None)",
 			"api_libretranslate_url": "string(default=None)",
+			"api_openai": "string(default=None)",
+			"snd_vol": f"string(default={self.convertir_valor(50)})",
+			"snd_vel": "integer(default=2, min=0, max=6)",
+			"snd_rw": "integer(default=1, min=0, max=5)",
+			"snd_ff": "integer(default=2, min=0, max=5)",
 		}
 		config.conf.spec['TranslateAdvanced'] = confspec
 
@@ -184,6 +210,7 @@ class GestorSettings:
 		self.choiceLangDestino_deepl = self.getConfig("choiceLangDestino_deepl")
 		self.choiceLangDestino_libretranslate = self.getConfig("choiceLangDestino_libretranslate")
 		self.choiceLangDestino_microsoft = self.getConfig("choiceLangDestino_microsoft")
+		self.choiceLangDestino_openai = self.getConfig("choiceLangDestino_openai")
 		self.choiceLangDestino_google_def = self.getConfig("choiceLangDestino_google_def")
 		self.choiceLangDestino_google_alt = self.getConfig("choiceLangDestino_google_alt")
 		self.guiLang_origen = self.getConfig("guiLang_origen")
@@ -195,6 +222,11 @@ class GestorSettings:
 		self.api_deepl_pro = self.convertir_valor(self.getConfig("api_deepl_pro"))
 		self.api_libretranslate = self.convertir_valor(self.getConfig("api_libretranslate"))
 		self.api_libretranslate_url = self.getConfig("api_libretranslate_url")
+		self.api_openai = self.convertir_valor(self.getConfig("api_openai"))
+		self.snd_vol = self.getConfig("snd_vol")
+		self.snd_vel = self.getConfig("snd_vel")
+		self.snd_rw = self.getConfig("snd_rw")
+		self.snd_ff = self.getConfig("snd_ff")
 
 	def guardaConfiguracion(self):
 		"""
@@ -207,6 +239,7 @@ class GestorSettings:
 		self.setConfig("choiceLangDestino_libretranslate", self.choiceLangDestino_libretranslate)
 		self.setConfig("choiceLangDestino_microsoft", self.choiceLangDestino_microsoft)
 		self.setConfig("choiceLangDestino_google_def", self.choiceLangDestino_google_def)
+		self.setConfig("choiceLangDestino_openai", self.choiceLangDestino_openai)
 		self.setConfig("choiceLangDestino_google_alt", self.choiceLangDestino_google_alt)
 		self.setConfig("guiLang_origen", self.guiLang_origen)
 		self.setConfig("guiLang_destino", self.guiLang_destino)
@@ -217,6 +250,11 @@ class GestorSettings:
 		self.setConfig("api_deepl_pro", self.convertir_valor(self.api_deepl_pro))
 		self.setConfig("api_libretranslate", self.convertir_valor(self.api_libretranslate))
 		self.setConfig("api_libretranslate_url", self.api_libretranslate_url)
+		self.setConfig("api_openai", self.convertir_valor(self.api_openai))
+		self.setConfig("snd_vol", self.snd_vol)
+		self.setConfig("snd_vel", self.snd_vel)
+		self.setConfig("snd_rw", self.snd_rw)
+		self.setConfig("snd_ff", self.snd_ff)
 
 	def obtenerLenguaje(self):
 		"""

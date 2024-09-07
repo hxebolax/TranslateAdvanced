@@ -22,6 +22,7 @@ from ..src_translations.src_deepl_original import TranslatorDeepL
 from ..src_translations.src_libretranslate_original import TranslatorLibreTranslate
 from ..src_translations.src_microsoft_api_free import TranslatorMicrosoftApiFree
 from ..src_translations.src_deepl_free import TranslatorDeepLFree
+from ..src_translations.src_openai_4o_api import TranslatorOpenAI
 from ..src_translations.src_detect import DetectorDeIdioma
 from ..managers.managers_dict import LanguageDictionary
 
@@ -34,6 +35,7 @@ class GestorTranslate(
 	TranslatorDeepL,
 	TranslatorLibreTranslate,
 	TranslatorMicrosoftApiFree,
+	TranslatorOpenAI,
 ):
 	"""
 	Clase que gestiona la traducción de texto y el manejo del historial de traducción.
@@ -45,7 +47,7 @@ class GestorTranslate(
 		:param frame: El marco principal de la aplicación.
 		"""
 		super().__init__()
-
+		TranslatorOpenAI.__init__(self)  # Llama explícitamente al constructor de TranslatorOpenAI
 		self.frame = frame
 		self.data_google = LanguageDictionary(self.frame.gestor_lang.obtener_idiomas("google"))
 
@@ -115,6 +117,11 @@ class GestorTranslate(
 				return None, None
 			else:
 				return self.frame.gestor_apis.get_api("libre_translate", self.frame.gestor_settings.api_libretranslate)["key"],  self.frame.gestor_apis.get_api("libre_translate", self.frame.gestor_settings.api_libretranslate)["url"]
+		elif value == 9: # OpenAI
+			if self.frame.gestor_settings.api_openai is None:
+				return None, None
+			else:
+				return self.frame.gestor_apis.get_api("openai", self.frame.gestor_settings.api_openai)["key"], None
 
 	def procesar_listas(self, origen, destino):
 		"""
@@ -342,6 +349,13 @@ class GestorTranslate(
 					translator.target_lang = self.frame.gestor_settings.choiceLangDestino_deepl
 					prepared = text
 					translated = translator.translate(prepared)
+				elif id == 9: # OpenAI
+					api_key, url = self.get_api()
+					if api_key is None:
+						logHandler.log.error(_("No tiene ninguna API configurada para el servicio que tiene seleccionado."))
+						return text
+					prepared = text
+					translated = self.translate_openai(api_key, prepared, target_language=self.frame.gestor_settings.choiceLangDestino_openai)
 		except Exception as e:
 			msg = \
 _("""Error en la traducción.

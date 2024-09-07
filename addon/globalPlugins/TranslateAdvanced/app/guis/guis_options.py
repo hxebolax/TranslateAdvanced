@@ -40,7 +40,7 @@ class ConfigDialog(wx.Dialog):
 		self.api_manager = self.frame.gestor_apis
 		# Variable para rastrear el traductor seleccionado y su API por defecto
 		self.selected_service = None
-		self.default_api_index = {"deepL_free": self.frame.gestor_settings.api_deepl, "deepL_pro": self.frame.gestor_settings.api_deepl_pro, "libre_translate": self.frame.gestor_settings.api_libretranslate}
+		self.default_api_index = {"deepL_free": self.frame.gestor_settings.api_deepl, "deepL_pro": self.frame.gestor_settings.api_deepl_pro, "libre_translate": self.frame.gestor_settings.api_libretranslate, "openai": self.frame.gestor_settings.api_openai}
 		# Crear el Listbook
 		self.listbook = wx.Listbook(self, wx.ID_ANY)
 
@@ -264,7 +264,7 @@ class ConfigDialog(wx.Dialog):
 		"""
 		self.api_listbox.Clear()
 		default_index = None
-		if self.selected_service and self.selected_service in ["deepL_free", "deepL_pro", "libre_translate"]:
+		if self.selected_service and self.selected_service in ["deepL_free", "deepL_pro", "libre_translate", "openai"]:
 			apis = self.api_manager.get_apis(self.selected_service)
 			if apis:
 				for i, api in enumerate(apis):
@@ -285,6 +285,7 @@ class ConfigDialog(wx.Dialog):
 		self.frame.gestor_settings.api_deepl = self.default_api_index["deepL_free"]
 		self.frame.gestor_settings.api_deepl_pro = self.default_api_index["deepL_pro"]
 		self.frame.gestor_settings.api_libretranslate = self.default_api_index["libre_translate"]
+		self.frame.gestor_settings.api_openai = self.default_api_index["openai"]
 		self.frame.gestor_settings.guardaConfiguracion()
 
 	def actualizar_aceleradores(self, habilitar):
@@ -310,7 +311,7 @@ class ConfigDialog(wx.Dialog):
 
 		:param event: Evento de selección.
 		"""
-		if event.GetString() not in [_("Traductor DeepL (API Free *)"), _("Traductor DeepL (API Pro *)"), _("Traductor LibreTranslate (API *)")]: 
+		if event.GetString() not in [_("Traductor DeepL (API Free *)"), _("Traductor DeepL (API Pro *)"), _("Traductor LibreTranslate (API *)"), _("Traductor OpenAI GPT4o-mini (API *)")]:
 			self.show_api_controls(False)
 			self.actualizar_aceleradores(False)
 			return
@@ -414,7 +415,7 @@ class ConfigDialog(wx.Dialog):
 		Inicializa la configuración del traductor online del diálogo.
 		"""
 		self.select_choice_by_value(self.frame.gestor_settings.choiceOnline)
-		if self.frame.gestor_settings.choiceOnline in [4, 5, 6]:
+		if self.frame.gestor_settings.choiceOnline in [4, 5, 6, 9]:
 			choice = self.translator_choice.GetStringSelection()
 			self.selected_service = self.frame.gestor_settings.service_map.get(choice)
 			if self.selected_service:
@@ -574,6 +575,7 @@ class ConfigDialog(wx.Dialog):
 		self.frame.gestor_settings.api_deepl = self.default_api_index["deepL_free"]
 		self.frame.gestor_settings.api_deepl_pro = self.default_api_index["deepL_pro"]
 		self.frame.gestor_settings.api_libretranslate = self.default_api_index["libre_translate"]
+		self.frame.gestor_settings.api_openai = self.default_api_index["openai"]
 
 		self.frame.gestor_settings.IS_WinON = False
 		self.frame.gestor_settings.guardaConfiguracion()

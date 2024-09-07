@@ -113,7 +113,8 @@ Error:
 			Ejecuta el proceso de conversión de texto a audio en el hilo.
 			"""
 			try:
-				partes = [self.texto[i:i+self.max_length] for i in range(0, len(self.texto), self.max_length)]
+				# Nueva lógica para dividir el texto sin cortar palabras
+				partes = self._dividir_texto(self.texto, self.max_length)
 				total_partes = len(partes)
 				for i, parte in enumerate(partes):
 					if self.detener_hilo_audio.is_set():
@@ -128,6 +129,31 @@ Error:
 			except Exception as e:
 				self.error = {"success": True, "data": str(e)}
 				return
+
+		def _dividir_texto(self, texto, max_length):
+			"""
+			Divide el texto en partes que no excedan max_length y no corten palabras a la mitad.
+
+			:param texto: Texto a dividir.
+			:param max_length: Longitud máxima de cada parte del texto.
+			:return: Lista de partes de texto.
+			"""
+			partes = []
+			palabras = texto.split()
+			parte_actual = ""
+			for palabra in palabras:
+				if len(parte_actual) + len(palabra) + 1 <= max_length:
+					# Agregar la palabra a la parte actual
+					if parte_actual:
+						parte_actual += " "
+					parte_actual += palabra
+				else:
+					# Añadir la parte actual a la lista de partes y resetear
+					partes.append(parte_actual)
+					parte_actual = palabra
+			if parte_actual:
+				partes.append(parte_actual)
+			return partes
 
 		def _obtener_audio_parte(self, texto):
 			"""

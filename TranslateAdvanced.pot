@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 'TranslateAdvanced' '2024.06.23'\n"
+"Project-Id-Version: 'TranslateAdvanced' '2024.09.07'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2024-07-12 04:46+0200\n"
+"POT-Creation-Date: 2024-09-07 10:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:78
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:80
 msgid ""
 "Se a encontrado errores en la carga del complemento.\n"
 "\n"
@@ -27,36 +27,37 @@ msgid ""
 "{}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:123
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:125
 msgid "&Traductor Avanzado"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:124
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:126
 msgid "&Configuración de Traductor Avanzado"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:125
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:312
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:127
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:314
 msgid "&Actualizar idiomas del complemento (Sin actualizaciones)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:126
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:128
 msgid "&Documentación del complemento"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:127
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:129
 msgid "&invítame a un café si te gusta mi trabajo"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:134
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:136
 msgid "Traductor Avanzado iniciado correctamente."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:138
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:140
 msgid "Traductor Avanzado iniciado con errores."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:172
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:174
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:269
 msgid ""
 "No se a encontrado conexión a internet.\n"
 "\n"
@@ -68,35 +69,42 @@ msgid ""
 "Espere unos segundos."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:179
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:186
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:191
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:199
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:776
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:827
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:208
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:181
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:188
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:193
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:201
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:848
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:899
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:276
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:287
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:312
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:341
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:369
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:389
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:211
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:509
 msgid "Información"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:183
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:185
 msgid ""
 "Ya hay una instancia de Traductor Avanzado abierta.\n"
 "\n"
 "Ciérrela para realizar esta acción."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:190
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:192
 msgid "Tiene una traducción en curso. Espere a que termine."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:196
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:198
 msgid ""
 "Tiene la traducción simultanea activada.\n"
 "\n"
 "Desactívela para realizar esta acción."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:235
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:237
 msgid ""
 "_Activa la capa de comandos. F1 muestra la lista de atajos de una sola tecla"
 msgstr ""
@@ -104,231 +112,233 @@ msgstr ""
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:235
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:329
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:341
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:353
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:367
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:378
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:389
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:420
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:451
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:490
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:510
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:538
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:566
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:585
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:604
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:618
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:649
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:667 buildVars.py:23
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:237
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:331
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:343
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:355
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:369
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:380
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:391
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:422
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:453
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:492
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:512
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:540
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:568
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:587
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:606
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:620
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:651
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:669
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:707
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:751 buildVars.py:23
 msgid "Traductor Avanzado"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:261
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:263
 msgid "Lista de comandos de una sola tecla"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:307
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:309
 msgid "&Actualizar idiomas del complemento ({} actualización disponible)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:309
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:311
 msgid "&Actualizar idiomas del complemento ({} actualizaciones disponibles)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:329
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:331
 msgid "Abre la configuración del complemento"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:341
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:343
 msgid "Comprueba si hay actualizaciones de idioma del complemento"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:353
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:355
 msgid "Cambiar idioma de origen"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:365
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:367
 msgid ""
 "El idioma origen solo puede ser cambiado si tiene seleccionado el traductor "
 "de Microsoft."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:367
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:369
 msgid "Cambiar idioma de destino"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:378
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:380
 msgid "Cambiar el modulo de traducción"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:389
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:391
 msgid "Eliminar todas las traducciones en caché para todas las aplicaciones"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:400
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:402
 msgid ""
 "Pulse dos veces para eliminar todas las traducciones en caché de todas las "
 "aplicaciones."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:407
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:409
 msgid "No hay cache para borrar."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:413
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:415
 #, python-brace-format
 msgid "Fallo al eliminar {entry}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:416
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:418
 msgid "El directorio de la cache no existe."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:418
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:420
 msgid "Se ha eliminado toda la cache."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:418
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:420
 msgid "No se a podido eliminar toda la cache."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:420
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:422
 msgid "Eliminar la caché de traducción para la aplicación enfocada actualmente"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:430
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:432
 msgid "No hay aplicación enfocada."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:437
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:439
 msgid ""
 "Pulse dos veces para eliminar todas las traducciones de {} en lenguaje {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:444
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:446
 msgid "Se ha borrado la cache de la aplicación {} correctamente."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:446
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:448
 msgid "Fallo al borrar la cache de la aplicación {} : {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:447
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:449
 msgid "Error al borrar la caché de traducción de la aplicación."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:449
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:451
 msgid "No hay traducciones guardadas para {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:451
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:453
 msgid "Activa o desactiva la cache de traducción"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:477
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:479
 msgid "Cache de traducción activada."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:479
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:481
 msgid "Cache de traducción desactivada."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:490
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:492
 msgid "Copiar el ultimo texto traducido al portapapeles"
 msgstr ""
 
 #. Muestra un mensaje indicando el texto copiado
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:505
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:507
 msgid "Se ha copiado lo siguiente al portapapeles: {}"
 msgstr ""
 
 #. Muestra un mensaje indicando que no hay texto para copiar
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:508
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:510
 msgid "No se ha podido copiar nada al portapapeles"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:510
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:512
 msgid "Traduce el contenido del portapapeles"
 msgstr ""
 
 #. Muestra un mensaje indicando que no hay texto para traducir
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:536
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:538
 msgid "No hay nada para traducir en el portapapeles"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:538
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:540
 msgid "Traduce el último texto verbalizado"
 msgstr ""
 
 #. Muestra un mensaje indicando que no hay texto para traducir
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:564
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:566
 msgid "No hay nada para traducir"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:566
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:568
 msgid "Activa o desactiva la traducción simultánea Online"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:578
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:580
 msgid "Traducción desactivada."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:580
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:582
 msgid "Traducción activada."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:585
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:587
 msgid "Traduce el texto seleccionado"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:597
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:599
 msgid "Sin selección para traducir"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:604
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:606
 msgid "Muestra el historial de traducción"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:614
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:616
 msgid "No hay nada en el historial todavía."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:618
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:117
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:620
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:142
 msgid "Detecta el idioma seleccionado"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:642
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:644
 msgid "Sin selección para obtener el idioma"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:649
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:651
 msgid ""
 "Activar o desactivar el intercambio automático si el origen detectado "
 "coincide con el destino (experimental)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:663
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:665
 msgid ""
 "El intercambio automático está activado. El sistema cambiará automáticamente "
 "si el origen detectado coincide con el destino (experimental)."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:665
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:667
 msgid ""
 "El intercambio automático está desactivado. El sistema no realizará cambios "
 "automáticos aunque el origen detectado coincida con el destino "
 "(experimental)."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:667
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:119
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:669
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:144
 msgid "Intercambia el idioma principal con el idioma alternativo."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:696
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:698
 msgid ""
 "El idioma principal y el idioma alternativo han sido intercambiados.\n"
 "\n"
@@ -337,145 +347,433 @@ msgid ""
 "Idioma alternativo: {}."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:703
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:705
 msgid ""
 "No tiene activado el intercambio automático si el origen detectado coincide "
 "con el destino"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:776
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:707
+msgid "Traduce texto del objeto del navegador"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:736
+msgid "El objeto no tiene texto para traducir"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:751
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:28
+msgid "Interfaz de traducción"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:848
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:312
 msgid "No se ha podido obtener la traducción de lo seleccionado."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:781
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:853
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:322
 msgid ""
 "Hubo un error en la traducción:\n"
 "\n"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:781
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:829
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:446
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:457
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:477
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:546
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:853
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:901
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:322
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:378
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:447
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:458
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:478
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:547
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:53
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:73
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:91
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:104
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:115
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:127
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:139
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:149
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:160
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:177
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:190
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:204
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:491
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:511
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:529
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:540
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:550
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:562
 msgid "Error"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:784
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:856
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:324
 msgid "La traducción fue cancelada por el usuario."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:784
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:856
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:324
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:380
 msgid "Cancelado"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:792
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:864
 msgid "Traducción copiada al portapapeles"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:795
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:867
 msgid "Resultado de la traducción"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:61
+msgid "Texto origen (Alt+1):"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:68
+msgid "Texto destino (Alt+2):"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:75
+msgid "Idioma origen (Alt+3):"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:77
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:78
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:252
+msgid "Auto Detectar - auto"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:80
+msgid "Idioma destino (Alt+4):"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:87
+msgid "&Traducir"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:89
+msgid "&Escuchar"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:91
+msgid "&Intercambiar"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:93
+msgid "&Limpiar"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:95
+msgid "&Pegar al foco"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:97
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:308
+msgid "&Cerrar"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:102
+msgid "Caracteres (Alt+5):"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:205
+msgid ""
+"Introduce el texto que deseas traducir. Puedes escribir o pegar el texto "
+"aquí."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:206
+msgid ""
+"El resultado de la traducción se mostrará aquí. Este campo es de solo "
+"lectura."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:207
+msgid "Selecciona el idioma de origen para la traducción."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:208
+msgid "Selecciona el idioma de destino para la traducción."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:209
+msgid ""
+"Presiona este botón para traducir el texto de origen al idioma de destino."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:210
+msgid "Presiona este botón para escuchar la traducción."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:211
+msgid "Intercambia los idiomas de origen y destino."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:212
+msgid "Limpia los campos de texto de origen y destino."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:213
+msgid ""
+"Pega al foco lo que haya en el cuadro de texto destino. Se pegara en la "
+"ventana que tengamos detrás de esta, siempre y cuando dicha ventana sea "
+"cuadro de texto que permita pegar texto en ella. Podemos usar también F3."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:214
+msgid "Cierra la ventana de traducción."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:215
+msgid "Muestra el número de caracteres en el campo de texto de origen."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:280
+msgid "El cuadro de texto de origen está vacío. Por favor, escribe algo."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:281
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:297
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:304
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:348
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:436
+msgid "Advertencia"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:286
+msgid "El texto no ha cambiado. No es necesario realizar una nueva traducción."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:294
+msgid ""
+"Se a detectado que el texto de origen es igual que el idioma destino al cual "
+"quiere traducirse.\n"
+"\n"
+"Cambie el idioma destino de traducción si desea continuar."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:301
+msgid ""
+"No a sido posible detectar el idioma del texto origen.\n"
+"\n"
+"Se va a intentar traducir, pero no se asegura el éxito de la operación."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:334
+msgid ""
+"No se ha encontrado conexión a internet.\n"
+"\n"
+"Si está conectado por Wifi, puede que NVDA iniciara antes que se conectara.\n"
+"\n"
+"Si está conectado por cable, compruebe su conexión y asegúrese de que todo "
+"esté correcto.\n"
+"\n"
+"Espere unos segundos."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:347
+msgid "El cuadro de texto destino está vacío. Por favor, traduce algo."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:366
+msgid ""
+"No se ha podido obtener el audio.\n"
+"\n"
+"Inténtelo más tarde."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:378
+msgid ""
+"Hubo un error en la obtención del audio:\n"
+"\n"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:380
+msgid "La obtención del audio fue cancelada por el usuario."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:388
+msgid ""
+"No se puede intercambiar idiomas cuando el idioma de origen es 'Auto "
+"Detectar'."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:435
+msgid ""
+"El cuadro de texto de destino está vacío. Por favor, traduce algo para pegar "
+"al foco."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:456
+msgid "Texto pegado al foco."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:481
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:309
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:613
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:615
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:637
+msgid "No hay ayuda disponible para este elemento."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:481
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:483
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:309
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:311
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:613
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:615
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:617
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:637
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:639
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_helps.py:76
+msgid "Ayuda"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:483
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:311
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:617
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:639
+msgid "No hay un elemento enfocado."
 msgstr ""
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:28
 msgid "Historial de Traductor Avanzado"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:57
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:60
 msgid "&Buscar:"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:63
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:252
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:66
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:255
 msgid "&Lista texto original:"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:69
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:250
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:72
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:253
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:256
 msgid "Texto &original:"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:75
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:249
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:254
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:78
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:252
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:257
 msgid "Texto &traducido:"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:84
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:87
 msgid "&Copiar al portapapeles"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:87
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:90
 msgid "Borrar &historial"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:90
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:93
 msgid "&Alternar orden"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:93
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:96
 msgid "Cerrar"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:166
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:181
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:206
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:169
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:184
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:209
 msgid "No se encontró nada."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:182
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:185
 msgid "Se encuentra en la posición {} de {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:207
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:210
 msgid "No se encontró nada para poder ser copiado."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:212
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:215
 msgid "Copiar texto &original"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:213
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:216
 msgid "Copiar texto &traducido"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:214
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:217
 msgid "&Copiar origen y traducido"
 msgstr ""
 
 #. Copiar texto origen
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:232
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:235
 msgid "Copiado texto origen"
 msgstr ""
 
 #. Copiar texto traducido
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:238
 msgid "Copiado texto traducido"
 msgstr ""
 
 #. Copiar origen y traducido
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:238
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:241
 msgid "Copiado texto origen y traducido"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:248
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:251
 msgid "&Lista texto traducido:"
 msgstr ""
 
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:272
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:276
+msgid "Muestra el texto traducido seleccionado. Este campo es de solo lectura."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:273
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:275
+msgid "Muestra el texto original seleccionado. Este campo es de solo lectura."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:291
+msgid "Introduce el texto que deseas buscar en el historial."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:292
+msgid ""
+"Lista de textos originales o traducidos, dependiendo del orden seleccionado. "
+"Si pulsamos F1 nos dirá en la posición que nos encontramos de la lista."
+msgstr ""
+
+#. Establece las ayudas iniciales según el estado por defecto
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:294
+msgid "Presiona este botón para copiar el texto seleccionado al portapapeles."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:295
+msgid "Presiona este botón para borrar todo el historial de traducciones."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:296
+msgid ""
+"Presiona este botón para alternar el orden entre texto original y texto "
+"traducido."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:297
+msgid "Presiona este botón para cerrar la ventana del historial."
+msgstr ""
+
 #. Idiomas origen
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:69
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:75
 msgid "Seleccione un idioma de origen para el traductor de Microsoft"
 msgstr ""
 
 #. Idiomas destino
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:72
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:78
 msgid "Seleccione un idioma de destino para el traductor {}"
 msgstr ""
 
 #. Cambiar traductor
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:75
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:81
 msgid "Elija un módulo de traducción"
 msgstr ""
 
@@ -496,13 +794,13 @@ msgstr ""
 
 #. Botones Aceptar y Cancelar
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:51
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:512
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:513
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_helps.py:34
 msgid "&Aceptar"
 msgstr ""
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:52
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:513
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:514
 msgid "&Cancelar"
 msgstr ""
 
@@ -667,110 +965,342 @@ msgstr ""
 msgid "No existe ninguna API para este servicio."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:313
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:69
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:79
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:86
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:314
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:87
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:98
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:106
 msgid "Traductor DeepL (API Free *)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:313
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:70
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:80
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:87
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:314
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:88
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:99
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:107
 msgid "Traductor DeepL (API Pro *)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:313
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:71
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:81
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:88
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:314
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:89
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:100
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:108
 msgid "Traductor LibreTranslate (API *)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:433
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:314
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:91
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:103
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:109
+msgid "Traductor OpenAI GPT4o-mini (API *)"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:434
 msgid "Añadir API"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:446
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:457
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:477
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:447
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:458
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:478
 msgid ""
 "No existe ninguna API para este servicio. Por favor, añada una API primero."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:448
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:449
 msgid "Editar API"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:459
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:460
 msgid "¿Estás seguro de que deseas eliminar esta clave API?"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:459
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:460
 msgid "Confirmación"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:494
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:495
 msgid "&Nombre:"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:496
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:497
 msgid "Clave &API:"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:506
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:507
 msgid "&URL:"
 msgstr ""
 
 #. Agregar ayudas
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:530
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:531
 msgid "Introduce el nombre para identificar esta clave API."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:531
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:532
 msgid "Introduce la clave API proporcionada por el servicio de traducción."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:533
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:534
 msgid ""
 "Introduce la URL del servidor de traducción LibreTranslate. Esta URL se "
 "utilizará para enviar las solicitudes de traducción."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:534
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:535
 msgid "Guarda la clave API y cierra el diálogo."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:535
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:536
 msgid "Descarta los cambios y cierra el diálogo."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:546
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:547
 msgid "Todos los campos son obligatorios."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:611
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:613
-msgid "No hay ayuda disponible para este elemento."
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:48
+msgid "No se pudo cargar el archivo WAV."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:611
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:613
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:615
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_helps.py:76
-msgid "Ayuda"
+#. Eliminar archivo temporal si la carga falla
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:68
+msgid "No se pudo cargar el archivo WAV desde bytes."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:615
-msgid "No hay un elemento enfocado."
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:81
+msgid "No se ha cargado ningún archivo WAV."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:28
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:225
+msgid "Reproductor de audio"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "1 segundo"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "5 segundos"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "10 segundos"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "15 segundos"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "30 segundos"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "1 minuto"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
+msgid "Error al inicializar el diálogo"
+msgstr ""
+
+#. Crear etiqueta y cuadro de texto de solo lectura
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:258
+msgid "&Texto traducido:"
+msgstr ""
+
+#. Botones de control
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:270
+msgid "Atrasar (F1)"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:271
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:522
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:538
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:592
+msgid "Reproducir (F2)"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:272
+msgid "Adelantar (F3)"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:273
+msgid "Detener (F4)"
+msgstr ""
+
+#. Etiqueta y slider de volumen
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:285
+msgid "Volumen (F5 / F6)"
+msgstr ""
+
+#. Etiqueta y choice de velocidad
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:293
+msgid "Velocidad (F7 / F8)"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:307
+msgid "&Guardar"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:344
+msgid "Error al inicializar la interfaz de usuario"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:390
+msgid "Este cuadro muestra el texto traducido. Es de solo lectura."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:391
+msgid ""
+"Presiona este botón para retroceder la reproducción lo que tengamos "
+"establecido. Podemos pulsar Shift+F10 o tecla aplicaciones para expandir un "
+"menú contextual donde nos dejara elegir el tiempo para atrasar."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:392
+msgid "Presiona este botón para reproducir o pausar la reproducción."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:393
+msgid ""
+"Presiona este botón para adelantar la reproducción lo que tengamos "
+"establecido. Podemos pulsar Shift+F10 o tecla aplicaciones para expandir un "
+"menú contextual donde nos dejara elegir el tiempo para adelantar."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:394
+msgid "Presiona este botón para detener la reproducción."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:395
+msgid "Ajusta el volumen de reproducción con este control."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:396
+msgid "Selecciona la velocidad de reproducción con este control."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:397
+msgid "Presiona este botón para guardar el archivo de audio."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:398
+msgid "Presiona este botón para cerrar el diálogo."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:427
+msgid "Tiempo transcurrido: {self.player.format_time(current_time)}  "
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:433
+msgid "Error al actualizar el estado"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:444
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:455
+msgid "Volumen {}%"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:465
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:475
+msgid "Velocidad {}%"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:482
+msgid "Cargar archivo WAV"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:482
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:500
+msgid "Archivo WAV (*.wav)|*.wav"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:491
+msgid "No se pudo cargar el archivo: {}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:493
+msgid "Error al cargar archivo"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:500
+msgid "Guardar archivo WAV"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:509
+msgid "Archivo guardado correctamente."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:511
+msgid "No se pudo guardar el archivo: {}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:513
+msgid "Error al guardar archivo"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:523
+msgid "Pausar"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:526
+msgid "Pausar (F2)"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:527
+msgid "Reproducir"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:529
+msgid "No se pudo reproducir o pausar el archivo: {}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:536
+msgid "Detener"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:540
+msgid "No se pudo detener el archivo: {}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:547
+msgid "Atrasar {}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:550
+msgid "No se pudo atrasar el archivo: {}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:557
+msgid "Adelantar {}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:562
+msgid "No se pudo adelantar el archivo: {}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:573
+msgid "Error al cambiar el volumen"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:585
+msgid "Error al cambiar la velocidad"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:594
+msgid "Error al finalizar el audio"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:660
+msgid "Error al cerrar el diálogo"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:30
 msgid "Progreso de la Traducción"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:40
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:38
+msgid "Progreso de la obtención del audio"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:51
 msgid "Cancelar"
 msgstr ""
 
@@ -862,38 +1392,38 @@ msgstr ""
 msgid "&Omitir"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:39
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:37
 #, python-brace-format
 msgid "Error al cargar el archivo JSON: {0}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:54
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:48
 #, python-brace-format
 msgid "Error al guardar el archivo JSON: {0}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:66
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:85
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:104
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:123
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:136
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:73
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:92
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:111
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:130
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:143
 #, python-brace-format
 msgid "Servicio desconocido: {0}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:88
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:107
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:139
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:95
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:114
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:146
 #, python-brace-format
 msgid "Índice fuera de rango: {0}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:113
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:120
 #, python-brace-format
 msgid "Error al eliminar la clave API: {0}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:144
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:151
 #, python-brace-format
 msgid "Error al obtener la clave API: {0}"
 msgstr ""
@@ -953,122 +1483,131 @@ msgstr ""
 msgid "No hay ayuda disponible para este widget."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:64
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:75
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:82
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:94
 msgid "Traductor Google (WEB 1)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:65
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:76
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:83
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:95
 msgid "Traductor Google (WEB 2)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:66
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:77
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:84
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:96
 msgid "Traductor Google (API Free 1)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:67
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:78
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:85
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:97
 msgid "Traductor Google (API Free 2)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:68
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:83
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:86
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:102
 msgid "Traductor DeepL (Free)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:72
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:82
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:90
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:101
 msgid "Traductor Microsoft Bing (API Free)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:104
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:126
 msgid "Abre la configuración del complemento."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:105
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:127
 msgid "Comprueba si hay actualizaciones de idioma del complemento."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:106
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:128
 msgid "Cambia el idioma de origen del traductor."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:107
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:129
 msgid "Cambia el idioma de destino del traductor."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:108
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:130
 msgid "Cambia el módulo de traducción."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:109
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:131
 msgid "Elimina todas las traducciones en caché para todas las aplicaciones."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:110
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:132
 msgid "Elimina la caché de traducción para la aplicación enfocada actualmente."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:111
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:133
 msgid "Activa o desactiva la caché de traducción según el estado actual."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:112
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:134
 msgid ""
 "Copia el último texto traducido al portapapeles si no hay una traducción en "
 "curso."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:113
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:135
 msgid "Traduce el contenido del portapapeles."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:114
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:136
 msgid "Traduce el último texto verbalizado."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:115
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:137
 msgid "Activa o desactiva la traducción simultánea Online."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:116
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:138
 msgid "Traduce el texto seleccionado."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:118
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:139
+msgid "Traduce texto del objeto del navegador."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:140
+msgid "Interfaz de traducción."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:143
 msgid ""
 "Activa o desactiva el intercambio automático si el origen detectado coincide "
 "con el destino."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:120
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:145
 msgid "Muestra el historial de traducción."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:121
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:146
 msgid "Muestra un diálogo con la lista de comandos de una sola tecla"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:180
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:197
 msgid "No se a podido obtener el idioma"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:292
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:306
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:319
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:322
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:309
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:323
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:336
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:339
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:355
 msgid ""
 "No tiene ninguna API configurada para el servicio que tiene seleccionado."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:337
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:361
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free.py:83
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:227
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_original.py:119
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:85
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_microsoft_api_free.py:62
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_openai_4o_api.py:97
 msgid ""
 "Error en la traducción.\n"
 "\n"
@@ -1185,6 +1724,8 @@ msgid "Error al analizar la respuesta de la traducción: {0}"
 msgstr ""
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free.py:181
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_tts.py:121
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_openai_4o_api.py:169
 msgid "Proceso cancelado por el usuario"
 msgstr ""
 
@@ -1214,6 +1755,24 @@ msgid ""
 "Estructura de respuesta inesperada después de cambiar el idioma de destino"
 msgstr ""
 
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_tts.py:58
+msgid ""
+"Error al obtener el audio.\n"
+"\n"
+"Error:\n"
+"\n"
+"{}"
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_tts.py:170
+msgid ""
+"Error al obtener el audio para una parte del texto.\n"
+"\n"
+"Error:\n"
+"\n"
+"{}"
+msgstr ""
+
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:41
 msgid ""
 "Error en la traducción.\n"
@@ -1234,8 +1793,8 @@ msgid ""
 "{}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_microsoft_api_free.py:58
-msgid "La respuesta no contiene {}"
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_openai_4o_api.py:176
+msgid "El texto excede el límite de tokens permitido."
 msgstr ""
 
 #: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:116

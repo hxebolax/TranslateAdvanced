@@ -62,6 +62,12 @@ class DialogoLang(wx.Dialog):
 			self.idiomas_name = self.datos.get_values()
 			self.destino = self.frame.gestor_settings.choiceLangDestino_deepl
 			self.name_traductor = "DeepL"
+		elif self.id in [9]: # Para openai
+			self.datos = LanguageDictionary(self.frame.gestor_lang.obtener_idiomas("google"))
+			self.idiomas_code = self.datos.get_keys()
+			self.idiomas_name = self.datos.get_values()
+			self.destino = self.frame.gestor_settings.choiceLangDestino_openai
+			self.name_traductor = "OpenAI"
 
 		self.option = option
 		self.SetSize((300, 250))
@@ -140,6 +146,9 @@ class DialogoLang(wx.Dialog):
 				self.frame.gestor_settings.choiceLangDestino_libretranslate = code
 			elif self.id in [7]: # Para Microsoft
 				self.frame.gestor_settings.choiceLangDestino_microsoft = code
+			elif self.id in [9]: # Para openai
+				self.frame.gestor_settings.choiceLangDestino_openai = code
+
 		elif self.option == 2: # cambiar traductor
 			self.frame.gestor_settings.choiceOnline = self.frame.gestor_settings.service_map_selection.get(self.listBox.GetString(self.listBox.GetSelection()))
 
