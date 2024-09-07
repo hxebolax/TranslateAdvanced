@@ -2,42 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gelişmiş Çeviri\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2024-06-23 13:20+0200\n"
-"PO-Revision-Date: 2024-06-23 15:54+0300\n"
+"POT-Creation-Date: 2024-09-07 10:25+0200\n"
+"PO-Revision-Date: 2024-09-07 17:03+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: .\n"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:59
-msgid ""
-"No se a encontrado conexión a internet.\n"
-"\n"
-"Si esta conectado por Wifi puede que NVDA iniciara antes que se conectara.\n"
-"\n"
-"Espere unos segundos y vuelva a reiniciar NVDA.\n"
-"\n"
-"Si esta conectado por cable compruebe su conexión y asegúrese que todo esta "
-"correcto.\n"
-"\n"
-"Se cancelara la carga del complemento Traductor Avanzado."
-msgstr ""
-"İnternet bağlantısı bulunamadı.\n"
-"\n"
-"Wifi üzerinden bağlanıyorsanız, NVDA siz bağlanmadan önce başlayabilir.\n"
-"\n"
-"Birkaç saniye bekleyin ve NVDA'yı yeniden başlatın.\n"
-"\n"
-"Kabloyla bağlıysanız bağlantınızı kontrol edin ve her şeyin doğru olduğundan "
-"emin olun.\n"
-"\n"
-"Gelişmiş Çeviri eklentisinin yüklenmesi iptal edilecek."
-
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:79
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:80
 msgid ""
 "Se a encontrado errores en la carga del complemento.\n"
 "\n"
@@ -51,61 +27,87 @@ msgstr ""
 "\n"
 "{}"
 
-#. Add-on summary, usually the user visible name of the addon.
-#. Translators: Summary for this add-on
-#. to be shown on installation and add-on information found in Add-ons Manager.
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:87
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:256
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:267
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:278
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:291
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:301
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:311
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:339
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:367
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:409
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:432
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:462
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:493
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:507
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:525 buildVars.py:23
-msgid "Traductor Avanzado"
-msgstr "Gelişmiş Çeviri"
-
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:141
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:125
 msgid "&Traductor Avanzado"
 msgstr "&Gelişmiş Çeviri"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:142
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:126
 msgid "&Configuración de Traductor Avanzado"
 msgstr "Gelişmiş Çeviri &Ayarları"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:143
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:209
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:127
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:314
 msgid "&Actualizar idiomas del complemento (Sin actualizaciones)"
 msgstr "&Eklenti dillerini güncelle (Güncelleme mevcut değil)"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:144
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:128
 msgid "&Documentación del complemento"
 msgstr "&Yardım"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:145
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:129
 msgid "&invítame a un café si te gusta mi trabajo"
 msgstr "İşimi beğendiysen bana bir kahve &ısmarla"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:152
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:136
 msgid "Traductor Avanzado iniciado correctamente."
 msgstr "Gelişmiş Çeviri başarıyla başlatıldı."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:204
-msgid "&Actualizar idiomas del complemento ({} actualización disponible)"
-msgstr "&Eklenti dillerini güncelle ({} güncelleme mevcut)"
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:140
+#| msgid "Traductor Avanzado iniciado correctamente."
+msgid "Traductor Avanzado iniciado con errores."
+msgstr "Gelişmiş Çeviri başlatılırken hatalar oluştu."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:206
-msgid "&Actualizar idiomas del complemento ({} actualizaciones disponibles)"
-msgstr "&Eklenti dillerini güncelle ({} güncelleme mevcut)"
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:174
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:269
+#| msgid ""
+#| "No se a encontrado conexión a internet.\n"
+#| "\n"
+#| "Si esta conectado por Wifi puede que NVDA iniciara antes que se "
+#| "conectara.\n"
+#| "\n"
+#| "Espere unos segundos y vuelva a reiniciar NVDA.\n"
+#| "\n"
+#| "Si esta conectado por cable compruebe su conexión y asegúrese que todo "
+#| "esta correcto.\n"
+#| "\n"
+#| "Se cancelara la carga del complemento Traductor Avanzado."
+msgid ""
+"No se a encontrado conexión a internet.\n"
+"\n"
+"Si esta conectado por Wifi puede que NVDA iniciara antes que se conectara.\n"
+"\n"
+"Si esta conectado por cable compruebe su conexión y asegúrese que todo esta "
+"correcto.\n"
+"\n"
+"Espere unos segundos."
+msgstr ""
+"İnternet bağlantısı bulunamadı.\n"
+"\n"
+"Wifi üzerinden bağlanıyorsanız, NVDA siz bağlanmadan önce başlayabilir.\n"
+"\n"
+"Kabloyla bağlıysanız bağlantınızı kontrol edin ve her şeyin doğru olduğundan "
+"emin olun.\n"
+"\n"
+"Birkaç saniye bekleyin."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:221
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:181
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:188
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:193
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:201
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:848
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:899
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:276
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:287
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:312
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:341
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:369
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:389
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:211
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:509
+msgid "Información"
+msgstr "Bilgi"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:185
 msgid ""
 "Ya hay una instancia de Traductor Avanzado abierta.\n"
 "\n"
@@ -115,23 +117,11 @@ msgstr ""
 "\n"
 "Önce açık olan pencereyi kapatın."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:224
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:229
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:237
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:609
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:660
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:208
-msgid "Información"
-msgstr "Bilgi"
-
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:228
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:419
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:442
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:472
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:192
 msgid "Tiene una traducción en curso. Espere a que termine."
 msgstr "Bir çeviri işlemi devam ediyor. Lütfen tamamlanmasını bekleyin."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:234
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:198
 msgid ""
 "Tiene la traducción simultanea activada.\n"
 "\n"
@@ -141,38 +131,82 @@ msgstr ""
 "\n"
 "Bu işlemi gerçekleştirmek için önce devre dışı bırakın."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:256
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:237
+msgid ""
+"_Activa la capa de comandos. F1 muestra la lista de atajos de una sola tecla"
+msgstr ""
+"_Komut katmanını etkinleştirir. F1, tek tuşlu kısayolların listesini gösterir"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:237
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:331
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:343
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:355
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:369
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:380
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:391
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:422
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:453
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:492
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:512
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:540
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:568
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:587
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:606
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:620
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:651
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:669
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:707
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:751 buildVars.py:23
+msgid "Traductor Avanzado"
+msgstr "Gelişmiş Çeviri"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:263
+msgid "Lista de comandos de una sola tecla"
+msgstr "Tek tuşlu komutların listesi"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:309
+msgid "&Actualizar idiomas del complemento ({} actualización disponible)"
+msgstr "&Eklenti dillerini güncelle ({} güncelleme mevcut)"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:311
+msgid "&Actualizar idiomas del complemento ({} actualizaciones disponibles)"
+msgstr "&Eklenti dillerini güncelle ({} güncelleme mevcut)"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:331
 msgid "Abre la configuración del complemento"
 msgstr "Eklenti ayarlarını açar"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:267
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:343
 msgid "Comprueba si hay actualizaciones de idioma del complemento"
 msgstr "Eklenti dil güncellemelerini denetler"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:278
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:355
 msgid "Cambiar idioma de origen"
 msgstr "Kaynak dili değiştirir"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:289
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:367
 msgid ""
 "El idioma origen solo puede ser cambiado si tiene seleccionado el traductor "
 "de Microsoft."
 msgstr ""
 "Kaynak dil yalnızca Microsoft Translator'ı seçtiyseniz değiştirilebilir."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:291
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:369
 msgid "Cambiar idioma de destino"
 msgstr "Hedef dili değiştirir"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:301
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:380
 msgid "Cambiar el modulo de traducción"
 msgstr "Çeviri modülünü değiştirir"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:311
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:391
 msgid "Eliminar todas las traducciones en caché para todas las aplicaciones"
 msgstr "Tüm uygulamalar için önbelleğe alınmış bütün çevirileri siler"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:319
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:402
 msgid ""
 "Pulse dos veces para eliminar todas las traducciones en caché de todas las "
 "aplicaciones."
@@ -180,141 +214,212 @@ msgstr ""
 "Tüm uygulamalar için önbelleğe alınmış bütün çevirileri silmek için çift "
 "dokunun."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:326
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:409
 msgid "No hay cache para borrar."
 msgstr "Temizlenecek önbellek yok."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:332
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:415
 #, python-brace-format
 msgid "Fallo al eliminar {entry}"
 msgstr "{entry} silinemedi"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:335
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:418
 msgid "El directorio de la cache no existe."
 msgstr "Önbellek dizini mevcut değil."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:337
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:420
 msgid "Se ha eliminado toda la cache."
 msgstr "Tüm önbellek silindi."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:337
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:420
 msgid "No se a podido eliminar toda la cache."
 msgstr "Önbelleğin tamamı silinemedi."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:339
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:422
 msgid "Eliminar la caché de traducción para la aplicación enfocada actualmente"
 msgstr "Şu anda odaklanılan uygulamanın çeviri önbelleğini siler"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:349
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:432
 msgid "No hay aplicación enfocada."
 msgstr "Odaklanmış bir uygulama yok."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:353
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:439
 msgid ""
 "Pulse dos veces para eliminar todas las traducciones de {} en lenguaje {}"
 msgstr "{} dilindeki tüm {} çevirilerini kaldırmak için iki kez basın."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:360
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:446
 msgid "Se ha borrado la cache de la aplicación {} correctamente."
 msgstr "Uygulama önbelleği {} başarıyla silindi."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:362
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:448
 msgid "Fallo al borrar la cache de la aplicación {} : {}"
 msgstr "Uygulama önbelleği temizlenemedi {}: {}"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:363
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:449
 msgid "Error al borrar la caché de traducción de la aplicación."
 msgstr "Uygulama çeviri önbelleği temizlenirken hata oluştu."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:365
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:451
 msgid "No hay traducciones guardadas para {}"
 msgstr "{} için kayıtlı çeviri yok"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:367
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:453
 msgid "Activa o desactiva la cache de traducción"
 msgstr "Çeviri önbelleğini etkinleştirir veya devre dışı bırakır"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:376
-msgid ""
-"La activación o desactivación de la cache no puede hacerse mientras haya una "
-"ventana de Traductor Avanzado abierta"
-msgstr ""
-"Gelişmiş Çeviri penceresi açıkken önbelleğin etkinleştirme veya devre dışı "
-"bırakılma işlemi gerçekleştirilemez"
-
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:396
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:479
 msgid "Cache de traducción activada."
 msgstr "Çeviri önbelleği etkinleştirildi."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:398
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:481
 msgid "Cache de traducción desactivada."
 msgstr "Çeviri önbelleği devre dışı bırakıldı."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:409
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:492
 msgid "Copiar el ultimo texto traducido al portapapeles"
 msgstr "Son çevrilen metni panoya kopyalar"
 
 #. Muestra un mensaje indicando el texto copiado
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:427
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:507
 msgid "Se ha copiado lo siguiente al portapapeles: {}"
 msgstr "Aşağıdakiler panoya kopyalandı: {}"
 
 #. Muestra un mensaje indicando que no hay texto para copiar
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:430
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:510
 msgid "No se ha podido copiar nada al portapapeles"
 msgstr "Panoya herhangi bir şey kopyalanamadı"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:432
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:512
 msgid "Traduce el contenido del portapapeles"
 msgstr "Pano içeriğini çevirir"
 
 #. Muestra un mensaje indicando que no hay texto para traducir
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:460
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:538
 msgid "No hay nada para traducir en el portapapeles"
 msgstr "Panoda çevrilecek hiçbir şey yok"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:462
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:540
 msgid "Traduce el último texto verbalizado"
 msgstr "Son konuşulan metni çevirir"
 
 #. Muestra un mensaje indicando que no hay texto para traducir
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:491
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:566
 msgid "No hay nada para traducir"
 msgstr "Çevirilecek bir şey yok"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:493
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:568
 msgid "Activa o desactiva la traducción simultánea Online"
 msgstr "Çevrimiçi eşzamanlı çeviriyi etkinleştirir veya devre dışı bırakır"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:503
-msgid "Traducción activada."
-msgstr "Çeviri etkinleştirildi."
-
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:503
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:580
 msgid "Traducción desactivada."
 msgstr "Çeviri devre dışı bırakıldı."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:507
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:582
+msgid "Traducción activada."
+msgstr "Çeviri etkinleştirildi."
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:587
 msgid "Traduce el texto seleccionado"
 msgstr "Seçilen metni çevirir"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:518
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:599
 msgid "Sin selección para traducir"
 msgstr "Çeviri için seçim yok"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:525
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:606
 msgid "Muestra el historial de traducción"
 msgstr "Çeviri geçmişini görüntüler"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:534
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:616
 msgid "No hay nada en el historial todavía."
 msgstr "Geçmişte henüz bir şey yok."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:609
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:620
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:142
+#| msgid "Traduce el texto seleccionado"
+msgid "Detecta el idioma seleccionado"
+msgstr "Seçilen dili algılar"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:644
+#| msgid "Sin selección para traducir"
+msgid "Sin selección para obtener el idioma"
+msgstr "Seçili dil yok"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:651
+msgid ""
+"Activar o desactivar el intercambio automático si el origen detectado "
+"coincide con el destino (experimental)"
+msgstr ""
+"Algılanan kaynak dil hedef dille eşleşiyorsa otomatik değişimi açar veya "
+"kapatır (deneysel)"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:665
+msgid ""
+"El intercambio automático está activado. El sistema cambiará automáticamente "
+"si el origen detectado coincide con el destino (experimental)."
+msgstr ""
+"Otomatik değişim etkinleştirildi. Algılanan kaynağın hedefle (deneysel) "
+"eşleşmesi durumunda sistem otomatik olarak geçiş yapacaktır."
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:667
+msgid ""
+"El intercambio automático está desactivado. El sistema no realizará cambios "
+"automáticos aunque el origen detectado coincida con el destino "
+"(experimental)."
+msgstr ""
+"Otomatik değişim devre dışı. Tespit edilen kaynak hedefle (deneysel) eşleşse "
+"bile sistem otomatik olarak değişiklik yapmayacaktır."
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:669
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:144
+msgid "Intercambia el idioma principal con el idioma alternativo."
+msgstr "Birincil dili alternatif dille değiştirir."
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:698
+msgid ""
+"El idioma principal y el idioma alternativo han sido intercambiados.\n"
+"\n"
+"Idioma principal: {}.\n"
+"\n"
+"Idioma alternativo: {}."
+msgstr ""
+"Ana dil ve alternatif dil değiştirildi.\n"
+"\n"
+"Birincil dil: {}.\n"
+"\n"
+"Alternatif dil: {}."
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:705
+msgid ""
+"No tiene activado el intercambio automático si el origen detectado coincide "
+"con el destino"
+msgstr ""
+"Algılanan kaynak hedefle eşleşiyorsa otomatik değiştirme etkinleştirilmemiş"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:707
+#| msgid "Traduce el texto seleccionado"
+msgid "Traduce texto del objeto del navegador"
+msgstr "Tarayıcı nesnesindeki metni çevirir"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:736
+msgid "El objeto no tiene texto para traducir"
+msgstr "Nesnenin çevrilecek metni yok"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:751
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:28
+#| msgid "Usar caché &de traducción"
+msgid "Interfaz de traducción"
+msgstr "Çeviri arayüzü"
+
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:848
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:312
 msgid "No se ha podido obtener la traducción de lo seleccionado."
 msgstr "Seçili metin çevrilemedi."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:614
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:853
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:322
 msgid ""
 "Hubo un error en la traducción:\n"
 "\n"
@@ -322,261 +427,1048 @@ msgstr ""
 "Çeviride bir hata bulundu:\n"
 "\n"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:614
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:662
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:309
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:320
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:340
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:398
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:853
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:901
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:322
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:378
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:447
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:458
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:478
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:547
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:53
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:73
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:91
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:104
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:115
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:127
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:139
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:149
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:160
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:177
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:190
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:204
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:491
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:511
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:529
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:540
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:550
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:562
 msgid "Error"
 msgstr "Hata"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:617
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:856
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:324
 msgid "La traducción fue cancelada por el usuario."
 msgstr "Çeviri kullanıcı tarafından iptal edildi."
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:617
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:856
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:324
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:380
 msgid "Cancelado"
 msgstr "İptal edildi"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:625
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:864
 msgid "Traducción copiada al portapapeles"
 msgstr "Çeviri panoya kopyalandı"
 
-#: addon\globalPlugins\TranslateAdvanced\__init__.py:628
+#: addon\globalPlugins\TranslateAdvanced\__init__.py:867
 msgid "Resultado de la traducción"
 msgstr "Çeviri sonucu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:61
+#| msgid "Texto &original:"
+msgid "Texto origen (Alt+1):"
+msgstr "Orijinal metin (Alt+1):"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:68
+msgid "Texto destino (Alt+2):"
+msgstr "Hedef metin (Alt+2):"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:75
+msgid "Idioma origen (Alt+3):"
+msgstr "Kaynak dil (Alt+3):"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:77
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:78
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:252
+msgid "Auto Detectar - auto"
+msgstr "Otomatik Algıla - otomatik"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:80
+msgid "Idioma destino (Alt+4):"
+msgstr "Hedef dil (Alt+4):"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:87
+msgid "&Traducir"
+msgstr "&Çevir"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:89
+msgid "&Escuchar"
+msgstr "Dinl&e"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:91
+msgid "&Intercambiar"
+msgstr "&Değiştir"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:93
+msgid "&Limpiar"
+msgstr "&Temizle"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:95
+msgid "&Pegar al foco"
+msgstr "Odağa Ya&pıştır"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:97
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:308
+#| msgid "Cerrar"
+msgid "&Cerrar"
+msgstr "&Kapat"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:102
+msgid "Caracteres (Alt+5):"
+msgstr "Karakter sayısı (Alt+5):"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:205
+msgid ""
+"Introduce el texto que deseas traducir. Puedes escribir o pegar el texto "
+"aquí."
+msgstr ""
+"Çevirmek istediğiniz metni girin. Metni buraya yazabilir veya "
+"yapıştırabilirsiniz."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:206
+msgid ""
+"El resultado de la traducción se mostrará aquí. Este campo es de solo "
+"lectura."
+msgstr "Çeviri sonucu burada görüntülenecek. Bu alan salt okunur."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:207
+#| msgid "Seleccione un idioma de origen para el traductor de Microsoft"
+msgid "Selecciona el idioma de origen para la traducción."
+msgstr "Çeviri için bir kaynak dil seçin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:208
+#| msgid "Seleccione un idioma de destino para el traductor {}"
+msgid "Selecciona el idioma de destino para la traducción."
+msgstr "Çeviri için bir hedef dil seçin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:209
+msgid ""
+"Presiona este botón para traducir el texto de origen al idioma de destino."
+msgstr "Kaynak metni hedef dile çevirmek için bu düğmeye basılır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:210
+msgid "Presiona este botón para escuchar la traducción."
+msgstr "Çeviriyi dinlemek için bu düğmeye basılır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:211
+#| msgid "Cambiar idioma de destino"
+msgid "Intercambia los idiomas de origen y destino."
+msgstr "Kaynak ve hedef dilleri değiştirir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:212
+msgid "Limpia los campos de texto de origen y destino."
+msgstr "Kaynak metin ve hedef metin alanlarını temizler."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:213
+msgid ""
+"Pega al foco lo que haya en el cuadro de texto destino. Se pegara en la "
+"ventana que tengamos detrás de esta, siempre y cuando dicha ventana sea "
+"cuadro de texto que permita pegar texto en ella. Podemos usar también F3."
+msgstr ""
+"Hedef metin kutusunda ne varsa odağa yapıştırın. Bu pencere, içine metin "
+"yapıştırmanıza izin veren bir metin kutusu olduğu sürece, arkasındaki "
+"pencereye yapıştırılacaktır. F3 tuşu da kullanılabilir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:214
+#| msgid "Muestra el historial de traducción"
+msgid "Cierra la ventana de traducción."
+msgstr "Çeviri penceresini kapatır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:215
+msgid "Muestra el número de caracteres en el campo de texto de origen."
+msgstr "Kaynak metin alanındaki karakter sayısını gösterir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:280
+msgid "El cuadro de texto de origen está vacío. Por favor, escribe algo."
+msgstr "Kaynak metin kutusu boş. Lütfen bir şeyler yazın."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:281
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:297
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:304
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:348
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:436
+msgid "Advertencia"
+msgstr "Uyarı"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:286
+msgid "El texto no ha cambiado. No es necesario realizar una nueva traducción."
+msgstr "Metin değişmedi. Yeni bir çeviriye gerek yok."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:294
+msgid ""
+"Se a detectado que el texto de origen es igual que el idioma destino al cual "
+"quiere traducirse.\n"
+"\n"
+"Cambie el idioma destino de traducción si desea continuar."
+msgstr ""
+"Kaynak metnin çevrileceği hedef dil ile aynı olduğu tespit edildi.\n"
+"\n"
+"Devam etmek istiyorsanız çeviri hedef dilini değiştirin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:301
+msgid ""
+"No a sido posible detectar el idioma del texto origen.\n"
+"\n"
+"Se va a intentar traducir, pero no se asegura el éxito de la operación."
+msgstr ""
+"Kaynak metnin dili tespit edilemedi.\n"
+"\n"
+"Çeviri yapılmaya çalışılacak ancak işlem başarısı garanti değildir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:334
+#| msgid ""
+#| "No se a encontrado conexión a internet.\n"
+#| "\n"
+#| "Si esta conectado por Wifi puede que NVDA iniciara antes que se "
+#| "conectara.\n"
+#| "\n"
+#| "Espere unos segundos y vuelva a reiniciar NVDA.\n"
+#| "\n"
+#| "Si esta conectado por cable compruebe su conexión y asegúrese que todo "
+#| "esta correcto.\n"
+#| "\n"
+#| "Se cancelara la carga del complemento Traductor Avanzado."
+msgid ""
+"No se ha encontrado conexión a internet.\n"
+"\n"
+"Si está conectado por Wifi, puede que NVDA iniciara antes que se conectara.\n"
+"\n"
+"Si está conectado por cable, compruebe su conexión y asegúrese de que todo "
+"esté correcto.\n"
+"\n"
+"Espere unos segundos."
+msgstr ""
+"İnternet bağlantısı bulunamadı.\n"
+"\n"
+"Wifi üzerinden bağlanıyorsanız NVDA siz bağlanmadan önce başlamış olabilir.\n"
+"\n"
+"Kabloyla bağlıysanız bağlantınızı kontrol edin ve her şeyin doğru olduğundan "
+"emin olun.\n"
+"\n"
+"Birkaç saniye bekleyin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:347
+msgid "El cuadro de texto destino está vacío. Por favor, traduce algo."
+msgstr "Hedef metin kutusu boş. Lütfen bir şeyler çevirin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:366
+#| msgid "No se ha podido obtener la traducción de lo seleccionado."
+msgid ""
+"No se ha podido obtener el audio.\n"
+"\n"
+"Inténtelo más tarde."
+msgstr ""
+"Ses alınamadı.\n"
+"\n"
+"Lütfen daha sonra tekrar deneyin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:378
+#| msgid ""
+#| "Hubo un error en la traducción:\n"
+#| "\n"
+msgid ""
+"Hubo un error en la obtención del audio:\n"
+"\n"
+msgstr ""
+"Ses alınırken bir hata oluştu:\n"
+"\n"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:380
+#| msgid "La traducción fue cancelada por el usuario."
+msgid "La obtención del audio fue cancelada por el usuario."
+msgstr "Ses alımı kullanıcı tarafından iptal edildi."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:388
+msgid ""
+"No se puede intercambiar idiomas cuando el idioma de origen es 'Auto "
+"Detectar'."
+msgstr "Kaynak dil 'Otomatik Algıla' olduğunda dil değiştiremezsiniz."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:435
+msgid ""
+"El cuadro de texto de destino está vacío. Por favor, traduce algo para pegar "
+"al foco."
+msgstr ""
+"Hedef metin kutusu boş, lütfen kaynak metin kutusuna çevrilecek bir metin "
+"yapıştırın."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:456
+msgid "Texto pegado al foco."
+msgstr "Metin odağa yapıştırıldı."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:481
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:309
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:613
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:615
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:637
+msgid "No hay ayuda disponible para este elemento."
+msgstr "Bu öğe için herhangi bir yardım mevcut değil."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:481
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:483
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:309
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:311
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:613
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:615
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:617
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:637
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:639
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_helps.py:76
+msgid "Ayuda"
+msgstr "Yardım"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:483
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:311
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:617
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:639
+#| msgid "No hay aplicación enfocada."
+msgid "No hay un elemento enfocado."
+msgstr "Odaklanmış bir uygulama yok."
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:28
 msgid "Historial de Traductor Avanzado"
 msgstr "Gelişmiş Çeviri Geçmişi"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:57
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:60
 msgid "&Buscar:"
 msgstr "&Ara:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:63
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:252
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:66
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:255
 msgid "&Lista texto original:"
 msgstr "Orijinal metin &listesi:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:69
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:250
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:72
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:253
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:256
 msgid "Texto &original:"
 msgstr "&Orjinal metin:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:75
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:249
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:254
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:78
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:252
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:257
 msgid "Texto &traducido:"
 msgstr "Çevrilen me&tin:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:84
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:87
 msgid "&Copiar al portapapeles"
 msgstr "&Panoya kopyala"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:87
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:90
 msgid "Borrar &historial"
 msgstr "Geçmişi &sil"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:90
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:93
 msgid "&Alternar orden"
 msgstr "&Sırayı Değiştir"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:93
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:96
 msgid "Cerrar"
 msgstr "Kapat"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:166
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:181
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:206
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:169
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:184
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:209
 msgid "No se encontró nada."
 msgstr "Hiçbir şey bulunamadı."
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:182
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:185
 msgid "Se encuentra en la posición {} de {}"
 msgstr "{} tire {} konumunda bulunur"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:207
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:210
 msgid "No se encontró nada para poder ser copiado."
 msgstr "Kopyalanacak hiçbir şey bulunamadı."
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:212
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:215
 msgid "Copiar texto &original"
 msgstr "&Orijinal metni kopyala"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:213
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:216
 msgid "Copiar texto &traducido"
 msgstr "Çevrilmiş me&tni kopyala"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:214
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:217
 msgid "&Copiar origen y traducido"
 msgstr "&Kaynağı Kopyala ve Çevir"
 
 #. Copiar texto origen
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:232
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:235
 msgid "Copiado texto origen"
 msgstr "Kaynak metin kopyalandı"
 
 #. Copiar texto traducido
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:238
 msgid "Copiado texto traducido"
 msgstr "Çevrilmiş metin kopyalandı"
 
 #. Copiar origen y traducido
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:238
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:241
 msgid "Copiado texto origen y traducido"
 msgstr "Çevrilen kaynak metin kopyalandı"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:248
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:251
 msgid "&Lista texto traducido:"
 msgstr "Çevrilmiş metin &listesi:"
 
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:272
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:276
+msgid "Muestra el texto traducido seleccionado. Este campo es de solo lectura."
+msgstr "Seçilen çevrilmiş metni gösterir. Bu alan salt okunur durumdadır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:273
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:275
+msgid "Muestra el texto original seleccionado. Este campo es de solo lectura."
+msgstr "Seçilen orijinal metni gösterir. Bu alan salt okunur durumdadır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:291
+msgid "Introduce el texto que deseas buscar en el historial."
+msgstr "Geçmişte aramak istediğiniz metni yazın."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:292
+msgid ""
+"Lista de textos originales o traducidos, dependiendo del orden seleccionado. "
+"Si pulsamos F1 nos dirá en la posición que nos encontramos de la lista."
+msgstr ""
+"Seçilen sıraya bağlı olarak orijinal veya çevrilmiş metinlerin listesi. F1'e "
+"basılırsa, listede bulunulan konumu söyler."
+
+#. Establece las ayudas iniciales según el estado por defecto
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:294
+msgid "Presiona este botón para copiar el texto seleccionado al portapapeles."
+msgstr "Seçilen metni panoya kopyalamak için bu düğmeye basılır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:295
+#| msgid "Muestra el historial de traducción"
+msgid "Presiona este botón para borrar todo el historial de traducciones."
+msgstr "Tüm çeviri geçmişini silmek için bu düğmeye basın."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:296
+msgid ""
+"Presiona este botón para alternar el orden entre texto original y texto "
+"traducido."
+msgstr ""
+"Orijinal metin ile çevrilmiş metin arasında geçiş yapmak için bu düğmeye "
+"basılır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:297
+msgid "Presiona este botón para cerrar la ventana del historial."
+msgstr "Geçmiş penceresini kapatmak için bu düğmeye basılır."
+
 #. Idiomas origen
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:69
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:75
 msgid "Seleccione un idioma de origen para el traductor de Microsoft"
 msgstr "Microsoft Translator için kaynak dili seçin"
 
 #. Idiomas destino
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:72
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:78
 msgid "Seleccione un idioma de destino para el traductor {}"
 msgstr "Çeviri için bir hedef dil seçin {}"
 
 #. Cambiar traductor
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:75
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_lang.py:81
 msgid "Elija un módulo de traducción"
 msgstr "Bir çeviri modülü seçin"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:26
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:28
 msgid "Configuración de Traductor Avanzado"
 msgstr "Gelişmiş Çeviri Ayarları"
 
 #. Añadir las páginas al Listbook
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:39
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:48
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:107
 msgid "General"
 msgstr "Genel"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:40
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:49
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:109
 msgid "Módulos de traducción"
 msgstr "Çeviri modülleri"
 
 #. Botones Aceptar y Cancelar
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:42
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:375
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:51
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:513
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_helps.py:34
 msgid "&Aceptar"
 msgstr "Ka&bul et"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:43
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:376
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:52
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:514
 msgid "&Cancelar"
 msgstr "İ&ptal"
 
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:88
+msgid ""
+"Activa o desactiva el uso de la caché de traducción. Esta opción almacena "
+"traducciones anteriores para mejorar la velocidad y eficiencia."
+msgstr ""
+"Çeviri önbelleğinin kullanımını etkinleştirir veya devre dışı bırakır. Bu "
+"seçenek, hızı ve verimliliği artırmak için önceki çevirileri saklar."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:89
+msgid ""
+"Activa o desactiva la visualización del diálogo de resultados y copia el "
+"resultado al portapapeles. Esto permite revisar y utilizar las traducciones "
+"de manera rápida."
+msgstr ""
+"Sonuçlar iletişim kutusunun görüntülenmesini açar veya kapatır ve sonucu "
+"panoya kopyalar. Bu, çevirilerin hızlı bir şekilde gözden geçirilmesine ve "
+"kullanılmasına olanak tanır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:90
+msgid ""
+"Activa el intercambio automático si el origen detectado coincide con el "
+"destino (experimental). Si se detecta que el idioma del texto de origen es "
+"el mismo que el de destino, el traductor cambiará automáticamente el idioma "
+"de destino para evitar traducciones innecesarias."
+msgstr ""
+"Algılanan kaynak hedefle eşleşirse (deneysel) otomatik değişimi "
+"etkinleştirir. Kaynak metin dilinin hedef dille aynı olduğu tespit edilirse "
+"çevirmen, gereksiz çevirileri önlemek için otomatik olarak hedef dile geçiş "
+"yapacaktır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:91
+msgid ""
+"Selecciona el idioma por defecto para las traducciones. Este es el idioma "
+"principal al que se traducirán los textos por defecto. Ejemplo: Inglés - en."
+msgstr ""
+"Çeviriler için varsayılan dili seçin. Bu, metinlerin varsayılan olarak "
+"çevrileceği ana dildir. Örnek: İngilizce - en."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:92
+msgid ""
+"Selecciona el idioma alternativo para las traducciones. Este idioma se "
+"utilizará cuando se active la opción de intercambio automático. Ejemplo: "
+"Español - es."
+msgstr ""
+"Çeviriler için alternatif dili seçin. Otomatik değişim seçeneği "
+"etkinleştirildiğinde bu dil kullanılacaktır. Örnek: İspanyolca - es."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:93
+msgid ""
+"Selecciona el traductor online que deseas utilizar. Puedes elegir entre "
+"diferentes servicios de traducción disponibles."
+msgstr ""
+"Kullanmak istediğiniz çevrimiçi çevirmeni seçin. Mevcut farklı çeviri "
+"hizmetleri arasından seçim yapabilirsiniz."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:94
+msgid ""
+"Muestra las claves API disponibles para el traductor seleccionado. Las "
+"claves API permiten autenticar y utilizar los servicios de traducción."
+msgstr ""
+"Seçilen çevirmen için mevcut API anahtarlarını gösterir. API anahtarları, "
+"çeviri hizmetlerinin doğrulanmasına ve kullanılmasına imkan verir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:95
+msgid ""
+"Añade una nueva clave API. Esto es necesario para utilizar servicios de "
+"traducción que requieren autenticación."
+msgstr ""
+"Yeni bir API anahtarı ekleyin. Kimlik doğrulama gerektiren çeviri "
+"hizmetlerini kullanmak için bu gereklidir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:96
+msgid ""
+"Edita la clave API seleccionada. Permite modificar los detalles de una clave "
+"API existente."
+msgstr ""
+"Seçilen API anahtarını düzenle. Mevcut bir API anahtarının ayrıntılarını "
+"değiştirmenize olanak tanır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:97
+msgid ""
+"Elimina la clave API seleccionada. Esto eliminará la clave de la lista y ya "
+"no se podrá utilizar para autenticar servicios de traducción."
+msgstr ""
+"Seçilen API anahtarını siler. Bu, anahtarı listeden kaldırır ve artık çeviri "
+"hizmetlerinin kimliğini doğrulamak için kullanılamaz."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:98
+msgid ""
+"Establece la clave API seleccionada como predeterminada. Esta clave se "
+"utilizará por defecto para el servicio de traducción seleccionado."
+msgstr ""
+"Seçilen API anahtarını varsayılan olarak ayarlar. Bu anahtar, seçilen çeviri "
+"hizmeti için varsayılan olarak kullanılacaktır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:99
+msgid ""
+"Navega entre las diferentes secciones de configuración. Permite cambiar "
+"entre las configuraciones generales y las específicas del traductor."
+msgstr ""
+"Farklı yapılandırma bölümleri arasında dolaşır. Genel ve çevirmene özel "
+"ayarlar arasında geçiş yapılmasını sağlar."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:100
+msgid ""
+"Guarda los cambios y cierra el diálogo de configuración. Asegúrate de "
+"revisar todas las opciones antes de confirmar."
+msgstr ""
+"Değişiklikleri kaydeder ve yapılandırma iletişim kutusunu kapatır. "
+"Onaylamadan önce tüm seçenekleri gözden geçirdiğinizden emin olun."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:101
+msgid ""
+"Descarta los cambios y cierra el diálogo de configuración. Los cambios "
+"realizados no serán guardados."
+msgstr ""
+"Değişiklikleri atın ve yapılandırma iletişim kutusunu kapatın. Yapılan "
+"değişiklikler kaydedilmeyecektir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:108
+msgid ""
+"Configuración general del traductor. Aquí puedes ajustar las opciones "
+"básicas y el comportamiento del traductor."
+msgstr ""
+"Gelişmiş Çeviri ayarları. Burada Gelişmiş Çeviri Eklentisinin temel "
+"seçeneklerini ve davranışını ayarlayabilirsiniz."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:110
+msgid ""
+"Gestión de los módulos de traducción online. Permite configurar los "
+"servicios de traducción y sus claves API."
+msgstr ""
+"Çevrimiçi çeviri modüllerini yönetir. Çeviri hizmetlerini ve bunların API "
+"anahtarlarını yapılandırmanıza imkan verir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:112
+msgid "Panel de configuración: "
+msgstr "Ayarlar paneli: "
+
 #. Checkbox para activar o desactivar la caché de traducción
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:105
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:154
 msgid "Usar caché &de traducción"
 msgstr "Çeviri önbelleğini kullan"
 
 #. Checkbox para mostrar dialogo de resultados
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:109
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:158
 msgid "No mostrar dialogo de &resultados y copiar al portapapeles"
 msgstr "Sonuçla&r iletişim kutusunu gösterme ve panoya kopyala"
 
+#. Checkbox para activar intercambio de lenguajes
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:162
+msgid ""
+"Activar el &intercambio automático si el origen detectado coincide con el "
+"destino (experimental)"
+msgstr ""
+"Algılanan kaynak d&il hedef dille eşleşiyorsa otomatik değişimi etkinleştir "
+"(deneysel)"
+
+#. Choice para seleccionar el lenguaje por defecto
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:166
+#| msgid "Resultado de la traducción"
+msgid "Idioma de la &traducción:"
+msgstr "Çeviri dili:"
+
+#. Choice para seleccionar el lenguaje alternativo
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:172
+msgid "Idioma a&lternativo:"
+msgstr "A&lternatif dil:"
+
 #. Choice para seleccionar el traductor online
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:126
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:191
 msgid "&Elija un traductor online:"
 msgstr "&Çevrimiçi bir çeviri hizmeti seçin:"
 
 #. Listbox para mostrar las claves API
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:132
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:197
 msgid "&Gestor de APIS:"
 msgstr "API Y&öneticisi:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:140
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:205
 msgid "Añadir\tF1"
 msgstr "Ekle\tF1"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:141
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:206
 msgid "Editar\tF2"
 msgstr "Düzenle\tF2"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:142
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:207
 msgid "Eliminar\tF3"
 msgstr "Sil\tF3"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:143
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:208
 msgid "Por defecto\tF4"
 msgstr "Varsayılan\tF4"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:218
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:279
 msgid "No existe ninguna API para este servicio."
 msgstr "Bu hizmet için bir API bulunmamaktadır."
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:235
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:46
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:56
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:63
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:314
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:87
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:98
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:106
 msgid "Traductor DeepL (API Free *)"
 msgstr "DeepL Çeviri (Ücretsiz API *)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:235
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:47
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:57
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:64
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:314
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:88
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:99
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:107
 msgid "Traductor DeepL (API Pro *)"
 msgstr "DeepL Çeviri (API Pro *)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:235
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:48
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:58
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:65
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:314
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:89
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:100
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:108
 msgid "Traductor LibreTranslate (API *)"
 msgstr "LibreTranslate Çeviri (API *)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:296
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:314
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:91
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:103
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:109
+#| msgid "Traductor LibreTranslate (API *)"
+msgid "Traductor OpenAI GPT4o-mini (API *)"
+msgstr "OpenAI GPT4o-mini çevirisi (API *)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:434
 msgid "Añadir API"
 msgstr "API ekle"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:309
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:320
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:340
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:447
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:458
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:478
 msgid ""
 "No existe ninguna API para este servicio. Por favor, añada una API primero."
 msgstr "Bu hizmet için API bulunmamaktadır. Lütfen önce bir API ekleyin."
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:311
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:449
 msgid "Editar API"
 msgstr "API'yi düzenle"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:322
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:460
 msgid "¿Estás seguro de que deseas eliminar esta clave API?"
 msgstr "Bu API anahtarını silmek istediğinizden emin misiniz?"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:322
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:460
 msgid "Confirmación"
 msgstr "Onaylayın"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:357
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:495
 msgid "&Nombre:"
 msgstr "İs&im:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:359
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:497
 msgid "Clave &API:"
 msgstr "&API Anahtarı:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:369
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:507
 msgid "&URL:"
 msgstr "&Bağlantı:"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:398
+#. Agregar ayudas
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:531
+msgid "Introduce el nombre para identificar esta clave API."
+msgstr "Bu API anahtarını tanımlayacak bir ad yazın."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:532
+msgid "Introduce la clave API proporcionada por el servicio de traducción."
+msgstr "Çeviri hizmeti tarafından sağlanan API anahtarını girin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:534
+msgid ""
+"Introduce la URL del servidor de traducción LibreTranslate. Esta URL se "
+"utilizará para enviar las solicitudes de traducción."
+msgstr ""
+"LibreTranslate çeviri sunucusunun Adresini girin. Bu Bağlantı çeviri "
+"isteklerini göndermek için kullanılacaktır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:535
+msgid "Guarda la clave API y cierra el diálogo."
+msgstr "API anahtarını kaydeder ve iletişim kutusunu kapatır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:536
+msgid "Descarta los cambios y cierra el diálogo."
+msgstr "Değişiklikleri at ve iletişim kutusunu kapat."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:547
 msgid "Todos los campos son obligatorios."
 msgstr "Tüm alanların doldurulması zorunludur."
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:27
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:48
+#| msgid "No se pudo detectar el idioma"
+msgid "No se pudo cargar el archivo WAV."
+msgstr "WAV dosyası yüklenemedi."
+
+#. Eliminar archivo temporal si la carga falla
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:68
+msgid "No se pudo cargar el archivo WAV desde bytes."
+msgstr "WAV dosyası baytlardan yüklenemedi."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:81
+msgid "No se ha cargado ningún archivo WAV."
+msgstr "Hiçbir WAV dosyası yüklenmedi."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:225
+msgid "Reproductor de audio"
+msgstr "Ses oynatıcı"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "1 segundo"
+msgstr "1 saniye"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "5 segundos"
+msgstr "5 saniye"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "10 segundos"
+msgstr "10 saniye"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "15 segundos"
+msgstr "15 saniye"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "30 segundos"
+msgstr "30 saniye"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+msgid "1 minuto"
+msgstr "1 dakika"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
+#| msgid "Error al actualizar el idioma local {}: {}"
+msgid "Error al inicializar el diálogo"
+msgstr "İletişim kutusu başlatılırken hata oluştu"
+
+#. Crear etiqueta y cuadro de texto de solo lectura
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:258
+#| msgid "Texto &traducido:"
+msgid "&Texto traducido:"
+msgstr "Çevrilen me&tin:"
+
+#. Botones de control
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:270
+msgid "Atrasar (F1)"
+msgstr "Geri sar (F1)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:271
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:522
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:538
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:592
+msgid "Reproducir (F2)"
+msgstr "Oynat (F2)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:272
+msgid "Adelantar (F3)"
+msgstr "İleri sar (F3)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:273
+msgid "Detener (F4)"
+msgstr "Durdur (F4)"
+
+#. Etiqueta y slider de volumen
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:285
+msgid "Volumen (F5 / F6)"
+msgstr "Ses seviyesi (F5 / F6)"
+
+#. Etiqueta y choice de velocidad
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:293
+msgid "Velocidad (F7 / F8)"
+msgstr "Hız (F7 / F8)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:307
+msgid "&Guardar"
+msgstr "&Kaydet"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:344
+#| msgid "Error al analizar la respuesta de la traducción: {0}"
+msgid "Error al inicializar la interfaz de usuario"
+msgstr "Kullanıcı arayüzü başlatılırken hata oluştu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:390
+msgid "Este cuadro muestra el texto traducido. Es de solo lectura."
+msgstr "Bu kutu çevrilmiş metni gösterir. Salt okunur durumdadır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:391
+msgid ""
+"Presiona este botón para retroceder la reproducción lo que tengamos "
+"establecido. Podemos pulsar Shift+F10 o tecla aplicaciones para expandir un "
+"menú contextual donde nos dejara elegir el tiempo para atrasar."
+msgstr ""
+"Oynatmayı belirlenen süre kadar geri sarmak için bu düğmeye basılır. Hızlı "
+"geri sarma süresini seçebileceğimiz bağlamsal bir menüyü genişletmek için "
+"Shift+F10 veya uygulama tuşuna basabilirsiniz."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:392
+msgid "Presiona este botón para reproducir o pausar la reproducción."
+msgstr "Ses dosyasını duraklatmak veya oynatmak için bu düğmeye basılır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:393
+msgid ""
+"Presiona este botón para adelantar la reproducción lo que tengamos "
+"establecido. Podemos pulsar Shift+F10 o tecla aplicaciones para expandir un "
+"menú contextual donde nos dejara elegir el tiempo para adelantar."
+msgstr ""
+"Oynatmayı belirlenen süre kadar ileri sarmak için bu düğmeye basılır. Hızlı "
+"ileri sarma süresini seçebileceğimiz bağlamsal bir menüyü genişletmek için "
+"Shift+F10 veya uygulama tuşuna basabilirsiniz."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:394
+msgid "Presiona este botón para detener la reproducción."
+msgstr "Oynatmayı durdurmak için bu düğmeye basılır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:395
+msgid "Ajusta el volumen de reproducción con este control."
+msgstr "Bu kontrol ile oynatma ses seviyesini ayarlayın."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:396
+msgid "Selecciona la velocidad de reproducción con este control."
+msgstr "Bu kontrolle oynatma hızı seçilir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:397
+msgid "Presiona este botón para guardar el archivo de audio."
+msgstr "Ses dosyasını kaydetmek için bu düğmeye basılır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:398
+msgid "Presiona este botón para cerrar el diálogo."
+msgstr "İletişim kutusunu kapatmak için bu düğmeye basılır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:427
+msgid "Tiempo transcurrido: {self.player.format_time(current_time)}  "
+msgstr "Geçen süre: {self.player.format_time(current_time)}  "
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:433
+#| msgid "Error al actualizar el idioma local {}: {}"
+msgid "Error al actualizar el estado"
+msgstr "Durum güncellenirken hata oluştu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:444
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:455
+msgid "Volumen {}%"
+msgstr "Ses seviyesi %{}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:465
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:475
+msgid "Velocidad {}%"
+msgstr "Hız %{}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:482
+msgid "Cargar archivo WAV"
+msgstr "WAV dosyasını yükle"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:482
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:500
+msgid "Archivo WAV (*.wav)|*.wav"
+msgstr "Arşiv WAV (*.wav)|*.wav"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:491
+#| msgid "Error al cargar el archivo JSON: {0}"
+msgid "No se pudo cargar el archivo: {}"
+msgstr "Dosya yüklenemedi: {}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:493
+#| msgid "Error al cargar el archivo JSON: {0}"
+msgid "Error al cargar archivo"
+msgstr "Dosya yüklenirken hata oluştu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:500
+msgid "Guardar archivo WAV"
+msgstr "WAV dosyasını kaydet"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:509
+#| msgid "Idiomas guardados exitosamente."
+msgid "Archivo guardado correctamente."
+msgstr "Dosya başarıyla kaydedildi."
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:511
+#| msgid "Error al guardar el archivo JSON: {0}"
+msgid "No se pudo guardar el archivo: {}"
+msgstr "Dosya kaydedilemedi: {}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:513
+#| msgid "Error al guardar el archivo JSON: {0}"
+msgid "Error al guardar archivo"
+msgstr "Dosya kaydedilirken hata oluştu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:523
+msgid "Pausar"
+msgstr "Duraklat"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:526
+msgid "Pausar (F2)"
+msgstr "Duraklat (F2)"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:527
+msgid "Reproducir"
+msgstr "Oynat"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:529
+msgid "No se pudo reproducir o pausar el archivo: {}"
+msgstr "Dosya oynatılamadı veya duraklatılamadı: {}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:536
+msgid "Detener"
+msgstr "Durdur"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:540
+msgid "No se pudo detener el archivo: {}"
+msgstr "Dosya durdurulamadı: {}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:547
+msgid "Atrasar {}"
+msgstr "Geri sar"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:550
+#| msgid "Error al guardar el archivo JSON: {0}"
+msgid "No se pudo atrasar el archivo: {}"
+msgstr "Dosya geri alınamadı:"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:557
+msgid "Adelantar {}"
+msgstr "İleri sar {}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:562
+#| msgid "No se pudo detectar el idioma"
+msgid "No se pudo adelantar el archivo: {}"
+msgstr "Dosya Oynatılamadı: {}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:573
+#| msgid "Error al abrir el portapapeles: {0}"
+msgid "Error al cambiar el volumen"
+msgstr "Ses seviyesi değiştirilirken hata oluştu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:585
+#| msgid "Error al cargar idiomas locales: {}"
+msgid "Error al cambiar la velocidad"
+msgstr "Hız değiştirilirken hata oluştu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:594
+#| msgid "Error al actualizar el idioma local {}: {}"
+msgid "Error al finalizar el audio"
+msgstr "Sesi sonlandırırken hata oluştu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:660
+#| msgid "Error al cargar el archivo JSON: {0}"
+msgid "Error al cerrar el diálogo"
+msgstr "İletişim kutusu kapatılırken hata oluştu"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:30
 msgid "Progreso de la Traducción"
 msgstr "Çeviri İlerlemesi"
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:39
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:38
+#| msgid "Progreso de la Traducción"
+msgid "Progreso de la obtención del audio"
+msgstr "Ses alımının ilerlemesi"
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_progress.py:51
 msgid "Cancelar"
 msgstr "İptal"
 
@@ -682,38 +1574,38 @@ msgstr "&Kur"
 msgid "&Omitir"
 msgstr "&Atla"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:39
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:37
 #, python-brace-format
 msgid "Error al cargar el archivo JSON: {0}"
 msgstr "JSON dosyası yüklenirken hata oluştu: {0}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:54
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:48
 #, python-brace-format
 msgid "Error al guardar el archivo JSON: {0}"
 msgstr "JSON dosyası kaydedilirken hata oluştu: {0}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:66
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:85
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:104
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:123
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:136
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:73
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:92
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:111
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:130
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:143
 #, python-brace-format
 msgid "Servicio desconocido: {0}"
 msgstr "Bilinmeyen hizmet: {0}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:88
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:107
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:139
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:95
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:114
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:146
 #, python-brace-format
 msgid "Índice fuera de rango: {0}"
 msgstr "Dizin aralık dışında: {0}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:113
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:120
 #, python-brace-format
 msgid "Error al eliminar la clave API: {0}"
 msgstr "API anahtarı silinirken hata oluştu: {0}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:144
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_apis.py:151
 #, python-brace-format
 msgid "Error al obtener la clave API: {0}"
 msgstr "API anahtarı alınırken hata oluştu: {0}"
@@ -769,51 +1661,155 @@ msgstr "Dizin aralık dışında: {index}"
 msgid "Clave o valor no encontrado: {key_or_value}"
 msgstr "Anahtar veya değer bulunamadı: {key_or_value}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:41
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:52
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_helps.py:75
+msgid "No hay ayuda disponible para este widget."
+msgstr "Bu widget için herhangi bir yardım mevcut değil."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:82
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:94
 msgid "Traductor Google (WEB 1)"
 msgstr "Google çeviri (WEB 1)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:42
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:53
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:83
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:95
 msgid "Traductor Google (WEB 2)"
 msgstr "Google çeviri (WEB 2)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:43
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:54
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:84
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:96
 msgid "Traductor Google (API Free 1)"
 msgstr "Google çeviri (Ücretsiz API 1)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:44
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:55
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:85
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:97
 msgid "Traductor Google (API Free 2)"
 msgstr "Google çeviri (Ücretsiz API 2)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:45
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:60
-#| msgid "Traductor DeepL (API Free *)"
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:86
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:102
 msgid "Traductor DeepL (Free)"
 msgstr "DeepL Çeviri (Ücretsiz)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:49
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:59
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:90
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:101
 msgid "Traductor Microsoft Bing (API Free)"
 msgstr "Microsoft Bing Çeviri (Ücretsiz API)"
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:243
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:257
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:270
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:273
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:126
+#| msgid "Abre la configuración del complemento"
+msgid "Abre la configuración del complemento."
+msgstr "Eklenti ayarlarını açar."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:127
+#| msgid "Comprueba si hay actualizaciones de idioma del complemento"
+msgid "Comprueba si hay actualizaciones de idioma del complemento."
+msgstr "Eklenti dil güncellemelerini denetler."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:128
+#| msgid "Cambiar idioma de origen"
+msgid "Cambia el idioma de origen del traductor."
+msgstr "Çevirmenin kaynak dilini değiştirir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:129
+#| msgid "Cambiar idioma de destino"
+msgid "Cambia el idioma de destino del traductor."
+msgstr "Çevirmenin hedef dilini değiştirir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:130
+#| msgid "Cambiar el modulo de traducción"
+msgid "Cambia el módulo de traducción."
+msgstr "Çeviri modülünü değiştirir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:131
+#| msgid "Eliminar todas las traducciones en caché para todas las aplicaciones"
+msgid "Elimina todas las traducciones en caché para todas las aplicaciones."
+msgstr "Tüm uygulamalar için önbelleğe alınmış tüm çevirileri siler."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:132
+#| msgid ""
+#| "Eliminar la caché de traducción para la aplicación enfocada actualmente"
+msgid "Elimina la caché de traducción para la aplicación enfocada actualmente."
+msgstr "Şu anda odaklanmış olan uygulamanın çeviri önbelleğini siler."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:133
+#| msgid "Activa o desactiva la cache de traducción"
+msgid "Activa o desactiva la caché de traducción según el estado actual."
+msgstr "Çeviri önbelleğini etkinleştirir veya devre dışı bırakır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:134
+#| msgid "Copiar el ultimo texto traducido al portapapeles"
+msgid ""
+"Copia el último texto traducido al portapapeles si no hay una traducción en "
+"curso."
+msgstr "Devam eden bir çeviri yoksa, son çevrilen metni panoya kopyalar."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:135
+#| msgid "Traduce el contenido del portapapeles"
+msgid "Traduce el contenido del portapapeles."
+msgstr "Pano içeriğini çevirir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:136
+#| msgid "Traduce el último texto verbalizado"
+msgid "Traduce el último texto verbalizado."
+msgstr "Son konuşulan metni çevirir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:137
+#| msgid "Activa o desactiva la traducción simultánea Online"
+msgid "Activa o desactiva la traducción simultánea Online."
+msgstr "Çevrimiçi eşzamanlı çeviriyi etkinleştirir veya devre dışı bırakır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:138
+#| msgid "Traduce el texto seleccionado"
+msgid "Traduce el texto seleccionado."
+msgstr "Seçili metni çevirir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:139
+#| msgid "Traduce el texto seleccionado"
+msgid "Traduce texto del objeto del navegador."
+msgstr "Tarayıcı nesnesinden metni çevirir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:140
+#| msgid "Usar caché &de traducción"
+msgid "Interfaz de traducción."
+msgstr "Çeviri arayüzü."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:143
+msgid ""
+"Activa o desactiva el intercambio automático si el origen detectado coincide "
+"con el destino."
+msgstr ""
+"Algılanan kaynak hedefle eşleşiyorsa otomatik değişimi etkinleştirir veya "
+"devre dışı bırakır."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:145
+#| msgid "Muestra el historial de traducción"
+msgid "Muestra el historial de traducción."
+msgstr "Çeviri geçmişini gösterir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_settings.py:146
+msgid "Muestra un diálogo con la lista de comandos de una sola tecla"
+msgstr "Tek tuşlu komutların listesini içeren bir iletişim kutusu açar"
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:197
+#| msgid "No se pudo detectar el idioma"
+msgid "No se a podido obtener el idioma"
+msgstr "Dil algılanamadı"
+
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:309
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:323
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:336
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:339
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:355
 msgid ""
 "No tiene ninguna API configurada para el servicio que tiene seleccionado."
 msgstr "Seçtiğiniz hizmet için yapılandırılmış herhangi bir API'niz yok."
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:288
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:361
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free.py:83
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:227
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_original.py:119
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:85
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_microsoft_api_free.py:62
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_openai_4o_api.py:97
 msgid ""
 "Error en la traducción.\n"
 "\n"
@@ -862,19 +1858,16 @@ msgstr "Yerel dil güncellenirken hata oluştu {}: {}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_free.py:150
 #, python-brace-format
-#| msgid "Error en {}: {}"
 msgid "Error HTTP: {0} - {1}"
 msgstr "HTTP hatası: {0} - {1}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_free.py:153
 #, python-brace-format
-#| msgid "Error en {}: {}"
 msgid "Error de red: {0}"
 msgstr "Ağ hatası: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_deepl_free.py:156
 #, python-brace-format
-#| msgid "Error en la traducción: {0}"
 msgid "Error inesperado: {0}"
 msgstr "Beklenmedik hata: {0}"
 
@@ -907,23 +1900,21 @@ msgstr "DeepL - kullan: {0} / {1}"
 msgid "Error obteniendo uso de DeepL: {0}"
 msgstr "DeepL'i kullanırken hata oluştu: {0}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:61
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:64
 msgid "No se pudo detectar el idioma"
 msgstr "Dil algılanamadı"
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:65
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:68
 #, python-brace-format
-#| msgid "Error en la traducción: {0}"
 msgid "Error de conexión: {0}"
 msgstr "Bağlantı hatası: {0}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:68
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:71
 #, python-brace-format
-#| msgid "Error en {}: {}"
 msgid "Error HTTP: {0} {1}"
 msgstr "HTTP hatası: {0} {1}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:71
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_detect.py:74
 #, python-brace-format
 msgid "Ocurrió un error inesperado: {0}"
 msgstr "Beklenmedik bir hata oluştu: {0}"
@@ -940,6 +1931,8 @@ msgid "Error al analizar la respuesta de la traducción: {0}"
 msgstr "Çeviri yanıtı analiz edilirken hata oluştu: {0}"
 
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free.py:181
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_tts.py:121
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_openai_4o_api.py:169
 msgid "Proceso cancelado por el usuario"
 msgstr "İşlem kullanıcı tarafından iptal edildi"
 
@@ -974,6 +1967,46 @@ msgid ""
 "Estructura de respuesta inesperada después de cambiar el idioma de destino"
 msgstr "Hedef dili değiştirdikten sonra beklenmeyen yanıt yapısı"
 
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_tts.py:58
+#| msgid ""
+#| "Error al obtener la respuesta.\n"
+#| "\n"
+#| "Error:\n"
+#| "\n"
+#| "{}"
+msgid ""
+"Error al obtener el audio.\n"
+"\n"
+"Error:\n"
+"\n"
+"{}"
+msgstr ""
+"Ses alınırken hata oluştu.\n"
+"\n"
+"Hata:\n"
+"\n"
+"{}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_tts.py:170
+#| msgid ""
+#| "Error al obtener la respuesta.\n"
+#| "\n"
+#| "Error:\n"
+#| "\n"
+#| "{}"
+msgid ""
+"Error al obtener el audio para una parte del texto.\n"
+"\n"
+"Error:\n"
+"\n"
+"{}"
+msgstr ""
+"Metnin bir kısmı için ses alınırken hata oluştu.\n"
+"\n"
+"Hata:\n"
+"\n"
+"{}"
+
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:41
 msgid ""
 "Error en la traducción.\n"
@@ -1006,9 +2039,49 @@ msgstr ""
 "\n"
 "{}"
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_microsoft_api_free.py:58
-msgid "La respuesta no contiene {}"
-msgstr "Yanıt {} içermiyor"
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_openai_4o_api.py:176
+msgid "El texto excede el límite de tokens permitido."
+msgstr "Metin, izin verilen jeton sınırını aşıyor."
+
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:116
+msgid ""
+"No se pudo resolver el nombre de dominio. Por favor, verifica la URL o tu "
+"conexión a Internet."
+msgstr ""
+"Alan adı çözümlenemedi. Lütfen Adresi veya internet bağlantısını kontrol "
+"edin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:118
+msgid ""
+"La solicitud ha superado el tiempo de espera. Por favor, intenta nuevamente "
+"más tarde."
+msgstr "İstek zaman aşımına uğradı. Lütfen daha sonra tekrar deneyin."
+
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:120
+msgid ""
+"Error de verificación de certificado SSL. Es posible que el certificado del "
+"servidor no sea válido."
+msgstr ""
+"SSL sertifikası doğrulama hatası. Sunucu sertifikası geçerli olmayabilir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:122
+msgid "Error SSL. Puede haber un problema con la conexión segura."
+msgstr "SSL hatası. Güvenli bağlantıda sorun olabilir."
+
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:124
+#| msgid "Error HTTP: {0} {1}"
+msgid "Error HTTP {}: {}"
+msgstr "Hata HTTP {}: {}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:126
+#| msgid "Error de red: {0}"
+msgid "Error de URL: {}"
+msgstr "Adres hatası: {}"
+
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:128
+#| msgid "Servicio desconocido: {0}"
+msgid "Error desconocido: {}"
+msgstr "Bilinmeyen hata: {}"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -1029,6 +2102,16 @@ msgstr ""
 "Eş zamanlı çeviri, geçmiş ve API anahtar yönetimi sunar. Kurulumu ve "
 "kullanımı kolaydırn\n"
 "kısayol tuşları ve NVDA menüsündeki özelleştirilebilir seçenekler."
+
+#~ msgid ""
+#~ "La activación o desactivación de la cache no puede hacerse mientras haya "
+#~ "una ventana de Traductor Avanzado abierta"
+#~ msgstr ""
+#~ "Gelişmiş Çeviri penceresi açıkken önbelleğin etkinleştirme veya devre "
+#~ "dışı bırakılma işlemi gerçekleştirilemez"
+
+#~ msgid "La respuesta no contiene {}"
+#~ msgstr "Yanıt {} içermiyor"
 
 #~ msgid "Error registrando clase de ventana"
 #~ msgstr "Pencere sınıfı kaydedilirken hata oluştu"

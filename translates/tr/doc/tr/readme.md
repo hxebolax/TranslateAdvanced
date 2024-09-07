@@ -24,6 +24,7 @@
   - [Sürüm 2024.06.06](#Sürüm 2024.06.06)
   - [Sürüm 2024.06.16](#Sürüm 2024.06.16)
   - [Sürüm 2024.06.23](#Sürüm 2024.06.23)
+  - [Sürüm 2024.09.07](#Sürüm 2024.09.07)
 
 <h2 id="Giriş">1 - Giriş</h2>
 
@@ -247,8 +248,12 @@ Bu eklenti, birkaç yıllık resmi olmayan sürümlerin ve çevrimdışı çevir
 
 <h3 id="Çevirmenler">Çevirmenler</h3>
 
-- **Katkıda bulunan 1:** Katkı açıklaması.**  
-Umut KORKMAZ Türkçe arayüz ve yardım dosyası eklendi.
+- **Portekizce:** Angelo Abrantes.
+- **Türkçe:** Umut Korkmaz.
+- **Rusça:** Valentin Kupriyanov.
+- **İngilizce:** Samuel Proulx.
+- **Ukraynaca:** Heorhii Halas y Volodymyr Pyrih.
+- **Fransızca:** Rémy Ruiz.
 
 [İçindekiler'e Dön](#İçindekiler)
 
@@ -313,5 +318,234 @@ Daha fazla eklenti eklendikçe, daha çok harekete ihtiyaç duyulacaktır ve bir
 * Yeni DeepL Çeviri modülü eklendi (Ücretsiz)
 Bu yeni modül bir API anahtarına ihtiyaç duymaz ve simültane çeviri için kullanılır.
 * Hata düzeltmeleri
+
+[İçindekiler'e Dön](#İçindekiler)
+
+
+<h3 id="Sürüm 2024.09.07">Sürüm 2024.09.07</h3>
+
+#### Çeviri Arayüzü:
+
+**Çeviri Arayüzü**, NVDA için **Gelişmiş Çeviri** eklentisinin ana bileşenidir. Bu arayüz, kullanıcının metni farklı diller arasında verimli bir şekilde çevirmesine, orijinal ve çevrilmiş metni görüntülemesine ve çeşitli özelleştirme seçenekleri sunmasına olanak tanır.  
+
+Bu iletişim kutusunu, Girdi hareketleri içerisinde atanacak bir kısayol tuşu ile veya Sanal menü içerisinden açabiliyoruz.  
+Sanal menüye aşağıda deyinilecektir.
+
+##### Ana özellikler:
+
+1. **Kaynak metin girişi**: Kullanıcının çevirmek istediği metni yazmasına veya yapıştırmasına olanak tanır. 'Alt+1' tuş kombinasyonuyla hızlı bir şekilde erişilebilir.
+   2. **Hedef metin (sonuç)**: Çevrilmiş metnin görüntülendiği alan. Bu alan salt okunur durumdadır ve 'Alt+2' ile odaklanılabilir.
+3. **Kaynak dil seçimi**: Kaynak metnin dilini seçmenizi sağlar. Varsayılan dil, sistemin metnin dilini otomatik olarak algılamasını sağlayan "Otomatik Algıla" seçeneğidir. 'Alt+3' ile erişilir.
+4. **Hedef dil seçimi**: Metni çevirmek istediğiniz dili seçmenizi sağlar. 'Alt+4' ile odaklanılabilir.
+5. **Karakter Sayacı**: Kaynak metin alanındaki karakter sayısını görüntüler. Çevrilecek metin miktarını bilmek faydalıdır. 'Alt+5' ile erişilir.
+6. **Eylem düğmeleri**:
+   - **Çevir**: Girilen metnin çevirisini başlatır.
+   - **Dinle**: Çevirinin ses dosyasını oluşturur ve dahili bir oynatıcı ile oynatılmasına imkan verir. (aşağıdaki bölüme bakın).
+   - **Değiştir**: Kaynak dili hedef dille değiştirir; çeviri dillerini tersine çevirmek istiyorsanız kullanışlıdır.
+   - **Temizle**: Hem kaynak hem de hedef metin alanlarını temizler.
+   - **Odağa Yapıştır**: Çevrilen metni arayüzün arkasındaki etkin pencereye veya metin alanına yapıştırır. 'F3' ile de etkinleştirilebilir.
+   - **Kapat**: Çeviri penceresini kapatır.
+
+##### Klavye kısayolları:
+
+- `Alt+1`: Kaynak metin kutusuna odaklanır.
+- `Alt+2`: Hedef metin kutusuna odaklanır.
+- `Alt+3`: Kaynak dili seçer.
+- `Alt+4`: Hedef dili seçer.
+- `Alt+5`: Karakter sayacına odaklanır.
+- `F3`: Çevrilen metni etkin pencereye yapıştırır.
+- `Esc`: Çeviri iletişim kutusunu kapatır.
+
+##### Alınan hatalarda eklentinin davranışları:
+
+- İnternet bağlantısı yoksa, sistem size bağlantı eksikliğini bildiren bir mesaj görüntüleyecektir.
+- Kaynak metin kutusu boşsa kullanıcı, çeviriyi gerçekleştirmeden önce metin girmesini isteyen bir uyarı alacaktır.
+- Kaynak ve hedef dillerin aynı olması durumunda metnin aynı dile çevrilmesine gerek olmadığını belirten bir uyarı görüntülenecektir.
+
+##### Ek Özellikler:
+
+- **Dil otomatik algılama**: Kaynak dilde "Otomatik Algıla" seçilirse eklenti, çevrilecek metnin dilini otomatik olarak tanımlamaya çalışacaktır.
+- **Dil Değişimi**: Bu özellik, bir metni orijinal dile geri çevirmek istediğinizde kullanışlıdır.
+
+#### Ses Oynatıcı:
+
+Kullanıcı bir çeviri yaptıktan sonra **Dinle** seçeneğini kullandığında eklenti, çevrilmiş metni bir ses dosyasına dönüştürür ve dahili bir oynatıcı aracılığıyla oynatır. Bu oynatıcı, ses oynatmayı yönetmek için temel ve gelişmiş kontroller içerir.
+
+##### Oynatıcı özellikleri:
+
+1. **Kontrol düğmeleri**:
+   - **Geri Sar(F1)**: Seçilen zamana göre oynatmayı geri sarar. Kullanıcı bu zamanı yapılandırabilir.
+   - **Oynat/Duraklat (F2)**: Ses dosyasının oynatılmasını başlatır veya duraklatır.
+   - **İleri Sar (F3)**: Kullanıcı tarafından ayarlanan süreye göre oynatmayı ileri sarar.
+   - **Durdur (F4)**: Oynatmayı tamamen durdurur.
+2. **Ses seviyesi ve hız**:
+   - **Ses seviyesi (F5/F6)**: Kaydırıcıyı kullanarak oynatma ses seviyesini ayarlar.
+   - **Hız (F7/F8)**: Normal hızın 0,50 katı ile 2,0 katı arasındaki seçeneklerle oynatma hızını değiştirir.
+3. **İlişkili metin**: Çevrilen metni salt okunur bir kutuda görüntüleyerek kullanıcının oynatılan metni görüntülemesine imkan verir.
+4. **Kaydet**: Oluşturulan ses dosyasını kullanıcının sistemine WAV formatında kaydedilmesini sağlar.
+5. **Kapat**: Oynatıcıyı kapatır ve ilgili kaynakları serbest bırakır.
+
+##### Klavye kısayolları:
+
+- `F1`: Oynatmayı geri sarar.
+- `F2`: Sesi Oynatır veya duraklatır.
+- `F3`: Oynatmayı ileri sarar.
+- `F4`: Oynatmayı durdurur.
+- `F5/F6`: Ses seviyesini azaltır/arttırır.
+- `F7/F8`: Oynatma hızını değiştirir.
+- `F9`: Oynatma süre bilgisini verir.
+- `Shift+F10 veya Uygulama Tuşu`: Geri ve ileri sarma süresini seçebleceğimiz bir içerik menüsü açar.
+
+##### Ek Özellikler:
+
+- **Kaydet**: Kullanıcılar, daha sonra kullanmak üzere ses dosyasını cihazlarına WAV formatında kaydetmeyi seçebilir.
+- **Gelişmiş seçenekler menüsü**: Oynatıcı, bağlamsal menü ('Shift+F10' tuşuyla erişilir) veya uygulamalar tuşu aracılığıyla oynatmayı geri veya ileri sarmak için tam zamanı seçmenize olanak tanır.
+
+#### Sanal menü
+
+Eklentinin sahip olduğu tüm seçenekleri içeren sanal bir menü eklendi.
+
+Girdi hareketlerinde atayabileceğimiz tüm seçenekleri sanal menüden kullanabiliriz, bu şekilde eklentiye daha fazla tuş atanmasına gerek kalmadan sanal menüden eklenti tamamen kullanılabilir.  
+
+Bu kullanıcıya bağlıdır.
+
+Sanal menüyü açmak için girdi hareketlerinde ona bir tuş atamamız gerekir.  
+
+Sanal menüyü kullanmak basittir; bir kez açıldığında, yürütmek istediğimiz eylem için ilgili tuşa basmamız gerekir.  
+
+Herhangi bir tuşa basıldığında, ilgili eylem çalışır ve eklenti bilgi mesajını seslendirir.  
+Eğer, basılan tuş herhangi bir eylem içermiyorsa sanal menü kapanır. Escape ile de menü kapatılabilir.
+
+##### Sanal Menü Klavye Kısayolları:
+
+Gelişmiş Çeviri sanal menüsü, eklentinin en kullanışlı işlevlerine hızlı bir şekilde erişmenizi sağlar. Aşağıda çeşitli eylemleri gerçekleştirmek için kullanabileceğiniz kısayollar verilmiştir:
+
+- **`P`**: **Ayarları Açar**  
+  Dilleri ve çeviri hizmetlerini ayarlayabileceğimiz Gelişmiş Çeviri ayarlarını açar.
+
+- **`U`**: **Dil güncellemelerini denetler**  
+  Eklenti dilleri için güncellemeleri denetler ve varsa indirir.
+
+- **`O`**: **Kaynak dili değiştirir**  
+  Çevirmek istediğimiz metnin dilini (kaynak dil) değiştirir.
+
+- **`D`**: **Hedef dili değiştirir**  
+  Metni çevirmek istediğimiz dili (hedef dil) değiştirir.
+
+- **`C`**: **Çeviri hizmetini değiştirir**  
+  Diğerlerinin yanı sıra Google, DeepL, Microsoft gibi mevcut çeviri hizmetleri arasında geçiş yapmamıza imkan verir.
+
+- **`A`**: **Tüm çeviri önbelleğini siler**  
+  Önbelleğe alınmış tüm çevirileri temizler.
+
+- **`X`**: **Geçerli uygulamanın çeviri önbelleğini siler**  
+  Yalnızca açtığımız uygulama için önbelleğe alınmış çevirileri temizler.
+
+- **`G`**: **Çeviri önbelleğini etkinleştir/devre dışı bırakır**  
+  Çevirileri geçici olarak kaydeden önbellek özelliğini etkinleştirir veya devre dışı bırakır.
+
+- **`L`**: **Son çeviriyi panoya kopyalar**  
+  Yapılan son çeviriyi panoya kopyalar. Böylece ihtiyaç duyulan yere yapıştırılabilir.
+
+- **`B`**: **Panodaki metni çevirir**  
+  Panoda bulunan metni çevirir.
+
+- **`V`**: **Son konuşulan metni çevirir**  
+  NVDA'nın yüksek sesle okuduğu son metni çevirir.
+
+- **`T`**: **Gerçek zamanlı çeviriyi etkinleştirir/devre dışı bırakır**  
+  Metinlere göz atarken otomatik çeviriyi açar veya kapatır.
+
+- **`S`**: **Seçili metni çevirir**  
+  Seçili metni çevirir.
+
+- **`Z`**: **Tarayıcı nesnesinden metni çevirir**  
+  Tarayıcıdaki düğme veya metin kutusu gibi belirli bir nesnenin metnini çevirir.
+
+- **`W`**: **Çeviri arayüzünü açar**  
+  Çevirmek istediğimiz metni manuel olarak girebileceğimiz grafik penceresini açar.
+
+- **`I`**: **Seçili dili algılar**  
+  Seçilen metnin dilini otomatik olarak algılar.
+
+- **`J`**: **Otomatik dil değişimini etkinleştirir/devre dışı bırakır**  
+  Algılanan kaynak dilin hedef dille eşleşmesi durumunda otomatik geçişi açar veya kapatır.
+
+- **`K`**: **Birincil ve alternatif dilleri değiştirir**  
+  Çevirmen ayarlarında birincil dili alternatif dille değiştirir.
+
+- **`H`**: **Çeviri geçmişini gösterir**  
+  Gerçekleştirilen son çevirilerin bulunduğu geçmişi gösterir.
+
+- **`F1`**: **Komutların listesini gösterir**  
+  Gelişmiş Çeviri için tek tuşlu komutları listeleyen bir iletişim kutusu açar.
+
+#### Dil algılama
+
+Bu seçenek herhangi bir uygulamada seçmiş olduğunuz metnin dilini otomatik olarak algılamanızı sağlar. Bu özelliği kullanmak için:
+1. Dilini öğrenmek istediğiniz metni seçin.
+2. Dil algılamayı etkinleştirmek için girdi hareketlerinde (veya sanal menüde) yapılandırılan klavye kısayolunu kullanın.
+3. Sistem seçilen metnin yazıldığı dili algılayacak ve size bilgi verecektir.
+Bu özellik, bir metnin dilinden emin olmadığınız ve onu çevirmeden veya başka bir işlem yapmadan önce bilmeniz gerektiğinde kullanışlıdır.
+
+#### NVDA Gelişmiş Çeviri'de Otomatik Dil Değişimi
+
+  1. İlgili klavye kısayoluna basarak veya sanal menüden erişerek otomatik değiştiri etkinleştirin.
+  2. Seçtiğiniz metnin hedef dille aynı dilde olması durumunda sistem, gereksiz çevirileri önlemek için hedef dili otomatik olarak alternatif dile geçirecektir.
+  3. Aynı kısayolu kullanarak bu seçeneği istediğiniz zaman devre dışı bırakabilirsiniz.
+
+##### Eklentideki Dil Ayarları
+
+- **Genel** bölümünde **Eklenti Ayarları**'na erişerek **hedef dilleri** ve **alternatif dilleri** yapılandırabilirsiniz. Buradan otomatik değişim için kullanılacak dilleri seçebilirsiniz.
+
+Bu özellik, kaynak dilin hedef dille aynı olduğu metinleri çevirirken karışıklığı önlemek için kullanışlıdır ve otomatik olarak yapılandırılmış bir alternatif dile geçiş yapar.
+
+#### Eklenti İletişim Kutusu Yardımı
+
+Eklenti iletişim kutularında bağlamsal yardımı görüntülemek için işlevsellik eklendi. 'Ctrl+H' tuş kombinasyonuna basıldığında, o anda odakta olan widget'ın işlevinin küçük bir açıklaması görüntülenecektir.
+
+Eklentinin iletişim kutularının herhangi bir bölümünde, bir düğmenin, metin kutusunun, kaydırıcının veya başka bir kontrolün işlevi hakkında bilgiye ihtiyaç duyarsanız, 'Ctrl+H' tuşlarına basmanız yeterlidir. Bu, odaklanılan widget'ın kısa bir açıklamasını görüntüleyecek ve kullanımıyla ilgili hızlı bir kılavuz sağlayacaktır.
+
+#### Tarayıcı nesnesinden metni çevirme:
+
+Bu işlevsellik, tarayıcı veya NVDA'nın kullandığı herhangi bir uygulama içindeki belirli bir nesnenin metnini çevirmenize imkan verir. Sanal menü aracılığıyla veya eklentinin girdi hareketlerine atanan tuş kombinasyonu aracılığıyla etkinleştirilebilir.
+
+1. İmleci çevirmek istediğiniz nesnenin üzerine getirin (bu bir düğme, metin kutusu vb. olabilir).
+2. Atanan tuş kombinasyonuna basarak veya sanal menü aracılığıyla işlevselliği etkinleştirin.
+3. Eklenti, o nesnenin içerdiği metni çevirecek ve yapılandırmaya bağlı olarak onu görüntüleyecek veya duyuracaktır.
+
+- Bir web sayfası, uygulama veya NVDA'nın etkileşimde bulunduğu herhangi bir arayüzde seçilen nesnede bulunan herhangi bir metni çevirir.
+- Menüler, düğmeler veya etiketler gibi bir sayfanın veya uygulamanın ana gövdesinin parçası olmayan küçük metin parçalarını çevirmek için kullanışlıdır.
+- Nesne metin içermiyorsa veya erişilemiyorsa eklenti, çevrilecek metin olmadığını belirten bir mesaj görüntüler.
+- Bu işlevselliğe hem eklentinin sanal menüsünden hem de NVDA'nın "Girdi Hareketleri"nde bir kısayol tuşu ayarlayarak erişebilirsiniz.
+
+#### OpenAI modülü
+
+En ucuz ve en hızlı olan chatGPT-4o-mini modeli ile OpenAI ile çeviri yapmak için yeni bir modül eklenmiştir.  
+
+Bu modül test aşamasındadır, bazen biraz gecikme yaşanmaktadır, ancak gelecek sürümlerde gelişecektir.  
+
+Bu modül, yapılandırma penceresinde/Çeviri modüllerinde bir API anahtarının atanmasını gerektirir.  
+
+OpenAI ücretli olduğundan harcamalarını kontrol etmek kullanıcıya kalmıştır.  
+
+Aşağıdaki linkte yaptığımız masrafı görebilirsiniz:  
+
+[https://platform.openai.com/usage](https://platform.openai.com/usage)
+
+#### Microsoft modülünde iyileştirme:
+
+Microsoft çevirmen modülü sıfırdan yazılmıştır ve hız, kararlılık ve kullanım nedeniyle bloke olana ve tekrar çeviri yapmak için birkaç dakika beklememiz gerekene kadar daha fazla çeviri süresine sahip olma yeteneği geliştirilmiştir.  
+
+Şimdi yapılan testlerde, aynı anda birçok metni normal kullanımın ötesinde çevirdiğimde herhangi bir kısıtlamayla karşılaşmadım.  
+
+Yani şu anda çalışıyor ve önceki modüle göre geliştirildi.
+
+#### Diğer:
+
+* Bazı mesajların sözlü olarak ifade edilmesiyle ilgili sorun düzeltildi.
+* İnternet bağlantısını denetleme yöntemi değiştirildi.
+* Hata düzeltmeleri.
+* Resmi olarak Fransızca dili eklendi.
 
 [İçindekiler'e Dön](#İçindekiler)
