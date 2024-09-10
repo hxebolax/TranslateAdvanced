@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>Traductor Avanzado 2024.06.23</title>
+<title>Traductor Avanzado 2024.09.07</title>
 </head>
 <body>
 <h1>User Manual: Advanced Translator for NVDA</h1>
@@ -36,6 +36,7 @@
 <li><a href="#version-1-0">Version 1.0</a></li>
 <li><a href="#version-2024-06-16">Version 2024.06.16</a></li>
 <li><a href="#version-2024-06-23">Version 2024.06.23</a></li>
+<li><a href="#version-2024-09-07">Version 2024.09.07</a></li>
 </ul>
 <h2 id="introduction">1 - Introduction</h2>
 
@@ -317,6 +318,251 @@
 <p>This new module does not need an API key and is used for real time translation</p>
 <ul>
 <li>Error correction</li>
+</ul>
+<p><a href="#index">Back to index</a></p>
+<h3 id="version-2024-09-07">Version 2024.09.07</h3>
+
+<h4>Translation Interface</h4>
+<p>The <strong>Translation Interface</strong> is the main component of the <strong>Advanced Translator</strong> addon for NVDA. This interface allows the user to translate text between different languages efficiently, displaying the original and translated text, and providing various customization options.</p>
+<p>To invoke it you will have to assign a key combination in input gestures or from the virtual menu (explained below).</p>
+<h5>Main features:</h5>
+<ol>
+<li>
+<p><strong>Source text entry</strong>: Allows the user to write or paste the text they want to translate. It can be accessed quickly with the key combination <code>Alt+1</code>.</p>
+</li>
+<li>
+<p><strong>Target text (result)</strong>: The area where the translated text is displayed. This field is read-only and can be focused with <code>Alt+2</code>.</p>
+</li>
+<li>
+<p><strong>Source language selection</strong>: Allows you to select the language of the source text. The default language is the "Auto Detect" option, which allows the system to automatically detect the language of the text. It is accessed with <code>Alt+3</code>.</p>
+</li>
+<li>
+<p><strong>Target language selection</strong>: Allows you to select the language to which you want to translate the text. It can be focused with <code>Alt+4</code>.</p>
+</li>
+<li>
+<p><strong>Character Counter</strong>: Displays the number of characters in the source text field. It is useful to know the amount of text that will be translated. It is accessed with <code>Alt+5</code>.</p>
+</li>
+<li>
+<p><strong>Action Buttons</strong>:</p>
+</li>
+<li><strong>Translate</strong>: Starts the translation of the entered text.</li>
+<li><strong>Listen</strong>: Obtains the audio of the translation and allows it to be played through an integrated player (see section below).</li>
+<li><strong>Swap</strong>: Swap the source language with the target language, useful if you want to reverse translation languages.</li>
+<li><strong>Clear</strong>: Clears both the source and destination text fields.</li>
+<li><strong>Paste to Focus</strong>: Pastes the translated text into the active window or text field behind the interface. It can also be activated with <code>F3</code>.</li>
+<li><strong>Close</strong>: Close the translation window.</li>
+</ol>
+<h5>Keyboard shortcuts:</h5>
+<ul>
+<li><code>Alt+1</code>: Focus the source text box.</li>
+<li><code>Alt+2</code>: Focus the target text box.</li>
+<li><code>Alt+3</code>: Select the source language.</li>
+<li><code>Alt+4</code>: Select the target language.</li>
+<li><code>Alt+5</code>: Focus the character counter.</li>
+<li><code>F3</code>: Paste the translated text into the active window.</li>
+<li><code>Esc</code>: Close the translation dialog.</li>
+</ul>
+<h5>Behavior in case of errors:</h5>
+<ul>
+<li>If there is no Internet connection, the system will display a message informing of the lack of connection.</li>
+<li>If the source text box is empty, the user will receive a warning asking to enter text before performing the translation.</li>
+<li>If the source and target languages are the same, a warning will be displayed indicating that the text does not need to be translated into the same language.</li>
+</ul>
+<h5>Additional Features:</h5>
+<ul>
+<li><strong>Language auto-detect</strong>: If "Auto Detect" is selected in the source language,The plugin will try to automatically identify the language of the text to be translated.</li>
+<li><strong>Language Exchange</strong>: This function is useful when you want to translate a text back to the original language.</li>
+</ul>
+<h4>Audio Player</h4>
+<p>When the user uses the <strong>Listen</strong> option after performing a translation, the plugin converts the translated text into an audio file and plays it through an integrated player. This player includes basic and advanced controls to manage audio playback.</p>
+<h5>Player Features:</h5>
+<ol>
+<li><strong>Control buttons</strong>:</li>
+<li><strong>Backward (F1)</strong>: Rewinds playback according to the selected time. The user can configure this time.</li>
+<li><strong>Play/Pause (F2)</strong>: Start or pause playback of the audio file.</li>
+<li><strong>Fast forward (F3)</strong>: Fast forward the playback according to the time set by the user.</li>
+<li>
+<p><strong>Stop (F4)</strong>: Stops playback completely.</p>
+</li>
+<li>
+<p><strong>Volume and speed</strong>:</p>
+</li>
+<li><strong>Volume (F5/F6)</strong>: Adjust the playback volume using a slider.</li>
+<li>
+<p><strong>Speed (F7/F8)</strong>: Change the playback speed, with options from 0.50x to 2.0x the normal speed.</p>
+</li>
+<li>
+<p><strong>Associated text</strong>: Displays the translated text in a read-only box, allowing the user to view what is being played.</p>
+</li>
+<li>
+<p><strong>Save</strong>: Allows you to save the generated audio file in WAV format on your system.</p>
+</li>
+<li>
+<p><strong>Close</strong>: Closes the player and releases the associated resources.</p>
+</li>
+</ol>
+<h5>Keyboard shortcuts:</h5>
+<ul>
+<li><code>F1</code>: Rewind playback.</li>
+<li><code>F2</code>: Play or pause the audio.</li>
+<li><code>F3</code>: Fast forward playback.</li>
+<li><code>F4</code>: Stop playback.</li>
+<li><code>F5/F6</code>: Adjust the volume.</li>
+<li><code>F7/F8</code>: Change the playback speed.</li>
+<li><code>F9</code>: Playback time information.</li>
+<li><code>Shift+F10/Applications</code>: will display a contextual menu to choose the time intervals of the rewind and fast forward buttons.</li>
+</ul>
+<h5>Additional Features:</h5>
+<ul>
+<li><strong>Save Audio</strong>: Users can choose to save the audio file to their device in WAV format for later use.</li>
+<li><strong>Advanced options menu</strong>: The player allows you to choose the exact time to rewind or advance playback through a contextual menu (accessed with the <code>Shift+F10</code> key) or applications key.</li>
+</ul>
+<h4>Virtual menu</h4>
+<p>A virtual menu has been added which contains all the options of the addon.</p>
+<p>You can invoke all the options from the virtual menu that you can assign in input gestures. In this way, all of the features of the addon can be used without having to have more keys assigned to the addon.</p>
+<p>This is up to the user.</p>
+<p>In order to invoke the virtual menu you will have to assign a key to it in input gestures.</p>
+<p>Using the virtual menu is simple, once invoked you will have to press the corresponding key for the action you want to perform. Once pressed, the action will be performed and you will always be informed of what has been done. If you press a key that is not assigned, the virtual menu will close and you can also close it with escape.</p>
+<h5>Virtual Menu Keyboard Shortcuts</h5>
+<p>The Advanced Translator virtual menu allows you to quickly access the most useful functions of the plugin. Below are shortcuts that you can use to perform various actions:</p>
+<ul>
+<li>
+<p><strong><code>P</code></strong>: <strong>Open configuration</strong><br />
+  Open the Advanced Translator settings where you can adjust the languages and translation services.</p>
+</li>
+<li>
+<p><strong><code>U</code></strong>: <strong>Check for language updates</strong><br />
+  Check for and download available updates for the plugin languages.</p>
+</li>
+<li>
+<p><strong><code>O</code></strong>: <strong>Change source language</strong><br />
+  Change the language of the text you want to translate (source language).</p>
+</li>
+<li>
+<p><strong><code>D</code></strong>: <strong>Change target language</strong><br />
+  Change the language you want to translate the text to (target language).</p>
+</li>
+<li>
+<p><strong><code>C</code></strong>: <strong>Change translation service</strong><br />
+  Allows you to switch between available translation services, such as Google, DeepL, Microsoft, among others.</p>
+</li>
+<li>
+<p><strong><code>A</code></strong>: <strong>Delete all translation cache</strong><br />
+  Clears all cached translations.</p>
+</li>
+<li>
+<p><strong><code>X</code></strong>: <strong>Delete translation cache of the current application</strong><br />
+  Clear cached translations only for the app you have open.</p>
+</li>
+<li>
+<p><strong><code>G</code></strong>: <strong>Enable/Disable translation cache</strong><br />
+  Enable or disable the cache feature that temporarily saves translations.</p>
+</li>
+<li>
+<p><strong><code>L</code></strong>: <strong>Copy last translation to clipboard</strong><br />
+  Copy the last translation made to the clipboard so you can paste it wherever you need it.</p>
+</li>
+<li>
+<p><strong><code>B</code></strong>: <strong>Translate clipboard text</strong><br />
+  Translates the current contents of the clipboard.</p>
+</li>
+<li>
+<p><strong><code>V</code></strong>: <strong>Translate the last spoken text</strong><br />
+  Translates the last text that NVDA read aloud.</p>
+</li>
+<li>
+<p><strong><code>T</code></strong>: <strong>Enable/Disable real-time translation</strong><br />
+  Turn automatic translation on or off while browsing texts.</p>
+</li>
+<li>
+<p><strong><code>S</code></strong>: <strong>Translate the selected text</strong><br />
+  Translate the text you have selected in the application.</p>
+</li>
+<li>
+<p><strong><code>Z</code></strong>: <strong>Translate text from browser object</strong><br />
+  Translates the text of a specific object within the browser, such as a button or text box.</p>
+</li>
+<li>
+<p><strong><code>W</code></strong>: <strong>Open translation interface</strong><br />
+  Opens the graphical window where you can manually enter the text you want to translate.</p>
+</li>
+<li>
+<p><strong><code>I</code></strong>: <strong>Detect selected language</strong><br />
+  Automatically detects the language of the selected text.</p>
+</li>
+<li>
+<p><strong><code>J</code></strong>: <strong>Enable/Disable automatic language exchange</strong><br />
+  Turns automatic switching on or off if the detected source language matches the target language.</p>
+</li>
+<li>
+<p><strong><code>K</code></strong>: <strong>Swap primary and alternate languages</strong><br />
+  Swap the primary language with the alternate language in the translator settings.</p>
+</li>
+<li>
+<p><strong><code>H</code></strong>: <strong>Show translation history</strong><br />
+  Shows a history of recent translations performed.</p>
+</li>
+<li>
+<p><strong><code>F1</code></strong>:<strong>Show list of commands</strong><br />
+  Displays a dialog listing single-key commands for the Advanced Translator.</p>
+</li>
+</ul>
+<h4>Language detection</h4>
+<p>This option allows you to automatically detect the language of the text you have selected in any application. To use this feature:
+1. Select the text of which you want to know the language.
+2. Use the keyboard shortcut configured in the input gestures (or virtual menu) to activate language detection.
+3. The system will detect and inform you of the language in which the selected text is written.
+This feature is useful when you are not sure of the language of a text and need to know it before translating it or taking any other action.</p>
+<h4>Automatic Language Exchange in NVDA Advanced Translator</h4>
+<ol>
+<li>Activate automatic exchange by pressing the corresponding keyboard shortcut or accessing it from the virtual menu.</li>
+<li>If the text you select is in the same language as the target language, the system will automatically switch the target language to the alternative language to avoid unnecessary translations.</li>
+<li>You can disable this option at any time using the same shortcut.</li>
+</ol>
+<h5>Language Settings in the Addon</h5>
+<ul>
+<li>You can configure <strong>target languages</strong> and <strong>alternative languages</strong> by accessing <strong>Addon Settings</strong> in the <strong>General</strong> section. From there you can select the languages that will be used for automatic exchange.</li>
+</ul>
+<p>This feature is useful to avoid confusion when translating texts in which the source language is the same as the target language, automatically switching to a configured alternative language.</p>
+<h4>Help in Addon Dialogs</h4>
+<p>Added functionality to display contextual help in addon dialogs. Pressing the key combination <code>Ctrl+H</code> will display a small description of the function of the widget that is currently in focus.</p>
+<p>Anywhere in the addon dialogs, if you need information about the function of a button, text box, slider, or other control, you can simply press <code>Ctrl+H</code>. This will display a brief description of the focused widget, providing a quick guide to its use.</p>
+<h4>Translate text from browser object</h4>
+<p>This functionality allows you to translate the text of a specific object within the browser or any other application that NVDA is using. It can be activated via the virtual menu or via a key combination assigned in the addon's input gestures.</p>
+<ol>
+<li>Place the cursor over the object you want to translate (it can be a button, a text box, etc.).</li>
+<li>Activate the functionality by pressing the assigned key combination or through the virtual menu.</li>
+<li>
+<p>The addon will translate the text contained in that object and display or speak it, depending on the configuration.</p>
+</li>
+<li>
+<p>Translate any text contained in the selected object within a web page,application or any other interface where NVDA interacts.</p>
+</li>
+<li>Useful for translating small pieces of text that are not part of the main body of a page or application, such as menus, buttons, or labels.</li>
+<li>
+<p>If the object does not contain text or is inaccessible, the plugin will display a message informing that there is no text to translate.</p>
+</li>
+<li>
+<p>You can access this functionality both from the addon's virtual menu and by setting a hotkey in NVDA's "Input Gestures".</p>
+</li>
+</ol>
+<h4>OpenAI module</h4>
+<p>A new module has been added to translate with OpenAI with the chatGPT-4º-mini model, which is the cheapest and fastest.</p>
+<p>This module is in testing, sometimes experiencing a bit of lag, but it will improve in future versions.</p>
+<p>This module requires an API key to be assigned in configuration / modules.</p>
+<p>OpenAI is paid so it is up to the user to check their spending.</p>
+<p>In the following link you can see the expense you have used:</p>
+<p><a href="https://platform.openai.com/usage">https://platform.openai.com/usage</a></p>
+<h4>Improvement in the Microsoft module</h4>
+<p>The Microsoft translator module has been rewritten from scratch to improve speed, stability and allow more translation time until they block you due to use and you have to wait a few minutes to translate again.</p>
+<p>Now in my tests carried out by simultaneously translating a lot of text, even more than normal use, I have not suffered any restrictions.</p>
+<p>So at the moment it works and has been improved compared to the previous module.</p>
+<h4>Others</h4>
+<ul>
+<li>Fixed problem with the verbalization of some messages.</li>
+<li>Changed way to check if there is internet.
+*Bug fixes</li>
+<li>Officially added French language.</li>
 </ul>
 <p><a href="#index">Back to index</a></p>
 </body>
