@@ -1,270 +1,208 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<link rel="stylesheet" type="text/css" href="../style.css" media="screen"/>
-<title>Tradutor avançado 2024.06.06</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>Traductor Avanzado 2024.09.07</title>
 </head>
 <body>
 <h1>Manual do utilizador: Tradutor Avançado para NVDA</h1>
-
 <h2 id="index">Índice</h2>
 
 <ul>
-<li><a href="#introdução">1 - Introdução</a>
-<ul>
+<li><a href="#introdução">1 - Introdução</a></li>
 <li><a href="#requisitos">1.1 - Requisitos</a></li>
 <li><a href="#limitações-e-avisos">1.2 - Limitações e avisos</a></li>
 <li><a href="#autor-informações">1.3 - Informações do autor</a></li>
-</ul></li>
-<li><a href="#description-configuration">2 - Descrição e configuração</a>
-<ul>
-<li><a href="#service-description">2.1 - Descrição do serviço</a>
-<ul>
+<li><a href="#description-configuration">2 - Descrição e configuração</a></li>
+<li><a href="#service-description">2.1 - Descrição do serviço</a><ul>
 <li><a href="#google">Google</a></li>
 <li><a href="#deepl">DeepL</a></li>
 <li><a href="#libretranslate">LibreTranslate</a></li>
 <li><a href="#microsoft-translate">Microsoft Traduzir</a></li>
-</ul></li>
-<li><a href="#configuração">2.2 - Configuração</a>
-<ul>
+</ul>
+</li>
+<li><a href="#configuração">2.2 - Configuração</a><ul>
 <li><a href="#menu-extra">Menu de extras</a></li>
 <li><a href="#teclas de atalho do extra">Teclas de atalho do extra</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#solução de problemas">3 - Solução de problemas</a>
-<ul>
+</ul>
+</li>
+<li><a href="#solução de problemas">3 - Solução de problemas</a></li>
 <li><a href="#problemas e soluções comuns">Problemas e soluções comuns</a></li>
 <li><a href="#how-to-consult-the-nvda-log">Como consultar o log do NVDA</a></li>
-</ul></li>
-<li><a href="#agradecimentos">4 - Agradecimentos</a>
-<ul>
+<li><a href="#agradecimentos">4 - Agradecimentos</a></li>
 <li><a href="#tradutores">Tradutores</a></li>
-</ul></li>
-<li><a href="#registo de versão">5 - Registo de versão</a>
-<ul>
+<li><a href="#registo de versão">5 - Registo de versão</a></li>
 <li><a href="#versão-1-0">Versão 1.0</a></li>
-</ul></li>
 </ul>
-
 <h2 id="introdução">1 - Introdução</h2>
 
 <p><strong>O  Advanced Translator for NVDA</strong> é um extra que permite traduzir textos usando diversos serviços de tradução online, como Google Translate, DeepL, LibreTranslate e Microsoft Translator. Este extra oferece funcionalidades avançadas como tradução simultânea, histórico de tradução, tradução do selecionado, suporte para vários idiomas e muito mais.</p>
-
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h3 id="requirements">1.1 - Requisitos</h3>
 
 <ul>
 <li>NVDA (NonVisual Desktop Access) 2024.1 ou superior</li>
 <li>Conexão com a internet</li>
 </ul>
-
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h3 id="limitations-and-warnings">1.2 - Limitações e avisos</h3>
 
 <p>O extra envia informações pela Internet para cada serviço correspondente para realizar a tradução simultânea. É importante observar que as informações traduzidas podem incluir dados confidenciais e sensíveis. A utilização do extra é de responsabilidade exclusiva dos utilizadores, que deverá avaliar a natureza das informações enviadas. O desenvolvedor do extra não se responsabiliza pelos dados enviados aos serviços que o extra utiliza.</p>
-
 <p>Como desenvolvedor, declino qualquer responsabilidade por qualquer eventualidade que possa surgir com o uso do extra. A responsabilidade total é dos utilizadores.</p>
-
 <p>Além disso, o extra requer uma conexão com a Internet para funcionar. A velocidade de resposta do extra depende de vários fatores, como:
 - A qualidade da nossa conexão com a Internet.
 - O possível atraso (lag) dos serviços de tradução utilizados.
 - Fatores relacionados à infraestrutura de rede dos utilizadores.</p>
-
 <p>Recomenda-se que os utilizadores estejam atentos a esses aspectos e realizem os testes necessários para garantir que o extra atenda às suas expectativas e requisitos de segurança.</p>
-
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h3 id="author-information">1.3 - Informações do autor</h3>
 
 <p><strong>Informações Técnicas e Medidas de Segurança do extra para NVDA</strong></p>
-
 <p>Trabalhei muito para tornar o extra o mais robusto possível, contabilizando e lidando com possíveis bugs. Todos os erros são capturados e registados no log do NVDA, facilitando o rastreamento e a rápida resolução dos problemas.</p>
-
 <p><strong>Problemas com certificados do Windows</strong></p>
-
 <p>Recentemente, percebi que computadores Windows recém-instalados podem ter problemas com certificados, o que pode ser frustrante. Por esse motivo, incluí uma verificação no início do extra. Caso seja detectada alguma falha relacionada aos certificados, o extra irá regenerá-los automaticamente, garantindo o correto funcionamento tanto do Windows quanto do próprio extra.</p>
-
 <p><strong>Medidas de segurança</strong></p>
-
 <p>O extra inclui várias medidas de segurança:
 - Não é permitido rodar em telas seguras.
 - Não inicia se uma conexão com a Internet não for detectada.</p>
-
 <p>Às vezes, o NVDA pode iniciar mais rápido do que conectar-se à rede Wi-Fi. Nesses casos, será necessário reiniciar o NVDA após a conexão ser estabelecida para utilizar o extra corretamente.</p>
-
 <p><strong>Gestão de chaves de API</strong></p>
-
 <p>O extra cria um ficheiro JSON que armazena as chaves de API necessárias para os serviços que as exigem. Este ficheiro, chamado <code>apis.json</code>, está localizado na pasta de utilizadores do Windows.</p>
-
 <p><strong>Principais considerações sobre ficheiros</strong></p>
-
 <p>Foi decidido armazenar este ficheiro fora do ambiente do extra para evitar que ele, por conter informações confidenciais, seja compartilhado inadvertidamente com uma cópia portátil do NVDA ou em outras situações. Caso o utilizador decida parar de usar o extra, deverá excluir manualmente este ficheiro.</p>
-
 <p>Estas medidas garantem uma melhor gestão e segurança do extra, facilitando a sua utilização e manutenção.</p>
-
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h2 id="description-configuration">2 - Descrição e configuração</h2>
 
 <h3 id="description-services">2.1 - Descrição dos serviços</h3>
 
 <p>Na sua primeira versão, o extra oferece 7 serviços de tradução:</p>
-
 <h4 id="google">Google</h4>
 
 <p><strong>4 Serviços do Google</strong></p>
-
 <ul>
 <li><strong>2 Serviços de Web Scraping:</strong> Cada serviço desempenha a mesma função, mas de forma diferente, garantindo que sempre haja uma alternativa disponível caso um deles falhe.</li>
 <li><strong>2 Serviços via API:</strong> Esses serviços também são ilimitados e gratuitos, mas o abuso deles pode resultar em banimento temporário de IP por algumas horas, após o qual o serviço será restabelecido.</li>
 <li>Todos esses serviços do Google não requerem chaves API e são ilimitados e gratuitos.</li>
 </ul>
-
 <h4 id="deepl">DeepL</h4>
 
 <p><strong>2 Serviços DeepL</strong></p>
-
 <ul>
 <li><strong>API gratuita:</strong>Esta opção requer a obtenção de uma chave API gratuita na página do DeepL, que oferece 500.000 caracteres por mês.</li>
 <li><strong>API Pro:</strong> Esta opção também requer uma chave API obtida no site do DeepL. A sua utilização está condicionada ao saldo e ao plano contratado na conta DeepL do utilizador.</li>
 <li>Os termos de uso da API DeepL podem ser encontrados em seu <a href="https://www.deepl.com/en/pro/change-plan#developer">website</a>, e o extra é limitado por estes termos.</li>
 </ul>
-
 <h4 id="libretranslate">LibreTranslate</h4>
 
 <p><strong>1 serviço LibreTranslate</strong></p>
-
 <ul>
 <li>Este serviço está em constante melhoria graças ao seu aprendizado neural contínuo. Embora atualmente não atinja a qualidade do Google, é perfeitamente utilizável.</li>
 <li>Baseado na tecnologia Argos Translate.</li>
-<li>Para utilizar este serviço é necessária uma chave API, que pode ser obtida fazendo uma doação à comunidade <a href="https://nvda.es/donaciones/">NVDA.es</a>.
-<ul>
+<li>Para utilizar este serviço é necessária uma chave API, que pode ser obtida fazendo uma doação à comunidade <a href="https://nvda.es/donaciones/">NVDA.es</a>.</li>
 <li>Após a doação, pode solicitar a chave API através do formulário da seguinte <a href="https://nvda.es/contacto/">página</a>, indicando no assunto "Solicitação de chave API" e fornecendo a referência do PayPal, transferência, etc. .</li>
-</ul></li>
 <li>Além disso, é possível configurar outros serviços LibreTranslate adicionando a chave API e modificando a URL do serviço na secção de configuração do extra.</li>
 </ul>
-
 <h4 id="microsoft-translate">Microsoft Tradutor</h4>
 
 <p><strong>1 serviço Microsoft Translate</strong></p>
-
 <ul>
 <li>Este serviço tem a limitação de que o uso contínuo pode resultar no banimento temporário do IP por alguns minutos.</li>
 <li>Esta proibição só ocorre com uso muito intensivo e em traduções de textos longos.</li>
 <li>O serviço funciona muito bem, mas é recomendável não o utilizar continuamente para evitar interrupções.</li>
 </ul>
-
 <p>Estas opções permitem aos utilizadores escolher entre vários serviços de tradução, garantindo a disponibilidade e flexibilidade do extra com base nas necessidades e preferências individuais.</p>
-
-<p>À medida que o extra recebe atualizações, serviços podem ser adicionados ou removidos. As alterações serão relatadas na seção de atualizações.</p>
-
+<p>À medida que o extra recebe atualizações, serviços podem ser adicionados ou removidos. As alterações serão relatadas na secção de atualizações.</p>
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h3 id="configuration">2.2 - Configuração</h3>
 
 <p><strong>Configurações do extra</strong></p>
-
 <p>Esta secção detalha como configurar cada um dos serviços disponíveis no extra, incluindo como adicionar chaves de API, modificar URLs de serviço e outras configurações necessárias para personalizar o uso do extra de acordo com as necessidades dos utilizadores.</p>
-
 <h4 id="extra-menu">Menu de extras</h4>
 
 <p>Em NVDA &gt; Preferências &gt; Tradutor Avançado temos um menu que contém o seguinte:</p>
-
 <ul>
-<li><p><strong>Configurações avançadas do tradutor</strong></p>
-
-<p>Se clicarmos nesta opção, a janela de configuração do extra será aberta. Esta janela possui 2 áreas:</p>
-
-<ul>
-<li><p><strong>Em geral</strong></p>
-
-<p>Neste separador serão adicionadas as opções gerais do extra. No momento,Possui apenas uma caixa de seleção para ativar ou desativar o cache do extra.</p>
-
-<p>O extra pode guardar um cache dessas traduções para cada aplicação, o que tornará a tradução mais fácil e rápida em traduções futuras. Além disso, agora ele cria um cache para cada idioma, podendo haver mais de um aplicativo que possua cache para idiomas diferentes.</p></li>
-<li><p><strong>Módulos de tradução</strong></p>
-
-<p>Neste separador podemos escolher o serviço que queremos usar para traduzir. Nos serviços que requerem uma chave API, o gestor de chaves API também será mostrado.</p>
-
-<p>Podemos ter mais de uma chave API para o mesmo serviço; Por exemplo, no LibreTranslate podemos ter diferentes chaves e URLs para conectar. Podemos adicionar, editar, excluir e definir a chave API padrão que desejamos para o serviço atual.</p>
-
-<p>A área de gestão de chaves API muda dependendo do serviço que temos. Podemos dar a cada chave de API um nome de identificação para saber rapidamente a qual API estamos nos referindo. Quando tivermos mais de uma chave API para um serviço, o item que tiver um asterisco na lista será o padrão. Isto pode ser alterado com o botão “Padrão”, tornando a chave definida para o referido serviço a chave em que nos concentramos naquele momento.</p>
-
-<p>Se o serviço de tradução que escolhermos não exigir uma chave API, o gestor não será mostrado.</p>
-
-<p>Depois temos o botão “OK” e “Cancelar”. Todas as opções têm uma tecla de atalho sobre a qual o NVDA nos informará.</p></li>
-</ul></li>
-<li><p><strong>Documentação do extra</strong></p>
-
-<p>Se clicarmos em "Documentação do extra" esta documentação será aberta.</p></li>
-<li><p><strong>Convide-me para um café se você gosta do meu trabalho</strong></p>
-
-<p>Se clicarmos nesta opção, será aberta a página do PayPal onde existe um link que diz “Enviar”. Se clicarmos neste link, ele nos pedirá para fazer login em nossa conta e nos deixar na página de doações.</p>
-
-<p>Direi apenas que tomei muito café a fazer este extra.</p></li>
+<li><strong>Configurações avançadas do tradutor</strong></li>
 </ul>
-
+<p>Se clicarmos nesta opção, a janela de configuração do extra será aberta. Esta janela possui 2 áreas:</p>
+<ul>
+<li>
+<p><strong>Em geral</strong></p>
+<p>Neste separador serão adicionadas as opções gerais do extra. No momento,Possui apenas uma caixa de seleção para ativar ou desativar o cache do extra.</p>
+<p>O extra pode guardar um cache dessas traduções para cada aplicação, o que tornará a tradução mais fácil e rápida em traduções futuras. Além disso, agora ele cria um cache para cada idioma, podendo haver mais de um aplicativo que possua cache para idiomas diferentes.</p>
+</li>
+<li>
+<p><strong>Módulos de tradução</strong></p>
+<p>Neste separador podemos escolher o serviço que queremos usar para traduzir. Nos serviços que requerem uma chave API, o gestor de chaves API também será mostrado.</p>
+<p>Podemos ter mais de uma chave API para o mesmo serviço; Por exemplo, no LibreTranslate podemos ter diferentes chaves e URLs para conectar. Podemos adicionar, editar, excluir e definir a chave API padrão que desejamos para o serviço atual.</p>
+<p>A área de gestão de chaves API muda dependendo do serviço que temos. Podemos dar a cada chave de API um nome de identificação para saber rapidamente a qual API estamos nos referindo. Quando tivermos mais de uma chave API para um serviço, o item que tiver um asterisco na lista será o padrão. Isto pode ser alterado com o botão “Padrão”, tornando a chave definida para o referido serviço a chave em que nos concentramos naquele momento.</p>
+<p>Se o serviço de tradução que escolhermos não exigir uma chave API, o gestor não será mostrado.</p>
+<p>Depois temos o botão “OK” e “Cancelar”. Todas as opções têm uma tecla de atalho sobre a qual o NVDA nos informará.</p>
+</li>
+<li>
+<p><strong>Documentação do extra</strong></p>
+</li>
+</ul>
+<p>Se clicarmos em "Documentação do extra" esta documentação será aberta.</p>
+<ul>
+<li><strong>Convide-me para um café se você gosta do meu trabalho</strong></li>
+</ul>
+<p>Se clicarmos nesta opção, será aberta a página do PayPal onde existe um link que diz “Enviar”. Se clicarmos neste link, ele nos pedirá para fazer login em nossa conta e nos deixar na página de doações.</p>
+<p>Direi apenas que tomei muito café a fazer este extra.</p>
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h4 id="extra-hotkeys">extra-hotkeys</h4>
 
 <p>Em NVDA &gt; Preferências &gt; definir comandos... &gt; Tradutor Avançado temos as seguintes teclas que podemos configurar.</p>
-
 <p>As teclas padrão não estão atribuídas para que os utilizadores possam escolher a sua melhor distribuição. São as seguintes:</p>
-
 <ul>
-<li><p><strong>Abre as configurações do extra</strong></p>
-
-<p>Este acesso abrirá rapidamente a configuração do extra.</p></li>
-<li><p><strong>Ativar ou desativar o cache de tradução</strong></p>
-
-<p>Este acesso ativará ou desativará o cache sem a necessidade de entrar na configuração.</p></li>
-<li><p><strong>Ativar ou desativar tradução simultânea online</strong></p>
-
-<p>Este acesso ativa ou desativa a tradução. É o acesso principal que começará a ser traduzido à medida que avançamos com as setas do cursor. Se tudo estiver correto, ouviremos a tradução; Se ouvirmos o texto original, teremos que olhar o log do NVDA e ver o que aconteceu.- <strong>Alterar o módulo de tradução</strong></p>
-
-<p>Este acesso abrirá uma janela com todos os serviços de tradução disponíveis. Podemos mover com as setas e selecionar com “Enter”. O serviço que selecionarmos será o que temos por padrão.</p></li>
-<li><p><strong>Alterar idioma de destino</strong></p>
-
-<p>Este acesso abrirá uma janela com os idiomas de destino disponíveis no serviço que selecionamos. Cada serviço possui idiomas e, por exemplo, se estamos traduzindo um texto que está em russo e queremos ouvi-lo em inglês, nesta caixa de diálogo teremos que selecionar Inglês. Percorremos a caixa de diálogo com as setas do cursor e "Enter" para selecionar o idioma que desejamos.</p>
-
-<p>Os nomes dos idiomas são obtidos no nosso idioma do NVDA, admitindo apenas aqueles que o NVDA suporta. Por esta razão, os nomes dos idiomas que estão em inglês podem aparecer na lista, uma vez que o NVDA não os tem traduzidos. O código ISO do idioma é adicionado ao lado de cada nome de idioma.</p></li>
-<li><p><strong>Alterar idioma de origem</strong></p>
-
-<p>Igual ao anterior, mas esta caixa de diálogo só é válida para o tradutor Microsoft. O serviço da Microsoft não permite que você defina o idioma de origem como automático para detectar qual idioma é enviado para você, então teremos que escolhê-lo nós mesmos.</p>
-
-<p>Os demais serviços não poderão utilizar esta caixa de diálogo, pois a sua opção padrão é detectar qual idioma está sendo enviado.</p></li>
-<li><p><strong>Copiar o último texto traduzido para a área de transferência</strong></p>
-
-<p>Este acesso copiará o último texto que foi traduzido para a área de transferência.</p></li>
-<li><p><strong>Excluir o cache de tradução do aplicativo em foco no momento</strong></p>
-
-<p>Se clicarmos uma vez neste acesso, ele nos dará informações; Se pressioná-lo duas vezes rapidamente, ele limpará o cache do aplicativo que está em foco no momento e nos informará o resultado.</p></li>
-<li><p><strong>Excluir todas as traduções armazenadas em cache para todos os aplicativos</strong></p>
-
-<p>Este acesso, pressionado uma vez, nos dará informações; Pressionado duas vezes rapidamente, limpará todo o cache do extra, oferecendo também informações.</p></li>
-<li><p><strong>Mostrar o histórico de tradução</strong></p>
-
-<p>Irá mostrar uma caixa de diálogo com as últimas 500 traduções de uma lista. Podemos pesquisar e rever o texto fonte e o texto traduzido em caixas somente leitura. Esta caixa de diálogo nos permitirá pesquisar todo o histórico, copiar o texto fonte e o texto traduzido para a área de transferência ou ambos.</p>
-
-<p>Também permite que alterne entre o texto fonte e o texto traduzido e os trabalhe de qualquer maneira. Além disso, podemos deletar todo o histórico para começar do zero.</p>
-
-<p>Apagar o histórico sempre que o NVDA é reiniciado.</p></li>
-<li><p><strong>Traduzir o texto selecionado</strong></p>
-
-<p>Esta ação irá traduzir o texto que selecionamos e focamos. Se for um texto grande, será aberta uma caixa de diálogo com a percentagem da tradução. O referido diálogo pode ser cancelado, o que também cancelará a tradução.</p>
-
-<p>Assim que a tradução for concluída,o texto será mostrado em uma caixa de diálogo para que possamos explorá-lo.</p>
-
-<p>Esta opção utiliza o serviço Google Translate e este serviço não pode ser alterado, sendo escolhido internamente por ser o que dá melhores resultados para textos longos.</p></li>
+<li><strong>Abre as configurações do extra</strong></li>
 </ul>
-
+<p>Este acesso abrirá rapidamente a configuração do extra.</p>
+<ul>
+<li><strong>Ativar ou desativar o cache de tradução</strong></li>
+</ul>
+<p>Este acesso ativará ou desativará o cache sem a necessidade de entrar na configuração.</p>
+<ul>
+<li><strong>Ativar ou desativar tradução simultânea online</strong></li>
+</ul>
+<p>Este acesso ativa ou desativa a tradução. É o acesso principal que começará a ser traduzido à medida que avançamos com as setas do cursor. Se tudo estiver correto, ouviremos a tradução; Se ouvirmos o texto original, teremos que olhar o log do NVDA e ver o que aconteceu.- <strong>Alterar o módulo de tradução</strong></p>
+<p>Este acesso abrirá uma janela com todos os serviços de tradução disponíveis. Podemos mover com as setas e selecionar com “Enter”. O serviço que selecionarmos será o que temos por padrão.</p>
+<ul>
+<li><strong>Alterar idioma de destino</strong></li>
+</ul>
+<p>Este acesso abrirá uma janela com os idiomas de destino disponíveis no serviço que selecionamos. Cada serviço possui idiomas e, por exemplo, se estamos traduzindo um texto que está em russo e queremos ouvi-lo em inglês, nesta caixa de diálogo teremos que selecionar Inglês. Percorremos a caixa de diálogo com as setas do cursor e "Enter" para selecionar o idioma que desejamos.</p>
+<p>Os nomes dos idiomas são obtidos no nosso idioma do NVDA, admitindo apenas aqueles que o NVDA suporta. Por esta razão, os nomes dos idiomas que estão em inglês podem aparecer na lista, uma vez que o NVDA não os tem traduzidos. O código ISO do idioma é adicionado ao lado de cada nome de idioma.</p>
+<ul>
+<li><strong>Alterar idioma de origem</strong></li>
+</ul>
+<p>Igual ao anterior, mas esta caixa de diálogo só é válida para o tradutor Microsoft. O serviço da Microsoft não permite que você defina o idioma de origem como automático para detectar qual idioma é enviado para você, então teremos que escolhê-lo nós mesmos.</p>
+<p>Os demais serviços não poderão utilizar esta caixa de diálogo, pois a sua opção padrão é detectar qual idioma está sendo enviado.</p>
+<ul>
+<li><strong>Copiar o último texto traduzido para a área de transferência</strong></li>
+</ul>
+<p>Este acesso copiará o último texto que foi traduzido para a área de transferência.</p>
+<ul>
+<li><strong>Excluir o cache de tradução do aplicativo em foco no momento</strong></li>
+</ul>
+<p>Se clicarmos uma vez neste acesso, ele nos dará informações; Se pressioná-lo duas vezes rapidamente, ele limpará o cache do aplicativo que está em foco no momento e nos informará o resultado.</p>
+<ul>
+<li><strong>Excluir todas as traduções armazenadas em cache para todos os aplicativos</strong></li>
+</ul>
+<p>Este acesso, pressionado uma vez, nos dará informações; Pressionado duas vezes rapidamente, limpará todo o cache do extra, oferecendo também informações.</p>
+<ul>
+<li><strong>Mostrar o histórico de tradução</strong></li>
+</ul>
+<p>Irá mostrar uma caixa de diálogo com as últimas 500 traduções de uma lista. Podemos pesquisar e rever o texto fonte e o texto traduzido em caixas somente leitura. Esta caixa de diálogo nos permitirá pesquisar todo o histórico, copiar o texto fonte e o texto traduzido para a área de transferência ou ambos.</p>
+<p>Também permite que alterne entre o texto fonte e o texto traduzido e os trabalhe de qualquer maneira. Além disso, podemos deletar todo o histórico para começar do zero.</p>
+<p>Apagar o histórico sempre que o NVDA é reiniciado.</p>
+<ul>
+<li><strong>Traduzir o texto selecionado</strong></li>
+</ul>
+<p>Esta ação irá traduzir o texto que selecionamos e focamos. Se for um texto grande, será aberta uma caixa de diálogo com a percentagem da tradução. O referido diálogo pode ser cancelado, o que também cancelará a tradução.</p>
+<p>Assim que a tradução for concluída,o texto será mostrado em uma caixa de diálogo para que possamos explorá-lo.</p>
+<p>Esta opção utiliza o serviço Google Translate e este serviço não pode ser alterado, sendo escolhido internamente por ser o que dá melhores resultados para textos longos.</p>
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h2 id="solução de problemas">3 - Solução de problemas</h2>
 
 <h3 id="common-problems-and-solutions">Problemas e soluções comuns</h3>
@@ -272,17 +210,13 @@
 <p><strong>Conexão com a internet</strong>
 - Verifique se a sua conexão com a Internet está ativa e funcionando corretamente.
 - Reinicie seu roteador ou modem, se necessário.</p>
-
 <p><strong>Erros de certificado</strong>
 - Se ocorrerem erros de certificado, certifique-se de que a data e a hora do sistema estejam corretas.
 - Verifique se os certificados necessários estão instalados e atualizados.</p>
-
 <p><strong>Problemas de desempenho</strong>
 - Certifique-se de que o seu computador atenda aos requisitos mínimos de sistema.
 - Feche outros aplicativos que possam estar a consumir muitos recursos.</p>
-
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h3 id="how-to-consult-the-nvda-log">Como consultar o log do NVDA</h3>
 
 <ol>
@@ -290,50 +224,341 @@
 <li>Vá para <code>NVDA &gt; Ferramentas &gt; Ver Log</code>.</li>
 <li>Na janela de registo, procure erros ou mensagens relacionadas ao Advanced Translator.</li>
 </ol>
-
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h2 id="agradecimentos">4 - Agradecimentos</h2>
 
 <p>Agradeço a todos os programadores do NVDA pelo seu excelente trabalho.</p>
-
 <p>E não quero deixar de dizer que o início deste extra é o extra (TRANSLATE) do Yannick PLASSIARD, com o qual aprendi e utilizei algumas funções.</p>
-
 <p>Também a Alexy Sadovoy, também conhecido como Lex, ruslan, beqa, Mesar Hameed, Alberto Buffolino e outros colaboradores do NVDA também pelo extra (Instant Translate) do qual um dos métodos para o Google foi obtido e foi modificado para implementá-lo no Advanced Translator.</p>
-
 <p>Este extra é o trabalho de vários anos lançando versões não oficiais e o estudo do uso de traduções offline.</p>
-
 <p>A aprendizagem é o resultado deste complemento, tendo em conta que no futuro trará novidades surpreendentes.</p>
-
 <p><a href="#índice">Voltar ao índice</a></p>
-
 <h3 id="translators">Tradutores</h3>
 
 <ul>
-<li><strong>Nome do Colaborador 1:</strong> Descrição da contribuição.</li>
+<li><strong>Português:</strong> Ângelo Abrantes.</li>
+<li><strong>Turco:</strong> Umut Korkmaz.</li>
+<li><strong>Russo:</strong> Valentin Kupriyanov.</li>
+<li><strong>Inglês:</strong> Samuel Proulx.</li>
+<li><strong>Ucraniano:</strong> Heorhii Halas e Volodymyr Pyrih.</li>
+<li><strong>Francês:</strong> Rémy Ruiz.</li>
 </ul>
-
 <p><a href="#índice">Voltar ao índice</a></p>
+<h2 id="version-record">5 - Registro de versão</h2>
 
-<h2 id="version-record">5 - Registo de versão</h2>
-
-<p>Nesta secção será adicionado um registro de versões, onde serão postadas as novidades de cada versão.</p>
-
-<p>O manual é baseado na primeira versão, portanto, não será atualizado continuando a servir de base.</p>
-
+<p>Nesta secção será adicionado um registo de versões, onde serão postadas as novidades de cada versão.</p>
+<p>O manual é baseado na primeira versão; portanto, não será atualizado, servindo , continuamente, de base.</p>
 <p>Notícias serão adicionadas nesta secção.</p>
-
 <p><a href="#índice">Voltar ao índice</a></p>
-
-<h3 id="version-1-0">Versão 2024.06.06</h3>
+<h3 id="version-2024-06-06">Versão 2024.06.06</h3>
 
 <ul>
 <li>Lançamento inicial do extra.</li>
 <li>Suporte para 7 serviços de tradução.</li>
 <li>Funcionalidades básicas de tradução simultânea e gestão de chaves API.</li>
 </ul>
-
 <p><a href="#índice">Voltar ao índice</a></p>
+<h3 id="version-2024-06-16">Versão 2024.06.16</h3>
 
+<ul>
+<li><strong>Adicionada a capacidade de copiar a tradução traduzida para a área de transferência por seleção em vez de mostrá-la em uma caixa de diálogo:</strong></li>
+</ul>
+<p>Foi adicionada uma opção para copiar automaticamente o texto traduzido para a área de transferência, quando esta função for selecionada, evitando a necessidade de mostrar uma caixa de diálogo adicional.</p>
+<p>Esta opção foi adicionada na caixa de diálogo de configuração do extra, em Geral.</p>
+<p>Se esta opção estiver marcada, não será mais mostrada uma caixa de diálogo, quando traduzirmos um texto selecionado, mas sim copia diretamente para a área de transferência.</p>
+<ul>
+<li><strong>Traduzir o que estiver na área de transferência:</strong></li>
+</ul>
+<p>Agora é possível traduzir diretamente o conteúdo localizado na área de transferência, proporcionando uma forma rápida e eficiente de traduzir textos copiados.</p>
+<p>Se nada for traduzido, ele nos informará o que está na área de transferência ou, se não houver nada na área de transferência, nos notificará com uma mensagem.</p>
+<ul>
+<li><strong>Traduzir a última coisa falada pelo sintetizador:</strong></li>
+</ul>
+<p>Foi incorporada uma funcionalidade que permite traduzir a última frase ou texto falado pelo sintetizador de voz, melhorando a acessibilidade e usabilidade do complemento.</p>
+<p>Se a última coisa verbalizada não puder ser traduzida, ele nos dirá a última coisa que foi verbalizada no idioma de origem.</p>
+<ul>
+<li><strong>Mostrar traduções em linhas braille:</strong></li>
+</ul>
+<p>A nova versão inclui suporte para mostrar  traduções em dispositivos de linhas Braille, facilitando o acesso às traduções.</p>
+<p>Funcionará apenas em dispositivos que possuam uma linha braille configurada.</p>
+<p>Esta função está em fase de testes.</p>
+<ul>
+<li><strong>Atualizador de idioma do extra:</strong></li>
+</ul>
+<p>Foi implementado um atualizador para manter os idiomas do plugin sempre atualizados, garantindo a disponibilidade dos idiomas mais recentes e precisos.</p>
+<p>Agora, no menu NVDA &gt; Preferências &gt; Tradutor Avançado</p>
+<p>Teremos um novo item chamado Atualizar idiomas do extra (Sem atualizações).</p>
+<p>Este item poderá nos informar se houver atualizações, por exemplo:Atualizar idiomas do extra (3 atualizações disponíveis)</p>
+<p>Se o pressionar, aparecerá uma caixa de diálogo com os novos idiomas, com as atualizações ou com um dos dois se não houver em ambos.</p>
+<p>Podemos instalar ou saltar.</p>
+<p>Se clicarmos em instalar, os idiomas serão baixados e instalados e o NVDA será reiniciado.</p>
+<p>O item de menu é atualizado a cada 30 minutos, verificando atualizações, ou a cada reinicialização.</p>
+<p>O gasto de dados dessa verificação é ridículo porque para aqueles locais que têm problemas de dados, é menos de 1kb que precisa de verificar.</p>
+<p>Este atualizador tornará mais fácil compartilhar atualizações de idiomas do extra com os usuários rapidamente assim que eles chegarem e sem a necessidade de lançar uma nova versão com os novos idiomas.</p>
+<p>Cada nova versão do extra virá com todos os idiomas novos e atualizados que entretanto forem chegando.</p>
+<ul>
+<li><strong>Bug de leitura contínua corrigido:</strong></li>
+</ul>
+<p>Corrigido um problema que causava erros de leitura contínua, melhorando a estabilidade e o desempenho do plugin durante o uso prolongado.</p>
+<ul>
+<li><strong>Notas do autor:</strong></li>
+</ul>
+<p>Todas as novas funções, como traduzir a área de transferência, traduzir as últimas palavras faladas pelo sintetizador ou verificar atualizações de idioma, podem ser atribuídas por atalhos.</p>
+<p>Recomendo que, se não vamos usar nenhuma opção, não lhe adicionemos qualquer atalho, para que possamos tê-lo em outros plugins. Vamos adicionar aqueles que podem ser úteis para nós.</p>
+<p>À medida que utilitários são adicionados, mais atalhos serão necessários e um utilitário pode não funcionar para um e pode funcionar para outro, por isso atribuímos apenas aqueles que vamos usar.</p>
+<p><a href="#índice">Voltar ao índice</a></p>
+<h3 id="version-2024-06-23">Versão 2024.06.23</h3>
+
+<ul>
+<li>Adicionado novo módulo DeepL Translator (gratuito)</li>
+</ul>
+<p>Este novo módulo não necessita de chave API e é utilizado para tradução simultânea </p>
+<ul>
+<li>Correções de bugs</li>
+</ul>
+<p><a href="#índice">Voltar ao índice</a></p>
+<h3 id="version-2024-09-07">Versão 2024.09.07</h3>
+<h4>Interface de tradução</h4>
+<p>A <strong>Interface de Tradução</strong> é o componente principal do extra <strong>Advanced Translator</strong> para o NVDA. Esta interface permite ao utilizador traduzir textos entre diferentes idiomas de forma eficiente, mostrando o texto original e traduzido, além de oferecer diversas opções de personalização.</p>
+<p>Para invocá-lo, teremos que lhe atribuir uma combinação de teclas, no "definir comandos" ou no menu virtual (explicado abaixo).</p>
+<h5>Principais características:</h5>
+<ol>
+<li>
+<p><strong>Entrada de texto fonte</strong>: Permite ao utilizador escrever ou colar o texto que deseja traduzir. Pode ser acedido rapidamente com a combinação de teclas <code>Alt+1</code>.</p>
+</li>
+<li>
+<p><strong>Texto de destino (resultado)</strong>: A área onde o texto traduzido é mostrado. Este campo é somente leitura e pode ser focado com <code>Alt+2</code>.</p>
+</li>
+<li>
+<p><strong>Seleção do idioma de origem</strong>: Permite selecionar o idioma do texto de origem. O idioma padrão é a opção "Detecção automática",o que permite ao sistema detectar automaticamente o idioma do texto. É acedido com <code>Alt+3</code>.</p>
+</li>
+<li>
+<p><strong>Seleção do idioma de destino</strong>: Permite selecionar o idioma para o qual deseja traduzir o texto. Pode ser focado com <code>Alt+4</code>.</p>
+</li>
+<li>
+<p><strong>Contador de caracteres</strong>: Mostra o número de caracteres no campo de texto de origem. É útil saber a quantidade de texto que será traduzido. Ele é acessado com <code>Alt+5</code>.</p>
+</li>
+<li>
+<p><strong>Botões de ação</strong>:</p>
+</li>
+<li><strong>Traduzir</strong>: Inicia a tradução do texto inserido.</li>
+<li><strong>Ouvir</strong>: Obtém o áudio da tradução e permite que seja reproduzido através de um player integrado (ver secção abaixo).</li>
+<li><strong>Trocar</strong>: Troca o idioma de origem pelo idioma de destino, útil se desejar reverter os idiomas de tradução.</li>
+<li><strong>Limpar</strong>: Limpa os campos de texto de origem e de destino.</li>
+<li><strong>Colar no foco</strong>: Cola o texto traduzido na janela ativa ou campo de texto atrás da interface. Também pode ser ativado com <code>F3</code>.</li>
+<li><strong>Fechar</strong>: Fecha a janela de tradução.</li>
+</ol>
+<h5>Atalhos de teclado:</h5>
+<ul>
+<li><code>Alt+1</code>: Foca a caixa de texto fonte.</li>
+<li><code>Alt+2</code>: Foca a caixa de texto de destino.</li>
+<li><code>Alt+3</code>: Selecione o idioma de origem.</li>
+<li><code>Alt+4</code>: Selecione o idioma de destino.</li>
+<li><code>Alt+5</code>: Foca o contador de caracteres.</li>
+<li><code>F3</code>: Cole o texto traduzido na janela ativa.</li>
+<li><code>Esc</code>: Fecha a caixa de diálogo de tradução.</li>
+</ul>
+<h5>Comportamento em caso de erros:</h5>
+<ul>
+<li>Caso não haja conexão com a Internet, o sistema mostrará uma mensagem informando a falta de conexão.</li>
+<li>Se a caixa de texto fonte estiver vazia, o utilizador receberá um aviso solicitando a inserção do texto antes de realizar a tradução.</li>
+<li>Se os idiomas de origem e de destino forem iguais, será mostrado um aviso indicando que o texto não precisa ser traduzido para o mesmo idioma.</li>
+</ul>
+<h5>Recursos adicionais:</h5>
+<ul>
+<li><strong>Detecção automática de idioma</strong>: Se "Detecção automática" for selecionado no idioma de origem, o plugin tentará identificar automaticamente o idioma do texto a ser traduzido.</li>
+<li><strong>Intercâmbio de idiomas</strong>: Esta função é útil quando deseja traduzir um texto de volta para o idioma original.</li>
+</ul>
+<h4>Reprodutor de áudio</h4>
+<p>Quando o utilizador usa a opção <strong>Ouvir</strong> após realizar uma tradução, o extra converte o texto traduzido em um arquivo de áudio e o reproduz através de um player integrado. Este player inclui controles básicos e avançados para gerenciar a reprodução de áudio.</p>
+<h5>Recursos do reprodutor:</h5>
+<ol>
+<li><strong>Botões de controlo</strong>:</li>
+<li><strong>Retroceder (F1)</strong>: Retrocede a reprodução de acordo com o tempo selecionado. O utilizador pode configurar este tempo.</li>
+<li><strong>Reproduzir/Pausar (F2)</strong>: inicia ou pausa a reprodução do ficheiro de áudio.</li>
+<li><strong>Avanço rápido (F3)</strong>: Avanço rápido da reprodução de acordo com o tempo definido pelo utilizador.</li>
+<li>
+<p><strong>parar (F4)</strong>: Pára a reprodução completamente.</p>
+</li>
+<li>
+<p><strong>Volume e velocidade</strong>:- <strong>Volume (F5/F6)</strong>: Ajusta o volume de reprodução usando um controle deslizante.</p>
+</li>
+<li>
+<p><strong>Velocidade (F7/F8)</strong>: Altere a velocidade de reprodução, com opções de 0,50x a 2,0x a velocidade normal.</p>
+</li>
+<li>
+<p><strong>Texto associado</strong>: mostra o texto traduzido numa caixa de somente leitura, permitindo ao utilizador visualizar o que está sendo reproduzido.</p>
+</li>
+<li>
+<p><strong>guardar</strong>: Permite guardar o ficheiro de áudio gerado em formato WAV no sistema do utilizador.</p>
+</li>
+<li>
+<p><strong>Fechar</strong>: Fecha o reprodutor e liberta os recursos associados.</p>
+</li>
+</ol>
+<h5>Atalhos de teclado:</h5>
+<ul>
+<li><code>F1</code>: Atrasar a reprodução.</li>
+<li><code>F2</code>: Reproduzir ou pausar o áudio.</li>
+<li><code>F3</code>: Avanço rápido na reprodução.</li>
+<li><code>F4</code>: Parar a reprodução.</li>
+<li><code>F5/F6</code>: Ajusta o volume.</li>
+<li><code>F7/F8</code>: Alterar a velocidade de reprodução.</li>
+<li><code>F9</code>: Informação do tempo de reprodução.</li>
+<li><code>Shift+F10/Aplicativos</code>: Os botões voltar e avançar mostrarão um menu contextual para escolher o tempo correspondente.</li>
+</ul>
+<h5>Recursos adicionais:</h5>
+<ul>
+<li><strong>guardar áudio</strong>: os utilizadores podem optar por guardar o ficheiro de áudio nos seus dispositivos no formato WAV para uso posterior.</li>
+<li><strong>Menu de opções avançadas</strong>: O reprodutor permite escolher o tempo exato para atrasar ou avançar a reprodução através de um menu contextual (acedido com a tecla <code>Shift+F10</code>) ou tecla de aplicativos.</li>
+</ul>
+<h4>Menu virtual</h4>
+<p>Foi adicionado um menu virtual que contém todas as opções que o extra possui.</p>
+<p>Podemos invocar do menu virtual todas as opções que podemos atribuir no "definir comandos, desta forma a partir do menu virtual o extra pode ser utilizado completamente sem a necessidade de ter mais teclas atribuídas.</p>
+<p>Isto depende do utilizador.</p>
+<p>Para invocar o menu virtual teremos que lhe atribuir um atalho.</p>
+<p>A utilização do menu virtual é simples, uma vez invocado teremos que pressionar a tecla correspondente à ação que queremos executar.</p>
+<p>Uma vez pressionado, será executado e seremos sempre informados do que foi feito. Se pressionarmos uma tecla que não esteja atribuída, o menu virtual será fechado e também poderemos fechá-lo com escape.</p>
+<h5>Atalhos de teclado do menu virtual</h5>
+<p>O menu virtual do Advanced Translator permite aceder rapidamente as funções mais úteis do extra. Abaixo estão os atalhos que pode usar para realizar várias ações:</p>
+<ul>
+<li>
+<p><strong><code>P</code></strong>: <strong>Abrir configuração</strong><br />
+  Abre as configurações do Advanced Translator onde pode ajustar os idiomas e serviços de tradução.</p>
+</li>
+<li>
+<p><strong><code>U</code></strong>: <strong>Verificar se há atualizações de idioma</strong><br />
+  Verifique e baixe as atualizações disponíveis para os idiomas do extra.</p>
+</li>
+<li>
+<p><strong><code>O</code></strong>: <strong>Alterar idioma de origem</strong><br />
+  Altere o idioma do texto que deseja traduzir (idioma de origem).</p>
+</li>
+<li>
+<p><strong><code>D</code></strong>: <strong>Alterar idioma de destino</strong><br />
+  Altere o idioma para o qual deseja traduzir o texto (idioma de destino).</p>
+</li>
+<li>
+<p><strong><code>C</code></strong>:<strong>Alterar serviço de tradução</strong><br />
+  Permite alternar entre os serviços de tradução disponíveis, como Google, DeepL, Microsoft, entre outros.</p>
+</li>
+<li>
+<p><strong><code>A</code></strong>: <strong>Excluir todo o cache de tradução</strong><br />
+  Limpa todas as traduções em cache.</p>
+</li>
+<li>
+<p><strong><code>X</code></strong>: <strong>Excluir cache de tradução do aplicativo atual</strong><br />
+  Limpe as traduções em cache apenas para o aplicativo que você abriu.</p>
+</li>
+<li>
+<p><strong><code>G</code></strong>: <strong>Ativar/desativar cache de tradução</strong><br />
+  Ative ou desative o recurso de cache que guarda temporariamente as traduções.</p>
+</li>
+<li>
+<p><strong><code>L</code></strong>: <strong>Copia a última tradução para a área de transferência</strong><br />
+  Copie a última tradução feita para a área de transferência para colá-la onde precisar.</p>
+</li>
+<li>
+<p><strong><code>B</code></strong>: <strong>Traduzir texto da área de transferência</strong><br />
+  Traduz o conteúdo atual da área de transferência.</p>
+</li>
+<li>
+<p><strong><code>V</code></strong>: <strong>Traduzir o último texto falado</strong><br />
+  Traduz o último texto que o NVDA leu em voz alta.</p>
+</li>
+<li>
+<p><strong><code>T</code></strong>: <strong>Ativar/desativar tradução em tempo real</strong><br />
+  Ative ou desative a tradução automática enquanto navega pelos textos.</p>
+</li>
+<li>
+<p><strong><code>S</code></strong>: <strong>Traduzir o texto selecionado</strong><br />
+  Traduza o texto que selecionou no aplicativo.</p>
+</li>
+<li>
+<p><strong><code>Z</code></strong>: <strong>Traduzir texto do objeto do navegador</strong><br />
+  Traduz o texto de um objeto específico no navegador, como um botão ou caixa de texto.</p>
+</li>
+<li>
+<p><strong><code>W</code></strong>: <strong>Interface de tradução aberta</strong><br />
+  Abre a janela gráfica onde pode inserir manualmente o texto que deseja traduzir.</p>
+</li>
+<li>
+<p><strong><code>I</code></strong>: <strong>Detectar idioma selecionado</strong><br />
+  Detecta automaticamente o idioma do texto selecionado.</p>
+</li>
+<li>
+<p><strong><code>J</code></strong>: <strong>Ativar/desativar troca automática de idioma</strong><br />
+  Ative ou desative a troca automática se o idioma de origem detectado corresponder ao idioma de destino.</p>
+</li>
+<li>
+<p><strong><code>K</code></strong>: <strong>Trocar idiomas primários e alternativos</strong><br />
+  Troque o idioma principal pelo idioma alternativo nas configurações do tradutor.</p>
+</li>
+<li>
+<p><strong><code>H</code></strong>: <strong>Mostrar histórico de tradução</strong><br />
+  Mostra um histórico de traduções recentes realizadas.</p>
+</li>
+<li>
+<p><strong><code>F1</code></strong>: <strong>Mostrar lista de comandos</strong><br />
+  Mostra uma caixa de diálogo listando comandos de tecla única para o Advanced Translator.</p>
+</li>
+</ul>
+<h4>Detecção de idioma</h4>
+<p>Esta opção permite detectar automaticamente o idioma do texto selecionado em qualquer aplicativo. Para usar este recurso:
+1. Selecione o texto cujo idioma deseja conhecer.
+2. Use o atalho de teclado configurado no "definir comandos" (ou no menu virtual) para ativar a detecção de idioma.
+3. O sistema detectará e informará o idioma em que o texto selecionado está escrito.
+Este recurso é útil quando não tem certeza do idioma de um texto e precisa conhecê-lo antes de traduzi-lo ou realizar qualquer outra ação.</p>
+<h4>Troca Automática de Idiomas no NVDA Advanced Translator</h4>
+<ol>
+<li>Ative a troca automática pressionando o atalho de teclado correspondente ou acessando-o no menu virtual.
+  2.Se o texto selecionado estiver no mesmo idioma do idioma de destino, o sistema mudará automaticamente o idioma de destino para o idioma alternativo para evitar traduções desnecessárias.</li>
+<li>Pode desativar esta opção a qualquer momento usando o mesmo atalho.</li>
+</ol>
+<h5>Configurações de idioma no extra</h5>
+<ul>
+<li>Pode configurar <strong>idiomas de destino</strong> e <strong>idiomas alternativos</strong> acedendo <strong>Configurações do plug-in</strong> na secção <strong>Geral</strong>. A partir daí pode selecionar os idiomas que serão usados para troca automática.</li>
+</ul>
+<p>Este recurso é útil para evitar confusões na tradução de textos cujo idioma de origem é igual ao idioma de destino, alternando automaticamente para um idioma alternativo configurado.</p>
+<h4>Ajuda nas caixas de diálogo do extra</h4>
+<p>Adicionada funcionalidade para mostrar ajuda contextual nas caixas de diálogo do extra. Pressionar a combinação de teclas <code>Ctrl+H</code> mostrará uma pequena descrição da função do widget que está atualmente em foco.</p>
+<p>Em qualquer lugar, nas caixas de diálogo do plugin, se precisar de informações sobre a função de um botão, caixa de texto, controlo deslizante ou outro controlo, pode simplesmente pressionar <code>Ctrl+H</code>. Isso exibirá uma breve descrição do widget em foco, fornecendo um guia rápido para seu uso.</p>
+<h4>Traduzir texto do objeto do navegador</h4>
+<ol>
+<li>Coloque o cursor sobre o objeto que deseja traduzir (pode ser um botão, uma caixa de texto, etc.).</li>
+<li>Ative a funcionalidade pressionando a combinação de teclas atribuída ou através do menu virtual.</li>
+<li>
+<p>O extra irá traduzir o texto contido naquele objeto e mostrá-lo ou pronunciá-lo, dependendo das configurações.</p>
+</li>
+<li>
+<p>Traduza qualquer texto contido no objeto selecionado dentro de uma página web, aplicativo ou qualquer outra interface onde o NVDA interaja.</p>
+</li>
+<li>Útil para traduzir pequenos trechos de texto que não fazem parte do corpo principal de uma página ou aplicativo, como menus, botões ou rótulos.</li>
+<li>
+<p>Caso o objeto não contenha texto ou esteja inacessível, o extra mostrará uma mensagem informando que não há texto para traduzir.</p>
+</li>
+<li>
+<p>Pode aceder a esta funcionalidade tanto no menu virtual do extra quanto definindo uma tecla de atalho no "definir comandos" do NVDA.</p>
+</li>
+</ol>
+<h4>Módulo OpenAI</h4>
+<p>Foi adicionado um novo módulo para tradução com OpenAI com o modelo chatGPT-4º-mini, que é o mais barato e rápido.</p>
+<p>Este módulo está em teste, às vezes apresentando um pouco de atraso, mas irá melhorar em versões futuras.</p>
+<p>Este módulo requer que uma chave API seja atribuída na configuração/módulos.</p>
+<p>O OpenAI é pago, portanto cabe ao utilizador verificar os seus gastos.</p>
+<p>No link a seguir pode ver a despesa que tem:</p>
+<p><a href="https://platform.openai.com/usage">https://platform.openai.com/usage</a></p>
+<h4>Melhoria no módulo Microsoft</h4>
+<p>O módulo tradutor da Microsoft foi escrito do zero e melhorou a velocidade,estabilidade e poder ter mais tempo de tradução até que bloqueiem por uso e tenhamos que esperar alguns minutos para traduzir novamente.</p>
+<p>Até agora, nos testes realizados e traduzindo simultaneamente muito texto para uso mais que normal, não sofri nenhuma restrição.</p>
+<p>Então no momento funciona e foi melhorado em relação ao módulo anterior.</p>
+<h4>Outros</h4>
+<ul>
+<li>Corrigido problema na verbalização de algumas mensagens.</li>
+<li>Alterada forma de verificar se há internet.</li>
+<li>Correções de bugs</li>
+<li>Língua francesa oficialmente adicionada.</li>
+</ul>
+<p><a href="#índice">Voltar ao índice</a></p>
 </body>
 </html>
