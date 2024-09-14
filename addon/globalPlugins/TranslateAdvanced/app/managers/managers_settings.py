@@ -271,7 +271,7 @@ class GestorSettings:
 				language = languageHandler.getWindowsLanguage()[:2]
 			except:
 				language = 'en'
-		return language
+		return language[:2]
 
 	def convertir_valor(self, valor):
 		"""

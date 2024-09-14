@@ -1,0 +1,3 @@
+Corregido la devolución de idiomas en configuración.
+
+Ahora siempre devolverá idiomas de código ISO 639-1 en la función obtenerLenguaje del manager de configuración.
