@@ -9,6 +9,7 @@ import logHandler
 import urllib.parse
 import urllib.request
 import re
+import html
 
 # Carga traducción
 addonHandler.initTranslation()
@@ -35,7 +36,6 @@ class TranslatorGooglealternative:
 		"""
 		base_url = "https://translate.google.com/m"
 		params = {
-			"hl": "en",
 			"sl": source,
 			"tl": target,
 			"ie": "UTF-8",
@@ -43,7 +43,7 @@ class TranslatorGooglealternative:
 			"q": text
 		}
 		url = f"{base_url}?{urllib.parse.urlencode(params)}"
-		headers = {'User-Agent': 'Mozilla/5.0'}
+		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
 
 		req = urllib.request.Request(url, headers=headers)
 		try:
@@ -67,9 +67,9 @@ class TranslatorGooglealternative:
 		"""
 		try:
 			# Buscar la traducción en el HTML usando expresiones regulares
-			match = re.search(r'class="(?:result-container|t0)">(.*?)<', response_data)
+			match = re.search(r'class="result-container">(.*?)</div>', response_data)
 			if match:
-				return match.group(1)
+				return html.unescape(match.group(1))
 			else:
 				logHandler.log.error(_("Error al extraer la traducción: no se encontró el texto traducido."))
 				return _("Error al extraer la traducción: no se encontró el texto traducido.")
