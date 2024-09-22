@@ -312,6 +312,8 @@ Error:
 					# Verifica la estructura de la respuesta y accede correctamente
 					if isinstance(response, list) and len(response) > 0 and isinstance(response[0], list):
 						translated_chunk = ''.join([item[0] for item in response[0] if item[0]])
+					elif isinstance(response, list) and response[0] is None:
+						translated_chunk = chunk
 					else:
 						raise Exception(_("Estructura de respuesta inesperada"))
 					self.lang_detected = response[2]

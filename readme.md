@@ -25,6 +25,7 @@
   - [Versión 2024.06.16](#version-2024-06-16)
   - [Versión 2024.06.23](#version-2024-06-23)
   - [Versión 2024.09.07](#version-2024-09-07)
+  - [Versión 2024.09.19](#version-2024-09-19)
 
 <h2 id="introduccion">1 - Introducción</h2>
 
@@ -286,6 +287,7 @@ El aprendizaje es el resultado de este complemento teniendo en claro que a futur
 - **Inglés:** Samuel Proulx.
 - **Ucraniano:** Heorhii Halas y Volodymyr Pyrih.
 - **Francés:** Rémy Ruiz.
+- **Árabe:** Wafiq Taher.
 
 [Volver al índice](#indice)
 
@@ -619,5 +621,19 @@ Por lo que de momento funciona y se a mejorado respecto al modulo anterior.
 * Cambiada forma de comprobar si hay internet.
 *Corrección de errores
 * Agregado oficialmente idioma francés.
+
+[Volver al índice](#indice)
+
+<h3 id="version-2024-09-19">Versión 2024.09.19</h3>
+
+* Corregido la devolución de idiomas en configuración.
+
+Ahora siempre devolverá idiomas de código ISO 639-1 en la función obtenerLenguaje del manager de configuración.
+
+* Solucionado [Issue #13](https://github.com/hxebolax/TranslateAdvanced/issues/13)
+
+Importación del módulo html: Se ha añadido import html para utilizar la función html.unescape(), la cual desescapa todas las entidades HTML, incluidas las numéricas como (').
+
+Eliminación de código innecesario: Se han eliminado los métodos _load_html_entities y unescape, ya que ahora se utiliza html.unescape() en los módulos de Google web.
 
 [Volver al índice](#indice)
