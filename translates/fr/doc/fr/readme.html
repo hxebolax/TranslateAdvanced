@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>Traductor Avanzado 2024.06.23</title>
+<title>Traductor Avanzado 2024.09.19</title>
 </head>
 <body>
 <h1>Manuel de l'utilisateur : Traducteur Avancé pour NVDA</h1>
@@ -36,6 +36,8 @@
 <li><a href="#version-2024-06-06">Version 2024.06.06</a></li>
 <li><a href="#version-2024-06-16">Version 2024.06.16</a></li>
 <li><a href="#version-2024-06-23">Version 2024.06.23</a></li>
+<li><a href="#version-2024-09-07">Version 2024.09.07</a></li>
+<li><a href="#version-2024-09-19">Version 2024.09.19</a></li>
 </ul>
 <h2 id="introduction">1 - Introduction</h2>
 
@@ -158,15 +160,15 @@
 <p>Dans NVDA &gt; Préférences &gt; Gestes de commandes... &gt; Traducteur Avancé nous avons les touches ou gestes de commandes  suivantes que nous pouvons configurer à notre guise.</p>
 <p>Les touches ou gestes de commandes par défaut ne sont pas attribuées afin que l'utilisateur puisse choisir sa meilleure disposition. Ce sont les suivantes :</p>
 <ul>
-<li><strong>Ouvre la configuration de l'extension</strong></li>
+<li><strong>Ouvrir la configuration de l'extension</strong></li>
 </ul>
 <p>Cet accès ouvrira rapidement la configuration de l'extension.</p>
 <ul>
-<li><strong>Active ou désactive le cache de traduction</strong></li>
+<li><strong>Activer ou désactiver le cache de traduction</strong></li>
 </ul>
 <p>Cet accès activera ou désactivera le cache sans avoir à entrer dans la configuration.</p>
 <ul>
-<li><strong>Active ou désactive la traduction simultanée en ligne</strong></li>
+<li><strong>Activer ou désactiver la traduction simultanée en ligne</strong></li>
 </ul>
 <p>Cet accès active ou désactive la traduction. C'est l'accès principal qui commencera à traduire au fur et à mesure que nous nous déplacerons avec les flèches du curseur. Si tout est correct, nous entendrons la traduction ; Si nous entendons le texte source, nous devrons consulter le journal NVDA et voir ce qui s'est passé.</p>
 <ul>
@@ -196,7 +198,7 @@
 </ul>
 <p>Cet accès, en appuyant une fois, nous donnera des informations ; En appuyant deux fois rapidement, il supprimera tout le cache de l'extension, offrant également des informations.</p>
 <ul>
-<li><strong>Afficher l'historique de la traduction</strong></li>
+<li><strong>Afficher l'historique des traductions</strong></li>
 </ul>
 <p>Il affichera un dialogue avec les 500 dernières traductions dans une liste. Nous pouvons rechercher et réviser le texte source et le texte traduit dans des zones en lecture seule. Ce dialogue nous permettra de rechercher dans tout l'historique, de copier à la fois le texte source et le texte traduit dans le presse-papiers ou les deux.</p>
 <p>Il vous permet également de basculer entre le texte source et le texte traduit et de travailler dans les deux sens. De plus, nous pouvons supprimer tout l’historique pour repartir de zéro.</p>
@@ -246,6 +248,7 @@
 <li><strong>Russe:</strong> Valentin Kupriyanov.</li>
 <li><strong>Anglais:</strong> Samuel Proulx.</li>
 <li><strong>Ukrainien:</strong> Heorhii Halas et Volodymyr Pyrih.</li>
+<li><strong>Français:</strong> Rémy Ruiz.</li>
 </ul>
 <p><a href="#sommaire">Retour au sommaire</a></p>
 <h2 id="journal-des-versions">5 - Journal des versions</h2>
@@ -268,10 +271,10 @@
 <li><strong>Ajout de la possibilité de copier la traduction traduite dans le presse-papiers par sélection au lieu de l'afficher dans un dialogue:</strong></li>
 </ul>
 <p>Une option a été ajoutée pour copier automatiquement le texte traduit dans le presse-papiers lorsque cette fonction est sélectionnée, évitant ainsi d'avoir à afficher un dialogue supplémentaire.</p>
-<p>Cette option a été ajoutée dans le dialogue de configuration de l'extension dans Général.</p>
+<p>Cette option a été ajoutée dans le dialogue Configuration de l'extension dans la section Général.</p>
 <p>Si cette option est cochée, il n'affichera plus le dialogue lorsque l'on traduira un texte sélectionné, mais le copiera directement dans le presse-papiers.</p>
 <ul>
-<li><strong>Traduire le contenu du presse-papiers:</strong></li>
+<li><strong>Traduire ce qu'il y a dans le presse-papiers:</strong></li>
 </ul>
 <p>Il est désormais possible de traduire directement le contenu situé dans le presse-papiers, offrant ainsi un moyen rapide et efficace de traduire les textes copiés.</p>
 <p>Si rien n'est traduit, il nous dira ce qu'il y a dans le presse-papiers ou s'il n'y a rien dans le presse-papiers, il nous en informera avec un message.</p>
@@ -321,6 +324,263 @@
 <ul>
 <li>Corrections d'erreurs</li>
 </ul>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="version-2024-09-07">Version 2024.09.07</h3>
+<h4>Interface de traduction</h4>
+<p><strong>L'Interface de traduction</strong> est le composant principal de l'extension <strong>Traducteur Avancé</strong> pour NVDA. Cette interface permet à l'utilisateur de traduire efficacement du texte entre différentes langues, en affichant le texte source et traduit et en offrant diverses options de personnalisation.</p>
+<p>Pour l'invoquer, nous devrons attribuer une combinaison de touches dans le dialogue "Gestes de commandes" ou depuis le menu virtuel (expliqué ci-dessous).</p>
+<h5>Principales caractéristiques:</h5>
+<ol>
+<li>
+<p><strong>Introduire du texte source</strong>: Permet à l'utilisateur de taper ou de coller le texte qu'il souhaite traduire. Il est accessible rapidement avec la combinaison de touches <code>Alt+1</code>.</p>
+</li>
+<li>
+<p><strong>Texte cible (résultat)</strong>: La zone où le texte traduit est affiché. Ce champ est en lecture seule et peut être focalisé avec <code>Alt+2</code>.</p>
+</li>
+<li>
+<p><strong>Sélection de la langue source</strong>: Permet de sélectionner la langue du texte source. La langue par défaut est l'option "Détection automatique", ce qui permet au système de détecter automatiquement la langue du texte. Accessible avec <code>Alt+3</code>.</p>
+</li>
+<li>
+<p><strong>Sélection de la langue cible</strong>: Vous permet de sélectionner la langue dans laquelle vous souhaitez traduire le texte. Il peut être focalisé avec <code>Alt+4</code>.</p>
+</li>
+<li>
+<p><strong>Compteur de caractères</strong>: Affiche le nombre de caractères dans le champ de texte source. Il est utile de connaître la quantité de texte qui sera traduite. Accessible avec <code>Alt+5</code>.</p>
+</li>
+<li>
+<p><strong>Boutons d'action</strong>:</p>
+</li>
+<li><strong>Traduire</strong>: Démarre la traduction du texte tapé.</li>
+<li><strong>Écouter</strong>: Obtient l'audio de la traduction et permet de le lire via un lecteur intégré (voir la section ci-dessous).</li>
+<li><strong>Intervertir</strong>: Échange la langue source avec la langue cible, utile si vous souhaitez inverser les langues de traduction.</li>
+<li><strong>Effacer</strong>: Efface les champs de texte source et sible.</li>
+<li><strong>Coller au focus</strong>: Colle le texte traduit dans la fenêtre active ou le champ de texte derrière l'interface. Il peut également être activé avec <code>F3</code>.</li>
+<li><strong>Fermer</strong>: Ferme la fenêtre de traduction.</li>
+</ol>
+<h5>Raccourcis clavier:</h5>
+<ul>
+<li><code>Alt+1</code>: Focaliser la zone de texte source.</li>
+<li><code>Alt+2</code>: Focaliser la zone de texte cible.</li>
+<li><code>Alt+3</code>: Sélectionner la langue source.</li>
+<li><code>Alt+4</code>: Sélectionner la langue sible.</li>
+<li><code>Alt+5</code>: Focaliser le compteur de caractères.</li>
+<li><code>F3</code>: Coller le texte traduit dans la fenêtre active.</li>
+<li><code>Échap</code>: Fermer le dialogue de traduction.</li>
+</ul>
+<h5>Comportement en cas d'erreurs:</h5>
+<ul>
+<li>S'il n'y a pas de connexion Internet, le système affichera un message vous informant de l'absence de connexion.</li>
+<li>Si la zone de texte source est vide, l'utilisateur recevra un avertissement lui demandant d'écrire du texte avant que la traduction ne soit effectuée.</li>
+<li>Si les langues source et cible sont les mêmes, un avertissement s'affichera indiquant que le texte n'a pas besoin d'être traduit dans la même langue.</li>
+</ul>
+<h5>Fonctionnalités supplémentaires:</h5>
+<ul>
+<li><strong>Détection automatique de la langue</strong>: Si la "Détection automatique"  est sélectionnée dans la langue source, l'extension tentera d'identifier automatiquement la langue du texte à traduire.</li>
+<li><strong>Intervertir  les langues</strong>: Cette fonctionnalité est utile lorsque vous souhaitez traduire en retour un texte dans la langue source.</li>
+</ul>
+<h4>Lecteur audio</h4>
+<p>Lorsque l'utilisateur utilise l'option <strong>Écouter</strong> Après avoir effectué une traduction, l'extension convertit le texte traduit en fichier audio et le lit via un lecteur intégré. Ce lecteur comprend des commandes de base et avancées pour gérer la lecture audio.</p>
+<h5>Caractéristiques du lecteur:</h5>
+<ol>
+<li><strong>Boutons de contrôle</strong>:</li>
+<li><strong>Reculer (F1)</strong>: Recule la lecture en fonction du temps sélectionnée. L'utilisateur peut configurer cette durée.</li>
+<li><strong>Lire/Pause (F2)</strong>: Démarrer ou mettre en pause la lecture du fichier audio.</li>
+<li><strong>Avancer (F3)</strong>: Avance la lecture en fonction de la durée définie par l'utilisateur.</li>
+<li>
+<p><strong>Arrêter (F4)</strong>: Arrête complètement la lecture.</p>
+</li>
+<li>
+<p><strong>Volume et vitesse</strong>:</p>
+</li>
+<li><strong>Volume (F5/F6)</strong>: Ajuste le volume de lecture à l’aide d’un curseur.</li>
+<li>
+<p><strong>Vitesse (F7/F8)</strong>: Modifie la vitesse de lecture, avec des options de 0,50x à 2,0x la vitesse normale.</p>
+</li>
+<li>
+<p><strong>Texte associé</strong>: Affiche le texte traduit dans une zone en lecture seule, permettant à l'utilisateur de voir ce qui est en cours de lecture.</p>
+</li>
+<li>
+<p><strong>Enregistrer</strong>: Permet d'enregistrer le fichier audio généré au format WAV sur le système de l'utilisateur.</p>
+</li>
+<li>
+<p><strong>Fermer</strong>: Ferme le lecteur et libère les ressources associées.</p>
+</li>
+</ol>
+<h5>Raccourcis clavier:</h5>
+<ul>
+<li><code>F1</code>: Reculer la lecture.</li>
+<li><code>F2</code>: Lire ou mettre en pause l'audio.</li>
+<li><code>F3</code>: Avancer la lecture.</li>
+<li><code>F4</code>: Arrêter la lecture.</li>
+<li><code>F5/F6</code>: Ajuster le volume de lecture.</li>
+<li><code>F7/F8</code>: Changer la vitesse de lecture.</li>
+<li><code>F9</code>: Informations sur la durée de lecture.</li>
+<li><code>Maj+F10/Applications</code>: Sur les boutons Reculer et Avancer, un menu contextuel s'affichera pour choisir la durée correspondante.</li>
+</ul>
+<h5>Fonctionnalités supplémentaires:</h5>
+<ul>
+<li><strong>Enregistrer l'audio</strong>: Les utilisateurs peuvent choisir d'enregistrer le fichier audio sur leur appareil au format WAV pour une utilisation ultérieure.</li>
+<li><strong>Menu d'options avancés</strong>: Le lecteur permet de choisir la durée exacte pour reculer ou avancer la lecture grâce à un menu contextuel (accessible avec la touche <code>Maj+F10</code>) ou touche applications.</li>
+</ul>
+<h4>Menu virtuel</h4>
+<p>Un menu virtuel a été ajouté qui contient toutes les options dont dispose l'extension.</p>
+<p>Nous pouvons invoquer depuis le menu virtuel toutes les options que nous pouvons attribuer dans le dialogue "Gestes de commandes", De cette façon, à partir du menu virtuel, l'extension peut être utilisée complètement sans avoir à attribuer davantage de touches à l'extension.</p>
+<p>Ce qui reste au goût de l'utilisateur.</p>
+<p>Pour appeler le menu virtuel, nous devrons lui attribuer une touche dans le dialogue "Gestes de commandes".</p>
+<p>L'utilisation du menu virtuel est simple, une fois invoqué, nous devrons appuyer sur la touche correspondante à l'action que nous voulons exécuter.</p>
+<p>Une fois appuyé, il sera exécuté et nous serons toujours informés de ce qui a été fait. Si nous appuyons sur une touche qui n'est pas attribuée, le menu virtuel se fermera et nous pourrons également le fermer avec Échap.</p>
+<h5>Raccourcis clavier du menu virtuel</h5>
+<p>Le menu virtuel de Traducteur Avancé vous permet d'accéder rapidement aux fonctions les plus utiles de l'extension. Vous trouverez ci-dessous les raccourcis que vous pouvez utiliser pour effectuer diverses actions :</p>
+<ul>
+<li>
+<p><strong><code>P</code></strong>: <strong>Ouvrir la configuration de l'extension</strong><br />
+  Ouvre la configuration de Traducteur Avancé où vous pouvez ajuster les langues et les services de traduction.</p>
+</li>
+<li>
+<p><strong><code>U</code></strong>: <strong>Vérifier les mises à jour linguistiques de l'extension</strong><br />
+  Recherche et télécharge les mises à jour disponibles pour les langues de l'extension.</p>
+</li>
+<li>
+<p><strong><code>O</code></strong>: <strong>Changer la langue source du traducteur</strong><br />
+  Change la langue du texte que vous souhaitez traduire (langue source).</p>
+</li>
+<li>
+<p><strong><code>D</code></strong>: <strong>Changer la langue cible du traducteur</strong><br />
+  Change la langue dans laquelle vous souhaitez traduire le texte (langue cible).</p>
+</li>
+<li>
+<p><strong><code>C</code></strong>: <strong>Changer le module de traduction</strong><br />
+  Vous permet de basculer entre les services de traduction disponibles, tels que Google, DeepL, Microsoft, entre autres.</p>
+</li>
+<li>
+<p><strong><code>A</code></strong>: *<em>Supprimer toutes les traductions en cache pour toutes les applications</em><br />
+  Efface toutes les traductions stockées en cache.</p>
+</li>
+<li>
+<p><strong><code>X</code></strong>: <strong>Supprimer le cache de traduction pour l'application actuellement focalisée</strong><br />
+  Efface les traductions en cache uniquement pour l'application que vous avez ouverte.</p>
+</li>
+<li>
+<p><strong><code>G</code></strong>: <strong>Activer ou désactiver le cache de traduction selon l'état actuel</strong><br />
+  Active ou désactive la fonction de cache qui enregistre temporairement les traductions.</p>
+</li>
+<li>
+<p><strong><code>L</code></strong>: <strong>Copier le dernier texte traduit dans le Presse-papiers s'il n'y a pas de traduction en cours</strong><br />
+  Copie la dernière traduction réalisée dans le presse-papiers pour pouvoir la coller là où vous en avez besoin.</p>
+</li>
+<li>
+<p><strong><code>B</code></strong>: <strong>Traduire le contenu du presse-papiers</strong><br />
+  Traduit le contenu actuel du presse-papiers.</p>
+</li>
+<li>
+<p><strong><code>V</code></strong>: <strong>Traduire le dernier texte verbalisé</strong><br />
+  Traduit le dernier texte lu par NVDA à haute voix.</p>
+</li>
+<li>
+<p><strong><code>T</code></strong>: <strong>Activer ou désactiver la traduction simultanée en ligne</strong><br />
+  Active ou désactive la traduction automatique lors de la navigation dans les textes.</p>
+</li>
+<li>
+<p><strong><code>S</code></strong>: <strong>Traduire le texte sélectionné</strong><br />
+  Traduit le texte que vous avez sélectionné dans l'application.</p>
+</li>
+<li>
+<p><strong><code>Z</code></strong>: <strong>Traduire le texte de l'objet navigateur</strong><br />
+  Traduit le texte d'un objet spécifique dans le navigateur, tel qu'un bouton ou une zone de texte.</p>
+</li>
+<li>
+<p><strong><code>W</code></strong>: <strong>Interface de traduction</strong><br />
+  Ouvre la fenêtre graphique où vous pouvez introduire manuellement le texte que vous souhaitez traduire.</p>
+</li>
+<li>
+<p><strong><code>I</code></strong>: <strong>Détecter la langue sélectionnée</strong><br />
+  Détecte automatiquement la langue du texte sélectionné.</p>
+</li>
+<li>
+<p><strong><code>J</code></strong>: <strong>Activer ou désactiver l'alternance automatique si la source détectée correspond à la sible</strong><br />
+  Active ou désactive l'alternance automatique si la langue source détectée correspond à la langue cible.</p>
+</li>
+<li>
+<p><strong><code>K</code></strong>: <strong>Intervertir la langue principale avec la langue alternative</strong><br />
+  Échange la langue principale avec la langue alternative dans la configuration du traducteur.</p>
+</li>
+<li>
+<p><strong><code>H</code></strong>: <strong>Afficher l'historique des traductions</strong><br />
+  Affiche un historique des traductions récentes effectuées.</p>
+</li>
+<li>
+<p><strong><code>F1</code></strong>: <strong>Afficher un dialogue avec la liste des commandes d'une seule touche</strong><br />
+  Affiche un dialogue avec la liste des commandes d'une seule touche pour le Traducteur Avancé.</p>
+</li>
+</ul>
+<h4>Détecter la langue sélectionnée</h4>
+<p>Cette option vous permet de détecter automatiquement la langue du texte que vous avez sélectionné dans n'importe quelle application :
+1. Sélectionnez le texte dont vous souhaitez connaître la langue.
+2. Utiliser le raccourci clavier configuré dans le dialogue "Gestes de commandes" (ou le menu virtuel) pour activer l'option "Détecter la langue sélectionnée".
+3. Le système détectera et vous informera de la langue dans laquelle le texte sélectionné est rédigé.
+Cette fonctionnalité est utile lorsque vous n'êtes pas sûr de la langue d'un texte et que vous devez la connaître avant de le traduire ou d'effectuer toute autre action.</p>
+<h4>Alternance automatique des langues dans le Traducteur Avancé pour NVDA</h4>
+<ol>
+<li>Activez l'alternance automatique en appuyant sur le raccourci clavier correspondant ou en accédant à partir du menu virtuel.</li>
+<li>Si le texte que vous sélectionnez est dans la même langue que la langue cible, le système changera automatiquement la langue cible en langue alternative pour éviter des traductions inutiles.</li>
+<li>Vous pouvez désactiver cette option à tout moment en utilisant le même raccourci.</li>
+</ol>
+<h5>Configuration des langues dans l'extension</h5>
+<ul>
+<li>Vous pouvez configurer les <strong>langues cible</strong> et les <strong>langues alternatives</strong> en accédant à la <strong>Configuration de l'extension</strong> dans la section <strong>Général</strong>. De là, vous pourrez sélectionner les langues qui seront utilisées pour l'alternance  automatique.</li>
+</ul>
+<p>Cette fonctionnalité est utile pour éviter toute confusion lors de la traduction de textes dont la langue source est la même que la langue cible, en passant automatiquement à une langue alternative configurée.</p>
+<h4>Aide dans les Dialogues de l'extension</h4>
+<p>Ajout d'une fonctionnalité pour afficher une aide contextuelle dans les dialogues de l'extension. Appuyer sur la combinaison de touches <code>Ctrl+H</code>, une petite description de la fonction du widget actuellement focalisé sera affichée.</p>
+<p>N'importe où dans les dialogues de l'extension, si vous avez besoin d'informations sur la fonction d'un bouton, d'une zone de texte, d'un curseur ou d'un autre contrôle, vous pouvez simplement appuyer sur <code>Ctrl+H</code>. Cela affichera une brève description du widget focalisé, fournissant un guide rapide sur son utilisation.</p>
+<h4>Traduire le texte de l'objet navigateur</h4>
+<p>Cette fonctionnalité vous permet de traduire le texte d'un objet spécifique dans le navigateur ou dans toute autre application utilisée par NVDA. Il peut être activé via le menu virtuel ou via une combinaison de touches attribuée dans  le dialogue "Gestes de commandes" de l'extension.</p>
+<ol>
+<li>Placez le curseur sur l'objet que vous souhaitez traduire (cela peut être un bouton, une zone de texte, etc.</li>
+<li>Activez la fonctionnalité en appuyant sur la combinaison de touches attribuée ou via le menu virtuel.</li>
+<li>
+<p>L'extension traduira le texte contenu dans cet objet et l'affichera ou le verbalisera, selon la configuration.</p>
+</li>
+<li>
+<p>Traduit tout texte contenu dans l'objet sélectionné dans une page Web, une application ou toute autre interface avec laquelle NVDA interagit.</p>
+</li>
+<li>Utile pour traduire de petits morceaux de texte qui ne font pas partie du corps principal d'une page ou d'une application, tels que des menus, des boutons ou des étiquettes.</li>
+<li>
+<p>Si l'objet ne contient pas de texte ou est inaccessible, l'extension affichera un message informant qu'il n'y a pas de texte à traduire.</p>
+</li>
+<li>
+<p>Vous pouvez accéder à cette fonctionnalité à la fois depuis le menu virtuel de l'extension et en configurant un raccourci clavier dans le dialogue "Gestes de commandes" de NVDA.</p>
+</li>
+</ol>
+<h4>Module d'OpenAI</h4>
+<p>Un nouveau module a été ajouté pour traduire avec OpenAI avec le modèle chatGPT-4º-mini, qui est le moins cher et le plus rapide.</p>
+<p>Ce module est en test, connaissant parfois un peu de décalage (lag), mais il s'améliorera dans les prochaines versions.</p>
+<p>Ce module nécessite qu'une clé API soit attribuée dans le dialogue "Configuration de l'extension" dans l'onglet "Modules de traduction".</p>
+<p>OpenAI est payant, c'est donc à l'utilisateur de vérifier ses frais.</p>
+<p>Dans le lien suivant, vous pouvez voir les frais que nous avons :</p>
+<p><a href="https://platform.openai.com/usage">https://platform.openai.com/usage</a></p>
+<h4>Amélioration du module Microsoft</h4>
+<p>Le module de traduction Microsoft a été écrit à partir de zéro et a amélioré la vitesse, la stabilité et la possibilité d'avoir plus de temps de traduction jusqu'à ce qu'il se bloque en raison de son utilisation et que nous devions attendre quelques minutes pour traduire à nouveau.</p>
+<p>Maintenant, dans les tests effectués et en traduisant simultanément beaucoup de texte plus que l'utilisation normale, je n'ai subi aucune restriction.</p>
+<p>Donc pour le moment il fonctionne et a été amélioré par rapport au module précédent.</p>
+<h4>Autres</h4>
+<ul>
+<li>Correction d'un problème avec la verbalisation de certains messages.</li>
+<li>Modification de la façon de vérifier s'il y a Internet.</li>
+<li>Corrections d'erreurs.</li>
+<li>Langue française officiellement ajoutée.</li>
+</ul>
+<p><a href="#sommaire">Retour au sommaire</a></p>
+<h3 id="version-2024-09-19">Version 2024.09.19</h3>
+
+<ul>
+<li>Correction du retour de langues en configuration.</li>
+</ul>
+<p>Maintenant toujours retournera les langues de code ISO 639-1 dans la fonction obtenerLenguaje du manager de configuration.</p>
+<ul>
+<li>Résolu <a href="https://github.com/hxebolax/TranslateAdvanced/issues/13">Issue #13</a></li>
+</ul>
+<p>Importation de module html : Ajout d'importation html pour utiliser la fonction html.unescape(), qui supprime toutes les entités HTML, y compris les entités numériques comme (').</p>
+<p>Suppression de code inutile : Les méthodes _load_html_entities et unescape ont été supprimées, car html.unescape() est désormais utilisé dans les modules Google web.</p>
 <p><a href="#sommaire">Retour au sommaire</a></p>
 </body>
 </html>

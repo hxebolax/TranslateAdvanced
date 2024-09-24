@@ -21,7 +21,11 @@
 - [4 - Agradecimientos](#agradecimientos)
   - [Traductores](#traductores)
 - [5 - Registro de Versiones](#registro-de-versiones)
-  - [Versión 1.0](#version-1-0)
+  - [Versión 2024.06.06](#version-2024-06-06)
+  - [Versión 2024.06.16](#version-2024-06-16)
+  - [Versión 2024.06.23](#version-2024-06-23)
+  - [Versión 2024.09.07](#version-2024-09-07)
+  - [Versión 2024.09.19](#version-2024-09-19)
 
 <h2 id="introduccion">1 - Introducción</h2>
 
@@ -111,7 +115,7 @@ En su primera versión, el complemento ofrece 7 servicios de traducción:
 - Basado en la tecnología de Argos Translate.
 - Para usar este servicio se requiere una clave API, la cual se puede obtener realizando una donación a la comunidad [NVDA.es](https://nvda.es/donaciones/).
   - Tras donar, se puede solicitar la clave API utilizando el formulario de la siguiente [página](https://nvda.es/contacto/), indicando en el asunto "solicitud de clave API" y proporcionando la referencia de PayPal, transferencia, etc.
-- Además, es posible configurar otros servicios de LibreTranslate añadiendo la clave API y modificando la URL del servicio en la sección de configuración del complemento.
+- Además, es posible configurar otros servicios de LibreTranslate añadiendo la clave API y modificando la URL del servicio en la sección de Configuración del complemento.
 
 <h4 id="microsoft-translate">Microsoft Translate</h4>
 
@@ -277,7 +281,13 @@ El aprendizaje es el resultado de este complemento teniendo en claro que a futur
 
 <h3 id="traductores">Traductores</h3>
 
-- **Nombre del Colaborador 1:** Descripción de la contribución.
+- **Portugués:** Ângelo Abrantes.
+- **Turco:** Umut Korkmaz.
+- **Ruso:** Valentin Kupriyanov.
+- **Inglés:** Samuel Proulx.
+- **Ucraniano:** Heorhii Halas y Volodymyr Pyrih.
+- **Francés:** Rémy Ruiz.
+- **Árabe:** Wafiq Taher.
 
 [Volver al índice](#indice)
 
@@ -291,10 +301,339 @@ Las novedades se agregarán en esta sección.
 
 [Volver al índice](#indice)
 
-<h3 id="version-1-0">Versión 2024.06.06</h3>
+<h3 id="version-2024-06-06">Versión 2024.06.06</h3>
 
 - Lanzamiento inicial del complemento.
 - Soporte para 7 servicios de traducción.
 - Funcionalidades básicas de traducción simultánea y gestión de claves API.
+
+[Volver al índice](#indice)
+
+<h3 id="version-2024-06-16">Versión 2024.06.16</h3>
+
+- **Agregar el poder copiar al portapapeles lo traducido por selección en vez de mostrarlo en diálogo:**
+
+Se ha añadido una opción para copiar automáticamente al portapapeles el texto traducido cuando se selecciona esta función, evitando la necesidad de mostrar un cuadro de diálogo adicional.
+
+Dicha opción se añadió en el diálogo de Configuración del complemento en el apartado de General.
+
+Si dicha opción se marca, ya no mostrará el diálogo cuando traduzcamos un texto seleccionado, sino que lo copiará directamente al portapapeles.
+
+- **Traducir lo que haya en el portapapeles:**
+
+Ahora es posible traducir directamente el contenido que se encuentra en el portapapeles, proporcionando una manera rápida y eficiente de traducir textos copiados.
+
+Si no se traduce nada nos dirá que hay en el portapapeles o si no hay nada en el portapapeles nos notificara con un mensaje.
+
+- **Traducir lo último verbalizado por el sintetizador:**
+
+Se ha incorporado una funcionalidad que permite traducir la última frase o texto verbalizado por el sintetizador de voz, mejorando la accesibilidad y usabilidad del complemento.
+
+Si no se puede traducir lo ultimo verbalizado nos dirá lo ultimo que se verbalizo en el idioma origen.
+
+- **Mostrar traducciones en líneas braille:**
+
+La nueva versión incluye soporte para mostrar las traducciones en dispositivos de línea braille, facilitando el acceso a las traducciones.
+
+Solo funcionara en aquellos equipos que tengan configurada una línea braille.
+
+Esta función esta en fase de pruebas.
+
+- **Actualizador de idiomas del complemento:**
+
+Se ha implementado un actualizador que permite mantener los idiomas del complemento siempre actualizados, asegurando la disponibilidad de los idiomas más recientes y precisos.
+
+Ahora en el menú de NVDA > Preferencias > Traductor Avanzado
+
+Tendremos un nuevo item llamado Actualizar idiomas del complemento (Sin actualizaciones).
+
+Dicho item puede que nos informe si existen actualizaciones, por ejemplo:
+
+Actualizar idiomas del complemento (3 actualizaciones disponibles)
+
+Si lo pulsamos nos saldrá un diálogo con los nuevos idiomas, con las actualizaciones o con alguna de las dos si no hay en ambas.
+
+Podremos instalar o omitir.
+
+Si damos a instalar se descargarán los idiomas e instalarán y NVDA se reiniciará.
+
+El item del menú se actualiza cada 30 minutos comprobando si hay actualizaciones o en cada reinicio.
+
+El gasto de datos de esta comprobación es irrisorio por aquellos lugares que tengan problemas de datos es menos de 1kb lo que tiene que comprobar.
+
+Este actualizador facilitara el poder compartir con los usuarios las actualizaciones de los idiomas para el complemento de manera rápida conforme van llegando y sin necesidad de sacar una nueva versión con los nuevos idiomas.
+
+Cada nueva versión del complemento vendrá con todos los idiomas nuevos y actualizados que hayan llegado.
+
+- **Error de lectura continua solucionado:**
+
+Se ha corregido un problema que causaba errores en la lectura continua, mejorando la estabilidad y el rendimiento del complemento durante el uso prolongado.
+
+- **Notas del autor:**
+
+A todas las nuevas funciones como traducir el portapapeles, traducir lo ultimo verbalizado por el sintetizador o comprobar actualizaciones de idioma, se le pueden asignar gestos.
+
+Recomiendo que si alguna opción no vamos a usarla no se le agregue gesto de entrada para poder tenerla en otros complementos. Agreguemos aquellas que nos puedan servir.
+
+Conforme se vayan añadiendo utilidades se necesitarán más gestos y puede que una utilidad no sirva a uno y puede que a otro si por lo que asignemos solo los que vayamos a usar.
+
+[Volver al índice](#indice)
+
+<h3 id="version-2024-06-23">Versión 2024.06.23</h3>
+
+* Agregado nuevo modulo Traductor DeepL (Free)
+
+Este nuevo modulo no necesita de clave API y es utilizado para la traducción simultanea 
+
+* Corrección de errores
+
+[Volver al índice](#indice)
+
+<h3 id="version-2024-09-07">Versión 2024.09.07</h3>
+#### Interfaz de Traducción
+
+La **Interfaz de Traducción** es el componente principal del complemento **Traductor Avanzado** para NVDA. Esta interfaz permite al usuario traducir texto entre distintos idiomas de manera eficiente, mostrando el texto original y el traducido, y brindando varias opciones de personalización.
+
+Para invocarlo tendremos que asignar una combinación de teclas en el diálogo "Gestos de entrada" o desde el menú virtual (explicado más abajo).
+
+##### Funcionalidades principales:
+
+1. **Entrada de texto origen**: Permite al usuario escribir o pegar el texto que desea traducir. Se puede acceder rápidamente con la combinación de teclas `Alt+1`.
+   
+2. **Texto destino (resultado)**: El área donde se muestra el texto traducido. Este campo es de solo lectura y se puede enfocar con `Alt+2`.
+
+3. **Selección de idioma origen**: Permite seleccionar el idioma del texto origen. El idioma por defecto es la opción "Auto Detectar", que permite al sistema detectar automáticamente el idioma del texto. Se accede con `Alt+3`.
+
+4. **Selección de idioma destino**: Permite seleccionar el idioma al cual se quiere traducir el texto. Se puede enfocar con `Alt+4`.
+
+5. **Contador de caracteres**: Muestra el número de caracteres en el campo de texto de origen. Es útil para conocer la cantidad de texto que será traducido. Se accede con `Alt+5`.
+
+6. **Botones de acción**:
+   - **Traducir**: Inicia la traducción del texto ingresado.
+   - **Escuchar**: Obtiene el audio de la traducción y permite reproducirlo a través de un reproductor integrado (ver sección más abajo).
+   - **Intercambiar**: Intercambia el idioma de origen con el de destino, útil si deseas revertir los idiomas de traducción.
+   - **Limpiar**: Limpia tanto el campo de texto de origen como el de destino.
+   - **Pegar al foco**: Pega el texto traducido en la ventana o campo de texto activo detrás de la interfaz. También se puede activar con `F3`.
+   - **Cerrar**: Cierra la ventana de traducción.
+
+##### Atajos de teclado:
+
+- `Alt+1`: Enfocar el cuadro de texto de origen.
+- `Alt+2`: Enfocar el cuadro de texto de destino.
+- `Alt+3`: Seleccionar el idioma de origen.
+- `Alt+4`: Seleccionar el idioma de destino.
+- `Alt+5`: Enfocar el contador de caracteres.
+- `F3`: Pegar el texto traducido en la ventana activa.
+- `Esc`: Cerrar el diálogo de traducción.
+
+##### Comportamiento en caso de errores:
+
+- Si no hay conexión a Internet, el sistema mostrará un mensaje informando de la falta de conexión.
+- Si el cuadro de texto de origen está vacío, el usuario recibirá una advertencia solicitando ingresar texto antes de realizar la traducción.
+- Si el idioma de origen y el de destino son iguales, se mostrará una advertencia indicando que no es necesario traducir el texto al mismo idioma.
+
+##### Funciones adicionales:
+
+- **Auto-detección de idioma**: Si se selecciona "Auto Detectar" en el idioma de origen, el complemento intentará identificar automáticamente el idioma del texto a traducir.
+- **Intercambio de idiomas**: Esta función es útil cuando se desea traducir de regreso un texto al idioma original.
+
+#### Reproductor de Audio
+
+Cuando el usuario utiliza la opción **Escuchar** tras realizar una traducción, el complemento convierte el texto traducido en un archivo de audio y lo reproduce a través de un reproductor integrado. Este reproductor incluye controles básicos y avanzados para gestionar la reproducción de audio.
+
+##### Funcionalidades del reproductor:
+
+1. **Botones de control**:
+   - **Atrasar (F1)**: Retrocede la reproducción de acuerdo con el tiempo seleccionado. El usuario puede configurar este tiempo.
+   - **Reproducir/Pausar (F2)**: Inicia o pausa la reproducción del archivo de audio.
+   - **Adelantar (F3)**: Adelanta la reproducción de acuerdo con el tiempo configurado por el usuario.
+   - **Detener (F4)**: Detiene la reproducción por completo.
+
+2. **Volumen y velocidad**:
+   - **Volumen (F5/F6)**: Ajusta el volumen de reproducción utilizando un control deslizante.
+   - **Velocidad (F7/F8)**: Cambia la velocidad de reproducción, con opciones desde 0.50x hasta 2.0x la velocidad normal.
+
+3. **Texto asociado**: Muestra el texto traducido en un cuadro de solo lectura, permitiendo al usuario visualizar lo que está siendo reproducido.
+
+4. **Guardar**: Permite guardar el archivo de audio generado en formato WAV en el sistema del usuario.
+
+5. **Cerrar**: Cierra el reproductor y libera los recursos asociados.
+
+##### Atajos de teclado:
+
+- `F1`: Atrasar la reproducción.
+- `F2`: Reproducir o pausar el audio.
+- `F3`: Adelantar la reproducción.
+- `F4`: Detener la reproducción.
+- `F5/F6`: Ajustar el volumen.
+- `F7/F8`: Cambiar la velocidad de reproducción.
+- `F9`: Información del tiempo de la reproducción.
+- `Shift+F10/Aplicaciones`: En los botones atrasar y adelantar desplegará un menú contextual para elegir el tiempo correspondiente.
+
+##### Funciones adicionales:
+
+- **Guardar audio**: Los usuarios pueden optar por guardar el archivo de audio en su dispositivo en formato WAV para su posterior uso.
+- **Menú de opciones avanzadas**: El reproductor permite elegir el tiempo exacto para atrasar o adelantar la reproducción mediante un menú contextual (accedido con la tecla `Shift+F10`) o tecla aplicaciones.
+
+#### Menú virtual
+
+Se a agregado un menú virtual el cual contiene todas las opciones que el complemento tiene.
+
+Podremos invocar desde el menú virtual todas las opciones que podemos asignar en el diálogo de "Gestos de entrada", de esta manera desde el menú virtual el complemento puede ser usado totalmente sin necesidad de tener más teclas asignadas al complemento.
+
+Esto ya queda a gusto del usuario.
+
+Para poder invocar el menú virtual tendremos que asignarle una tecla en el diálogo de "Gestos de entrada".
+
+El uso del menú virtual es sencillo, una vez invocado tendremos que pulsar la tecla correspondiente para la acción que deseemos ejecutar.
+
+Una vez pulsada se ejecutara y siempre se nos informara de lo realizado, si pulsamos una tecla que no esta asignada el menú virtual se cerrara y también podemos cerrarlo con escape.
+
+##### Atajos de Teclado del Menú Virtual
+
+El menú virtual del Traductor Avanzado te permite acceder rápidamente a las funciones más útiles del complemento. A continuación, te presentamos los atajos que puedes usar para realizar varias acciones:
+
+- **`P`**: **Abre la configuración del complemento**  
+  Abre la configuración del Traductor Avanzado donde puedes ajustar los idiomas y servicios de traducción.
+
+- **`U`**: **Comprueba si hay actualizaciones de idioma del complemento**  
+  Busca y descarga las actualizaciones disponibles para los idiomas del complemento.
+
+- **`O`**: **Cambia el idioma de origen del traductor**  
+  Cambia el idioma del texto que deseas traducir (idioma de origen).
+
+- **`D`**: **Cambia el idioma de destino del traductor**  
+  Cambia el idioma al que deseas traducir el texto (idioma de destino).
+
+- **`C`**: **Cambia el módulo de traducción**  
+  Permite cambiar entre los servicios de traducción disponibles, como Google, DeepL, Microsoft, entre otros.
+
+- **`A`**: **Elimina todas las traducciones en caché para todas las aplicaciones**  
+  Borra todas las traducciones almacenadas en caché.
+
+- **`X`**: **Elimina la caché de traducción para la aplicación enfocada actualmente**  
+  Borra las traducciones en caché solo para la aplicación que tienes abierta.
+
+- **`G`**: **Activa o desactiva la caché de traducción según el estado actual**  
+  Activa o desactiva la función de caché que guarda temporalmente las traducciones.
+
+- **`L`**: **Copia el último texto traducido al portapapeles si no hay una traducción en curso**  
+  Copia la última traducción realizada al portapapeles para que puedas pegarla donde la necesites.
+
+- **`B`**: **Traduce el contenido del portapapeles**  
+  Traduce el contenido actual del portapapeles.
+
+- **`V`**: **Traduce el último texto verbalizado**  
+  Traduce el último texto que NVDA haya leído en voz alta.
+
+- **`T`**: **Activa o desactiva la traducción simultánea Online**  
+  Activa o desactiva la traducción automática mientras navegas por textos.
+
+- **`S`**: **Traduce el texto seleccionado**  
+  Traduce el texto que has seleccionado en la aplicación.
+
+- **`Z`**: **Traduce texto del objeto del navegador**  
+  Traduce el texto de un objeto específico dentro del navegador, como un botón o un cuadro de texto.
+
+- **`W`**: **Interfaz de traducción**  
+  Abre la ventana gráfica donde puedes introducir manualmente el texto que deseas traducir.
+
+- **`I`**: **Detecta el idioma seleccionado**  
+  Detecta automáticamente el idioma del texto seleccionado.
+
+- **`J`**: **Activa o desactiva el intercambio automático si el origen detectado coincide con el destino**  
+  Activa o desactiva el intercambio automático si el idioma de origen detectado coincide con el idioma de destino.
+
+- **`K`**: **Intercambia el idioma principal con el idioma alternativo**  
+  Intercambia el idioma principal con el idioma alternativo en la configuración del traductor.
+
+- **`H`**: **Muestra el historial de traducción**  
+  Muestra un historial de las traducciones recientes realizadas.
+
+- **`F1`**: **Muestra un diálogo con la lista de comandos de una sola tecla**  
+  Muestra un diálogo con la lista de comandos de una sola tecla para el Traductor Avanzado.
+
+#### Detecta el idioma seleccionado
+
+Esta opción permite detectar automáticamente el idioma del texto que hayas seleccionado en cualquier aplicación. Para usar esta función:
+1. Selecciona el texto del cual deseas conocer el idioma.
+2. Utiliza el atajo de teclado configurado en el diálogo de "Gestos de entrada" (o el menú virtual) para activar la opción "Detecta el idioma seleccionado".
+3. El sistema detectará y te informará del idioma en el que está escrito el texto seleccionado.
+Esta función es útil cuando no estás seguro del idioma de un texto y necesitas saberlo antes de traducirlo o realizar alguna otra acción.
+
+#### Intercambio Automático de Idiomas en Traductor Avanzado para NVDA
+
+  1. Activa el intercambio automático presionando el atajo de teclado correspondiente o accediendo desde el menú virtual.
+  2. Si el texto que seleccionas está en el mismo idioma que el idioma de destino, el sistema cambiará automáticamente el idioma de destino al idioma alternativo para evitar traducciones innecesarias.
+  3. Puedes desactivar esta opción en cualquier momento utilizando el mismo atajo.
+
+##### Configuración de Idiomas en el Complemento
+
+- Puedes configurar los **idiomas de destino** y **idiomas alternativos** accediendo al diálogo de **Configuración del complemento** en el apartado de **General**. Desde ahí puedes seleccionar los idiomas que se usarán para el intercambio automático.
+
+Esta función es útil para evitar confusiones al traducir textos en los que el idioma de origen es igual al de destino, cambiando automáticamente a un idioma alternativo configurado.
+
+#### Ayuda en Diálogos del Complemento
+
+Se ha agregado la funcionalidad para mostrar ayuda contextual en los diálogos del complemento. Al presionar la combinación de teclas `Ctrl+H`, se mostrará una pequeña descripción de la función del widget que está actualmente enfocado.
+
+En cualquier parte de los diálogos del complemento, si necesitas información sobre la función de un botón, cuadro de texto, deslizador u otro control, simplemente puedes pulsar `Ctrl+H`. Esto mostrará una breve descripción del widget enfocado, proporcionando una guía rápida sobre su uso.
+
+#### Traduce texto del objeto del navegador
+
+Esta funcionalidad permite traducir el texto de un objeto específico dentro del navegador o cualquier otra aplicación que NVDA esté utilizando. Se puede activar a través del menú virtual o mediante una combinación de teclas asignada en el diálogo de "Gestos de entrada" del complemento.
+
+1. Coloca el cursor sobre el objeto que deseas traducir (puede ser un botón, un cuadro de texto, etc.).
+2. Activa la funcionalidad presionando la combinación de teclas asignada o a través del menú virtual.
+3. El complemento traducirá el texto contenido en ese objeto y lo mostrará o verbalizará, dependiendo de la configuración.
+
+- Traduce cualquier texto contenido en el objeto seleccionado dentro de una página web, aplicación o cualquier otra interfaz donde NVDA interactúe.
+- Útil para traducir pequeños fragmentos de texto que no son parte del cuerpo principal de una página o aplicación, como menús, botones, o etiquetas.
+- Si el objeto no contiene texto o es inaccesible, el complemento mostrará un mensaje informando que no hay texto para traducir.
+
+- Puedes acceder a esta funcionalidad tanto desde el menú virtual del complemento como configurando una tecla de acceso rápido en el diálogo de "Gestos de entrada" de NVDA.
+
+#### Modulo de OpenAI
+
+Se a agregado un nuevo modulo para traducir con OpenAI con el modelo chatGPT-4º-mini que es el más barato y rápido.
+
+Este modulo esta en pruebas teniendo algunas veces un poco de lag, pero mejorara en futuras versiones.
+
+Este modulo necesita que se asigne una clave API en el diálogo de  "Configuración del complemento" en la pestaña "Módulos de traducción".
+
+OpenAI es de pago por lo que es función del usuario comprobar su gasto.
+
+En el siguiente enlace se puede mirar el gasto que llevamos:
+
+[https://platform.openai.com/usage](https://platform.openai.com/usage)
+
+#### Mejora en el modulo de Microsoft
+
+El modulo del traductor de Microsoft a sido escrito desde cero y mejorado la rapidez, estabilidad y el poder tener más tiempo de traducción hasta que bloqueen por uso y tengamos que esperar unos minutos para volver a traducir.
+
+Ahora en las pruebas realizadas y traduciendo simultáneamente bastante texto más de un uso normal no e sufrido ninguna restricción.
+
+Por lo que de momento funciona y se a mejorado respecto al modulo anterior.
+
+#### Otros
+
+* Solucionado problema con la verbalización de algunos mensajes.
+* Cambiada forma de comprobar si hay internet.
+* Corrección de errores.
+* Agregado oficialmente idioma francés.
+
+[Volver al índice](#indice)
+
+<h3 id="version-2024-09-19">Versión 2024.09.19</h3>
+
+* Corregido la devolución de idiomas en configuración.
+
+Ahora siempre devolverá idiomas de código ISO 639-1 en la función obtenerLenguaje del manager de configuración.
+
+* Solucionado [Issue #13](https://github.com/hxebolax/TranslateAdvanced/issues/13)
+
+Importación del módulo html: Se ha añadido import html para utilizar la función html.unescape(), la cual desescapa todas las entidades HTML, incluidas las numéricas como (').
+
+Eliminación de código innecesario: Se han eliminado los métodos _load_html_entities y unescape, ya que ahora se utiliza html.unescape() en los módulos de Google web.
 
 [Volver al índice](#indice)
