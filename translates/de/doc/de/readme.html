@@ -1,0 +1,895 @@
+<h1
+id="benutzerhandbuch-erweiterter-übersetzer-für-nvda">Benutzerhandbuch:
+Erweiterter Übersetzer für NVDA</h1>
+<h2 id="Inhaltsverzeichnis">
+Inhaltsverzeichnis
+</h2>
+<ul>
+<li><a href="#introduction">1 - Einleitung</a>
+<ul>
+<li><a href="#requirements">1.1 - Anforderungen</a></li>
+<li><a href="#limitations-und-Warnungen">1.2 - Einschränkungen und
+Warnungen</a></li>
+<li><a href="#author-Informationen">1.3 - Informationen zum
+Autor</a></li>
+</ul></li>
+<li><a href="#description-Konfiguration">2 - Beschreibung und
+Konfiguration</a>
+<ul>
+<li><a href="#module-Beschreibung">2.1 - Modulbeschreibung</a>
+<ul>
+<li><a href="#google">Google</a></li>
+<li><a href="#deepl">DeepL</a></li>
+<li><a href="#libretranslate">LibreTranslate</a></li>
+<li><a href="#microsoft-Übersetzer">Microsoft Übersetzer</a></li>
+</ul></li>
+<li><a href="#configuration">2.2 - Konfiguration</a>
+<ul>
+<li><a href="#addon-Menü">Addon-Menü</a></li>
+<li><a href="#addon-Hotkeys">Addon Hotkeys</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#troubleshooting">3 - Fehlerbehebung</a>
+<ul>
+<li><a href="#common-Probleme-und-Lösungen">Häufige Probleme und
+Lösungen</a></li>
+<li><a href="#how-to-consult-the-nvda-log">Wie man das NVDA-Protokoll
+konsultiert</a></li>
+</ul></li>
+<li><a href="#acknowledgments">4 - Danksagung</a>
+<ul>
+<li><a href="#translators">Übersetzer</a></li>
+</ul></li>
+<li><a href="#version-Änderungsprotokoll">5 -
+Versionsänderungsprotokoll</a>
+<ul>
+<li><a href="#version-1-0">Version 1.0</a></li>
+<li><a href="#version-2024-06-16">Fassung 2024.06.16</a></li>
+<li><a href="#version-2024-06-23">Fassung 2024.06.23</a></li>
+<li><a href="#version-2024-09-07">Fassung 2024.09.07</a></li>
+</ul></li>
+</ul>
+<h2 id="Einführung">
+1 - Einführung
+</h2>
+<p><strong>Erweiterter Übersetzer für NVDA</strong> ist ein Addon, mit
+dem Sie Texte mit verschiedenen Online-Übersetzungsdiensten wie Google
+Translate, DeepL, LibreTranslate und Microsoft Translator übersetzen
+können. Dieses Addon bietet erweiterte Funktionen wie
+Echtzeitübersetzung, Übersetzungsverlauf, Übersetzung des ausgewählten
+Textes, Unterstützung für mehrere Sprachen und mehr.</p>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="Anforderungen">
+1.1 - Anforderungen
+</h3>
+<ul>
+<li>NVDA (NonVisual Desktop Access) 2024.1 oder höher</li>
+<li>Internetverbindung</li>
+</ul>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="Einschränkungen-und-Warnungen">
+1.2 - Einschränkungen und Warnungen
+</h3>
+<p>Das Addon sendet Informationen über das Internet an jeden Dienst, um
+eine Echtzeitübersetzung durchzuführen. Es ist wichtig zu beachten, dass
+die zu übersetzenden Informationen vertrauliche und sensible Daten
+enthalten können. Die Nutzung des Plugins liegt in der alleinigen
+Verantwortung des Nutzers, der die Art der gesendeten Informationen
+bewerten muss. Der Entwickler des Plugins übernimmt keine Verantwortung
+für die Daten, die an die Dienste gesendet werden, die das Plugin
+verwendet.</p>
+<p>Als Entwickler lehne ich jede Verantwortung für Eventualitäten ab,
+die sich aus der Nutzung des Plugins ergeben können. Die volle
+Verantwortung liegt beim Nutzer.</p>
+<p>Darüber hinaus benötigt das Plugin eine Internetverbindung, um zu
+funktionieren. Die Reaktionsgeschwindigkeit des Plugins hängt von
+mehreren Faktoren ab, wie zum Beispiel: - Die Qualität Ihrer
+Internetverbindung. - Die mögliche Verzögerung (Verzögerung) der in
+Anspruch genommenen Übersetzungsdienste. - Faktoren, die sich auf die
+Netzwerkinfrastruktur des Benutzers beziehen.</p>
+<p>Es wird empfohlen, dass sich die Benutzer dieser Aspekte bewusst sind
+und die notwendigen Tests durchführen, um sicherzustellen, dass das
+Plugin ihren Erwartungen und Sicherheitsanforderungen entspricht. <a
+href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="Autoreninformationen">
+1.3 - Informationen zum Autor
+</h3>
+<p><strong>Technische Informationen und Sicherheitsmaßnahmen des Addons
+für NVDA</strong></p>
+<p>Ich habe hart daran gearbeitet, das Plugin so robust wie möglich zu
+machen und mögliche Fehler zu berücksichtigen und zu behandeln. Alle
+Fehler werden erfasst und im NVDA-Protokoll aufgezeichnet, was die
+Nachverfolgung und schnelle Behebung von Problemen erleichtert.</p>
+<p><strong>Probleme mit Windows-Zertifikaten</strong></p>
+<p>In letzter Zeit ist mir aufgefallen, dass neue Installationen von
+Windows Probleme mit Zertifikaten haben können, was frustrierend sein
+kann. Aus diesem Grund habe ich einen Check eingebaut, wenn das Addon
+startet. Wenn ein Fehler im Zusammenhang mit den Zertifikaten erkannt
+wird, generiert das Addon diese automatisch neu, um den korrekten
+Betrieb von Windows und dem Addon selbst sicherzustellen.</p>
+<p><strong>Sicherheitsmaßnahmen</strong></p>
+<p>Das Addon beinhaltet mehrere Sicherheitsmaßnahmen: - Es ist nicht
+erlaubt, auf sicheren Bildschirmen zu laufen. - Es wird nicht gestartet,
+wenn keine Internetverbindung erkannt wird.</p>
+<p>Manchmal kann NVDA schneller gestartet werden, als das Wi-Fi-Netzwerk
+eine Verbindung herstellt. In solchen Fällen ist es notwendig, NVDA nach
+dem Verbindungsaufbau neu zu starten, um das Addon korrekt zu
+verwenden.</p>
+<p><strong>API-Schlüsselverwaltung</strong></p>
+<p>Das Addon generiert eine JSON-Datei, in der die notwendigen
+API-Schlüssel für die Dienste gespeichert sind, die sie benötigen. Diese
+Datei mit dem Namen “apis.json” befindet sich im
+Windows-Benutzerordner.</p>
+<p><strong>Überlegungen zu wichtigen Dateien</strong></p>
+<p>Es wurde beschlossen, diese Datei außerhalb des Addon-Ordners zu
+speichern, da sie vertrauliche Informationen enthält. Dies soll
+verhindern, dass diese Informationen versehentlich mit einer portablen
+Kopie von NVDA oder in anderen Situationen geteilt werden. Wenn der
+Benutzer beschließt, das Addon nicht mehr zu verwenden, muss er diese
+Datei manuell löschen.</p>
+<p>Diese Maßnahmen sorgen für eine bessere Verwaltung und Sicherheit des
+Addons und erleichtern seine Nutzung und Wartung.</p>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h2 id="description-configuration">
+2 - Beschreibung und Konfiguration
+</h2>
+<h3 id="Beschreibung-Module">
+2.1 - Beschreibung der Module
+</h3>
+<p>In seiner ersten Version bietet das Plugin 7 Übersetzungsmodule:</p>
+<h4 id="google">
+Google
+</h4>
+<p><strong>4 Google-Module</strong></p>
+<ul>
+<li><strong>2 Web Scraping Module:</strong> Jedes Modul führt die
+gleiche Funktion aus, jedoch auf eine andere Weise, um sicherzustellen,
+dass immer eine Alternative verfügbar ist, falls eines von ihnen
+ausfällt.</li>
+<li><strong>2 Module über API:</strong> Diese Module sind ebenfalls
+unbegrenzt und kostenlos, aber ein Missbrauch kann zu einer
+vorübergehenden IP-Sperre für einige Stunden führen, danach ist das
+Modul wieder verfügbar.</li>
+<li>Alle diese Google-Module benötigen keine API-Schlüssel und sind
+unbegrenzt und kostenlos.</li>
+</ul>
+<h4 id="deepl">
+DeepL
+</h4>
+<p><strong>2 DeepL-Module</strong></p>
+<ul>
+<li><strong>Kostenlose API:</strong> Für diese Option muss ein
+kostenloser API-Schlüssel von der DeepL-Seite bezogen werden, die
+500.000 Zeichen pro Monat bietet.</li>
+<li><strong>Pro API:</strong> Auch für diese Option ist ein
+API-Schlüssel erforderlich, den Sie von der DeepL-Website bezogen haben.
+Die Nutzung ist abhängig vom Guthaben und dem vertraglich vereinbarten
+Plan des DeepL-Kontos des Nutzers.</li>
+<li>Die Nutzungsbedingungen der DeepL-API sind auf ihrer <a
+href="https://www.deepl.com/en/pro/change-plan#developer">Website</a> zu
+finden, und das Addon ist durch diese Bedingungen eingeschränkt.</li>
+</ul>
+<h4 id="libretranslate">
+LibreTranslate
+</h4>
+<p><strong>1 LibreTranslate-Modul</strong></p>
+<ul>
+<li>Dieser Dienst wird dank seines kontinuierlichen neuronalen Lernens
+ständig verbessert. Obwohl es derzeit nicht die Qualität von Google
+erreicht, ist es perfekt nutzbar.</li>
+<li>Basierend auf der Argos Translate-Technologie.</li>
+<li>Um dieses Modul nutzen zu können, ist ein API-Key erforderlich, den
+Sie durch eine Spende an die <a
+href="https://nvda.es/donaciones/">NVDA.es</a>-Community erhalten
+können.
+<ul>
+<li>Nach der Spende können Sie den API-Schlüssel über das Formular auf
+der folgenden <a href="https://nvda.es/contacto/">Seite</a> anfordern,
+indem Sie im Betreff “solicitud de clave API” angeben und die PayPal
+Referenz, Überweisung usw. angeben.</li>
+</ul></li>
+<li>Darüber hinaus ist es möglich, andere LibreTranslate-Dienste zu
+konfigurieren, indem Sie den API-Schlüssel hinzufügen und die Dienst-URL
+im Addon-Konfigurationsbereich ändern.</li>
+</ul>
+<h4 id="microsoft-translate">
+Microsoft Translate
+</h4>
+<p><strong>1 Microsoft Übersetzer-Modul</strong></p>
+<ul>
+<li>Dieses Modul hat die Einschränkung, dass die Dauernutzung zu einer
+vorübergehenden IP-Sperre für einige Minuten führen kann.</li>
+<li>Dieses Verbot tritt nur bei sehr intensiver Nutzung und bei
+Übersetzungen langer Texte auf.</li>
+<li>Der Dienst funktioniert sehr gut, aber es wird empfohlen, ihn nicht
+ständig zu nutzen, um Unterbrechungen zu vermeiden.</li>
+</ul>
+<p>Diese Optionen ermöglichen es den Nutzern, zwischen verschiedenen
+Übersetzungsmodulen zu wählen, um die Verfügbarkeit und Flexibilität des
+Addons basierend auf individuellen Bedürfnissen und Vorlieben zu
+gewährleisten.</p>
+<p>Wenn das Addon Updates erhält, können Dienste hinzugefügt oder
+entfernt werden. Änderungen werden im Abschnitt “Updates” gemeldet.</p>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="Konfiguration">
+2.2 - Konfiguration
+</h3>
+<p><strong>Addon-Einstellungen</strong></p>
+<p>In diesem Abschnitt wird beschrieben, wie Sie jedes der im Addon
+verfügbaren Module konfigurieren, einschließlich des Hinzufügens von
+API-Schlüsseln, des Änderns von Dienst-URLs und anderer Einstellungen,
+die erforderlich sind, um die Verwendung des Addons an die Bedürfnisse
+des Benutzers anzupassen.</p>
+<h4 id="plugin-menu">
+Addon menu
+</h4>
+<p>In NVDA &gt; Optionen &gt; Erweiterter Übersetzer gibt es ein Menü,
+das Folgendes enthält:</p>
+<ul>
+<li><p><strong>Erweiterte Übersetzerkonfiguration</strong></p>
+<p>Wenn Sie auf diese Option klicken, öffnet sich das
+Addon-Konfigurationsfenster. Dieses Fenster besteht aus 2
+Abschnitten:</p>
+<p>-<strong>Allgemein</strong></p>
+<p>In diesem Tab werden die allgemeinen Optionen des Addons angezeigt.
+Derzeit gibt es nur eine Checkbox, um den Addon-Cache ein- oder
+auszuschalten.</p>
+<p>Das Addon kann für jede Anwendung einen Cache mit den Übersetzungen
+speichern, was die Übersetzung für zukünftige Übersetzungen einfacher
+und schneller macht. Darüber hinaus wird jetzt für jede Sprache ein
+Cache erstellt, und es kann mehr als eine Anwendung geben, die über
+einen Cache für verschiedene Sprachen verfügt.</p>
+<ul>
+<li><p><strong>Übersetzungs-Module</strong></p>
+<p>Auf dieser Registerkarte können Sie den Dienst auswählen, den Sie zum
+Übersetzen verwenden möchten. Für die Dienste, die einen API-Schlüssel
+benötigen, wird auch der API-Schlüssel-Manager angezeigt.</p>
+<p>Sie können mehr als einen API-Schlüssel für denselben Dienst haben.
+In LibreTranslate können Sie beispielsweise verschiedene Schlüssel und
+URLs für die Verbindung verwenden. Sie können den
+Standard-API-Schlüssel, den Sie für den aktuellen Dienst wünschen,
+hinzufügen, bearbeiten, löschen und festlegen.</p>
+<p>Der Abschnitt API-Schlüsselverwaltung ändert sich je nach
+ausgewähltem Dienst. Sie können jedem API-Schlüssel einen
+identifizierenden Namen geben, um schnell zu wissen, auf welche API Sie
+sich beziehen. Wenn Sie mehr als einen API-Schlüssel für einen Dienst
+haben, ist das Element mit einem Sternchen in der Liste das
+Standardelement. Dies kann mit der Schaltfläche “Standard” geändert
+werden, so dass der für den Dienst definierte Schlüssel der Schlüssel
+ist, auf den Sie sich in diesem Moment konzentriert haben.</p>
+<p>Wenn für den von Ihnen gewählten Übersetzungsdienst kein
+API-Schlüssel erforderlich ist, wird der API-Manager nicht
+angezeigt.</p>
+<p>Dann haben Sie die Schaltflächen “OK” und “Abbrechen”. Alle Optionen
+verfügen über eine Tastenkombination, über die Sie von NVDA informiert
+werden.</p></li>
+</ul></li>
+<li><p><strong>Addon-Dokumentation</strong></p>
+<p>Wenn Sie auf “Plugin-Dokumentation” klicken, öffnet sich diese
+Dokumentation.</p></li>
+<li><p><strong>Spende einen Kaffee, wenn dir meine Arbeit
+gefällt</strong></p>
+<p>Wenn Sie auf diese Option klicken, öffnet sich die PayPal-Seite, auf
+der sich ein Link mit der Aufschrift “Senden” befindet. Wenn Sie auf
+diesen Link klicken, werden Sie aufgefordert, sich in Ihr Konto
+einzuloggen und auf der Spendenseite zu bleiben.</p>
+<p>Ich sage nur, dass ich viel Kaffee getrunken habe, während ich dieses
+Addon gemacht habe.</p></li>
+</ul>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h4 id="addon-hotkeys">
+Addon-hotkeys
+</h4>
+<p>In den NVDA-Optionen &gt; Tastenbefehle … &gt; Erweiterter Übersetzer
+gibt es die folgenden Schlüssel, die Sie konfigurieren können.</p>
+<p>Die Standardtasten sind nicht zugewiesen, sodass der Benutzer das
+beste Layout für sie auswählen kann. Es handelt sich um die
+folgenden:</p>
+<ul>
+<li><p><strong>Öffnet die Addon-Konfiguration</strong></p>
+<p>Dadurch wird die Plugin-Konfiguration schnell geöffnet.</p></li>
+<li><p><strong>Übersetzungscache aktivieren oder
+deaktivieren</strong></p>
+<p>Dadurch wird der Cache aktiviert oder deaktiviert, ohne dass die
+Konfiguration eingegeben werden muss.</p></li>
+<li><p><strong>Aktivieren oder Deaktivieren der
+Online-Echtzeitübersetzung</strong></p>
+<p>Dadurch wird die Echtzeitübersetzung aktiviert oder deaktiviert. Es
+ist die Hauptfunktion, die zu übersetzen beginnt, wenn Sie sich mit den
+Cursorpfeilen bewegen. Wenn alles korrekt ist, hören Sie die
+Übersetzung; Wenn Sie den Originaltext hören, müssen Sie sich das
+NVDA-Protokoll ansehen und sehen, was passiert ist.</p></li>
+<li><p><strong>Ändern des Übersetzungsmoduls</strong></p>
+<p>Daraufhin öffnet sich ein Fenster mit allen verfügbaren
+Übersetzungsmodulen. Sie können sich mit den Pfeilen bewegen und mit
+“Enter” auswählen. Das Modul, das Sie auswählen, ist dasjenige, das Sie
+standardmäßig haben.</p></li>
+<li><p><strong>Zielsprache ändern</strong></p>
+<p>Daraufhin öffnet sich ein Fenster mit den Zielsprachen, die in dem
+von uns ausgewählten Modul verfügbar sind. Jeder Dienst hat
+unterschiedliche Sprachen, und wenn Sie beispielsweise einen Text
+übersetzen, der auf Russisch ist und Sie ihn auf Englisch hören möchten,
+müssen Sie in diesem Dialogfeld Englisch auswählen. Sie bewegen sich mit
+Cursorpfeilen und “Enter” durch den Dialog, um die gewünschte Sprache
+auszuwählen.</p></li>
+<li><p><strong>Quellsprache ändern</strong></p>
+<p>Ähnlich wie die vorherige Funktion, aber dieser Dialog ist nur für
+den Microsoft-Übersetzer verfügbar. Der Microsoft-Dienst erlaubt es
+Ihnen nicht, die Ausgangssprache auf automatisch einzustellen, damit er
+erkennt, welche Sprache an Sie gesendet wird, sodass Sie sie selbst
+auswählen müssen.</p>
+<p>Die übrigen Dienste können dieses Dialogfeld nicht verwenden, da ihre
+Standardoption darin besteht, zu erkennen, welche Sprache gesendet
+wird.</p></li>
+<li><p><strong>Kopieren Sie den zuletzt übersetzten Text in die
+Zwischenablage</strong></p>
+<p>Dadurch wird der letzte Text, der in die Zwischenablage übersetzt
+wurde, kopiert.</p></li>
+<li><p><strong>Löschen des Übersetzungscaches für die aktuell
+fokussierte Anwendung</strong></p>
+<p>Wenn wir diese Taste einmal drücken, erhalten wir Informationen; Wenn
+wir es zweimal schnell drücken, wird der Cache für die Anwendung
+geleert, die gerade den Fokus hat, und wir werden über das Ergebnis
+informiert.</p></li>
+<li><p><strong>Alle zwischengespeicherten Übersetzungen für alle Apps
+löschen</strong></p>
+<p>Wenn diese einmal gedrückt wird, erhalten wir Informationen; Zweimal
+schnell gedrückt, löscht es den gesamten Plugin-Cache und bietet auch
+Informationen an.</p></li>
+<li><p><strong>Zeigt die Übersetzungshistorie an</strong></p>
+<p>Es wird ein Dialog mit den letzten 500 Übersetzungen in einer Liste
+angezeigt. Sie können den Ausgangstext und den übersetzten Text in
+schreibgeschützten Feldern suchen und überprüfen. In diesem Dialogfeld
+können Sie die gesamte Historie durchsuchen, sowohl den Ausgangstext als
+auch den übersetzten Text in die Zwischenablage kopieren oder
+beides.</p>
+<p>Es ermöglicht Ihnen auch, zwischen Ausgangstext und übersetztem Text
+zu wechseln und in beide Richtungen zu arbeiten. Darüber hinaus können
+Sie den gesamten Verlauf löschen, um von vorne zu beginnen.</p>
+<p>Beachten Sie, dass der Verlauf bei jedem Neustart von NVDA gelöscht
+wird.</p></li>
+<li><p><strong>Den ausgewählten Text übersetzen</strong></p>
+<p>Diese Aktion übersetzt den Text, den Sie ausgewählt und fokussiert
+haben. Wenn es sich um einen großen Text handelt, öffnet sich ein Dialog
+mit dem Prozentsatz der Übersetzung. Dieser Dialog kann abgebrochen
+werden, wodurch auch die Übersetzung abgebrochen wird.</p>
+<p>Sobald die Übersetzung abgeschlossen ist, wird der Text in einem
+Dialogfeld angezeigt, damit Sie ihn erkunden können.</p>
+<p>Diese Option verwendet den Google Übersetzer-Dienst und dieser Dienst
+kann nicht geändert werden, da er intern ausgewählt wird, da er die
+besten Ergebnisse für lange Texte liefert.</p></li>
+</ul>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h2 id="Fehlerbehebung">
+3 - Fehlerbehebung
+</h2>
+<h3 id="häufige-probleme-und-lösungen">
+häufige probleme und lösungen
+</h3>
+<p><strong>Internetverbindung</strong> - Überprüfen Sie, ob Ihre
+Internetverbindung aktiv ist und ordnungsgemäß funktioniert. - Starten
+Sie bei Bedarf Ihren Router oder Ihr Modem neu.</p>
+<p><strong>Zertifikatsfehler</strong> - Wenn Zertifikatfehler auftreten,
+stellen Sie sicher, dass Datum und Uhrzeit des Systems korrekt sind. -
+Stellen Sie sicher, dass die erforderlichen Zertifikate installiert und
+aktualisiert wurden.</p>
+<p><strong>Leistungsprobleme</strong> - Stellen Sie sicher, dass Ihr
+Computer die Mindestsystemanforderungen erfüllt. - Schließen Sie andere
+Anwendungen, die möglicherweise viele Ressourcen verbrauchen.</p>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="how-to-consult-the-nvda-log">
+Wie konsultiert man das NVDA-Log
+</h3>
+<ol type="1">
+<li>Öffnen Sie NVDA.</li>
+<li>Gehen Sie zu “NVDA &gt; Werkzeuge &gt; Protokoll anzeigen”.</li>
+<li>Suchen Sie im Protokollfenster nach Fehlern oder Meldungen im
+Zusammenhang mit Advanced Translator.</li>
+</ol>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h2 id="Danksagung">
+4 - Danksagung
+</h2>
+<p>Vielen Dank an alle NVDA-Programmierer für ihre hervorragende
+Arbeit.</p>
+<p>Und ich möchte nicht versäumen zu sagen, dass der Anfang dieses
+Plugins von Yannick PLASSIARDs Plugin (TRANSLATE) kam, von dem ich
+einige Funktionen gelernt und verwendet habe.</p>
+<p>Vielen Dank auch an Alexy Sadovoy aka Lex, ruslan, beqa, Mesar
+Hameed, Alberto Buffolino und andere NVDA-Mitwirkende für das Plugin
+Instant Translate, von dem eine der Methoden für Google abgerufen und
+geändert wurde, um sie in Advanced Translator zu implementieren.</p>
+<p>Dieses Plugin ist das Ergebnis mehrerer Jahre der Veröffentlichung
+inoffizieller Versionen und der Untersuchung der Verwendung von
+Offline-Übersetzungen.</p>
+<p>Dieses Addon ist das Ergebnis dieses Lernens, wobei zu bedenken ist,
+dass es in Zukunft überraschende neue Funktionen mit sich bringen
+wird.</p>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="Übersetzer">
+Übersetzer
+</h3>
+<ul>
+<li><strong>Portugiesisch:</strong> Ângelo Abrantes.</li>
+<li><strong>Türkisch:</strong> Umut Korkmaz.</li>
+<li><strong>Russisch:</strong> Walentin Kuprianov.</li>
+<li><strong>Englisch:</strong> Samuel Proulx.</li>
+<li><strong>Ukrainisch:</strong> Heorhii Halas und Volodymyr Pyrih.</li>
+<li><strong>Deutsch:</strong> BFW Würzburg</li>
+</ul>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h2 id="version-changelog">
+5 - Änderungsprotokoll
+</h2>
+<p>In diesem Abschnitt wird ein Was-ist-neu hinzugefügt, in dem die
+neuen Funktionen jeder Version veröffentlicht werden.</p>
+<p>Das Handbuch basiert auf der ersten Version, so dass es nicht als
+Basis aktualisiert wird.</p>
+<p>Neuigkeiten werden in dieser Rubrik hinzugefügt.</p>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="version-1-0">
+Version 2024.06.06
+</h3>
+<ul>
+<li>Erste Veröffentlichung des Plugins.</li>
+<li>Unterstützung für 7 Übersetzungsdienste.</li>
+<li>Grundlegende Funktionen der Echtzeit-Übersetzung und der
+API-Schlüsselverwaltung.</li>
+</ul>
+<h3 id="Version-2024-06-16">
+Version 2024.06.16
+</h3>
+<ul>
+<li><strong>Es wurde die Möglichkeit hinzugefügt, die Übersetzung des
+markierten Textes in die Zwischenablage zu kopieren, anstatt ihn in
+einem Dialog anzuzeigen:</strong></li>
+</ul>
+<p>Es wurde eine Option hinzugefügt, mit der übersetzter Text
+automatisch in die Zwischenablage kopiert werden kann, wenn diese
+Funktion ausgewählt ist, sodass kein zusätzliches Dialogfeld angezeigt
+werden muss.</p>
+<p>Diese Option wurde im Plugin-Konfigurationsdialog unter Allgemein
+hinzugefügt.</p>
+<p>Wenn diese Option aktiviert ist, wird beim Übersetzen eines
+markierten Textes kein Dialog mehr angezeigt, sondern direkt in die
+Zwischenablage kopiert.</p>
+<ul>
+<li><strong>Übersetzen Sie, was sich in der Zwischenablage
+befindet:</strong></li>
+</ul>
+<p>Es ist jetzt möglich, Inhalte, die sich in der Zwischenablage
+befinden, direkt zu übersetzen, was eine schnelle und effiziente
+Möglichkeit bietet, kopierte Texte zu übersetzen.</p>
+<p>Wenn nichts übersetzt ist, wird es Ihnen mitteilen, was sich in der
+Zwischenablage befindet, oder wenn sich nichts in der Zwischenablage
+befindet, werden Sie mit einer Nachricht benachrichtigt.</p>
+<ul>
+<li><strong>Übersetze das Letzte, was der Synthesizer gesprochen
+hat:</strong></li>
+</ul>
+<p>Es wurde eine Funktion hinzugefügt, mit der Sie die letzte Phrase
+oder den letzten vom Sprachsynthesizer gesprochenen Text übersetzen
+können, um die Zugänglichkeit und Benutzerfreundlichkeit des Addons zu
+verbessern.</p>
+<p>Wenn das zuletzt Gesprochene nicht übersetzt werden kann, wird Ihnen
+das Letzte mitgeteilt, was in der Ausgangssprache gesprochen wurde.</p>
+<ul>
+<li><strong>Übersetzungen in Blindenschrift anzeigen:</strong></li>
+</ul>
+<p>Die neue Version unterstützt die Anzeige von Übersetzungen auf
+Braille-Anzeigegeräten, um den Zugriff auf Übersetzungen zu
+erleichtern.</p>
+<p>Es funktioniert nur auf Geräten, auf denen eine Braillezeile
+konfiguriert ist.</p>
+<p>Diese Funktion befindet sich in der Testphase.</p>
+<ul>
+<li><strong>Sprach-Updater des Plugins:</strong></li>
+</ul>
+<p>Es wurde ein Updater implementiert, um die Plugin-Sprachen immer auf
+dem neuesten Stand zu halten und die Verfügbarkeit der neuesten und
+genauesten Sprachen zu gewährleisten.</p>
+<p>Jetzt im NVDA-Menü &gt; Optionen &gt; Erweiterter Übersetzer</p>
+<p>Sie erhalten ein neues Element mit dem Namen Plug-in-Sprachen
+aktualisieren (keine Updates).</p>
+<p>Dieser Punkt informiert Sie, wenn es Aktualisierungen gibt, zum
+Beispiel:</p>
+<p>Update-Plugin-Sprachen (3 Updates verfügbar)</p>
+<p>Wenn Sie diese Taste drücken, erscheint ein Dialogfeld mit den neuen
+Sprachen, mit den Aktualisierungen der vorhandenen Sprachen oder mit
+beiden.</p>
+<p>Sie können diese installieren oder überspringen.</p>
+<p>Wenn Sie auf Installieren klicken, werden die Sprachen
+heruntergeladen und installiert, und NVDA wird neu gestartet.</p>
+<p>Der Menüpunkt wird alle 30 Minuten aktualisiert, wobei nach Updates
+gesucht wird, oder bei jedem Neustart.</p>
+<p>Der Datenaufwand für diese Prüfung ist gering, da Sie an den Orten,
+an denen Datenprobleme auftreten, weniger als 1 KB überprüfen
+müssen.</p>
+<p>Dieser Updater wird es einfacher machen, Sprachupdates für das Addon
+schnell mit Benutzern zu teilen, sobald sie ankommen und ohne dass eine
+neue Version mit den neuen Sprachen veröffentlicht werden muss.</p>
+<p>Jede neue Version des Addons wird mit allen neuen und aktualisierten
+Sprachen geliefert, die eingetroffen sind.</p>
+<ul>
+<li><strong>Fehler beim kontinuierlichen Lesen behoben:</strong></li>
+</ul>
+<p>Es wurde ein Problem behoben, das zu Fehlern beim kontinuierlichen
+Lesen führte, wodurch die Stabilität und Leistung des Addons bei
+längerer Nutzung verbessert wurde.</p>
+<ul>
+<li><strong>Anmerkungen des Autors:</strong></li>
+</ul>
+<p>Alle neuen Funktionen wie das Übersetzen der Zwischenablage, das
+Übersetzen der letzten vom Synthesizer gesprochenen Wörter oder das
+Überprüfen von Sprachupdates können mit Gesten belegt werden.</p>
+<p>Ich empfehle, dass Sie, wenn Sie keine Option verwenden, keine
+Eingabegeste hinzufügen, damit Sie sie für andere Addons frei haben
+können. Fügen Sie nur diejenigen hinzu, die für Sie nützlich sind.</p>
+<p>Wenn Funktionen hinzugefügt werden, werden mehr Gesten benötigt, und
+eine Funktion funktioniert möglicherweise nicht für eine Person und
+möglicherweise gut für eine andere, also weisen Sie nur die zu, die Sie
+verwenden werden.</p>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="Version-2024-06-23">
+Version 2024.06.23
+</h3>
+<ul>
+<li>Neues DeepL Translator Modul hinzugefügt (kostenlos)</li>
+</ul>
+<p>Dieses neue Modul benötigt keinen API-Schlüssel und wird für die
+Echtzeit-Übersetzung verwendet</p>
+<p>*Fehlerkorrektur</p>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>
+<h3 id="Version-2024-09-07">
+Version 2024.09.07
+</h3>
+<h4 id="übersetzungsschnittstelle">Übersetzungsschnittstelle</h4>
+<p>Die <strong>Übersetzungsschnittstelle</strong> ist die
+Hauptkomponente des <strong>Erweiterter Übersetzer</strong> Addons für
+NVDA. Diese Schnittstelle ermöglicht es dem Benutzer, Text effizient
+zwischen verschiedenen Sprachen zu übersetzen, den ursprünglichen und
+den übersetzten Text anzuzeigen und verschiedene Anpassungsoptionen
+bereitzustellen.</p>
+<p>Um es aufzurufen, müssen Sie eine Tastenkombination in tastenbefehle
+oder aus dem virtuellen Menü zuweisen (siehe unten).</p>
+<h5 id="hauptmerkmale">Hauptmerkmale:</h5>
+<ol type="1">
+<li><p><strong>Quelltexteingabe</strong>: Ermöglicht es dem Benutzer,
+den Text, den er übersetzen möchte, zu schreiben oder einzufügen. Er
+kann mit der Tastenkombination ‘Alt+1’ schnell aufgerufen
+werden.</p></li>
+<li><p><strong>Zieltext (Ergebnis)</strong>: Der Bereich, in dem der
+übersetzte Text angezeigt wird. Dieses Feld ist schreibgeschützt und
+kann mit ‘Alt+2’ fokussiert werden.</p></li>
+<li><p><strong>Auswahl der Ausgangssprache</strong>: Ermöglicht die
+Auswahl der Sprache des Ausgangstextes. Die Standardsprache ist die
+Option “Automatische Erkennung”, mit der das System die Sprache des
+Textes automatisch erkennen kann. Der Zugriff erfolgt mit
+‘Alt+3’.</p></li>
+<li><p><strong>Auswahl der Zielsprache</strong>: Hier können Sie die
+Sprache auswählen, in die Sie den Text übersetzen möchten. Es kann mit
+‘Alt+4’ fokussiert werden.</p></li>
+<li><p><strong>Zeichenzähler</strong>: Zeigt die Anzahl der Zeichen im
+Quelltextfeld an. Es ist nützlich, die Menge des zu übersetzenden Textes
+zu kennen. Der Zugriff erfolgt mit ‘Alt+5’.</p></li>
+<li><p><strong>Aktionstasten</strong>:</p>
+<ul>
+<li><strong>Übersetzen</strong>: Startet die Übersetzung des
+eingegebenen Textes.</li>
+<li><strong>Hören</strong>: Ruft das Audio der Übersetzung ab und
+ermöglicht die Wiedergabe über einen integrierten Player (siehe
+Abschnitt unten).</li>
+<li><strong>Tauschen</strong>: Tauschen Sie die Ausgangssprache mit der
+Zielsprache aus, was nützlich ist, wenn Sie die Übersetzungssprachen
+umkehren möchten.</li>
+<li><strong>Löschen</strong>: Löscht sowohl die Quell- als auch die
+Zieltextfelder.</li>
+<li><strong>In Fokus einfügen</strong>: Fügt den übersetzten Text in das
+aktive Fenster oder Textfeld hinter der Benutzeroberfläche ein. Es kann
+auch mit ‘F3’ aktiviert werden.</li>
+<li><strong>Schließen</strong>: Schließen Sie das
+Übersetzungsfenster.</li>
+</ul></li>
+</ol>
+<h5 id="tastenkombinationen">Tastenkombinationen:</h5>
+<ul>
+<li>‘Alt+1’: Fokussieren Sie das Quelltextfeld.</li>
+<li>‘Alt+2’: Fokussieren Sie das Zieltextfeld.</li>
+<li>‘Alt+3’: Wählen Sie die Ausgangssprache aus.</li>
+<li>‘Alt+4’: Wählen Sie die Zielsprache aus.</li>
+<li>‘Alt+5’: Fokussiert den Zeichenzähler.</li>
+<li>‘F3’: Fügt den übersetzten Text in das aktive Fenster ein.</li>
+<li>‘Esc’: Schließt den Übersetzungsdialog.</li>
+</ul>
+<h5 id="verhalten-bei-fehlern">Verhalten bei Fehlern:</h5>
+<ul>
+<li>Wenn keine Internetverbindung besteht, zeigt das System eine Meldung
+an, die über das Fehlen einer Verbindung informiert.</li>
+<li>Wenn das Feld für den Ausgangstext leer ist, erhält der Benutzer
+eine Warnung, in der er aufgefordert wird, Text einzugeben, bevor er die
+Übersetzung durchführt.</li>
+<li>Wenn die Ausgangs- und Zielsprache identisch sind, wird eine Warnung
+angezeigt, die darauf hinweist, dass der Text nicht in dieselbe Sprache
+übersetzt werden muss.</li>
+</ul>
+<h5 id="zusätzliche-funktionen">Zusätzliche Funktionen:</h5>
+<ul>
+<li><strong>Automatische Spracherkennung</strong>: Wenn “Automatische
+Erkennung” in der Ausgangssprache ausgewählt ist, versucht das Plugin
+automatisch, die Sprache des zu übersetzenden Textes zu
+identifizieren.</li>
+<li><strong>Sprachaustausch</strong>: Diese Funktion ist nützlich, wenn
+Sie einen Text in die Originalsprache zurückübersetzen möchten.</li>
+</ul>
+<h4 id="audioplayer">Audioplayer</h4>
+<p>Wenn der Benutzer nach einer Übersetzung die Option
+<strong>Hören</strong> verwendet, wandelt das Plugin den übersetzten
+Text in eine Audiodatei um und spielt sie über einen integrierten Player
+ab. Dieser Player enthält grundlegende und erweiterte Steuerelemente zur
+Verwaltung der Audiowiedergabe.</p>
+<h5 id="player-funktionen">Player-Funktionen:</h5>
+<ol type="1">
+<li><p><strong>Bedientasten</strong>:</p>
+<ul>
+<li><strong>Rückwärts (F1)</strong>: Spult die Wiedergabe entsprechend
+der ausgewählten Zeit zurück. Der Benutzer kann diese Zeit
+konfigurieren.</li>
+<li><strong>Wiedergabe/Pause (F2)</strong>: Starten oder pausieren Sie
+die Wiedergabe der Audiodatei.</li>
+<li><strong>Schneller Vorlauf (F3)</strong>: Spulen Sie die Wiedergabe
+entsprechend der vom Benutzer eingestellten Zeit vor.</li>
+<li><strong>Stopp (F4)</strong>: Stoppt die Wiedergabe vollständig.</li>
+</ul></li>
+<li><p><strong>Lautstärke und Geschwindigkeit</strong>:</p>
+<ul>
+<li><strong>Lautstärke (F5/F6)</strong>: Stellen Sie die
+Wiedergabelautstärke mit einem Schieberegler ein.</li>
+<li><strong>Geschwindigkeit (F7/F8)</strong>: Ändern Sie die
+Wiedergabegeschwindigkeit mit Optionen von 0,50x bis 2,0x der normalen
+Geschwindigkeit.</li>
+</ul></li>
+<li><p><strong>Zugeordneter Text</strong>: Zeigt den übersetzten Text in
+einem schreibgeschützten Feld an, sodass der Benutzer sehen kann, was
+gerade abgespielt wird.</p></li>
+<li><p><strong>Speichern</strong>: Ermöglicht es Ihnen, die generierte
+Audiodatei im WAV-Format auf Ihrem System zu speichern.</p></li>
+<li><p><strong>Schließen</strong>: Schließt den Player und gibt die
+zugehörigen Ressourcen frei.</p></li>
+</ol>
+<h5 id="tastenkombinationen-1">Tastenkombinationen:</h5>
+<ul>
+<li>‘F1’: Wiedergabe zurückspulen.</li>
+<li>‘F2’: Wiedergabe oder Pause des Audios.</li>
+<li>‘F3’: Schneller Vorlauf der Wiedergabe.</li>
+<li>‘F4’: Stoppen Sie die Wiedergabe.</li>
+<li>‘F5/F6’: Stellen Sie die Lautstärke ein.</li>
+<li>‘F7/F8’: Ändern Sie die Wiedergabegeschwindigkeit.</li>
+<li>‘F9’: Informationen zur Wiedergabezeit.</li>
+<li>‘Umschalt+F10/Anwendungen’: Zeigt ein Kontextmenü an, in dem Sie die
+Zeitintervalle der Tasten zum Zurückspulen und Vorspulen auswählen
+können.</li>
+</ul>
+<h5 id="zusätzliche-funktionen-1">Zusätzliche Funktionen:</h5>
+<ul>
+<li><strong>Audio speichern</strong>: Benutzer können die Audiodatei zur
+späteren Verwendung im WAV-Format auf ihrem Gerät speichern.</li>
+<li>**Menü “Erweiterte Optionen”: Mit dem Player können Sie die genaue
+Zeit zum Zurück- oder Zurückspulen der Wiedergabe über ein Kontextmenü
+(Zugriff mit der Taste “Umschalt+F10”) oder die Anwendungstaste
+auswählen.</li>
+</ul>
+<h4 id="virtuelles-menü">Virtuelles menü</h4>
+<p>Es wurde ein virtuelles Menü hinzugefügt, das alle Optionen des
+Addons enthält.</p>
+<p>Sie können alle Optionen aus dem virtuellen Menü aufrufen, die Sie in
+Eingabegesten zuweisen können. Auf diese Weise können alle Funktionen
+des Addons genutzt werden, ohne dass dem Addon weitere Tasten zugewiesen
+werden müssen.</p>
+<p>Dies ist dem Benutzer überlassen.</p>
+<p>Um das virtuelle Menü aufzurufen, müssen Sie ihm in Tastenbefehle
+eine Taste zuweisen.</p>
+<p>Die Verwendung des virtuellen Menüs ist einfach, sobald es aufgerufen
+ist, müssen Sie die entsprechende Taste für die Aktion drücken, die Sie
+ausführen möchten. Sobald Sie gedrückt haben, wird die Aktion ausgeführt
+und Sie werden immer darüber informiert, was getan wurde. Wenn Sie eine
+Taste drücken, die nicht zugewiesen ist, wird das virtuelle Menü
+geschlossen und Sie können es auch mit der Escape-Taste schließen.</p>
+<h5 id="tastaturkürzel-für-virtuelle-menüs">Tastaturkürzel für virtuelle
+Menüs</h5>
+<p>Über das virtuelle Menü des erweiterten Übersetzers können Sie
+schnell auf die nützlichsten Funktionen des Plugins zugreifen. Im
+Folgenden finden Sie Tastenkombinationen, mit denen Sie verschiedene
+Aktionen ausführen können:</p>
+<ul>
+<li><p><strong>‘P’</strong>: <strong>Konfiguration öffnen</strong><br />
+Öffnen Sie die Einstellungen für den erweiterten Übersetzer, in denen
+Sie die Sprachen und Übersetzungsdienste anpassen können.</p></li>
+<li><p><strong>‘U’</strong>: <strong>Nach Sprachupdates
+suchen</strong><br />
+Suchen Sie nach verfügbaren Updates für die Plugin-Sprachen und laden
+Sie sie herunter.</p></li>
+<li><p><strong>‘O’</strong>: <strong>Quellsprache ändern</strong><br />
+Ändern Sie die Sprache des Textes, den Sie übersetzen möchten
+(Ausgangssprache).</p></li>
+<li><p><strong>‘D’</strong>: <strong>Zielsprache ändern</strong><br />
+Ändern Sie die Sprache, in die Sie den Text übersetzen möchten
+(Zielsprache).</p></li>
+<li><p><strong>‘C’</strong>: <strong>Übersetzungsdienst
+ändern</strong><br />
+Ermöglicht es Ihnen, zwischen verfügbaren Übersetzungsdiensten wie
+Google, DeepL, Microsoft und anderen zu wechseln.</p></li>
+<li><p><strong>‘A’</strong>: <strong>Den gesamten Übersetzungscache
+löschen</strong><br />
+Löscht alle zwischengespeicherten Übersetzungen.</p></li>
+<li><p><strong>‘X’</strong>: <strong>Übersetzungscache der aktuellen
+Anwendung löschen</strong><br />
+Löschen Sie zwischengespeicherte Übersetzungen nur für die App, die Sie
+geöffnet haben.</p></li>
+<li><p><strong>‘G’</strong>: <strong>Übersetzungscache
+aktivieren/deaktivieren</strong><br />
+Aktivieren oder deaktivieren Sie die Cache-Funktion, die Übersetzungen
+vorübergehend speichert.</p></li>
+<li><p><strong>‘L’</strong>: <strong>Letzte Übersetzung in die
+Zwischenablage kopieren</strong><br />
+Kopieren Sie die letzte Übersetzung in die Zwischenablage, damit Sie sie
+an der gewünschten Stelle einfügen können.</p></li>
+<li><p><strong>‘B’</strong>: <strong>Text aus der Zwischenablage
+übersetzen</strong><br />
+Übersetzt den aktuellen Inhalt der Zwischenablage.</p></li>
+<li><p><strong>‘V’</strong>: <strong>Den zuletzt gesprochenen Text
+übersetzen</strong><br />
+Übersetzt den letzten Text, den NVDA vorgelesen hat.</p></li>
+<li><p><strong>‘T’</strong>: <strong>Echtzeit-Übersetzung
+aktivieren/deaktivieren</strong><br />
+Aktivieren oder deaktivieren Sie die automatische Übersetzung beim
+Durchsuchen von Texten.</p></li>
+<li><p><strong>‘S’</strong>: <strong>Den ausgewählten Text
+übersetzen</strong><br />
+Übersetzen Sie den Text, den Sie in der Anwendung ausgewählt
+haben.</p></li>
+<li><p><strong>‘Z’</strong>: <strong>Text aus Browserobjekt
+übersetzen</strong><br />
+Übersetzt den Text eines bestimmten Objekts in der Übersicht, z. B.
+einer Schaltfläche oder eines Textfelds.</p></li>
+<li><p><strong>‘W’</strong>: <strong>Übersetzungsschnittstelle
+öffnen</strong><br />
+Öffnet das grafische Fenster, in dem Sie den Text, den Sie übersetzen
+möchten, manuell eingeben können.</p></li>
+<li><p><strong>‘I’</strong>: <strong>Ausgewählte Sprache
+erkennen</strong><br />
+Erkennt automatisch die Sprache des markierten Textes.</p></li>
+<li><p><strong>‘J’</strong>: <strong>Aktivieren/Deaktivieren des
+automatischen Sprachaustauschs</strong><br />
+Schaltet die automatische Ein- oder Ausschaltung ein, wenn die erkannte
+Ausgangssprache mit der Zielsprache übereinstimmt.</p></li>
+<li><p><strong>‘K’</strong>: <strong>Primäre und alternative Sprachen
+tauschen</strong><br />
+Tauschen Sie die Hauptsprache in den Übersetzereinstellungen gegen die
+alternative Sprache aus.</p></li>
+<li><p><strong>‘H’</strong>: <strong>Übersetzungshistorie
+anzeigen</strong><br />
+Zeigt einen Verlauf der kürzlich durchgeführten Übersetzungen
+an.</p></li>
+<li><p><strong>‘F1’</strong>:<strong>Liste der Befehle
+anzeigen</strong><br />
+Zeigt ein Dialogfeld an, in dem Befehle mit einer Taste für den
+erweiterten Übersetzer aufgelistet sind.</p></li>
+</ul>
+<h4 id="spracherkennung">Spracherkennung</h4>
+<p>Mit dieser Option können Sie die Sprache des Textes, den Sie in einer
+beliebigen Anwendung ausgewählt haben, automatisch erkennen. So
+verwenden Sie diese Funktion:</p>
+<ol type="1">
+<li>Wählen Sie den Text aus, dessen Sprache Sie wissen möchten.</li>
+<li>Verwenden Sie die Tastenkombination, die in den Eingabegesten (oder
+im virtuellen Menü) konfiguriert ist, um die Spracherkennung zu
+aktivieren.</li>
+<li>Das System erkennt und informiert Sie über die Sprache, in der der
+ausgewählte Text verfasst ist.</li>
+</ol>
+<p>Diese Funktion ist nützlich, wenn Sie sich über die Sprache eines
+Textes nicht sicher sind und diese kennen müssen, bevor Sie ihn
+übersetzen oder andere Maßnahmen ergreifen.</p>
+<h4
+id="automatischer-sprachaustausch-in-nvda-erweiterter-übersetzer">Automatischer
+Sprachaustausch in NVDA erweiterter Übersetzer</h4>
+<ol type="1">
+<li>Aktivieren Sie den automatischen Austausch, indem Sie die
+entsprechende Tastenkombination drücken oder über das virtuelle Menü
+darauf zugreifen.</li>
+<li>Wenn der von Ihnen ausgewählte Text in der gleichen Sprache wie die
+Zielsprache vorliegt, wechselt das System automatisch die Zielsprache in
+die alternative Sprache, um unnötige Übersetzungen zu vermeiden.</li>
+<li>Sie können diese Option jederzeit mit derselben Tastenkombination
+deaktivieren.</li>
+</ol>
+<h5 id="spracheinstellungen-im-addon">Spracheinstellungen im Addon</h5>
+<ul>
+<li>Sie können <strong>Zielsprachen</strong> und <strong>alternative
+Sprachen</strong> konfigurieren, indem Sie auf
+<strong>Addon-Einstellungen</strong> im Abschnitt
+<strong>Allgemein</strong> zugreifen. Von dort aus können Sie die
+Sprachen auswählen, die für den automatischen Austausch verwendet werden
+sollen.</li>
+</ul>
+<p>Diese Funktion ist nützlich, um Verwirrung bei der Übersetzung von
+Texten zu vermeiden, bei denen die Ausgangssprache mit der Zielsprache
+übereinstimmt, und automatisch auf eine konfigurierte alternative
+Sprache umzuschalten.</p>
+<h4 id="hilfe-in-addon-dialogen">Hilfe in Addon-Dialogen</h4>
+<p>Es wurde eine Funktion hinzugefügt, um kontextbezogene Hilfe in
+Addon-Dialogen anzuzeigen. Durch Drücken der Tastenkombination ‘Strg+H’
+wird eine kleine Beschreibung der Funktion des Widgets angezeigt, das
+sich gerade im Fokus befindet.</p>
+<p>Wenn Sie an einer beliebigen Stelle in den Addon-Dialogen
+Informationen über die Funktion einer Schaltfläche, eines Textfelds,
+eines Schiebereglers oder eines anderen Steuerelements benötigen, können
+Sie einfach “Strg+H” drücken. Daraufhin wird eine kurze Beschreibung des
+fokussierten Widgets mit einer Kurzanleitung zu seiner Verwendung
+angezeigt.</p>
+<h4 id="text-aus-browserobjekt-übersetzen">Text aus Browserobjekt
+übersetzen</h4>
+<p>Diese Funktion ermöglicht es Ihnen, den Text eines bestimmten Objekts
+innerhalb des Browsers oder einer anderen Anwendung, die NVDA verwendet,
+zu übersetzen. Sie kann über das virtuelle Menü oder über eine
+Tastenkombination aktiviert werden, die in den Eingabegesten des Addons
+zugewiesen ist.</p>
+<ol type="1">
+<li>Platzieren Sie den Cursor über dem Objekt, das Sie übersetzen
+möchten (es kann sich um eine Schaltfläche, ein Textfeld usw.
+handeln).</li>
+<li>Aktivieren Sie die Funktionalität durch Drücken der zugewiesenen
+Tastenkombination oder über das virtuelle Menü.</li>
+<li>Das Addon übersetzt den in diesem Objekt enthaltenen Text und zeigt
+ihn je nach Konfiguration an oder liest ihn.</li>
+</ol>
+<ul>
+<li><p>Übersetzen Sie jeden Text, der im ausgewählten Objekt enthalten
+ist, innerhalb einer Webseite, Anwendung oder einer anderen
+Schnittstelle, an der NVDA interagiert.</p></li>
+<li><p>Nützlich zum Übersetzen kleiner Textabschnitte, die nicht Teil
+des Hauptteils einer Seite oder Anwendung sind, z. B. Menüs,
+Schaltflächen oder Beschriftungen.</p></li>
+<li><p>Wenn das Objekt keinen Text enthält oder nicht zugänglich ist,
+zeigt das Plugin eine Meldung an, die darüber informiert, dass kein Text
+zum Übersetzen vorhanden ist.</p></li>
+<li><p>Sie können auf diese Funktionalität sowohl über das virtuelle
+Menü des Addons als auch durch Festlegen eines Hotkeys in den
+“Eingabegesten” von NVDA zugreifen.</p></li>
+</ul>
+<h4 id="openai-modul">OpenAI-Modul</h4>
+<p>Es wurde ein neues Modul hinzugefügt, um mit OpenAI mit dem
+chatGPT-4º-mini-Modell zu übersetzen, das am billigsten und schnellsten
+ist.</p>
+<p>Dieses Modul befindet sich in der Testphase und tritt manchmal mit
+einer kleinen Verzögerung auf, wird sich aber in zukünftigen Versionen
+verbessern.</p>
+<p>Für dieses Modul muss ein API-Schlüssel in der Konfiguration / Module
+zugewiesen werden.</p>
+<p>OpenAI wird bezahlt, so dass es dem Benutzer überlassen ist, seine
+Ausgaben zu überprüfen.</p>
+<p>Unter dem folgenden Link können Sie die Ausgabe sehen, die Sie
+verwendet haben:</p>
+<p><a
+href="https://platform.openai.com/usage">https://platform.openai.com/usage</a></p>
+<h4 id="verbesserung-im-microsoft-modul">Verbesserung im
+Microsoft-Modul</h4>
+<p>Das Microsoft-Übersetzermodul wurde von Grund auf neu geschrieben, um
+die Geschwindigkeit und Stabilität zu verbessern und mehr
+Übersetzungszeit zu ermöglichen, bis Sie aufgrund der Verwendung
+blockiert werden und Sie einige Minuten warten müssen, um erneut zu
+übersetzen.</p>
+<p>In meinen Tests, bei denen ich gleichzeitig viel Text übersetzt habe,
+auch mehr als bei normalem Gebrauch, habe ich keine Einschränkungen
+erlitten.</p>
+<p>Im Moment funktioniert es also und wurde im Vergleich zum vorherigen
+Modul verbessert.</p>
+<h4 id="sonstiges">Sonstiges</h4>
+<ul>
+<li>Problem mit der Verbalisierung einiger Nachrichten behoben.</li>
+<li>Die Methode zur Überprüfung, ob Internet vorhanden ist, wurde
+geändert.</li>
+<li>Fehlerbehebungen</li>
+<li>Offiziell französische Sprache hinzugefügt.</li>
+</ul>
+<p><a href="#Inhaltsverzeichnis">Zurück zum Inhaltsverzeichnis</a></p>

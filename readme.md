@@ -288,6 +288,7 @@ El aprendizaje es el resultado de este complemento teniendo en claro que a futur
 - **Ucraniano:** Heorhii Halas y Volodymyr Pyrih.
 - **Francés:** Rémy Ruiz.
 - **Árabe:** Wafiq Taher.
+- **Alemán:** Rainer Brell.
 
 [Volver al índice](#indice)
 
