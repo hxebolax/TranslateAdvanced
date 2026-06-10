@@ -1,3 +1,8 @@
+### Version 2026.06.10
+- Improved support for NVDA version 2026.1 with Python 64-bit architecture
+- Fixed all detected bugs from the previous version
+- Added Indonesian (id) translation
+
 * Corregido la devolución de idiomas en configuración.
 
 • 

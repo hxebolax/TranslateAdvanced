@@ -279,6 +279,7 @@ class GestorSettings:
 		- Si el valor es la cadena 'None', lo convierte a None.
 		- Si el valor es None, lo deja como None.
 		- Si el valor es una cadena que representa un número, lo convierte a int.
+		- Si el valor es una cadena normal, devuelve la cadena.
 		- Si el valor es un número, lo deja como está.
 		
 		Parámetros:
@@ -291,8 +292,10 @@ class GestorSettings:
 			return None
 		elif valor is None:
 			return None
-		elif isinstance(valor, str) and valor.isdigit():
-			return int(valor)
+		elif isinstance(valor, str):
+			if valor.isdigit():
+				return int(valor)
+			return valor
 		elif isinstance(valor, int):
 			return valor
 		else:

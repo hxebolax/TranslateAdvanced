@@ -1,22 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the 'TranslateAdvanced' package.
+# This file is distributed under the same license as the TranslateAdvanced package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 'TranslateAdvanced' '2024.09.19'\n"
-"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2024-09-19 20:00+0200\n"
+"Project-Id-Version: TranslateAdvanced 2024.09.19\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2026-06-10 05:20+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 #: addon\globalPlugins\TranslateAdvanced\__init__.py:80
 msgid ""
@@ -82,7 +81,7 @@ msgstr ""
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:369
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:389
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:211
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:509
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:520
 msgid "Información"
 msgstr ""
 
@@ -386,24 +385,24 @@ msgstr ""
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:458
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:478
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:547
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:53
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:73
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:91
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:104
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:64
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:84
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:102
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:115
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:127
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:139
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:149
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:126
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:138
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:150
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:160
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:177
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:190
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:204
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:491
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:511
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:529
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:171
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:188
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:201
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:215
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:502
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:522
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:540
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:550
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:562
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:551
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:561
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:573
 msgid "Error"
 msgstr ""
 
@@ -469,7 +468,7 @@ msgid "&Pegar al foco"
 msgstr ""
 
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:97
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:308
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:319
 msgid "&Cerrar"
 msgstr ""
 
@@ -613,7 +612,7 @@ msgstr ""
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:309
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:613
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:615
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:637
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:648
 msgid "No hay ayuda disponible para este elemento."
 msgstr ""
 
@@ -624,8 +623,8 @@ msgstr ""
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:613
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:615
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:617
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:637
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:639
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:648
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:650
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_helps.py:76
 msgid "Ayuda"
 msgstr ""
@@ -633,7 +632,7 @@ msgstr ""
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_guitrans.py:483
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_hostory.py:311
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_options.py:617
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:639
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:650
 msgid "No hay un elemento enfocado."
 msgstr ""
 
@@ -1055,240 +1054,246 @@ msgstr ""
 msgid "Todos los campos son obligatorios."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:48
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:40
+msgid ""
+"La librería wx.media no está disponible para esta arquitectura o versión de "
+"Python."
+msgstr ""
+
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:59
 msgid "No se pudo cargar el archivo WAV."
 msgstr ""
 
 #. Eliminar archivo temporal si la carga falla
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:68
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:79
 msgid "No se pudo cargar el archivo WAV desde bytes."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:81
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:92
 msgid "No se ha cargado ningún archivo WAV."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:225
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:236
 msgid "Reproductor de audio"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
 msgid "1 segundo"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
 msgid "5 segundos"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
 msgid "10 segundos"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
 msgid "15 segundos"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
 msgid "30 segundos"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:235
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
 msgid "1 minuto"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:246
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:257
 msgid "Error al inicializar el diálogo"
 msgstr ""
 
 #. Crear etiqueta y cuadro de texto de solo lectura
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:258
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:269
 msgid "&Texto traducido:"
 msgstr ""
 
 #. Botones de control
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:270
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:281
 msgid "Atrasar (F1)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:271
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:522
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:538
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:592
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:282
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:533
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:549
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:603
 msgid "Reproducir (F2)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:272
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:283
 msgid "Adelantar (F3)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:273
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:284
 msgid "Detener (F4)"
 msgstr ""
 
 #. Etiqueta y slider de volumen
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:285
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:296
 msgid "Volumen (F5 / F6)"
 msgstr ""
 
 #. Etiqueta y choice de velocidad
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:293
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:304
 msgid "Velocidad (F7 / F8)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:307
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:318
 msgid "&Guardar"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:344
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:355
 msgid "Error al inicializar la interfaz de usuario"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:390
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:401
 msgid "Este cuadro muestra el texto traducido. Es de solo lectura."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:391
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:402
 msgid ""
 "Presiona este botón para retroceder la reproducción lo que tengamos "
 "establecido. Podemos pulsar Shift+F10 o tecla aplicaciones para expandir un "
 "menú contextual donde nos dejara elegir el tiempo para atrasar."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:392
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:403
 msgid "Presiona este botón para reproducir o pausar la reproducción."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:393
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:404
 msgid ""
 "Presiona este botón para adelantar la reproducción lo que tengamos "
 "establecido. Podemos pulsar Shift+F10 o tecla aplicaciones para expandir un "
 "menú contextual donde nos dejara elegir el tiempo para adelantar."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:394
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:405
 msgid "Presiona este botón para detener la reproducción."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:395
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:406
 msgid "Ajusta el volumen de reproducción con este control."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:396
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:407
 msgid "Selecciona la velocidad de reproducción con este control."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:397
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:408
 msgid "Presiona este botón para guardar el archivo de audio."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:398
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:409
 msgid "Presiona este botón para cerrar el diálogo."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:427
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:438
 msgid "Tiempo transcurrido: {self.player.format_time(current_time)}  "
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:433
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:444
 msgid "Error al actualizar el estado"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:444
 #: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:455
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:466
 msgid "Volumen {}%"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:465
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:475
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:476
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:486
 msgid "Velocidad {}%"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:482
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:493
 msgid "Cargar archivo WAV"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:482
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:500
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:493
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:511
 msgid "Archivo WAV (*.wav)|*.wav"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:491
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:502
 msgid "No se pudo cargar el archivo: {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:493
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:504
 msgid "Error al cargar archivo"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:500
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:511
 msgid "Guardar archivo WAV"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:509
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:520
 msgid "Archivo guardado correctamente."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:511
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:522
 msgid "No se pudo guardar el archivo: {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:513
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:524
 msgid "Error al guardar archivo"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:523
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:534
 msgid "Pausar"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:526
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:537
 msgid "Pausar (F2)"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:527
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:538
 msgid "Reproducir"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:529
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:540
 msgid "No se pudo reproducir o pausar el archivo: {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:536
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:547
 msgid "Detener"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:540
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:551
 msgid "No se pudo detener el archivo: {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:547
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:558
 msgid "Atrasar {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:550
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:561
 msgid "No se pudo atrasar el archivo: {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:557
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:568
 msgid "Adelantar {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:562
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:573
 msgid "No se pudo adelantar el archivo: {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:573
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:584
 msgid "Error al cambiar el volumen"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:585
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:596
 msgid "Error al cambiar la velocidad"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:594
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:605
 msgid "Error al finalizar el audio"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:660
+#: addon\globalPlugins\TranslateAdvanced\app\guis\guis_player.py:671
 msgid "Error al cerrar el diálogo"
 msgstr ""
 
@@ -1443,27 +1448,17 @@ msgstr ""
 msgid "Fallo al guardar la caché de traducción para {appName} en {file}: {e}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:42
-#, python-brace-format
-msgid "Error al abrir el portapapeles: {0}"
-msgstr ""
-
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:47
-#, python-brace-format
-msgid "Error persistente al abrir el portapapeles: {0}"
-msgstr ""
-
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:72
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:66
 #, python-brace-format
 msgid "Error al copiar texto al portapapeles: {0}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:85
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:81
 #, python-brace-format
 msgid "Error al limpiar el portapapeles: {0}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:123
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_clipboard.py:122
 #, python-brace-format
 msgid "El contenido del portapapeles ha cambiado: {0}"
 msgstr ""
@@ -1594,19 +1589,19 @@ msgid "No se a podido obtener el idioma"
 msgstr ""
 
 #: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:309
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:323
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:336
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:339
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:355
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:317
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:324
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:327
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:343
 msgid ""
 "No tiene ninguna API configurada para el servicio que tiene seleccionado."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:361
+#: addon\globalPlugins\TranslateAdvanced\app\managers\managers_translate.py:349
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free.py:83
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:227
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_original.py:45
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:85
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:91
 #: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_openai_4o_api.py:97
 msgid ""
 "Error en la traducción.\n"
@@ -1742,15 +1737,15 @@ msgstr ""
 msgid "Respuesta vacía o inválida"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:316
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:318
 msgid "Estructura de respuesta inesperada"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:326
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:328
 msgid "Respuesta vacía o inválida después de cambiar el idioma de destino"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:330
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_google_api_free_alternative.py:332
 msgid ""
 "Estructura de respuesta inesperada después de cambiar el idioma de destino"
 msgstr ""
@@ -1782,7 +1777,7 @@ msgid ""
 "Se requiere una clave de API para LibreTranslate."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:74
+#: addon\globalPlugins\TranslateAdvanced\app\src_translations\src_libretranslate_original.py:80
 msgid ""
 "Error en la traducción.\n"
 "\n"
@@ -1797,37 +1792,37 @@ msgstr ""
 msgid "El texto excede el límite de tokens permitido."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:116
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:132
 msgid ""
 "No se pudo resolver el nombre de dominio. Por favor, verifica la URL o tu "
 "conexión a Internet."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:118
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:134
 msgid ""
 "La solicitud ha superado el tiempo de espera. Por favor, intenta nuevamente "
 "más tarde."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:120
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:136
 msgid ""
 "Error de verificación de certificado SSL. Es posible que el certificado del "
 "servidor no sea válido."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:122
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:138
 msgid "Error SSL. Puede haber un problema con la conexión segura."
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:124
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:140
 msgid "Error HTTP {}: {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:126
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:142
 msgid "Error de URL: {}"
 msgstr ""
 
-#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:128
+#: addon\globalPlugins\TranslateAdvanced\app\utils\utils_network.py:144
 msgid "Error desconocido: {}"
 msgstr ""
 

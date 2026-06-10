@@ -292,10 +292,10 @@ class GestorTranslate(
 			if self.frame.gestor_settings._enableTranslation:
 				id = self.frame.gestor_settings.choiceOnline
 				if id == 0: # Google 1
-					prepared = text.encode('utf8')
+					prepared = text
 					translated = self.translate_google(prepared, to_language=self.frame.gestor_settings.choiceLangDestino_google)
 				elif id == 1: # Google 2
-					prepared = text.encode('utf8')
+					prepared = text
 					translated = self.translate_google_alternative(prepared, target=self.frame.gestor_settings.choiceLangDestino_google)
 				elif id == 2: # Google 3
 					prepared = text
@@ -309,27 +309,15 @@ class GestorTranslate(
 						logHandler.log.error(_("No tiene ninguna API configurada para el servicio que tiene seleccionado."))
 
 						return text
-					prepared = text.encode('utf8', 'surrogatepass')
-					datos = self.translate_deepl(prepared, api_key, use_free_api=True,  source_lang="auto", target_lang=self.frame.gestor_settings.choiceLangDestino_deepl)
-					if isinstance(datos, bytes):
-						translated =  datos.decode('utf-8', 'surrogatepass')
-					elif isinstance(datos, str):
-						translated = datos
-					else:
-						translated = text
+					prepared = text
+					translated = self.translate_deepl(prepared, api_key, use_free_api=True,  source_lang="auto", target_lang=self.frame.gestor_settings.choiceLangDestino_deepl)
 				elif id == 5: # DeepL Pro
 					api_key, url = self.get_api()
 					if api_key is None:
 						logHandler.log.error(_("No tiene ninguna API configurada para el servicio que tiene seleccionado."))
 						return text
-					prepared = text.encode('utf8', 'surrogatepass')
-					datos = self.translate_deepl(prepared, api_key, use_free_api=False,  source_lang="auto", target_lang=self.frame.gestor_settings.choiceLangDestino_deepl)
-					if isinstance(datos, bytes):
-						translated =  datos.decode('utf-8', 'surrogatepass')
-					elif isinstance(datos, str):
-						translated = datos
-					else:
-						translated = text
+					prepared = text
+					translated = self.translate_deepl(prepared, api_key, use_free_api=False,  source_lang="auto", target_lang=self.frame.gestor_settings.choiceLangDestino_deepl)
 				elif id == 6: # LibreTranslate
 					api_key, url = self.get_api()
 					if api_key is None:

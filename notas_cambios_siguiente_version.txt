@@ -1,5 +1,0 @@
-* Mejorado el modulo src_google_api_free_alternative
-
-Se a mejorado el mostrar mensajes de respuesta inesperada, filtrando lo devuelto en None como texto original
-
-* Agregado Árabe por Wafiq Taher.

@@ -69,7 +69,13 @@ Se requiere una clave de API para LibreTranslate.""")
 				response_data = response.read().decode()
 				response_json = json.loads(response_data)
 				return response_json.get('translatedText', text)
-		except urllib.request.HTTPError as e:
+		except urllib.error.HTTPError as e:
+			error_message = e.read().decode('utf-8')
+			try:
+				error_json = json.loads(error_message)
+				error_text = error_json.get('error', error_message)
+			except json.JSONDecodeError:
+				error_text = error_message
 			msg = \
 _("""Error en la traducción.
 
@@ -77,7 +83,7 @@ Error:
 
 {}
 
-{}""").format(e.code, e.reason)
+{}""").format(e.code, error_text)
 			logHandler.log.error(msg)
 			return text
 		except Exception as e:

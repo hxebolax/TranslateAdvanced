@@ -299,6 +299,12 @@
 
 [Вернуться к оглавлению](#index)
 
+<h3 id="version-2026-06-10">Version 2026.06.10</h3>
+
+- Improved support for NVDA version 2026.1 with Python 64-bit architecture
+- Fixed all detected bugs from the previous version
+- Added Indonesian (id) translation
+
 <h3 id="version-2024-06-06">Версия 2024.06.06</h3>.
 
 - Первоначальный выпуск дополнения.

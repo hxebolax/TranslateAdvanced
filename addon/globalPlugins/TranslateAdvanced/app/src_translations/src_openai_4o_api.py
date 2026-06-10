@@ -203,8 +203,11 @@ Error:
 						self.translation += response_json['choices'][0]['message']['content'].strip() + " "
 				except urllib.error.HTTPError as e:
 					error_message = e.read().decode('utf-8')
-					error_json = json.loads(error_message)
-					self.error = {"success": True, "data": error_json.get('error', {}).get('message', 'Unknown error')}
+					try:
+						error_json = json.loads(error_message)
+						self.error = {"success": True, "data": error_json.get('error', {}).get('message', 'Unknown error')}
+					except json.JSONDecodeError:
+						self.error = {"success": True, "data": error_message}
 					return
 				except Exception as e:
 					self.error = {"success": True, "data": str(e)}

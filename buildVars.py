@@ -28,9 +28,9 @@ idiomas utilizando servicios como Google Translate, DeepL, LibreTranslate y Micr
 Ofrece traducción simultánea, historial y gestión de claves API. Es fácil de configurar y usar con
 teclas rápidas y opciones personalizables en el menú de NVDA."""),
 	# version
-	"addon_version": "2024.09.19",
+	"addon_version": "2026.06.10",
 	# Author(s)
-	"addon_author": "Héctor J. Benítez Corredera <xebolax@gmail.com>",
+	"addon_author": "Héctor J. Benítez Corredera <xebolax@gmail.com>, Fauzan, S.Kom <surel@fauzanaja.com>",
 	# URL for the add-on documentation support
 	"addon_url": "https://github.com/hxebolax/TranslateAdvanced",
 	# URL for the add-on repository where the source code can be found
@@ -40,7 +40,7 @@ teclas rápidas y opciones personalizables en el menú de NVDA."""),
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	"addon_minimumNVDAVersion": "2024.1.0",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2024.3.0",
+	"addon_lastTestedNVDAVersion": "2026.1.0",
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!

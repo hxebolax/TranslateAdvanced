@@ -12,8 +12,17 @@ import wx
 import threading
 import tempfile
 import time
-# Carga personal
-from ..data.lib._311.wx import media as wx_media
+import platform
+import logHandler
+
+try:
+	if sys.version_info >= (3, 13):
+		from ..data.lib._313.wx import media as wx_media
+	else:
+		from ..data.lib._311.wx import media as wx_media
+except ImportError as e:
+	wx_media = None
+	logHandler.log.error("Error al cargar wx.media para Python {}.{}: {}".format(sys.version_info.major, sys.version_info.minor, e))
 
 # Carga traducción
 addonHandler.initTranslation()
@@ -27,6 +36,8 @@ class WAVPlayer:
 		Inicializa una instancia del reproductor de WAV.
 		:param parent: El padre wx.Panel o wx.Frame que contiene el reproductor.
 		"""
+		if wx_media is None:
+			raise Exception(_("La librería wx.media no está disponible para esta arquitectura o versión de Python."))
 		# Crear un MediaCtrl con el padre dado y sin agregarlo a ningún sizer para que no sea visible
 		self.media_ctrl = wx_media.MediaCtrl(parent, style=wx_media.MC_NO_AUTORESIZE)
 		self.media_ctrl.Hide()  # Ocultar el widget para que no sea visible

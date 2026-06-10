@@ -293,6 +293,12 @@ News will be added in this section.
 
 [Back to index](#index)
 
+<h3 id="version-2026-06-10">Version 2026.06.10</h3>
+
+- Improved support for NVDA version 2026.1 with Python 64-bit architecture
+- Fixed all detected bugs from the previous version
+- Added Indonesian (id) translation
+
 <h3 id="version-1-0">Version 2024.06.06</h3>
 
 - Initial release of the plugin.
