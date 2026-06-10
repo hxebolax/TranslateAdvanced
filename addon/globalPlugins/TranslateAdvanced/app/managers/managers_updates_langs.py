@@ -26,7 +26,7 @@ class GestorRepositorios:
 		self.local_dir = local_dir
 		self.json_file = json_file
 		if not os.path.exists(self.json_file):
-			with open(self.json_file, 'w') as file:
+			with open(self.json_file, 'w', encoding='utf-8') as file:
 				json.dump({}, file, indent='\t')
 
 	def cargar_idiomas_locales(self):
@@ -36,7 +36,7 @@ class GestorRepositorios:
 		:return: Diccionario de resultado con success y data
 		"""
 		try:
-			with open(self.json_file, 'r') as file:
+			with open(self.json_file, 'r', encoding='utf-8') as file:
 				idiomas = json.load(file)
 			return {'success': True, 'data': idiomas}
 		except Exception as e:
@@ -52,7 +52,7 @@ class GestorRepositorios:
 		:return: Diccionario de resultado con success y data
 		"""
 		try:
-			with open(self.json_file, 'w') as file:
+			with open(self.json_file, 'w', encoding='utf-8') as file:
 				json.dump(idiomas, file, indent='\t')
 			return {'success': True, 'data': _('Idiomas guardados exitosamente.')}
 		except Exception as e:

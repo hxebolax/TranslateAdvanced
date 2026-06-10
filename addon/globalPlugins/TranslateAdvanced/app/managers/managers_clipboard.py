@@ -6,7 +6,7 @@
 import addonHandler
 import logHandler
 # Carga Python
-import wx
+import api
 import threading
 from time import sleep
 
@@ -35,25 +35,10 @@ class ClipboardMonitor:
 
 		:return: El texto del portapapeles o None si no hay texto disponible.
 		"""
-		clipboard = wx.Clipboard.Get()
 		try:
-			clipboard.Open()
-		except Exception as e:
-			logHandler.log.error(_("Error al abrir el portapapeles: {0}").format(e))
-			sleep(0.10)
-			try:
-				clipboard.Open()
-			except Exception as e:
-				logHandler.log.error(_("Error persistente al abrir el portapapeles: {0}").format(e))
-				return None
-		try:
-			if clipboard.IsSupported(wx.DataFormat(wx.DF_TEXT)):
-				text_data = wx.TextDataObject()
-				clipboard.GetData(text_data)
-				return text_data.GetText()
+			return api.getClipData()
+		except Exception:
 			return None
-		finally:
-			clipboard.Close()
 
 	def set_clipboard_text(self, text):
 		"""
@@ -61,30 +46,19 @@ class ClipboardMonitor:
 
 		:param text: El texto que se va a copiar al portapapeles.
 		"""
-		clipboard = wx.Clipboard.Get()
 		try:
-			clipboard.Open()
-			text_data = wx.TextDataObject()
-			text_data.SetText(text)
-			clipboard.SetData(text_data)
-			clipboard.Flush()
+			api.copyToClip(text)
 		except Exception as e:
 			logHandler.log.error(_("Error al copiar texto al portapapeles: {0}").format(e))
-		finally:
-			clipboard.Close()
 
 	def clear_clipboard(self):
 		"""
 		Limpia el contenido del portapapeles.
 		"""
-		clipboard = wx.Clipboard.Get()
 		try:
-			clipboard.Open()
-			clipboard.Clear()
+			api.copyToClip("")
 		except Exception as e:
 			logHandler.log.error(_("Error al limpiar el portapapeles: {0}").format(e))
-		finally:
-			clipboard.Close()
 
 	def has_clipboard_changed(self):
 		"""

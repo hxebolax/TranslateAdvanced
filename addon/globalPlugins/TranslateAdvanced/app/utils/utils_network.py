@@ -42,6 +42,22 @@ def actualizar_certificados_raiz():
 	Actualiza el almacén de certificados raíz de Windows utilizando una URL de Google.
 	"""
 	crypt = ctypes.windll.crypt32
+
+	# Configurar tipos de retorno y argumentos para compatibilidad con 64 bits
+	crypt.CertCreateCertificateContext.restype = ctypes.c_void_p
+	crypt.CertCreateCertificateContext.argtypes = [ctypes.wintypes.DWORD, ctypes.c_char_p, ctypes.wintypes.DWORD]
+
+	crypt.CertGetCertificateChain.restype = ctypes.wintypes.BOOL
+	crypt.CertGetCertificateChain.argtypes = [
+		ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p,
+		ctypes.c_void_p, ctypes.wintypes.DWORD, ctypes.c_void_p, ctypes.c_void_p
+	]
+
+	crypt.CertFreeCertificateChain.restype = None
+	crypt.CertFreeCertificateChain.argtypes = [ctypes.c_void_p]
+
+	crypt.CertFreeCertificateContext.restype = ctypes.wintypes.BOOL
+	crypt.CertFreeCertificateContext.argtypes = [ctypes.c_void_p]
 	# URL a usar para obtener el certificado del servidor (Google)
 	check_url = "https://www.google.com"
 
@@ -131,15 +147,15 @@ def descripcion_error(e):
 
 def check_internet_connection():
 	"""
-	Comprueba si hay conexión a Internet intentando conectar a un host externo.
+	Comprueba si hay conexión a Internet intentando conectar a un host externo vía HTTPS.
 	
 	Returns:
 		bool: True si hay conexión a Internet, False si no.
 	"""
 	try:
-		# Intentar conectar a un host externo (8.8.8.8 es un servidor DNS público de Google)
-		socket.create_connection(("8.8.8.8", 53), timeout=5)
+		# Intentar conectar a un host externo vía HTTPS (Google)
+		import urllib.request
+		urllib.request.urlopen("https://www.google.com", timeout=5)
 		return True
-	except OSError:
-		pass
-	return False
+	except Exception:
+		return False

@@ -93,6 +93,20 @@ vars.Add("versionNumber", "Version number of the form major.minor.patch", "0.0.0
 vars.Add(BoolVariable("dev", "Whether this is a daily development version", False))
 vars.Add("channel", "Update channel for this build", buildVars.addon_info["addon_updateChannel"])
 
+import shutil
+gettextCandidatePaths = [
+	r"C:\Program Files (x86)\Poedit\GettextTools\bin",
+	r"C:\Program Files (x86)\GnuWin32\bin",
+	r"C:\Program Files\Git\usr\bin",
+]
+path = os.environ.get("PATH", "")
+missing = [tool for tool in ("msgfmt", "xgettext") if shutil.which(tool, path=path) is None]
+if missing:
+	for candidate in gettextCandidatePaths:
+		if os.path.isdir(candidate):
+			path = candidate + os.pathsep + path
+	os.environ["PATH"] = path
+
 env = Environment(variables=vars, ENV=os.environ, tools=['gettexttool', mdTool])
 env.Append(**buildVars.addon_info)
 
