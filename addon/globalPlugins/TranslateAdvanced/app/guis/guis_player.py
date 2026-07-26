@@ -9,11 +9,240 @@ import gui
 import sys
 import os
 import wx
+import ctypes
+from ctypes import wintypes
 import threading
 import tempfile
 import time
+
+# Reproductor de respaldo basado en MCI (winmm).
+#
+# El complemento incluye wx.media compilado para Python 3.11 (_media.cp311-win32.pyd).
+# NVDA 2025 y posteriores usan Python 3.13, donde ese .pyd no puede importarse y el
+# complemento entero fallaba al cargar. Este respaldo ofrece la misma superficie de API
+# que wx.media.MediaCtrl usa este archivo, apoyandose en el reproductor MCI de Windows.
+_winmm = ctypes.WinDLL("winmm.dll")
+_mciSendStringW = _winmm.mciSendStringW
+_mciSendStringW.argtypes = (wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.UINT, wintypes.HANDLE)
+_mciSendStringW.restype = wintypes.DWORD
+
+def _mci(command):
+	"""
+	Envia una orden al reproductor MCI de Windows.
+
+	:param command: Orden MCI en texto.
+	:return: Tupla (codigo de error, respuesta). El codigo 0 significa exito.
+	"""
+	buf = ctypes.create_unicode_buffer(512)
+	err = _mciSendStringW(command, buf, 512, None)
+	return err, buf.value
+
+class _MciMediaCtrl:
+	"""
+	Sustituto de wx.media.MediaCtrl basado en MCI.
+
+	Solo implementa lo que este archivo necesita: Load, Play, Pause, Stop, SetVolume,
+	SetPlaybackRate, Tell, Length, Seek, Hide, Bind y Destroy.
+	"""
+
+	_seq = 0
+
+	def __init__(self, parent=None, style=None):
+		_MciMediaCtrl._seq += 1
+		self._alias = "translateAdvancedWav{}".format(_MciMediaCtrl._seq)
+		self._opened = False
+		self._stopHandler = None
+		self._timer = None
+		self._wasPlaying = False
+
+	# Superficie de wx.Window que usa el resto del archivo.
+
+	def Hide(self):
+		"""El respaldo no crea ninguna ventana, asi que no hay nada que ocultar."""
+		pass
+
+	def Bind(self, event, handler):
+		"""Registra el manejador de fin de reproduccion (equivale a EVT_MEDIA_STOP)."""
+		self._stopHandler = handler
+
+	def Destroy(self):
+		"""Detiene el temporizador y cierra el dispositivo MCI."""
+		self._stopTimer()
+		self._closeDevice()
+
+	# Superficie de wx.media.MediaCtrl.
+
+	def Load(self, filepath):
+		"""
+		Abre un archivo de audio. Se intenta primero el dispositivo mpegvideo porque
+		maneja tanto WAV como MP3 (Google TTS devuelve MP3 con extension .wav).
+
+		:param filepath: Ruta del archivo a reproducir.
+		:return: True si el archivo se pudo abrir.
+		"""
+		self._closeDevice()
+		path = str(filepath).replace('"', '')
+		for deviceType in ("mpegvideo", "waveaudio", None):
+			tipo = " type {}".format(deviceType) if deviceType else ""
+			err, _resp = _mci('open "{}"{} alias {}'.format(path, tipo, self._alias))
+			if err == 0:
+				self._opened = True
+				break
+		if not self._opened:
+			return False
+		_mci("set {} time format milliseconds".format(self._alias))
+		return True
+
+	def Play(self):
+		"""Inicia o reanuda la reproduccion."""
+		if not self._opened:
+			return False
+		# Si la pista ya termino, volver al principio antes de reproducir.
+		if self._mode() == "stopped" and self.Tell() >= max(self.Length() - 50, 0):
+			_mci("seek {} to start".format(self._alias))
+		err, _resp = _mci("play {}".format(self._alias))
+		if err != 0:
+			_mci("resume {}".format(self._alias))
+		self._startTimer()
+		return True
+
+	def Pause(self):
+		"""Pausa la reproduccion."""
+		if not self._opened:
+			return False
+		_mci("pause {}".format(self._alias))
+		self._wasPlaying = False
+		return True
+
+	def Stop(self):
+		"""Detiene la reproduccion y vuelve al principio."""
+		if not self._opened:
+			return False
+		_mci("stop {}".format(self._alias))
+		_mci("seek {} to start".format(self._alias))
+		self._wasPlaying = False
+		self._stopTimer()
+		return True
+
+	def SetVolume(self, volume):
+		"""
+		Ajusta el volumen.
+
+		:param volume: Volumen entre 0.0 y 1.0.
+		"""
+		if not self._opened:
+			return False
+		nivel = int(max(0.0, min(1.0, float(volume))) * 1000)
+		err, _resp = _mci("setaudio {} volume to {}".format(self._alias, nivel))
+		return err == 0
+
+	def SetPlaybackRate(self, rate):
+		"""
+		Ajusta la velocidad de reproduccion. No todos los dispositivos MCI lo admiten;
+		en ese caso la orden se ignora sin provocar ningun error.
+
+		:param rate: Velocidad donde 1.0 es la normal.
+		"""
+		if not self._opened:
+			return False
+		err, _resp = _mci("set {} speed {}".format(self._alias, int(float(rate) * 1000)))
+		return err == 0
+
+	def Tell(self):
+		"""Devuelve la posicion actual en milisegundos."""
+		return self._statusInt("position")
+
+	def Length(self):
+		"""Devuelve la duracion total en milisegundos."""
+		return self._statusInt("length")
+
+	def Seek(self, offset):
+		"""
+		Salta a una posicion concreta.
+
+		:param offset: Posicion destino en milisegundos.
+		"""
+		if not self._opened:
+			return 0
+		destino = max(0, min(int(offset), self.Length()))
+		reproduciendo = self._mode() == "playing"
+		_mci("seek {} to {}".format(self._alias, destino))
+		if reproduciendo:
+			_mci("play {}".format(self._alias))
+		return destino
+
+	# Utilidades internas.
+
+	def _statusInt(self, que):
+		"""Consulta un valor numerico de estado MCI y lo devuelve como entero."""
+		if not self._opened:
+			return 0
+		err, resp = _mci("status {} {}".format(self._alias, que))
+		if err != 0:
+			return 0
+		try:
+			return int(resp)
+		except ValueError:
+			return 0
+
+	def _mode(self):
+		"""Devuelve el modo actual del dispositivo (playing, paused, stopped...)."""
+		if not self._opened:
+			return "stopped"
+		err, resp = _mci("status {} mode".format(self._alias))
+		return resp if err == 0 else "stopped"
+
+	def _startTimer(self):
+		"""
+		Arranca un temporizador que detecta el final de la reproduccion, ya que MCI no
+		genera el evento EVT_MEDIA_STOP de wx.
+		"""
+		self._wasPlaying = True
+		if self._timer is None:
+			self._timer = wx.Timer()
+			self._timer.Bind(wx.EVT_TIMER, self._onTick)
+		if not self._timer.IsRunning():
+			self._timer.Start(300)
+
+	def _stopTimer(self):
+		"""Detiene el temporizador de vigilancia."""
+		if self._timer is not None and self._timer.IsRunning():
+			self._timer.Stop()
+
+	def _onTick(self, event):
+		"""Comprueba si la reproduccion acaba de terminar y avisa al manejador."""
+		if not self._wasPlaying:
+			return
+		if self._mode() == "stopped":
+			self._wasPlaying = False
+			self._stopTimer()
+			if self._stopHandler:
+				self._stopHandler(None)
+
+	def _closeDevice(self):
+		"""Cierra el dispositivo MCI si estaba abierto."""
+		if self._opened:
+			_mci("close {}".format(self._alias))
+			self._opened = False
+
+class _MciMediaModule:
+	"""Modulo falso con los nombres de wx.media que usa este archivo."""
+
+	MC_NO_AUTORESIZE = 0
+	EVT_MEDIA_STOP = "translateAdvanced_mediaStop"
+	MediaCtrl = _MciMediaCtrl
+
 # Carga personal
-from ..data.lib._311.wx import media as wx_media
+try:
+	# Ruta original: wx.media incluido en el complemento (solo Python 3.11).
+	from ..data.lib._311.wx import media as wx_media
+except Exception:
+	try:
+		# Por si alguna version de NVDA llegara a incluir wx.media.
+		from wx import media as wx_media
+	except Exception:
+		# Respaldo MCI para NVDA con Python 3.12 o superior.
+		wx_media = _MciMediaModule
 
 # Carga traducción
 addonHandler.initTranslation()
